@@ -1,0 +1,1 @@
+Build an invoice generator: clients, line items, tax, PDF/HTML export, and payment status tracking.

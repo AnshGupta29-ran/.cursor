@@ -2,70 +2,70 @@
   "version": 1,
   "skills": {
     "canvas": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "automate": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "create-hook": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "create-rule": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "create-skill": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "create-subagent": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "sdk": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "loop": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "migrate-to-skills": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "onboard": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "review": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "review-bugbot": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "review-security": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "shell": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "split-to-prs": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "statusline": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "update-cli-config": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "update-cursor-settings": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "migrate-to-builds": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "autopilot": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "rename-chat": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     },
     "env-setup": {
-      "lastSyncedAt": 1786360455664
+      "lastSyncedAt": 1786364066821
     }
   },
   "lastInventoryAt": 1786344109348

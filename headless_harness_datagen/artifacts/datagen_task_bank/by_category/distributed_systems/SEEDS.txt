@@ -1,0 +1,47 @@
+1. Distributed task queue (Go)
+Create a distributed task queue framework using Go. Implement a central scheduler, multiple worker nodes, task prioritization, retries with exponential backoff, worker heartbeats, failure detection, persistent job storage using SQLite, and a REST API for submitting and monitoring jobs. Include structured logging, graceful shutdown, concurrency using goroutines, and automated integration tests demonstrating multiple workers processing jobs simultaneously.
+
+-----
+
+2. Priority job scheduler
+Build a priority job scheduler with delayed jobs, dead-letter queue, and an admin UI for retry/cancel.
+
+-----
+
+3. Leader election toy cluster
+Implement a toy leader-election cluster (raft-lite or bully): nodes, heartbeat, failover demo CLI.
+
+-----
+
+4. Pub/sub message broker lite
+Create an in-process pub/sub broker with topics, durable subscribers stub, and backpressure stats.
+
+-----
+
+5. MapReduce wordcount lab
+Build a mini MapReduce wordcount: split files, map workers, shuffle, reduce, and merge output.
+
+-----
+
+6. Distributed lock service
+Implement a distributed lock service API with TTL, fencing tokens, and contention tests.
+
+-----
+
+7. Sharded key-value store
+Create a sharded key-value store demo with consistent hashing, get/put, and rebalance command.
+
+-----
+
+8. Workflow saga orchestrator
+Build a saga/workflow orchestrator for multi-step jobs with compensations on failure.
+
+-----
+
+9. Batch fan-out email workers
+Create a fan-out email sending simulator: enqueue campaigns, workers send stubs, track delivery states.
+
+-----
+
+10. Clock skew demo + NTP stub
+Build a multi-node clock skew demo showing logical clocks/vector clocks for event ordering.

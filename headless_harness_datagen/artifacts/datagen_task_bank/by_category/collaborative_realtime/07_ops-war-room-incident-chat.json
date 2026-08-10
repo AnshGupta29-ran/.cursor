@@ -1,0 +1,32 @@
+{
+  "id": "collaborative_realtime_07_ops-war-room-incident-chat",
+  "category": "collaborative_realtime",
+  "index": 7,
+  "title": "Ops war-room incident chat",
+  "seed": "Build an incident war-room chat with channels per incident, @mentions, severity tags, and a timeline of status updates synced live.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "go",
+    "artifact_type": "backend_api",
+    "task_family": "coding_implement",
+    "business_domain": "devops_platform",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "must include a live demo mode with sample data",
+    "delivery": "docker_compose_optional",
+    "modality": "text_code"
+  },
+  "workdir": "task_collaborative_realtime_07",
+  "pipeline_cmd": "python main.py \"Build an incident war-room chat with channels per incident, @mentions, severity tags, and a timeline of status updates synced live.\" --forge-prompt --forge-category collaborative_realtime --workdir task_collaborative_realtime_07",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: go (Go)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: html_canvas\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: docker_compose_optional\n- novelty: must include a live demo mode with sample data\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild an incident war-room chat with channels per incident, @mentions, severity tags, and a timeline of status updates synced live.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: go\n- UI surface: html_canvas\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: must include a live demo mode with sample data\n- Delivery: docker_compose_optional\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "collaborative_realtime_02_multiplayer-kanban-board-live-sync",
+  "category": "collaborative_realtime",
+  "index": 2,
+  "title": "Multiplayer kanban board live sync",
+  "seed": "Create a multiplayer kanban board where cards and columns sync in real time across users with presence indicators, conflict-safe moves, and room-based boards.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "browser_heavy",
+    "user_persona": "pm_non_technical",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "typescript",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "productivity_collab",
+    "ui_surface": "excel_workbook",
+    "persistence": "json_file",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "observability: structured logs + simple metrics endpoint",
+    "delivery": "worker_plus_api",
+    "modality": "text_code"
+  },
+  "workdir": "task_collaborative_realtime_02",
+  "pipeline_cmd": "python main.py \"Create a multiplayer kanban board where cards and columns sync in real time across users with presence indicators, conflict-safe moves, and room-based boards.\" --forge-prompt --forge-category collaborative_realtime --workdir task_collaborative_realtime_02",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: excel_workbook\n- persistence: json_file\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: browser_heavy\n- user_persona: pm_non_technical\n- agent_topology: plan_then_execute\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: worker_plus_api\n- novelty: observability: structured logs + simple metrics endpoint\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a multiplayer kanban board where cards and columns sync in real time across users with presence indicators, conflict-safe moves, and room-based boards.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: excel_workbook\n- Persistence: json_file\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: pm_non_technical\n- Novelty: observability: structured logs + simple metrics endpoint\n- Delivery: worker_plus_api\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

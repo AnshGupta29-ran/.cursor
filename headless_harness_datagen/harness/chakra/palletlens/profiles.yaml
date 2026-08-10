@@ -1,0 +1,14 @@
+# PalletLens threshold profiles.
+# A profile decides whether a prediction is auto-routed or parked in the
+# review queue. min_margin_over_runner_up: set to 0 to disable the margin check.
+profiles:
+  strict-intake:
+    min_top1_confidence: 0.45
+    min_margin_over_runner_up: 0.15
+    default_routing: bench_test
+    description: High-value computing gear — only confident, unambiguous reads auto-route.
+  bin-sweep:
+    min_top1_confidence: 0.25
+    min_margin_over_runner_up: 0.0
+    default_routing: manual_sort
+    description: Permissive profile for cable/part bins — low bar, humans expect to spot-check.

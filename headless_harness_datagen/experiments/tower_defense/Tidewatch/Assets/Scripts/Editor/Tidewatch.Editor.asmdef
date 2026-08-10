@@ -1,0 +1,19 @@
+{
+    "name": "Tidewatch.Editor",
+    "rootNamespace": "Tidewatch.Editor",
+    "references": [
+        "Tidewatch.Core",
+        "Tidewatch.Game"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

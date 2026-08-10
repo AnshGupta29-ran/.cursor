@@ -1,0 +1,1 @@
+Build a Kubernetes cluster visualization dashboard that displays nodes, pods, deployments, services, logs, and resource utilization using the Kubernetes API.

@@ -1,0 +1,64 @@
+{
+  "enemies": [
+    {
+      "id": "skitterling",
+      "displayName": "Skitterling Shoal",
+      "baseHp": 20, "baseSpeed": 1.6, "armor": 0,
+      "bounty": 6, "leakDamage": 1,
+      "moveClass": "Terrestrial",
+      "shrouded": false,
+      "spitInterval": 0, "spitDisableDuration": 0,
+      "splitIntoId": "", "splitCount": 0, "tidecallInterval": 0, "isBoss": false
+    },
+    {
+      "id": "brine_hulk",
+      "displayName": "Brine Hulk",
+      "baseHp": 180, "baseSpeed": 0.55, "armor": 4,
+      "bounty": 22, "leakDamage": 3,
+      "moveClass": "Terrestrial",
+      "shrouded": false,
+      "spitInterval": 0, "spitDisableDuration": 0,
+      "splitIntoId": "", "splitCount": 0, "tidecallInterval": 0, "isBoss": false
+    },
+    {
+      "id": "abyssal_lurker",
+      "displayName": "Abyssal Lurker",
+      "baseHp": 90, "baseSpeed": 1.0, "armor": 1,
+      "bounty": 18, "leakDamage": 2,
+      "moveClass": "Pelagic",
+      "shrouded": true,
+      "spitInterval": 0, "spitDisableDuration": 0,
+      "splitIntoId": "", "splitCount": 0, "tidecallInterval": 0, "isBoss": false
+    },
+    {
+      "id": "spitter",
+      "displayName": "Spitter",
+      "baseHp": 70, "baseSpeed": 0.9, "armor": 0,
+      "bounty": 16, "leakDamage": 2,
+      "moveClass": "Terrestrial",
+      "shrouded": false,
+      "spitInterval": 5.0, "spitDisableDuration": 3.0,
+      "splitIntoId": "", "splitCount": 0, "tidecallInterval": 0, "isBoss": false
+    },
+    {
+      "id": "broodmother",
+      "displayName": "Broodmother",
+      "baseHp": 320, "baseSpeed": 0.6, "armor": 2,
+      "bounty": 40, "leakDamage": 5,
+      "moveClass": "Amphibious",
+      "shrouded": false,
+      "spitInterval": 0, "spitDisableDuration": 0,
+      "splitIntoId": "skitterling", "splitCount": 4, "tidecallInterval": 0, "isBoss": false
+    },
+    {
+      "id": "drowned_bell",
+      "displayName": "The Drowned Bell",
+      "baseHp": 4000, "baseSpeed": 0.35, "armor": 6,
+      "bounty": 400, "leakDamage": 10,
+      "moveClass": "Amphibious",
+      "shrouded": false,
+      "spitInterval": 0, "spitDisableDuration": 0,
+      "splitIntoId": "", "splitCount": 0, "tidecallInterval": 12.0, "isBoss": true
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Create a queue-depth observatory for fake workers: publish lag metrics, backlog charts, and saturation warnings.

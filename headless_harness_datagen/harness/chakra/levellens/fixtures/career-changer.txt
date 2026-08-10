@@ -1,0 +1,4 @@
+Jordan Park — Former Data Analyst transitioning to Backend
+2018-2023 SQL, pandas, Airflow pipelines; dbt models for revenue dashboards (12 stakeholders).
+2023-2024: shipped FastAPI microservices, Docker, PostgreSQL. Drove one internal tool used by 80 people.
+Learning Kubernetes and Terraform. Mentored two analysts on Python.

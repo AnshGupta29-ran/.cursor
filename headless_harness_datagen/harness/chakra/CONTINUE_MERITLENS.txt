@@ -1,0 +1,5 @@
+CONTINUE MeritLens (ai_ml task 03) now. Do not plan-only. Do not ask questions.
+
+State on disk under harness/chakra/meritlens/: package.json + node_modules already installed; src has types.ts, engine.ts, main.tsx only — App.tsx/index.html/CLI/Electron/fixtures resumes/tests/README are missing. Nested junk folder was removed.
+
+Finish the full PRD acceptance criteria: Queue/Detail/Roles keyboard UX, localStorage, 3 fixture resumes, CLI screen, vitest + smoke, README. Then run npm run dev (or serve dist) and print DONE task_3: Automated Resume Screening System. Immediately continue to task 04 after DONE.

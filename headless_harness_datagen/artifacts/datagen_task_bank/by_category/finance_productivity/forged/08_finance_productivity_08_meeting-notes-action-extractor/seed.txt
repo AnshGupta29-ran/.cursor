@@ -1,0 +1,1 @@
+Build a meeting-notes tool that stores notes and extracts action items with owners/due dates (rules or light NLP).

@@ -1,0 +1,1 @@
+Build a Terraform state explorer: load state JSON, list resources, show attributes, and diff two state files.

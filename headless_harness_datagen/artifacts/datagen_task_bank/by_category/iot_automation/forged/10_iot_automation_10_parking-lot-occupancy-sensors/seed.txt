@@ -1,0 +1,1 @@
+Create a parking lot occupancy system: bay sensors, live map, free-bay counts, and reservation windows.

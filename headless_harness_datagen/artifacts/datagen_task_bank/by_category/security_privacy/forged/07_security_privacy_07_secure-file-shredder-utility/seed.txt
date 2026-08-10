@@ -1,0 +1,1 @@
+Build a secure delete utility that overwrites files before unlink and logs operations (cross-platform best-effort).

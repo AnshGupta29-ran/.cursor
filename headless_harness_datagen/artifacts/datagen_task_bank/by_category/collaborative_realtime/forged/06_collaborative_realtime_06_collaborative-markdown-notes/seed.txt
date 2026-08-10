@@ -1,0 +1,1 @@
+Create a collaborative markdown notes app with rooms, live caret presence, version history snapshots, and export to Markdown/HTML.

@@ -1,0 +1,32 @@
+{
+  "id": "storage_files_09_cad-drawing-document-locker",
+  "category": "storage_files",
+  "index": 9,
+  "title": "CAD drawing document locker",
+  "seed": "Create a document locker for engineering drawings: check-in/check-out, revision numbers, and lock ownership.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "typescript",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "logistics_ops",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "testing_depth": "integration_light",
+    "novelty_hook": "accessibility-first keyboard UX",
+    "delivery": "cli_entry_plus_ui",
+    "modality": "text_code"
+  },
+  "workdir": "task_storage_files_09",
+  "pipeline_cmd": "python main.py \"Create a document locker for engineering drawings: check-in/check-out, revision numbers, and lock ownership.\" --forge-prompt --forge-category storage_files --workdir task_storage_files_09",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: desktop_window\n- persistence: localstorage\n- verification_mode: browser_smoke\n- testing_depth: integration_light\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: multi_turn_repair\n- repo_state: legacy_messy\n- delivery: cli_entry_plus_ui\n- novelty: accessibility-first keyboard UX\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a document locker for engineering drawings: check-in/check-out, revision numbers, and lock ownership.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: desktop_window\n- Persistence: localstorage\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: browser_smoke; tests: integration_light\n- Persona voice: enterprise_buyer\n- Novelty: accessibility-first keyboard UX\n- Delivery: cli_entry_plus_ui\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

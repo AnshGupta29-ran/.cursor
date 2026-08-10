@@ -1,0 +1,1 @@
+Build a personal CRM lite: contacts, companies, interaction notes, and follow-up reminders.

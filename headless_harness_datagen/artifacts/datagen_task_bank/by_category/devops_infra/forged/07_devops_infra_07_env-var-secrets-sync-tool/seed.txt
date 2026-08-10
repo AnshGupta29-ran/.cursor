@@ -1,0 +1,1 @@
+Build an env sync tool: compare .env across environments, redact secrets in diffs, and apply patches.

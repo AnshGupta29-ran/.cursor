@@ -1,0 +1,1 @@
+Create a factory machine status board with simulated PLC devices, downtime reasons, OEE-style metrics, and operator acknowledgements.

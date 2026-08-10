@@ -1,0 +1,83 @@
+# PalletLens category map — human-editable.
+# Maps a curated subset of ImageNet class labels to refurbishment-domain
+# categories and their default routing hints.
+# Bump `version` whenever the table changes; the version is stamped on
+# every stored Prediction and surfaced via /v1/categories.
+version: "2026.07.1"
+
+# Valid routing hints: bench_test | parts_harvest | certified_recycle | manual_sort
+categories:
+  portable_computing:
+    routing: bench_test
+    description: Laptops, notebooks and other portable computers.
+  desktop_computing:
+    routing: bench_test
+    description: Desktop towers and all-in-one computers.
+  display:
+    routing: bench_test
+    description: Monitors, TVs and flat-panel displays.
+  mobile_device:
+    routing: bench_test
+    description: Phones, tablets and handheld smart devices.
+  peripheral:
+    routing: parts_harvest
+    description: Keyboards, mice, cables, docks and other accessories.
+  small_appliance:
+    routing: certified_recycle
+    description: Countertop appliances (microwaves, toasters, etc.).
+  audio_video:
+    routing: bench_test
+    description: Speakers, radios, cameras, projectors and media players.
+  power_equipment:
+    routing: certified_recycle
+    description: Batteries, chargers and power tools — check for swelling/damage.
+  unmapped_general:
+    routing: manual_sort
+    description: Anything without a curated mapping; a human sorts it.
+
+label_map:
+  laptop: portable_computing
+  notebook: portable_computing
+  desktop_computer: desktop_computing
+  screen: display
+  monitor: display
+  television: display
+  crt_screen: display
+  cellular_telephone: mobile_device
+  dial_telephone: mobile_device
+  ipod: mobile_device
+  hand-held_computer: mobile_device
+  mouse: peripheral
+  computer_keyboard: peripheral
+  keypad: peripheral
+  space_bar: peripheral
+  typewriter_keyboard: peripheral
+  modem: peripheral
+  hard_disc: peripheral
+  joystick: peripheral
+  mousepad: peripheral
+  microwave: small_appliance
+  toaster: small_appliance
+  waffle_iron: small_appliance
+  coffee_maker: small_appliance
+  coffeepot: small_appliance
+  espresso_maker: small_appliance
+  mixer: small_appliance
+  blender: small_appliance
+  iron: small_appliance
+  vacuum: small_appliance
+  fan: small_appliance
+  radio: audio_video
+  tape_player: audio_video
+  cd_player: audio_video
+  loudspeaker: audio_video
+  microphone: audio_video
+  projector: audio_video
+  reflex_camera: audio_video
+  Polaroid_camera: audio_video
+  remote_control: audio_video
+  cassette: audio_video
+  cassette_player: audio_video
+  battery: power_equipment
+  power_drill: power_equipment
+  electric_fan: power_equipment

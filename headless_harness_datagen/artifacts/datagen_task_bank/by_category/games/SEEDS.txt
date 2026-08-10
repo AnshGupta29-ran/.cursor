@@ -1,0 +1,47 @@
+1. Breakout clone with levels
+Create a Breakout/Arkanoid clone in Python + Pygame with multiple levels, power-ups, lives, high scores, and pause.
+
+-----
+
+2. Turn-based tactics grid
+Build a small turn-based tactics game on a grid: two units sides, move/attack, cover tiles, and win/lose conditions.
+
+-----
+
+3. Endless runner
+Create an endless runner with procedural obstacles, score distance, difficulty ramp, and restart flow (canvas or Pygame).
+
+-----
+
+4. Minesweeper with solver hint
+Build Minesweeper with difficulty presets and a hint mode that highlights a safe deduction when possible.
+
+-----
+
+5. Card battler prototype
+Create a simple collectible card battler: deck, draw, mana, and a basic AI opponent turn.
+
+-----
+
+6. Physics sandbox balls
+Build a 2D physics sandbox with spawnable balls, gravity toggle, and collision counters (box2d or simple physics).
+
+-----
+
+7. Typing race multiplayer local
+Create a local multiplayer typing race: shared prompt, per-player progress bars, WPM, and winner screen.
+
+-----
+
+8. Roguelike ASCII dungeon
+Implement a small ASCII roguelike: procedural rooms, fog of war, enemies, inventory of 3 items, and save.
+
+-----
+
+9. Puzzle match-3 lite
+Build a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.
+
+-----
+
+10. Simulated stock trading game
+Create a stock trading simulation game: fake price series, buy/sell portfolio, leaderboard of profit.

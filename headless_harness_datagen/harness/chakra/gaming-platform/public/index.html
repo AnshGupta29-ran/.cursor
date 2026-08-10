@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming Platform Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Segoe UI, system-ui, sans-serif;
+      background: #0b1220;
+      color: #e8eefc;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .wrap { width: min(920px, 96vw); padding: 1.25rem; }
+    h1 { margin: 0 0 .35rem; font-size: 1.6rem; }
+    p { margin: 0 0 1rem; opacity: .85; }
+    #game {
+      width: 860px;
+      max-width: 100%;
+      height: 480px;
+      background: #111827;
+      border: 2px solid #38bdf8;
+      border-radius: 12px;
+      display: block;
+    }
+    .hud {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin: .85rem 0 0;
+    }
+    .panel {
+      background: #111827; border: 1px solid #334155; border-radius: 10px;
+      padding: .75rem 1rem; flex: 1; min-width: 180px;
+    }
+    input, button {
+      padding: .45rem .7rem; border-radius: 8px; border: 1px solid #475569;
+      background: #1e293b; color: #e8eefc;
+    }
+    button { cursor: pointer; background: #2563eb; border-color: #2563eb; }
+    .row { display: flex; gap: .5rem; margin-top: .5rem; flex-wrap: wrap; }
+    a { color: #93c5fd; }
+    #err { color: #f87171; min-height: 1.2em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Gaming Platform Demo</h1>
+    <p>Arrow keys / WASD to move. Collect orange orbs. Cyan circle is you.</p>
+    <p id="err"></p>
+    <canvas id="game" width="860" height="480"></canvas>
+    <div class="hud">
+      <div class="panel">
+        <div>Score: <strong id="score">0</strong></div>
+        <div>Status: <strong id="status">starting...</strong></div>
+      </div>
+      <div class="panel">
+        <div>Player</div>
+        <div class="row">
+          <input id="username" placeholder="username" value="player1" />
+          <button id="saveScore" type="button">Save score</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div>Leaderboard</div>
+        <ol id="board"><li>loading...</li></ol>
+        <a href="/api/leaderboards/demo-game" target="_blank">API</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const errEl = document.getElementById('err');
+      const statusEl = document.getElementById('status');
+      function fail(msg) {
+        errEl.textContent = msg;
+        statusEl.textContent = 'error';
+        console.error(msg);
+      }
+
+      try {
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return fail('Canvas 2D not supported');
+
+        const scoreEl = document.getElementById('score');
+        const boardEl = document.getElementById('board');
+        const keys = new Set();
+        let score = 0;
+        let player = { x: 140, y: 160, r: 18 };
+        let orbs = [];
+
+        function spawnOrb() {
+          orbs.push({
+            x: 50 + Math.random() * (canvas.width - 100),
+            y: 50 + Math.random() * (canvas.height - 100),
+            r: 12
+          });
+        }
+        for (let i = 0; i < 7; i++) spawnOrb();
+
+        window.addEventListener('keydown', (e) => {
+          keys.add(e.key.toLowerCase());
+          if (['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+          }
+        });
+        window.addEventListener('keyup', (e) => keys.delete(e.key.toLowerCase()));
+
+        let last = performance.now();
+        function frame(now) {
+          const dt = Math.min(0.05, (now - last) / 1000);
+          last = now;
+          const speed = 260;
+          if (keys.has('arrowup') || keys.has('w')) player.y -= speed * dt;
+          if (keys.has('arrowdown') || keys.has('s')) player.y += speed * dt;
+          if (keys.has('arrowleft') || keys.has('a')) player.x -= speed * dt;
+          if (keys.has('arrowright') || keys.has('d')) player.x += speed * dt;
+          player.x = Math.max(player.r, Math.min(canvas.width - player.r, player.x));
+          player.y = Math.max(player.r, Math.min(canvas.height - player.r, player.y));
+
+          orbs = orbs.filter((o) => {
+            if (Math.hypot(o.x - player.x, o.y - player.y) < o.r + player.r) {
+              score += 10;
+              scoreEl.textContent = String(score);
+              spawnOrb();
+              return false;
+            }
+            return true;
+          });
+
+          // draw
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          // grid
+          ctx.strokeStyle = '#1e293b';
+          ctx.lineWidth = 1;
+          for (let x = 0; x < canvas.width; x += 40) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+          }
+          for (let y = 0; y < canvas.height; y += 40) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+          }
+
+          ctx.fillStyle = '#f59e0b';
+          for (const o of orbs) {
+            ctx.beginPath();
+            ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.fillStyle = '#22d3ee';
+          ctx.beginPath();
+          ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#e2e8f0';
+          ctx.font = '16px Segoe UI';
+          ctx.fillText('YOU', player.x - 14, player.y - 26);
+
+          requestAnimationFrame(frame);
+        }
+
+        // immediate first paint so UI is never blank
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#22d3ee';
+        ctx.beginPath();
+        ctx.arc(player.x, player.y, player.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#f59e0b';
+        for (const o of orbs) {
+          ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2); ctx.fill();
+        }
+
+        requestAnimationFrame(frame);
+        statusEl.textContent = 'playing';
+
+        async function refreshBoard() {
+          try {
+            const res = await fetch('/api/leaderboards/demo-game');
+            const data = await res.json();
+            boardEl.innerHTML = (data.ranking || []).slice(0, 5)
+              .map((r) => '<li>' + r.username + ': ' + r.points + '</li>').join('') || '<li>No scores yet</li>';
+          } catch {
+            boardEl.innerHTML = '<li>API offline (game still works)</li>';
+          }
+        }
+
+        document.getElementById('saveScore').onclick = async () => {
+          const username = document.getElementById('username').value.trim() || 'player1';
+          statusEl.textContent = 'saving...';
+          try {
+            await fetch('/api/auth/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username, password: 'demo' })
+            }).catch(() => {});
+            const login = await fetch('/api/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username, password: 'demo' })
+            }).then((r) => r.json());
+            await fetch('/api/scores/record', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + (login.token || 'demo')
+              },
+              body: JSON.stringify({ gameId: 'demo-game', points: score, username })
+            });
+            statusEl.textContent = 'saved';
+            refreshBoard();
+          } catch {
+            statusEl.textContent = 'save failed';
+          }
+        };
+
+        refreshBoard();
+        setInterval(refreshBoard, 4000);
+      } catch (e) {
+        fail(String(e && e.message ? e.message : e));
+      }
+    })();
+  </script>
+</body>
+</html>

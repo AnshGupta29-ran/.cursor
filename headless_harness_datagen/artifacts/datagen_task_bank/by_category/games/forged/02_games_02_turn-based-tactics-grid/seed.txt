@@ -1,0 +1,1 @@
+Build a small turn-based tactics game on a grid: two units sides, move/attack, cover tiles, and win/lose conditions.

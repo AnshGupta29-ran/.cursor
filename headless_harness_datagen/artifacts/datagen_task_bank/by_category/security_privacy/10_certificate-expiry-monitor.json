@@ -1,0 +1,32 @@
+{
+  "id": "security_privacy_10_certificate-expiry-monitor",
+  "category": "security_privacy",
+  "index": 10,
+  "title": "Certificate expiry monitor",
+  "seed": "Create a TLS certificate expiry monitor: check hosts, store notAfter dates, alert when within N days, simple dashboard.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "resume_mid_task",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "browser_heavy",
+    "user_persona": "pm_non_technical",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "security_privacy",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "offline-first; no cloud accounts",
+    "delivery": "one_command_dev_server",
+    "modality": "text_code"
+  },
+  "workdir": "task_security_privacy_10",
+  "pipeline_cmd": "python main.py \"Create a TLS certificate expiry monitor: check hosts, store notAfter dates, alert when within N days, simple dashboard.\" --forge-prompt --forge-category security_privacy --workdir task_security_privacy_10",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: react_spa\n- persistence: memory_only\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: browser_heavy\n- user_persona: pm_non_technical\n- agent_topology: plan_then_execute\n- session_shape: resume_mid_task\n- repo_state: partial_scaffold\n- delivery: one_command_dev_server\n- novelty: offline-first; no cloud accounts\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a TLS certificate expiry monitor: check hosts, store notAfter dates, alert when within N days, simple dashboard.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: react_spa\n- Persistence: memory_only\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: pm_non_technical\n- Novelty: offline-first; no cloud accounts\n- Delivery: one_command_dev_server\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

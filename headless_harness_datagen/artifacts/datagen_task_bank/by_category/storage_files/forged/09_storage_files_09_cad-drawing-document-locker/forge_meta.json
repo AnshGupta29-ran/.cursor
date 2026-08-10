@@ -1,0 +1,5 @@
+{
+  "source": "upgrade_category_forges.synthesize",
+  "complexity": "low",
+  "ui_surface": "desktop_window"
+}

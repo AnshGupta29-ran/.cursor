@@ -1,0 +1,47 @@
+1. Docker container management dashboard
+Build a Docker container management dashboard that interacts with the Docker Engine API to start, stop, inspect, and monitor containers.
+
+-----
+
+2. Kubernetes cluster visualization
+Build a Kubernetes cluster visualization dashboard that displays nodes, pods, deployments, services, logs, and resource utilization using the Kubernetes API.
+
+-----
+
+3. GitHub-like code repository platform
+Build a GitHub-like code repository platform with repository browsing, issues, pull requests, authentication, and Markdown rendering.
+
+-----
+
+4. CI pipeline status board
+Create a CI pipeline status board that ingests fake job events, shows stages, flaky detection, and retry buttons.
+
+-----
+
+5. Terraform state explorer
+Build a Terraform state explorer: load state JSON, list resources, show attributes, and diff two state files.
+
+-----
+
+6. Local registry + image GC
+Create a local container image registry stub with tag list, delete, and garbage-collection policy demo.
+
+-----
+
+7. Env var & secrets sync tool
+Build an env sync tool: compare .env across environments, redact secrets in diffs, and apply patches.
+
+-----
+
+8. Nginx config generator UI
+Create an Nginx config generator UI for reverse proxy upstreams, TLS toggles, and downloadable conf.
+
+-----
+
+9. Backup job orchestrator
+Build a backup job orchestrator: schedules, destinations, retention, and restore dry-run reports.
+
+-----
+
+10. Feature flag admin console
+Create a feature-flag admin console with percentage rollouts, targeting rules, and audit history.

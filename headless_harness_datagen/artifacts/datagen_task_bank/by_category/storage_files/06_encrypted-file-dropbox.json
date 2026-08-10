@@ -1,0 +1,32 @@
+{
+  "id": "storage_files_06_encrypted-file-dropbox",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox",
+  "seed": "Build an encrypted file drop service: client-side or server-side encryption, one-time download links, and expiry.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "single_shot",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "low",
+    "language_runtime": "rust",
+    "artifact_type": "backend_api",
+    "task_family": "coding_implement",
+    "business_domain": "security_privacy",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "domain twist: niche audience + unusual constraint",
+    "delivery": "single_readme_run",
+    "modality": "text_code"
+  },
+  "workdir": "task_storage_files_06",
+  "pipeline_cmd": "python main.py \"Build an encrypted file drop service: client-side or server-side encryption, one-time download links, and expiry.\" --forge-prompt --forge-category storage_files --workdir task_storage_files_06",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: rust (Rust)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: low\n- ui_surface: cli_tui\n- persistence: json_file\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: single_shot\n- repo_state: empty_scratch\n- delivery: single_readme_run\n- novelty: domain twist: niche audience + unusual constraint\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild an encrypted file drop service: client-side or server-side encryption, one-time download links, and expiry.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: rust\n- UI surface: cli_tui\n- Persistence: json_file\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: domain twist: niche audience + unusual constraint\n- Delivery: single_readme_run\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

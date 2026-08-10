@@ -1,0 +1,40 @@
+{
+  "name": "Industrial Maintenance Apprentice",
+  "jobDescription": "Apprenticeship cohort for industrial maintenance: OSHA-30, PLC basics, hydraulics, NCCER, blueprint/schematic reading. Journeyman pathway via union training center.",
+  "criteria": [
+    {
+      "skill": "OSHA-30",
+      "synonyms": ["OSHA30", "Occupational Safety and Health Administration"],
+      "weight": 10
+    },
+    {
+      "skill": "PLC basics",
+      "synonyms": ["Programmable Logic Controller", "PLC"],
+      "weight": 8
+    },
+    {
+      "skill": "hydraulics",
+      "synonyms": ["hydraulic systems"],
+      "weight": 6
+    },
+    {
+      "skill": "NCCER",
+      "synonyms": [],
+      "weight": 5
+    },
+    {
+      "skill": "blueprint reading",
+      "synonyms": ["reading schematics", "schematics"],
+      "weight": 7
+    }
+  ],
+  "sectionWeights": {
+    "certifications": 1.2,
+    "experience": 1.0,
+    "education": 0.8
+  },
+  "thresholds": {
+    "advance": 70,
+    "hold": 40
+  }
+}

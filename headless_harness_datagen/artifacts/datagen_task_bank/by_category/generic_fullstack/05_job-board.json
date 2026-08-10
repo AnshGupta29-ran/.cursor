@@ -1,0 +1,32 @@
+{
+  "id": "generic_fullstack_05_job-board",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board",
+  "seed": "Create a job board: employer posts, seeker applications, filters, and saved jobs.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "cpp",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "general_utilities",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "must include a live demo mode with sample data",
+    "delivery": "docker_compose_optional",
+    "modality": "text_code"
+  },
+  "workdir": "task_generic_fullstack_05",
+  "pipeline_cmd": "python main.py \"Create a job board: employer posts, seeker applications, filters, and saved jobs.\" --forge-prompt --forge-category generic_fullstack --workdir task_generic_fullstack_05",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: cpp (C++17)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: html_canvas\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: docker_compose_optional\n- novelty: must include a live demo mode with sample data\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a job board: employer posts, seeker applications, filters, and saved jobs.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: cpp\n- UI surface: html_canvas\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: must include a live demo mode with sample data\n- Delivery: docker_compose_optional\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

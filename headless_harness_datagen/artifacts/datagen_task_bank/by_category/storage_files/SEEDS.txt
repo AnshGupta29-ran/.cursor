@@ -1,0 +1,47 @@
+1. Mini cloud storage platform
+Create a cloud storage web application using React, Node.js, Express, and MongoDB. Users should be able to register, log in, upload files, organize them into folders, rename, move, delete, search, and download files. Implement JWT-based authentication, file size validation, storage usage statistics, and a clean dashboard.
+
+-----
+
+2. File sharing platform
+Create a File Sharing Platform in Python: users upload files, get shareable links with optional expiry and password, track download counts, and manage their uploads via a simple web UI.
+
+-----
+
+3. Team document vault with preview
+Build a team document vault with folder ACLs, text/PDF preview, upload quotas per team, and audit logs of downloads.
+
+-----
+
+4. Media library with tags
+Create a media library service for images and videos: upload, tag, search, thumbnail generation stubs, and collections.
+
+-----
+
+5. S3-like local object store CLI
+Implement a local S3-like object store CLI and HTTP API: buckets, put/get/list/delete objects, and simple versioning.
+
+-----
+
+6. Encrypted file dropbox
+Build an encrypted file drop service: client-side or server-side encryption, one-time download links, and expiry.
+
+-----
+
+7. Lab dataset repository
+Create a research dataset repository: upload zipped datasets, metadata forms, license tags, and download permissions by role.
+
+-----
+
+8. Receipt image archive
+Build a receipt/image archive with folders by month, OCR-ready file naming, search by filename/tags, and bulk export.
+
+-----
+
+9. CAD drawing document locker
+Create a document locker for engineering drawings: check-in/check-out, revision numbers, and lock ownership.
+
+-----
+
+10. Excel workbook drop zone
+Build a small service that accepts Excel/CSV uploads, validates sheets, stores them, and lists workbook metadata (sheet names, row counts) without requiring MS Office installed.

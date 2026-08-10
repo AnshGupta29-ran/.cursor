@@ -1,0 +1,1 @@
+Build a secrets vault HTTP API: store sealed secrets, role-based read, audit log, and rotation metadata (no plaintext at rest).

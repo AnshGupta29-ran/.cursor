@@ -1,0 +1,12 @@
+{
+  "name": "Hadal Shelf",
+  "depth_m": 1200,
+  "speed_ramp": 1.0,
+  "drop_table": {"ore": 0.35, "other": 0.10},
+  "grid": [
+    "ssssssss",
+    "soossoos",
+    "ssssssss",
+    "..o..o.."
+  ]
+}

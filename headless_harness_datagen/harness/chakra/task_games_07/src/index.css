@@ -1,0 +1,580 @@
+/* ─── STATICLINE — retro terminal styling ─── */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg: #0a0e0a;
+  --surface: #111a11;
+  --surface2: #182218;
+  --border: #2a3a2a;
+  --green: #00ff88;
+  --green-dim: #00aa55;
+  --amber: #ffb000;
+  --red: #ff3355;
+  --red-dim: #992233;
+  --white: #c8e6c8;
+  --gray: #557755;
+  --orange: #ff8800;
+  --blue: #4488ff;
+  --pink: #ff44aa;
+  --font: 'Share Tech Mono', 'Courier New', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.4;
+  /* Scanline overlay */
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  background-size: 100% 3px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Layout ─── */
+
+.app {
+  width: 100%;
+  max-width: 960px;
+  height: 100vh;
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: var(--green);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.header .sub {
+  color: var(--gray);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.view::-webkit-scrollbar {
+  width: 4px;
+}
+.view::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+.view::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* ─── Buttons ─── */
+
+.btn {
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.1s;
+}
+.btn:hover {
+  background: var(--surface2);
+  border-color: var(--green-dim);
+  color: var(--green);
+}
+.btn:active {
+  background: var(--green-dim);
+  color: var(--bg);
+}
+.btn.primary {
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn.primary:hover {
+  background: var(--green);
+  color: var(--bg);
+}
+.btn.danger {
+  border-color: var(--red-dim);
+  color: var(--red);
+}
+.btn.danger:hover {
+  background: var(--red-dim);
+  color: var(--bg);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.btn:disabled:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--white);
+}
+
+/* ─── Cards / Panels ─── */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+}
+
+.panel-title {
+  font-size: 11px;
+  color: var(--gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* ─── Input ─── */
+
+.input {
+  font-family: var(--font);
+  font-size: 13px;
+  padding: 6px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--green);
+  outline: none;
+  width: 100%;
+}
+.input:focus {
+  border-color: var(--green);
+}
+.input::placeholder {
+  color: var(--gray);
+}
+
+/* ─── Menu ─── */
+
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.menu-title {
+  font-size: 28px;
+  color: var(--green);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+}
+
+.menu-sub {
+  color: var(--gray);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 280px;
+}
+
+.menu-buttons .btn {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+}
+
+/* ─── Setup ─── */
+
+.setup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.roster-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.roster-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.roster-row .input {
+  flex: 1;
+}
+
+.roster-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.setup-options {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.setup-options label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+.setup-options select {
+  font-family: var(--font);
+  font-size: 12px;
+  padding: 4px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--white);
+}
+
+/* ─── Race ─── */
+
+.race {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.race-hud {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.race-hud span {
+  color: var(--white);
+}
+
+.transmission-pane {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  min-height: 80px;
+  font-family: var(--font);
+  word-break: break-all;
+}
+
+.transmission-pane .char-correct {
+  color: var(--green);
+}
+.transmission-pane .char-incorrect {
+  color: var(--red);
+  background: rgba(255, 51, 85, 0.15);
+  text-decoration: underline;
+}
+.transmission-pane .char-current {
+  background: rgba(0, 255, 136, 0.15);
+  border-bottom: 2px solid var(--green);
+}
+.transmission-pane .char-pending {
+  color: var(--gray);
+}
+
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lane {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lane-label {
+  width: 60px;
+  font-size: 11px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lane-bar-wrap {
+  flex: 1;
+  height: 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.lane-bar-fill {
+  height: 100%;
+  transition: width 0.15s;
+}
+
+.lane-bar-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  font-size: 10px;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.lane-stats {
+  width: 100px;
+  font-size: 10px;
+  color: var(--gray);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.lane.active .lane-bar-wrap {
+  border-color: var(--green-dim);
+}
+
+.race-type-area {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.race-type-area .input {
+  flex: 1;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.race-controls {
+  display: flex;
+  gap: 8px;
+}
+
+/* ─── Results ─── */
+
+.results {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner-callsign {
+  font-size: 24px;
+  color: var(--amber);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 176, 0, 0.3);
+}
+
+.rank-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rank-table th {
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.rank-table td {
+  padding: 6px 8px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.rank-table tr:last-child td {
+  border-bottom: none;
+}
+
+.rank-1 td {
+  color: var(--amber);
+}
+.rank-1 td:first-child::after {
+  content: ' ★';
+}
+
+.results-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ─── History ─── */
+
+.history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.history-item .winner {
+  color: var(--amber);
+}
+
+.history-empty {
+  color: var(--gray);
+  text-align: center;
+  padding: 24px;
+}
+
+/* ─── Settings ─── */
+
+.settings {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.setting-row label {
+  font-size: 12px;
+  color: var(--white);
+}
+
+.setting-row select,
+.setting-row input[type="checkbox"] {
+  font-family: var(--font);
+  font-size: 12px;
+  padding: 4px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--white);
+}
+
+/* ─── Demo Desk ─── */
+
+.demo-desk {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-info {
+  color: var(--gray);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ─── Countdown ─── */
+
+.countdown {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+/* ─── Transitions / Animate ─── */
+
+.fade-in {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Scrollbar for view ─── */
+
+.view {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--surface);
+}

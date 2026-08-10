@@ -1,0 +1,32 @@
+{
+  "id": "security_privacy_06_jwt-key-rotation-lab",
+  "category": "security_privacy",
+  "index": 6,
+  "title": "JWT key rotation lab",
+  "seed": "Create a JWT auth service demo with key rotation, JWKS endpoint, and middleware verification tests.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "rust",
+    "artifact_type": "backend_api",
+    "task_family": "coding_implement",
+    "business_domain": "security_privacy",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "multi-theme or multi-difficulty presets",
+    "delivery": "library_plus_demo_app",
+    "modality": "text_code"
+  },
+  "workdir": "task_security_privacy_06",
+  "pipeline_cmd": "python main.py \"Create a JWT auth service demo with key rotation, JWKS endpoint, and middleware verification tests.\" --forge-prompt --forge-category security_privacy --workdir task_security_privacy_06",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: rust (Rust)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: dashboard_charts\n- persistence: memory_only\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: library_plus_demo_app\n- novelty: multi-theme or multi-difficulty presets\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a JWT auth service demo with key rotation, JWKS endpoint, and middleware verification tests.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: rust\n- UI surface: dashboard_charts\n- Persistence: memory_only\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: multi-theme or multi-difficulty presets\n- Delivery: library_plus_demo_app\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

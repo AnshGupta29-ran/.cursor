@@ -1,0 +1,32 @@
+{
+  "id": "games_01_breakout-clone-with-levels",
+  "category": "games",
+  "index": 1,
+  "title": "Breakout clone with levels",
+  "seed": "Create a Breakout/Arkanoid clone in Python + Pygame with multiple levels, power-ups, lives, high scores, and pause.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "single_shot",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "low",
+    "language_runtime": "python",
+    "artifact_type": "game_prototype",
+    "task_family": "coding_implement",
+    "business_domain": "gaming",
+    "ui_surface": "game_loop_window",
+    "persistence": "json_file",
+    "testing_depth": "unit_light",
+    "novelty_hook": "export/import round-trip as acceptance",
+    "delivery": "static_build_preview",
+    "modality": "text_code"
+  },
+  "workdir": "task_games_01",
+  "pipeline_cmd": "python main.py \"Create a Breakout/Arkanoid clone in Python + Pygame with multiple levels, power-ups, lives, high scores, and pause.\" --forge-prompt --forge-category games --workdir task_games_01",
+  "forge_brief": "[DIMENSION LOCK \u2014 mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: medium \u2192 solid MVP \u2014 core features + light tests, avoid gold-plating\n- value: low\n- ui_surface: game_loop_window\n- persistence: json_file\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: single_shot\n- repo_state: partial_scaffold\n- delivery: static_build_preview\n- novelty: export/import round-trip as acceptance\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a Breakout/Arkanoid clone in Python + Pygame with multiple levels, power-ups, lives, high scores, and pause.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: game_loop_window\n- Persistence: json_file\n- Complexity band: medium (solid MVP \u2014 core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: export/import round-trip as acceptance\n- Delivery: static_build_preview\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

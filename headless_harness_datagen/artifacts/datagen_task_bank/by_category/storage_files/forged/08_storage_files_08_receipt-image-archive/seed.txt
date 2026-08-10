@@ -1,0 +1,1 @@
+Build a receipt/image archive with folders by month, OCR-ready file naming, search by filename/tags, and bulk export.

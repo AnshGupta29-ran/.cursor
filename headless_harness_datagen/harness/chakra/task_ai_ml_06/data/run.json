@@ -1,0 +1,13 @@
+{
+  "run_id": "run-1",
+  "timestamp": "2026-08-07T20:38:01.690513+00:00",
+  "row_count": 50,
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "roc_auc": 1.0
+  },
+  "status": "succeeded",
+  "model_type": "LogisticRegression"
+}

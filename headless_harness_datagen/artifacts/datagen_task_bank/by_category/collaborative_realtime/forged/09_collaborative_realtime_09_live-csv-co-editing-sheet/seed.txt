@@ -1,0 +1,1 @@
+Build a lightweight collaborative spreadsheet for CSV data with cell editing, live sync, and conflict highlighting (not Excel-plugin).

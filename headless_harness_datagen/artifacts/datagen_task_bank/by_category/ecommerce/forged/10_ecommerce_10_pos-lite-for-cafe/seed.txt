@@ -1,0 +1,1 @@
+Create a cafe POS lite: product buttons, ticket, tax, cash/card stub tender, and daily sales report.

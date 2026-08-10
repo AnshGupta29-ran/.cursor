@@ -1,0 +1,22 @@
+---
+pid: 14932
+cwd: "C:\\Users\\anshg\\.cursor\\headless_harness_datagen"
+command: "winget install --id GitHub.cli -e --accept-source-agreements --accept-package-agreements"
+title: "Install GitHub CLI to create repo"
+status: succeeded
+started_at: 2026-08-10T11:49:25.725Z
+running_for_ms: 232261   
+---
+Found GitHub CLI [GitHub.cli] Version 2.97.0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://github.com/cli/cli/releases/download/v2.97.0/gh_2.97.0_windows_amd64.msi
+Successfully verified installer hash
+Starting package install...
+Successfully installed
+
+---
+exit_code: 0
+elapsed_ms: 232084
+ended_at: 2026-08-10T11:53:17.809Z
+---

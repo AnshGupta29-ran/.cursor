@@ -1,0 +1,8 @@
+{
+  "name": "frostborne-clash",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 8765 --directory .",
+    "start": "python -m http.server 8765 --directory ."
+  }
+}

@@ -1,0 +1,1 @@
+Build a vehicle fleet tracker simulator: devices publish GPS points, map/list views, geofence alerts, and trip history.

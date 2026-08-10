@@ -1,0 +1,32 @@
+{
+  "id": "generic_fullstack_09_classroom-attendance-app",
+  "category": "generic_fullstack",
+  "index": 9,
+  "title": "Classroom attendance app",
+  "seed": "Create a classroom attendance app: roster, date sessions, present/absent, and export CSV.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "single_shot",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "low",
+    "language_runtime": "typescript",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "education",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "export/import round-trip as acceptance",
+    "delivery": "static_build_preview",
+    "modality": "text_code"
+  },
+  "workdir": "task_generic_fullstack_09",
+  "pipeline_cmd": "python main.py \"Create a classroom attendance app: roster, date sessions, present/absent, and export CSV.\" --forge-prompt --forge-category generic_fullstack --workdir task_generic_fullstack_09",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: low\n- ui_surface: api_only\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: single_shot\n- repo_state: partial_scaffold\n- delivery: static_build_preview\n- novelty: export/import round-trip as acceptance\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a classroom attendance app: roster, date sessions, present/absent, and export CSV.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: api_only\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: export/import round-trip as acceptance\n- Delivery: static_build_preview\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

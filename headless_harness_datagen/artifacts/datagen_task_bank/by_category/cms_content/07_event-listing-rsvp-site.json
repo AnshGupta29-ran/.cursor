@@ -1,0 +1,32 @@
+{
+  "id": "cms_content_07_event-listing-rsvp-site",
+  "category": "cms_content",
+  "index": 7,
+  "title": "Event listing & RSVP site",
+  "seed": "Build an event listing CMS with RSVPs, capacity limits, calendar view, and organizer dashboards.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "approval_gated",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "mixed",
+    "user_persona": "staff_eng",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "go",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "media_cms",
+    "ui_surface": "game_loop_window",
+    "persistence": "sqlite",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "chaos toggle: inject one recoverable failure path",
+    "delivery": "one_command_dev_server",
+    "modality": "text_code"
+  },
+  "workdir": "task_cms_content_07",
+  "pipeline_cmd": "python main.py \"Build an event listing CMS with RSVPs, capacity limits, calendar view, and organizer dashboards.\" --forge-prompt --forge-category cms_content --workdir task_cms_content_07",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: go (Go)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: game_loop_window\n- persistence: sqlite\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: mixed\n- user_persona: staff_eng\n- agent_topology: plan_then_execute\n- session_shape: approval_gated\n- repo_state: partial_scaffold\n- delivery: one_command_dev_server\n- novelty: chaos toggle: inject one recoverable failure path\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild an event listing CMS with RSVPs, capacity limits, calendar view, and organizer dashboards.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: go\n- UI surface: game_loop_window\n- Persistence: sqlite\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: staff_eng\n- Novelty: chaos toggle: inject one recoverable failure path\n- Delivery: one_command_dev_server\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monitoring_ops_07_on-call-rotation-calendar",
+  "category": "monitoring_ops",
+  "index": 7,
+  "title": "On-call rotation calendar",
+  "seed": "Build an on-call rotation calendar with schedules, overrides, and alert routing contact list (no real PagerDuty).",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "resume_mid_task",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "go",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "devops_platform",
+    "ui_surface": "mobile_web",
+    "persistence": "postgres_optional",
+    "testing_depth": "browser_smoke",
+    "novelty_hook": "plugin/extension hook (one stub plugin)",
+    "delivery": "monorepo_client_server",
+    "modality": "text_code"
+  },
+  "workdir": "task_monitoring_ops_07",
+  "pipeline_cmd": "python main.py \"Build an on-call rotation calendar with schedules, overrides, and alert routing contact list (no real PagerDuty).\" --forge-prompt --forge-category monitoring_ops --workdir task_monitoring_ops_07",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: go (Go)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: mobile_web\n- persistence: postgres_optional\n- verification_mode: browser_smoke\n- testing_depth: browser_smoke\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: resume_mid_task\n- repo_state: legacy_messy\n- delivery: monorepo_client_server\n- novelty: plugin/extension hook (one stub plugin)\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild an on-call rotation calendar with schedules, overrides, and alert routing contact list (no real PagerDuty).",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: go\n- UI surface: mobile_web\n- Persistence: postgres_optional\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: browser_smoke; tests: browser_smoke\n- Persona voice: enterprise_buyer\n- Novelty: plugin/extension hook (one stub plugin)\n- Delivery: monorepo_client_server\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

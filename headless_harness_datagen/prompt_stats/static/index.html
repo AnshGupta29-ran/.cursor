@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Prompt Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg0: #07141a;
+      --bg1: #0d1f28;
+      --card: #122832;
+      --line: #1e3a48;
+      --ink: #e8f2f6;
+      --muted: #7f9aa8;
+      --accent: #2ec4b6;
+      --amber: #f0a202;
+      --rose: #e4572e;
+      --blue: #4ea8de;
+      --good: #3dcf8e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 500px at 10% -10%, #143447 0%, transparent 60%),
+        radial-gradient(700px 400px at 100% 0%, #1a2e22 0%, transparent 55%),
+        var(--bg0);
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 22px 28px 10px;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg1) 85%, transparent);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+    .sub { color: var(--muted); font-size: 0.88rem; margin-top: 4px; }
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 0 0 rgba(61, 207, 142, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(61, 207, 142, 0.55); }
+      70% { box-shadow: 0 0 0 8px rgba(61, 207, 142, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(61, 207, 142, 0); }
+    }
+    main { padding: 20px 28px 40px; max-width: 1400px; margin: 0 auto; }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .kpi .label { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .kpi .value {
+      margin-top: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.45rem;
+      font-weight: 600;
+    }
+    .kpi .hint { color: var(--muted); font-size: 0.75rem; margin-top: 4px; }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      align-items: center;
+    }
+    select, input, button {
+      font: inherit;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    button {
+      cursor: pointer;
+      background: #163845;
+      border-color: #2a5a68;
+    }
+    button:hover { border-color: var(--accent); }
+    button.primary { background: #1a4d45; border-color: var(--accent); }
+    .charts {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 960px) {
+      .charts { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px 18px;
+      min-height: 280px;
+    }
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .chart-wrap { position: relative; height: 240px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+      background: var(--card);
+    }
+    .mono { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; }
+    .band {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .band.low { background: #1c3a2e; color: var(--good); }
+    .band.medium { background: #3a3218; color: var(--amber); }
+    .band.high { background: #3a2418; color: #ff9f68; }
+    .band.very_high { background: #3a1818; color: var(--rose); }
+    .table-wrap {
+      max-height: 520px;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+    }
+    .title-cell { max-width: 340px; }
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+    .model-card {
+      background: #0f222c;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .model-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+    }
+    .model-card .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+    }
+    .model-card .stats span { color: var(--muted); }
+    .model-card .stats b { color: var(--ink); font-weight: 600; }
+    .model-card ul {
+      margin: 0;
+      padding-left: 18px;
+      max-height: 160px;
+      overflow: auto;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .agent-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .agent-pill.chakra { background: #1a3a48; color: var(--blue); }
+    .agent-pill.pi { background: #3a2a18; color: var(--amber); }
+    .agent-pill.other { background: #243038; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Agent Prompt Analytics</h1>
+      <div class="sub">Chakra · Pi — complexity, tokens, runtime, models, tasks — live from the ledger</div>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+      <span class="live"><span class="dot"></span> <span id="syncStatus">syncing…</span></span>
+      <button class="primary" id="btnRefresh">Full refresh</button>
+      <button id="btnSync">Sync now</button>
+    </div>
+  </header>
+  <main>
+    <section class="kpis" id="kpis"></section>
+    <section class="filters">
+      <label>Agent
+        <select id="filterAgent">
+          <option value="">All</option>
+          <option value="chakra">chakra</option>
+          <option value="pi">pi</option>
+        </select>
+      </label>
+      <label>Source
+        <select id="filterSource"><option value="">All</option></select>
+      </label>
+      <label>Model
+        <select id="filterModel"><option value="">All</option></select>
+      </label>
+      <label>Complexity
+        <select id="filterBand">
+          <option value="">All</option>
+          <option value="low">low</option>
+          <option value="medium">medium</option>
+          <option value="high">high</option>
+          <option value="very_high">very_high</option>
+        </select>
+      </label>
+      <label>Search
+        <input id="filterQ" placeholder="title / seed / model…" />
+      </label>
+    </section>
+    <section class="panel" style="min-height:auto; margin-bottom:16px">
+      <h2>By agent — sessions, tokens, time</h2>
+      <p class="sub" style="margin:0 0 12px">Compare Chakra vs Pi on the same ledger: session count, tokens, wall time.</p>
+      <div id="agentCards" class="model-grid"></div>
+    </section>
+    <section class="panel" style="min-height:auto; margin-bottom:16px">
+      <h2>By model — tokens, time, prompts</h2>
+      <p class="sub" style="margin:0 0 12px">Each model across agents: total output tokens, wall time, and prompts/tasks.</p>
+      <div id="modelCards" class="model-grid"></div>
+    </section>
+    <section class="charts">
+      <div class="panel">
+        <h2>Complexity over recent prompts</h2>
+        <div class="chart-wrap"><canvas id="chartComplexity"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Complexity band mix</h2>
+        <div class="chart-wrap"><canvas id="chartBands"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Tokens (input / output)</h2>
+        <div class="chart-wrap"><canvas id="chartTokens"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Time taken</h2>
+        <div class="chart-wrap"><canvas id="chartTime"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>By agent</h2>
+        <div class="chart-wrap"><canvas id="chartAgent"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>By source</h2>
+        <div class="chart-wrap"><canvas id="chartSource"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>By category</h2>
+        <div class="chart-wrap"><canvas id="chartCategory"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Output tokens by model</h2>
+        <div class="chart-wrap"><canvas id="chartModelTokens"></canvas></div>
+      </div>
+      <div class="panel">
+        <h2>Time by model</h2>
+        <div class="chart-wrap"><canvas id="chartModelTime"></canvas></div>
+      </div>
+    </section>
+    <section class="panel" style="min-height:auto">
+      <h2>All recorded prompts</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>When</th>
+              <th>Agent</th>
+              <th>Model</th>
+              <th>Source</th>
+              <th>Category</th>
+              <th>Band</th>
+              <th>Score</th>
+              <th>In tok</th>
+              <th>Out tok</th>
+              <th>Time</th>
+              <th>Tools</th>
+              <th>Title</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js?v=tokfix5"></script>
+</body>
+</html>

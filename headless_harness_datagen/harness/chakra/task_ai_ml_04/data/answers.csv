@@ -1,0 +1,10 @@
+answer_id,query_id,status,confidence_band,answer_text,cited_chunk_ids,latency_ms
+3d945af30671,d589217292b2,answered,High,"Council meeting discussed the new zoning ordinance. [70eb7e1bda0a-c0000] ORDINANCE 2024-07 — Short-Term Rental Cap (excerpt)
+City of Riverbend
+
+Section 1. [7ed0ccc22600-c0000] d short-term rentals near the pier; one speaker supported income for ADU owners. [96510e35d830-c0001] CITY OF RIVERBEND — Planning Commission Agenda
+Meeting Date: 2024-03-12 · City Hall Chambers
+
+1. [6f18406a76a9-c0000]","70eb7e1bda0a-c0000,7ed0ccc22600-c0000,96510e35d830-c0001,6f18406a76a9-c0000",2.0
+2ab5b29fb788,fa9e0cf63559,abstained,Low,Abstaining — retrieval confidence is below the profile threshold. No extractive answer will be invented for this question.,,1.0
+cd7abdb504f8,f48f871a4726,abstained,Low,Abstaining — retrieval confidence is below the profile threshold. No extractive answer will be invented for this question.,,0.0

@@ -1,0 +1,29 @@
+---
+pid: 22164
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "cd \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\"; git add -A; git status -sb | Select-Object -First 40; git diff --cached --stat | Select-Object -Last 20"
+title: "Stage headless_harness_datagen for commit"
+status: failed   
+started_at: 2026-08-10T11:31:20.600Z
+running_for_ms: 183443   
+---
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/bin/chakra', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/cyberRiskInstruction.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/promptIdentity.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/prompts.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/system.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/memdir.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/memoryTypes.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/teamMemPrompts.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/tools/AgentTool/built-in/exploreAgent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/tools/AgentTool/built-in/generalPurposeAgent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pyproject.toml', LF will be replaced by CRLF the next time Git touches it
+
+---
+exit_code: 4294967295
+elapsed_ms: 183442
+ended_at: 2026-08-10T11:34:24.042Z
+---

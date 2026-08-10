@@ -1,0 +1,47 @@
+1. Digital library management system
+Create a complete library management system using Django. The application should support librarian and student accounts, book catalog management, borrowing and returning books, overdue tracking, reservation queues, notifications, search with multiple filters, and borrowing history. Include authentication, role-based permissions, SQLite database support, and automated unit tests covering the core workflows.
+
+-----
+
+2. Notes and knowledge base
+Create a Notes & Knowledge Base app in Python with nested pages, tags, full-text search, and markdown rendering.
+
+-----
+
+3. University course registration portal
+Build a University Course Registration Portal: course catalog, student enrollment, waitlists, conflicts detection, and admin overrides.
+
+-----
+
+4. Magazine CMS with issues
+Create a magazine CMS: issues, articles, authors, draft/publish workflow, and public reading site.
+
+-----
+
+5. Podcast episode CMS
+Build a podcast CMS for episodes, show notes, RSS feed generation, and guest profiles.
+
+-----
+
+6. Internal wiki with approvals
+Create an internal company wiki with page hierarchy, edit approvals, and change history diffs.
+
+-----
+
+7. Event listing & RSVP site
+Build an event listing CMS with RSVPs, capacity limits, calendar view, and organizer dashboards.
+
+-----
+
+8. Recipe publisher
+Create a recipe publisher CMS: ingredients, steps, tags, nutrition fields, and public browse/search.
+
+-----
+
+9. Newsroom editorial desk
+Build a newsroom desk: story assignments, statuses (pitch→edit→publish), embargo times, and role-based access.
+
+-----
+
+10. Documentation portal versioned
+Create a versioned docs portal (v1/v2), markdown pages, sidebar nav, and search across versions.

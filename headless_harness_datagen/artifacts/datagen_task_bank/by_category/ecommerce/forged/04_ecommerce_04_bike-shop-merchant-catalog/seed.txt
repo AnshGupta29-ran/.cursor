@@ -1,0 +1,1 @@
+Build a bike shop merchant catalog with variants (size/color), inventory counts, and checkout cart (no payment processor required).

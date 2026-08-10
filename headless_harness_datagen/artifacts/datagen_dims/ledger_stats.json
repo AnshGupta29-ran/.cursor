@@ -1,0 +1,213 @@
+{
+  "spend": {
+    "model": "kimi3",
+    "input_tokens": 226267.0,
+    "output_tokens": 950050.0,
+    "total_tokens": 1176317.0,
+    "usd": 2.013234,
+    "compute_units": 1.176317,
+    "price_input_usd_per_m": 0.5,
+    "price_output_usd_per_m": 2.0,
+    "n_records": 77
+  },
+  "by_group": {
+    "group_by": "business_domain",
+    "groups": {
+      "data_analytics": {
+        "n_sessions": 5,
+        "avg_input_tokens": 1597.2,
+        "avg_output_tokens": 10880.4,
+        "avg_total_tokens": 12477.6,
+        "avg_usd": 0.022559,
+        "avg_compute_units": 0.012478,
+        "sum_total_tokens": 62388.0,
+        "sum_usd": 0.112797
+      },
+      "ecommerce": {
+        "n_sessions": 8,
+        "avg_input_tokens": 1083.8,
+        "avg_output_tokens": 22789.2,
+        "avg_total_tokens": 23873.0,
+        "avg_usd": 0.04612,
+        "avg_compute_units": 0.023873,
+        "sum_total_tokens": 190984.0,
+        "sum_usd": 0.368963
+      },
+      "education": {
+        "n_sessions": 2,
+        "avg_input_tokens": 90.0,
+        "avg_output_tokens": 0.0,
+        "avg_total_tokens": 90.0,
+        "avg_usd": 4.5e-05,
+        "avg_compute_units": 9e-05,
+        "sum_total_tokens": 180.0,
+        "sum_usd": 9e-05
+      },
+      "finance_fintech": {
+        "n_sessions": 2,
+        "avg_input_tokens": 383.0,
+        "avg_output_tokens": 0.0,
+        "avg_total_tokens": 383.0,
+        "avg_usd": 0.000191,
+        "avg_compute_units": 0.000383,
+        "sum_total_tokens": 766.0,
+        "sum_usd": 0.000383
+      },
+      "gaming": {
+        "n_sessions": 6,
+        "avg_input_tokens": 2037.3,
+        "avg_output_tokens": 42349.2,
+        "avg_total_tokens": 44386.5,
+        "avg_usd": 0.085717,
+        "avg_compute_units": 0.044387,
+        "sum_total_tokens": 266319.0,
+        "sum_usd": 0.514302
+      },
+      "general_utilities": {
+        "n_sessions": 35,
+        "avg_input_tokens": 98.3,
+        "avg_output_tokens": 921.6,
+        "avg_total_tokens": 1019.9,
+        "avg_usd": 0.001892,
+        "avg_compute_units": 0.00102,
+        "sum_total_tokens": 35698.0,
+        "sum_usd": 0.066233
+      },
+      "healthcare": {
+        "n_sessions": 3,
+        "avg_input_tokens": 94.7,
+        "avg_output_tokens": 7430.0,
+        "avg_total_tokens": 7524.7,
+        "avg_usd": 0.014907,
+        "avg_compute_units": 0.007525,
+        "sum_total_tokens": 22574.0,
+        "sum_usd": 0.044722
+      },
+      "iot_automation": {
+        "n_sessions": 2,
+        "avg_input_tokens": 93169.0,
+        "avg_output_tokens": 1463.0,
+        "avg_total_tokens": 94632.0,
+        "avg_usd": 0.04951,
+        "avg_compute_units": 0.094632,
+        "sum_total_tokens": 189264.0,
+        "sum_usd": 0.099021
+      },
+      "media_cms": {
+        "n_sessions": 9,
+        "avg_input_tokens": 486.6,
+        "avg_output_tokens": 20214.0,
+        "avg_total_tokens": 20700.6,
+        "avg_usd": 0.040671,
+        "avg_compute_units": 0.020701,
+        "sum_total_tokens": 186305.0,
+        "sum_usd": 0.366042
+      },
+      "productivity_collab": {
+        "n_sessions": 2,
+        "avg_input_tokens": 110.0,
+        "avg_output_tokens": 100376.0,
+        "avg_total_tokens": 100486.0,
+        "avg_usd": 0.200807,
+        "avg_compute_units": 0.100486,
+        "sum_total_tokens": 200972.0,
+        "sum_usd": 0.401614
+      },
+      "security_privacy": {
+        "n_sessions": 2,
+        "avg_input_tokens": 853.5,
+        "avg_output_tokens": 9544.5,
+        "avg_total_tokens": 10398.0,
+        "avg_usd": 0.019516,
+        "avg_compute_units": 0.010398,
+        "sum_total_tokens": 20796.0,
+        "sum_usd": 0.039031
+      },
+      "social_comms": {
+        "n_sessions": 1,
+        "avg_input_tokens": 71.0,
+        "avg_output_tokens": 0.0,
+        "avg_total_tokens": 71.0,
+        "avg_usd": 3.6e-05,
+        "avg_compute_units": 7.1e-05,
+        "sum_total_tokens": 71.0,
+        "sum_usd": 3.6e-05
+      }
+    },
+    "pricing": {
+      "model": "kimi3",
+      "input_usd_per_m": 0.5,
+      "output_usd_per_m": 2.0
+    }
+  },
+  "grid": {
+    "grid": {
+      "medium\u00d7medium": {
+        "complexity": "medium",
+        "value": "medium",
+        "n": 8,
+        "sum_in": 9069.0,
+        "sum_out": 244214.0,
+        "avg_input_tokens": 1133.6,
+        "avg_output_tokens": 30526.8,
+        "avg_total_tokens": 31660.4,
+        "avg_usd": 0.06162
+      },
+      "hard\u00d7medium": {
+        "complexity": "hard",
+        "value": "medium",
+        "n": 7,
+        "sum_in": 6932.0,
+        "sum_out": 100836.0,
+        "avg_input_tokens": 990.3,
+        "avg_output_tokens": 14405.1,
+        "avg_total_tokens": 15395.4,
+        "avg_usd": 0.029305
+      },
+      "low\u00d7low": {
+        "complexity": "low",
+        "value": "low",
+        "n": 51,
+        "sum_in": 99805.0,
+        "sum_out": 130067.0,
+        "avg_input_tokens": 1957.0,
+        "avg_output_tokens": 2550.3,
+        "avg_total_tokens": 4507.3,
+        "avg_usd": 0.006079
+      },
+      "low\u00d7medium": {
+        "complexity": "low",
+        "value": "medium",
+        "n": 1,
+        "sum_in": 4006.0,
+        "sum_out": 91157.0,
+        "avg_input_tokens": 4006.0,
+        "avg_output_tokens": 91157.0,
+        "avg_total_tokens": 95163.0,
+        "avg_usd": 0.184317
+      },
+      "medium\u00d7low": {
+        "complexity": "medium",
+        "value": "low",
+        "n": 2,
+        "sum_in": 994.0,
+        "sum_out": 0.0,
+        "avg_input_tokens": 497.0,
+        "avg_output_tokens": 0.0,
+        "avg_total_tokens": 497.0,
+        "avg_usd": 0.000249
+      },
+      "hard\u00d7hard": {
+        "complexity": "hard",
+        "value": "hard",
+        "n": 8,
+        "sum_in": 105461.0,
+        "sum_out": 383776.0,
+        "avg_input_tokens": 13182.6,
+        "avg_output_tokens": 47972.0,
+        "avg_total_tokens": 61154.6,
+        "avg_usd": 0.102535
+      }
+    }
+  }
+}

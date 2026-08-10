@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LevelLens — Resume Signal & Leveling</title>
+  <style>
+    :root { --ink:#13212b; --paper:#f6f1e8; --accent:#c45c26; --line:#2f5d50; --muted:#5b6b73; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:16px/1.45 "Segoe UI", system-ui, sans-serif; color:var(--ink);
+      background: radial-gradient(circle at 10% 0%, #e7efe9, var(--paper) 45%); }
+    header { background:#102820; color:#f6f1e8; padding:1rem 1.25rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    header strong { font-size:1.25rem; letter-spacing:.02em; }
+    main { max-width:1100px; margin:0 auto; padding:1.25rem; display:grid; gap:1rem; }
+    .panel { background:rgba(255,255,255,.78); border:1px solid #c9d5cc; padding:1rem; }
+    h2 { margin:0 0 .75rem; font-size:1.1rem; }
+    label { display:block; margin:.4rem 0 .2rem; color:var(--muted); font-size:.9rem; }
+    textarea, input, button, select { font:inherit; width:100%; padding:.5rem .6rem; }
+    button { background:var(--accent); color:#fff; border:0; cursor:pointer; width:auto; }
+    button.secondary { background:var(--line); }
+    button:disabled { opacity:.55; cursor:wait; }
+    .row { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
+    .score { font-size:2rem; font-weight:700; }
+    .muted { color:var(--muted); }
+    .err { color:#8b1e1e; font-weight:600; }
+    .demo { background:#214c3a; color:#f6f1e8; padding:.75rem 1rem; display:none; }
+    canvas { width:100%; max-width:360px; background:#fff; border:1px solid #d5ddd7; }
+    ul { margin:.4rem 0; padding-left:1.1rem; }
+    table { width:100%; border-collapse:collapse; font-size:.92rem; }
+    td, th { border-bottom:1px solid #d5ddd7; padding:.35rem; text-align:left; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <strong>LevelLens</strong>
+      <div class="muted" style="color:#c9d5cc">Engineering resume signals · IC3–IC7 leveling</div>
+    </div>
+    <div class="row">
+      <button class="secondary" id="btnDemo" type="button">Load demo</button>
+      <button class="secondary" id="btnHistory" type="button">History</button>
+    </div>
+  </header>
+  <div class="demo" id="demoBanner">DEMO — seeded fixtures via real pipeline</div>
+  <main>
+    <section class="panel" id="intake">
+      <h2>Intake</h2>
+      <p class="muted">Upload PDF/DOCX/TXT (≤5MB) or paste resume text. Paste a job description (≥50 chars).</p>
+      <label>Resume file <input type="file" id="file" accept=".pdf,.docx,.txt,text/plain" /></label>
+      <label>Or paste resume text <textarea id="resumeText" rows="6" placeholder="Paste resume…"></textarea></label>
+      <label>Job description <textarea id="jdText" rows="5" placeholder="Paste JD…"></textarea></label>
+      <label>JD title <input id="jdTitle" value="Target role" /></label>
+      <div class="row" style="margin-top:.75rem">
+        <button id="btnAnalyze" type="button">Analyze</button>
+      </div>
+      <p class="err" id="error"></p>
+    </section>
+
+    <section class="panel" id="dashboard" style="display:none">
+      <h2>Dashboard</h2>
+      <div class="grid">
+        <div>
+          <div class="muted">Match score</div>
+          <div class="score" id="matchScore">—</div>
+          <div class="muted">Coverage <span id="coverage"></span> · TF-IDF <span id="tfidf"></span></div>
+          <div>Resume band <strong id="rBand"></strong> vs JD <strong id="jBand"></strong></div>
+        </div>
+        <div><canvas id="radar" width="360" height="280"></canvas></div>
+        <div><canvas id="gauge" width="360" height="180"></canvas></div>
+        <div><canvas id="gaps" width="360" height="220"></canvas></div>
+      </div>
+      <h2>Recommendations</h2>
+      <ul id="recs"></ul>
+      <div class="row">
+        <button class="secondary" id="btnExportJson" type="button">Export JSON</button>
+        <button class="secondary" id="btnExportCsv" type="button">Export CSV</button>
+      </div>
+    </section>
+
+    <section class="panel" id="history" style="display:none">
+      <h2>History</h2>
+      <table><thead><tr><th>ID</th><th>Resume</th><th>JD</th><th>Match</th><th>Band</th><th>Mode</th></tr></thead>
+        <tbody id="histBody"></tbody></table>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Build a smart irrigation planner: zones, soil moisture simulation, weather stub, watering schedules, and manual override.

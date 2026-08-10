@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Platform Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #gameCanvas {
+            border: 2px solid #333;
+            background-color: #000;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 800px;
+        }
+
+        .score-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .leaderboard {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .leaderboard h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .leaderboard th, .leaderboard td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .leaderboard th {
+            background-color: #f2f2f2;
+        }
+
+        .instructions {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Gaming Platform Demo</h1>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div class="controls">
+            <div class="score-input">
+                <input type="text" id="usernameInput" placeholder="Enter your username">
+                <button onclick="saveScore()">Save Score</button>
+            </div>
+
+            <div class="score-input">
+                <button onclick="loadLeaderboard()">Load Leaderboard</button>
+                <span id="statusMessage"></span>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Controls</h2>
+            <p>Use arrow keys or WASD to move the player character (blue square).</p>
+            <p>Press SPACE to jump.</p>
+            <p>Press R to reset the game.</p>
+        </div>
+
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Leaderboard data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+    <script>
+        // Initialize the engine and game
+        const engine = new GamingEngine.Engine();
+        let playerEntity = null;
+        let score = 0;
+        let highScore = 0;
+
+        // Game state
+        const gameState = {
+            player: {
+                x: 400,
+                y: 300,
+                velocityX: 0,
+                velocityY: 0,
+                width: 30,
+                height: 30
+            },
+            gravity: 0.5,
+            isJumping: false
+        };
+
+        // Create player entity with components
+        function createPlayer() {
+            const player = engine.createEntity();
+            player.addComponent('position', { x: 400, y: 300 });
+            player.addComponent('size', { width: 30, height: 30 });
+            player.addComponent('render', { type: 'rectangle', color: '#0000ff' });
+            player.addComponent('physics', {
+                velocity: { x: 0, y: 0 },
+                mass: 1,
+                friction: 0.9
+            });
+            return player;
+        }
+
+        // Handle keyboard input
+        function handleInput() {
+            const input = engine.modules.find(m => m.name === 'input');
+            if (!input) return;
+
+            const position = playerEntity.getComponent('position');
+            const physics = playerEntity.getComponent('physics');
+
+            // Movement
+            if (input.isPressed('arrowleft') || input.isPressed('a')) {
+                physics.velocity.x = -5;
+            } else if (input.isPressed('arrowright') || input.isPressed('d')) {
+                physics.velocity.x = 5;
+            } else {
+                physics.velocity.x *= physics.friction;
+            }
+
+            // Jumping
+            if ((input.isPressed('arrowup') || input.isPressed('w') || input.isPressed(' ')) && !gameState.isJumping) {
+                physics.velocity.y = -12;
+                gameState.isJumping = true;
+            }
+
+            // Apply gravity
+            physics.velocity.y += gameState.gravity;
+
+            // Update position
+            position.x += physics.velocity.x;
+            position.y += physics.velocity.y;
+
+            // Ground collision
+            if (position.y > 570) {
+                position.y = 570;
+                physics.velocity.y = 0;
+                gameState.isJumping = false;
+            }
+
+            // Boundary checks
+            if (position.x < 0) position.x = 0;
+            if (position.x > 770) position.x = 770;
+        }
+
+        // Main game loop
+        function gameLoop() {
+            handleInput();
+
+            // Update engine systems
+            engine.update(0.016); // ~60fps
+
+            // Render
+            const rendering = engine.modules.find(m => m.name === 'rendering');
+            if (rendering) {
+                rendering.render(0.016);
+            }
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Initialize the demo game
+        function initGame() {
+            // Register modules
+            const renderingModule = new RenderingModule('gameCanvas');
+            const inputModule = new InputModule();
+            const physicsModule = new PhysicsModule();
+
+            engine.registerModule(renderingModule);
+            engine.registerModule(inputModule);
+            engine.registerModule(physicsModule);
+
+            // Create player
+            playerEntity = createPlayer();
+
+            // Start the game
+            engine.start();
+            gameLoop();
+
+            console.log('Game initialized');
+        }
+
+        // Save score to backend
+        async function saveScore() {
+            const username = document.getElementById('usernameInput').value.trim();
+            if (!username) {
+                alert('Please enter a username');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/scores', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        score: score,
+                        gameId: 'demo-game'
+                    })
+                });
+
+                const result = await response.json();
+                document.getElementById('statusMessage').textContent = `Score saved! ${result.message}`;
+
+                // Clear input
+                document.getElementById('usernameInput').value = '';
+            } catch (error) {
+                console.error('Error saving score:', error);
+                document.getElementById('statusMessage').textContent = 'Failed to save score';
+            }
+        }
+
+        // Load leaderboard from backend
+        async function loadLeaderboard() {
+            try {
+                const response = await fetch('/api/leaderboards/demo-game');
+                const leaderboard = await response.json();
+
+                const tbody = document.querySelector('#leaderboardTable tbody');
+                tbody.innerHTML = '';
+
+                leaderboard.forEach((entry, index) => {
+                    const row = tbody.insertRow();
+                    row.insertCell(0).textContent = index + 1;
+                    row.insertCell(1).textContent = entry.username;
+                    row.insertCell(2).textContent = entry.score;
+                });
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                document.getElementById('statusMessage').textContent = 'Failed to load leaderboard';
+            }
+        }
+
+        // Initialize when page loads
+        window.onload = initGame;
+    </script>
+</body>
+</html>

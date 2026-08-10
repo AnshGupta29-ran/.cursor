@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AnswerAtlas Search</title>
+    <style>
+        body {font-family: Arial, sans-serif; margin: 2rem;}
+        .result {border: 1px solid #ccc; padding: 0.5rem; margin-top: 0.5rem;}
+        .tier {font-weight: bold;}
+        .badge {padding: 2px 6px; border-radius: 4px; color: #fff; margin-left: 5px;}
+        .badge.auto {background:#28a745;}
+        .badge.suggest {background:#ffc107;}
+        .badge.escalate {background:#dc3545;}
+    </style>
+</head>
+<body>
+<h1>AnswerAtlas Demo</h1>
+<input id="query" type="text" placeholder="Enter your question" size="60"/>
+<button onclick="search()">Search</button>
+<div id="tier"></div>
+<div id="results"></div>
+<script>
+async function search(){
+  const q=document.getElementById('query').value;
+  const resp=await fetch('/api/search',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({query:q,top_k:5})});
+  const data=await resp.json();
+  const tierDiv=document.getElementById('tier');
+  tierDiv.innerHTML=`Tier: <span class="badge ${data.tier}">${data.tier}</span>`;
+  const resultsDiv=document.getElementById('results');
+  resultsDiv.innerHTML='';
+  data.results.forEach(r=>{
+    const el=document.createElement('div');
+    el.className='result';
+    el.innerHTML=`<div><strong>${r.question}</strong> (Score: ${r.score.toFixed(2)})</div>`+
+                `<div>${r.snippet}</div>`+
+                `<div>Source: ${r.source_ref}</div>`;
+    resultsDiv.appendChild(el);
+  });
+}
+</script>
+</body>
+</html>

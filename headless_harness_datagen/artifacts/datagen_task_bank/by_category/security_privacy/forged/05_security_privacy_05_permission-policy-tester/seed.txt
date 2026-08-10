@@ -1,0 +1,1 @@
+Build a RBAC/ABAC policy tester: define roles/permissions, evaluate access queries, and show allow/deny with reasons.

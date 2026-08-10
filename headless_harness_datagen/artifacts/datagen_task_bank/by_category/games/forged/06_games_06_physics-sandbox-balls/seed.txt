@@ -1,0 +1,1 @@
+Build a 2D physics sandbox with spawnable balls, gravity toggle, and collision counters (box2d or simple physics).

@@ -1,0 +1,1 @@
+Create a TLS certificate expiry monitor: check hosts, store notAfter dates, alert when within N days, simple dashboard.

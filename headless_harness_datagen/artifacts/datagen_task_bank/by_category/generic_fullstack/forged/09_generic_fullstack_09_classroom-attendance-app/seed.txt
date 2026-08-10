@@ -1,0 +1,1 @@
+Create a classroom attendance app: roster, date sessions, present/absent, and export CSV.

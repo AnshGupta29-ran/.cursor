@@ -1,0 +1,5 @@
+Alex Rivera — Staff Software Engineer
+2015-2024 | Owned payments platform serving 2.4M users. Architected event-driven services in Python and Go.
+Drove Kubernetes migration on AWS; cut p99 latency 35%. Mentored 6 engineers; led design reviews and RFCs.
+Stack: Python, FastAPI, PostgreSQL, Redis, Kafka, Docker, Kubernetes, Terraform, CI/CD, GraphQL.
+Led hiring loop; roadmap ownership for fraud detection (scikit-learn + feature store). Incident response on-call.

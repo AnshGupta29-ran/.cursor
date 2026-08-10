@@ -1,0 +1,129 @@
+{
+  "name": "chakra-vscode",
+  "displayName": "Chakra",
+  "description": "Practical VS Code companion for Chakra with project-aware launch behavior and a real Control Center.",
+  "version": "0.1.1",
+  "publisher": "devnull-bootloader",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:chakra.start",
+    "onCommand:chakra.startInWorkspaceRoot",
+    "onCommand:chakra.openDocs",
+    "onCommand:chakra.openSetupDocs",
+    "onCommand:chakra.openWorkspaceProfile",
+    "onCommand:chakra.openControlCenter",
+    "onView:chakra.controlCenter"
+  ],
+  "main": "./src/extension.js",
+  "files": [
+    "README.md",
+    "media/**",
+    "src/extension.js",
+    "src/presentation.js",
+    "src/state.js",
+    "themes/**"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "chakra.start",
+        "title": "Chakra: Launch in Terminal",
+        "category": "Chakra"
+      },
+      {
+        "command": "chakra.startInWorkspaceRoot",
+        "title": "Chakra: Launch in Workspace Root",
+        "category": "Chakra"
+      },
+      {
+        "command": "chakra.openDocs",
+        "title": "Chakra: Open Repository",
+        "category": "Chakra"
+      },
+      {
+        "command": "chakra.openSetupDocs",
+        "title": "Chakra: Open Setup Guide",
+        "category": "Chakra"
+      },
+      {
+        "command": "chakra.openWorkspaceProfile",
+        "title": "Chakra: Open Workspace Profile",
+        "category": "Chakra"
+      },
+      {
+        "command": "chakra.openControlCenter",
+        "title": "Chakra: Open Control Center",
+        "category": "Chakra"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "chakra",
+          "title": "Chakra",
+          "icon": "media/chakra.svg"
+        }
+      ]
+    },
+    "views": {
+      "chakra": [
+        {
+          "id": "chakra.controlCenter",
+          "name": "Control Center",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Chakra",
+      "properties": {
+        "chakra.launchCommand": {
+          "type": "string",
+          "default": "chakra",
+          "description": "Command run in the integrated terminal when launching Chakra."
+        },
+        "chakra.terminalName": {
+          "type": "string",
+          "default": "Chakra",
+          "description": "Integrated terminal tab name for Chakra sessions."
+        },
+        "chakra.useOpenAIShim": {
+          "type": "boolean",
+          "default": false,
+          "description": "Optionally set CLAUDE_CODE_USE_OPENAI=1 in launched Chakra terminals."
+        }
+      }
+    },
+    "themes": [
+      {
+        "label": "Chakra Terminal Black",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Chakra-Terminal-Black.json"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test ./src/*.test.js",
+    "lint": "node -e \"for (const file of require('node:fs').readdirSync('./src')) { if (file.endsWith('.js')) { require('node:child_process').execFileSync(process.execPath, ['--check', require('node:path').join('src', file)], { stdio: 'inherit' }); } }\"",
+    "package": "npx @vscode/vsce package --no-dependencies"
+  },
+  "keywords": [
+    "chakra",
+    "terminal",
+    "theme",
+    "cli",
+    "llm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gitlawb/chakra"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tidewatch — Browser Playable</title>
+  <style>
+    :root {
+      --bg: #0b1520;
+      --panel: #132433;
+      --ink: #e8f1f8;
+      --muted: #8aa0b5;
+      --accent: #d4a017;
+      --danger: #c44536;
+      --ok: #3d9a6a;
+      --water: #1a4a6e;
+      --causeway: #6b5a45;
+      --plot: #3a6b4f;
+      --rock: #2a3540;
+      --trench: #0f3550;
+      --gate: #8b3a3a;
+      --base: #c9a227;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, #16324a, var(--bg));
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    header {
+      padding: 14px 20px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 { margin: 0; font-size: 1.25rem; letter-spacing: 0.02em; }
+    .sub { color: var(--muted); font-size: 0.85rem; }
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 16px;
+      padding: 8px 20px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
+    canvas {
+      width: 100%;
+      background: #071018;
+      border: 1px solid #243747;
+      border-radius: 10px;
+      display: block;
+      cursor: crosshair;
+      image-rendering: pixelated;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid #243747;
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .stat { display: flex; justify-content: space-between; font-size: 0.92rem; }
+    .stat b { color: var(--accent); }
+    .tide {
+      height: 10px;
+      background: #0a1c2a;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .tide > i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #2a7ab8, #5ec8ff);
+    }
+    .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    button, .tower-btn {
+      background: #1c3348;
+      color: var(--ink);
+      border: 1px solid #34506a;
+      border-radius: 8px;
+      padding: 9px 10px;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+    }
+    button:hover, .tower-btn:hover { border-color: var(--accent); }
+    button.primary { background: #2a4d38; border-color: #3d9a6a; }
+    button.danger { background: #4a2220; border-color: var(--danger); }
+    .tower-btn.active { outline: 2px solid var(--accent); }
+    .tower-btn small { display: block; color: var(--muted); font-size: 0.75rem; }
+    .log {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-height: 120px;
+      overflow: auto;
+      border-top: 1px solid #243747;
+      padding-top: 8px;
+    }
+    .banner {
+      margin: 0 20px 8px;
+      padding: 10px 14px;
+      background: #3a2a10;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      display: none;
+    }
+    .banner.show { display: block; }
+    .note {
+      margin: 0 20px 16px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      max-width: 1200px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Tidewatch: Lantern of the Shattered Coast</h1>
+      <div class="sub">Browser playable build from Chakra project data · Level 1 · Calm Sea</div>
+    </div>
+    <div class="sub">Keys: 1–5 build · Space call wave · Esc cancel</div>
+  </header>
+  <div id="banner" class="banner">Tide turning soon — path graph will rewrite.</div>
+  <div class="wrap">
+    <canvas id="game" width="960" height="480"></canvas>
+    <aside class="panel">
+      <div class="stat"><span>Salvage</span><b id="salvage">0</b></div>
+      <div class="stat"><span>Lantern Light</span><b id="lantern">0</b></div>
+      <div class="stat"><span>Wave</span><b id="wave">—</b></div>
+      <div class="stat"><span>Tide</span><b id="tidePhase">Low</b></div>
+      <div class="tide"><i id="tideBar"></i></div>
+      <div class="stat"><span>Speed</span><b id="speedLabel">1×</b></div>
+      <div class="btns">
+        <button class="primary" id="btnWave">Call wave (Space)</button>
+        <button id="btnSpeed">Toggle speed</button>
+        <button id="btnPause">Pause</button>
+        <button class="danger" id="btnRestart">Restart</button>
+      </div>
+      <div id="towers"></div>
+      <div class="log" id="log"></div>
+    </aside>
+  </div>
+  <p class="note">
+    This is a browser port of the Tidewatch content Chakra generated under
+    <code>experiments/tower_defense/Tidewatch</code>. Unity Hub install was blocked/canceled on this machine,
+    so this playable web build uses the same JSON towers/enemies/level data.
+  </p>
+  <script src="game.js"></script>
+</body>
+</html>

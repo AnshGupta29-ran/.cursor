@@ -1,0 +1,1 @@
+Create a lab instrument rack monitor: power draw simulation, over-temp alarms, maintenance tickets, and CSV export of readings.

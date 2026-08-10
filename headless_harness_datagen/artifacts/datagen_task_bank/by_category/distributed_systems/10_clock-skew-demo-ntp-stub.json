@@ -1,0 +1,32 @@
+{
+  "id": "distributed_systems_10_clock-skew-demo-ntp-stub",
+  "category": "distributed_systems",
+  "index": 10,
+  "title": "Clock skew demo + NTP stub",
+  "seed": "Build a multi-node clock skew demo showing logical clocks/vector clocks for event ordering.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "javascript",
+    "artifact_type": "cli_tool",
+    "task_family": "analysis_reason",
+    "business_domain": "devops_platform",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "multi-theme or multi-difficulty presets",
+    "delivery": "library_plus_demo_app",
+    "modality": "text_code"
+  },
+  "workdir": "task_distributed_systems_10",
+  "pipeline_cmd": "python main.py \"Build a multi-node clock skew demo showing logical clocks/vector clocks for event ordering.\" --forge-prompt --forge-category distributed_systems --workdir task_distributed_systems_10",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: javascript (JavaScript (Node or browser))\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: dashboard_charts\n- persistence: memory_only\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: library_plus_demo_app\n- novelty: multi-theme or multi-difficulty presets\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild a multi-node clock skew demo showing logical clocks/vector clocks for event ordering.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: javascript\n- UI surface: dashboard_charts\n- Persistence: memory_only\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: multi-theme or multi-difficulty presets\n- Delivery: library_plus_demo_app\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

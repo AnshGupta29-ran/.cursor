@@ -1,0 +1,52 @@
+[
+  {
+    "id": "faq-1",
+    "question": "How do I reset my MFA token?",
+    "answer": "To reset your MFA token, go to the security settings page, click 'Reset MFA', and follow the emailed instructions.",
+    "category": "IT",
+    "tags": ["mfa","security"],
+    "source_ref": "KB-101",
+    "status": "published",
+    "updated_at": "2024-01-15T12:00:00Z"
+  },
+  {
+    "id": "faq-2",
+    "question": "What is the expense report per‑diem limit?",
+    "answer": "The per‑diem limit for expense reports is $120 per day for domestic travel and $200 for international travel.",
+    "category": "Finance",
+    "tags": ["expense","per‑diem"],
+    "source_ref": "KB-202",
+    "status": "published",
+    "updated_at": "2024-02-10T09:30:00Z"
+  },
+  {
+    "id": "faq-3",
+    "question": "Why is my VPN connection dropping on Wi‑Fi?",
+    "answer": "VPN drops on Wi‑Fi are often caused by aggressive power‑saving settings. Disable Wi‑Fi power management in the adapter properties and retry.",
+    "category": "IT",
+    "tags": ["vpn","wifi"],
+    "source_ref": "KB-303",
+    "status": "published",
+    "updated_at": "2024-03-05T15:45:00Z"
+  },
+  {
+    "id": "faq-4",
+    "question": "How can I request a new laptop?",
+    "answer": "Submit a hardware request through the service portal, selecting the 'New Laptop' template and providing your justification.",
+    "category": "HR",
+    "tags": ["hardware","request"],
+    "source_ref": "KB-404",
+    "status": "published",
+    "updated_at": "2024-01-20T08:15:00Z"
+  },
+  {
+    "id": "faq-5",
+    "question": "What are the office hours for the help desk?",
+    "answer": "The help desk operates Monday through Friday, 8 am to 6 pm in the local timezone.",
+    "category": "Support",
+    "tags": ["hours","helpdesk"],
+    "source_ref": "KB-505",
+    "status": "published",
+    "updated_at": "2024-02-28T11:00:00Z"
+  }
+]

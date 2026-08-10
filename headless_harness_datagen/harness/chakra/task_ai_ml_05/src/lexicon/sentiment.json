@@ -1,0 +1,4 @@
+{
+  "positive": ["good", "great", "excellent", "happy", "satisfied"],
+  "negative": ["bad", "terrible", "poor", "unhappy", "complaint", "jammed", "delay"]
+}

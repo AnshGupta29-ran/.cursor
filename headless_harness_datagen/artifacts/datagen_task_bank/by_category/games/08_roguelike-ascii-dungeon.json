@@ -1,0 +1,32 @@
+{
+  "id": "games_08_roguelike-ascii-dungeon",
+  "category": "games",
+  "index": 8,
+  "title": "Roguelike ASCII dungeon",
+  "seed": "Implement a small ASCII roguelike: procedural rooms, fog of war, enemies, inventory of 3 items, and save.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "resume_mid_task",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "browser_heavy",
+    "user_persona": "pm_non_technical",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "typescript",
+    "artifact_type": "game_prototype",
+    "task_family": "coding_implement",
+    "business_domain": "gaming",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "offline-first; no cloud accounts",
+    "delivery": "one_command_dev_server",
+    "modality": "text_code"
+  },
+  "workdir": "task_games_08",
+  "pipeline_cmd": "python main.py \"Implement a small ASCII roguelike: procedural rooms, fog of war, enemies, inventory of 3 items, and save.\" --forge-prompt --forge-category games --workdir task_games_08",
+  "forge_brief": "[DIMENSION LOCK \u2014 mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: hard \u2192 full PRD depth \u2014 richer acceptance criteria and verification\n- value: hard\n- ui_surface: html_canvas\n- persistence: memory_only\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: browser_heavy\n- user_persona: pm_non_technical\n- agent_topology: plan_then_execute\n- session_shape: resume_mid_task\n- repo_state: partial_scaffold\n- delivery: one_command_dev_server\n- novelty: offline-first; no cloud accounts\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nImplement a small ASCII roguelike: procedural rooms, fog of war, enemies, inventory of 3 items, and save.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: html_canvas\n- Persistence: memory_only\n- Complexity band: hard (full PRD depth \u2014 richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: pm_non_technical\n- Novelty: offline-first; no cloud accounts\n- Delivery: one_command_dev_server\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

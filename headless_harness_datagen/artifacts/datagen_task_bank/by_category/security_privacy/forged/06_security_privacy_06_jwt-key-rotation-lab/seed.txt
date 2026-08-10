@@ -1,0 +1,1 @@
+Create a JWT auth service demo with key rotation, JWKS endpoint, and middleware verification tests.

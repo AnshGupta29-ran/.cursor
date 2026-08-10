@@ -1,0 +1,1 @@
+Create a time-series anomaly flagger: ingest metric CSV, detect spikes with z-score/IQR, plot anomalies, and export flagged windows.

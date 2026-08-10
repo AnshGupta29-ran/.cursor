@@ -1,0 +1,1 @@
+Create a real-time auction room platform: users join rooms, place bids, see live bid feed and countdown timers, and get notified when outbid.

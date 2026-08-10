@@ -1,0 +1,32 @@
+{
+  "id": "ai_ml_01_ai-resume-analyzer",
+  "category": "ai_ml",
+  "index": 1,
+  "title": "AI Resume Analyzer",
+  "seed": "Create a resume analysis web application using React, FastAPI, and a pre-trained NLP model from Hugging Face Transformers. Users should be able to upload PDF or DOCX resumes, extract structured information, identify skills, estimate experience level, and compare the resume against a provided job description. Display skill gaps, matching percentage, keyword analysis, and recommendations through an intuitive dashboard.",
+  "source": "archive:4",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "ml_inference_eval",
+    "business_domain": "data_analytics",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "must include a live demo mode with sample data",
+    "delivery": "docker_compose_optional",
+    "modality": "text_code"
+  },
+  "workdir": "task_ai_ml_01",
+  "pipeline_cmd": "python main.py \"Create a resume analysis web application using React, FastAPI, and a pre-trained NLP model from Hugging Face Transformers. Users should be able to upload PDF or DOCX resumes, extract structured information, identify skills, estimate experience level, and compare the resume against a provided job description. Display skill gaps, matching percentage, keyword analysis, and recommendations through an intuitive dashboard.\" --forge-prompt --forge-category ai_ml --workdir task_ai_ml_01",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: html_canvas\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: docker_compose_optional\n- novelty: must include a live demo mode with sample data\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a resume analysis web application using React, FastAPI, and a pre-trained NLP model from Hugging Face Transformers. Users should be able to upload PDF or DOCX resumes, extract structured information, identify skills, estimate experience level, and compare the resume against a provided job description. Display skill gaps, matching percentage, keyword analysis, and recommendations through an intuitive dashboard.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: html_canvas\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: must include a live demo mode with sample data\n- Delivery: docker_compose_optional\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "collaborative_realtime_06_collaborative-markdown-notes",
+  "category": "collaborative_realtime",
+  "index": 6,
+  "title": "Collaborative markdown notes",
+  "seed": "Create a collaborative markdown notes app with rooms, live caret presence, version history snapshots, and export to Markdown/HTML.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "single_shot",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "low",
+    "language_runtime": "rust",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "productivity_collab",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "domain twist: niche audience + unusual constraint",
+    "delivery": "single_readme_run",
+    "modality": "text_code"
+  },
+  "workdir": "task_collaborative_realtime_06",
+  "pipeline_cmd": "python main.py \"Create a collaborative markdown notes app with rooms, live caret presence, version history snapshots, and export to Markdown/HTML.\" --forge-prompt --forge-category collaborative_realtime --workdir task_collaborative_realtime_06",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: rust (Rust)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: low\n- ui_surface: cli_tui\n- persistence: json_file\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: single_shot\n- repo_state: empty_scratch\n- delivery: single_readme_run\n- novelty: domain twist: niche audience + unusual constraint\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a collaborative markdown notes app with rooms, live caret presence, version history snapshots, and export to Markdown/HTML.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: rust\n- UI surface: cli_tui\n- Persistence: json_file\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: domain twist: niche audience + unusual constraint\n- Delivery: single_readme_run\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

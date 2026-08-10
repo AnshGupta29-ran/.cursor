@@ -1,0 +1,32 @@
+{
+  "id": "monitoring_ops_06_ssl-http-probe-farm",
+  "category": "monitoring_ops",
+  "index": 6,
+  "title": "SSL/HTTP probe farm",
+  "seed": "Create an HTTP probe farm: configured URLs, expected status codes, latency SLOs, and failure screenshots stubs.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "browser_heavy",
+    "user_persona": "pm_non_technical",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "rust",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "devops_platform",
+    "ui_surface": "excel_workbook",
+    "persistence": "json_file",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "observability: structured logs + simple metrics endpoint",
+    "delivery": "worker_plus_api",
+    "modality": "text_code"
+  },
+  "workdir": "task_monitoring_ops_06",
+  "pipeline_cmd": "python main.py \"Create an HTTP probe farm: configured URLs, expected status codes, latency SLOs, and failure screenshots stubs.\" --forge-prompt --forge-category monitoring_ops --workdir task_monitoring_ops_06",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: rust (Rust)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: excel_workbook\n- persistence: json_file\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: browser_heavy\n- user_persona: pm_non_technical\n- agent_topology: plan_then_execute\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: worker_plus_api\n- novelty: observability: structured logs + simple metrics endpoint\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate an HTTP probe farm: configured URLs, expected status codes, latency SLOs, and failure screenshots stubs.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: rust\n- UI surface: excel_workbook\n- Persistence: json_file\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: pm_non_technical\n- Novelty: observability: structured logs + simple metrics endpoint\n- Delivery: worker_plus_api\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

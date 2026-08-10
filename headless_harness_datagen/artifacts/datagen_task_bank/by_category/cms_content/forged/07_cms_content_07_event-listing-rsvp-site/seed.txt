@@ -1,0 +1,1 @@
+Build an event listing CMS with RSVPs, capacity limits, calendar view, and organizer dashboards.

@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "settings": {
+    "difficulty": "standard",
+    "mute": false,
+    "game_speed": 1.0
+  }
+}

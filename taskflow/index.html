@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <h1>TaskFlow</h1>
+
+    <form id="task-form">
+      <input id="task-title" type="text" placeholder="Task title" required>
+      <input id="task-desc" type="text" placeholder="Description (optional)">
+      <button type="submit">Add Task</button>
+    </form>
+
+    <div class="filters" id="filters">
+      <button type="button" data-filter="all" class="active">All</button>
+      <button type="button" data-filter="active">Active</button>
+      <button type="button" data-filter="completed">Completed</button>
+    </div>
+
+    <ul id="task-list"></ul>
+    <p id="empty-state" hidden></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

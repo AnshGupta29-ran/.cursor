@@ -1,0 +1,1 @@
+Create an aquarium controller dashboard: light schedules, temperature alerts, dosing reminders, and device online/offline state.

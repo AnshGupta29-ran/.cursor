@@ -1,0 +1,1 @@
+Create an HTTP probe farm: configured URLs, expected status codes, latency SLOs, and failure screenshots stubs.

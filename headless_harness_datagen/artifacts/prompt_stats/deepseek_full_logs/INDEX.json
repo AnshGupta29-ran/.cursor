@@ -1,0 +1,101 @@
+{
+  "exported_at": "2026-08-05T07:07:00.688115+00:00",
+  "note": "Full DeepSeek Chakra transcripts (all projects), not thinking-only.",
+  "sessions": [
+    {
+      "session_id": "00af346f-ab5a-493b-b588-01206991530d",
+      "project": "C--Users-anshg--cursor-headless-harness-datagen-harness-chakra",
+      "source": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\00af346f-ab5a-493b-b588-01206991530d.jsonl",
+      "copied_jsonl": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__00af346f-ab5a-493b-b588-01206991530d.jsonl",
+      "readable_md": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__00af346f-ab5a-493b-b588-01206991530d.md",
+      "bytes": 33763,
+      "deepseek_assistant_msgs": 3,
+      "models": {
+        "deepseek-v4-flash": 3
+      },
+      "roles": {
+        "user": 6,
+        "assistant": 3
+      },
+      "block_types": {
+        "text": 3
+      },
+      "first_ts": "2026-08-05T06:36:05.289Z",
+      "last_ts": "2026-08-05T06:53:35.768Z"
+    },
+    {
+      "session_id": "06d8609d-2422-436e-9a17-2fe13e7747b2",
+      "project": "C--Users-anshg--cursor-headless-harness-datagen-harness-chakra",
+      "source": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\06d8609d-2422-436e-9a17-2fe13e7747b2.jsonl",
+      "copied_jsonl": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__06d8609d-2422-436e-9a17-2fe13e7747b2.jsonl",
+      "readable_md": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__06d8609d-2422-436e-9a17-2fe13e7747b2.md",
+      "bytes": 474369,
+      "deepseek_assistant_msgs": 109,
+      "models": {
+        "deepseek-v4-flash": 109
+      },
+      "roles": {
+        "user": 55,
+        "assistant": 109
+      },
+      "block_types": {
+        "text": 55,
+        "tool_use": 54,
+        "tool_result": 53
+      },
+      "first_ts": "2026-08-04T12:26:55.363Z",
+      "last_ts": "2026-08-04T13:52:26.630Z"
+    },
+    {
+      "session_id": "7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3",
+      "project": "C--Users-anshg--cursor-headless-harness-datagen-harness-chakra",
+      "source": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3.jsonl",
+      "copied_jsonl": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3.jsonl",
+      "readable_md": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3.md",
+      "bytes": 294165,
+      "deepseek_assistant_msgs": 76,
+      "models": {
+        "deepseek-v4-flash": 76
+      },
+      "roles": {
+        "user": 45,
+        "assistant": 76
+      },
+      "block_types": {
+        "text": 39,
+        "tool_use": 37,
+        "tool_result": 37
+      },
+      "first_ts": "2026-08-04T17:22:21.786Z",
+      "last_ts": "2026-08-04T18:27:49.678Z"
+    },
+    {
+      "session_id": "a28c82c9-07c8-460f-beb9-54c40cc96e99",
+      "project": "C--Users-anshg--cursor-headless-harness-datagen-harness-chakra",
+      "source": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\a28c82c9-07c8-460f-beb9-54c40cc96e99.jsonl",
+      "copied_jsonl": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__a28c82c9-07c8-460f-beb9-54c40cc96e99.jsonl",
+      "readable_md": "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\sessions\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__a28c82c9-07c8-460f-beb9-54c40cc96e99.md",
+      "bytes": 319419,
+      "deepseek_assistant_msgs": 92,
+      "models": {
+        "deepseek-v4-flash": 92
+      },
+      "roles": {
+        "user": 51,
+        "assistant": 92
+      },
+      "block_types": {
+        "text": 47,
+        "tool_use": 45,
+        "tool_result": 45
+      },
+      "first_ts": "2026-08-05T06:22:04.955Z",
+      "last_ts": "2026-08-05T07:07:50.230Z"
+    }
+  ],
+  "history_hits": 13,
+  "copied_misc": [
+    "c:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\deepseek_full_logs\\misc\\settings.json"
+  ],
+  "datagen_log_hits": []
+}

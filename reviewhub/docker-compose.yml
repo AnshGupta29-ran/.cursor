@@ -1,0 +1,25 @@
+# Local/dev compose: one service is the honest answer — SQLite makes the app
+# self-contained. The commented block documents the Postgres swap point for
+# production scale-out (change DB layer, queries stay portable).
+services:
+  reviewhub:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-me}
+      DB_PATH: /app/data/reviewhub.db
+    volumes:
+      - reviewhub-data:/app/data
+    restart: unless-stopped
+
+  # --- production shape (uncomment when moving off SQLite) ---
+  # db:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #   volumes:
+  #     - pg-data:/var/lib/postgresql/data
+
+volumes:
+  reviewhub-data:

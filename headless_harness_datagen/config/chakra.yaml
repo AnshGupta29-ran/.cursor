@@ -1,0 +1,26 @@
+# Chakra backend configuration (read-only reference to harness/chakra)
+# No files inside harness/chakra are modified by this project.
+
+chakra:
+  # Absolute or repo-relative path to the Chakra harness checkout
+  root: harness/chakra
+
+  # gRPC service (see harness/chakra/src/grpc/server.ts)
+  grpc:
+    host: localhost
+    port: 50051
+    service: chakra.v1.AgentService
+    method: Chat
+
+  # Proto definition used to generate the Python client
+  proto:
+    source: harness/chakra/src/proto/chakra.proto
+    local_copy: client/proto/chakra.proto
+
+  # How to start the backend (run from repo root; requires Bun + Node >= 20)
+  startup:
+    command: bun run dev:grpc
+    cwd: harness/chakra
+    env:
+      GRPC_HOST: localhost
+      GRPC_PORT: "50051"

@@ -1,0 +1,47 @@
+1. Slack-style team chat
+Build a Slack-style team chat application with channels, private messaging, notifications, and file sharing.
+
+-----
+
+2. Multiplayer kanban board live sync
+Create a multiplayer kanban board where cards and columns sync in real time across users with presence indicators, conflict-safe moves, and room-based boards.
+
+-----
+
+3. Pair programming shared editor
+Build a pair-programming web app with a shared code editor, cursors for each user, chat sidebar, and session links. Use WebSockets for sync.
+
+-----
+
+4. Live auction room
+Create a real-time auction room platform: users join rooms, place bids, see live bid feed and countdown timers, and get notified when outbid.
+
+-----
+
+5. Classroom quiz live leaderboard
+Build a live classroom quiz app where a teacher pushes questions and students answer in real time with a running leaderboard.
+
+-----
+
+6. Collaborative markdown notes
+Create a collaborative markdown notes app with rooms, live caret presence, version history snapshots, and export to Markdown/HTML.
+
+-----
+
+7. Ops war-room incident chat
+Build an incident war-room chat with channels per incident, @mentions, severity tags, and a timeline of status updates synced live.
+
+-----
+
+8. Shared music listening room
+Create a synchronized listening room: queue tracks, play/pause sync across clients, chat, and host controls.
+
+-----
+
+9. Live CSV co-editing sheet
+Build a lightweight collaborative spreadsheet for CSV data with cell editing, live sync, and conflict highlighting (not Excel-plugin).
+
+-----
+
+10. Remote design critique board
+Create a real-time design critique board: upload images, pin comments with coordinates, resolve threads, and show live viewers.

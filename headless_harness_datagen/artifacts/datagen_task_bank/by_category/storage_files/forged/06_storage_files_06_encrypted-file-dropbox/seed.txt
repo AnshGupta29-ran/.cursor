@@ -1,0 +1,1 @@
+Build an encrypted file drop service: client-side or server-side encryption, one-time download links, and expiry.

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": false,
+    "skipLibCheck": true,
+    "outDir": "scripts/.smoke-build",
+    "rootDir": ".",
+    "lib": ["ES2022"]
+  },
+  "include": ["src/core/**/*.ts", "src/data/**/*.ts", "scripts/headless_match.ts"]
+}

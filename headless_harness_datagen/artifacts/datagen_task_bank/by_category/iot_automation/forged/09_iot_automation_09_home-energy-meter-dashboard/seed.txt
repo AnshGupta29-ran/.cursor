@@ -1,0 +1,1 @@
+Build a home energy meter dashboard with simulated circuits, daily kWh charts, peak alerts, and appliance grouping.

@@ -1,0 +1,91 @@
+/* Dark developer-tool theme. Reasoning: reviewers stare at diffs for hours;
+   low-luminance UI with high-contrast diff colors reduces eye strain, and the
+   green/red diff palette matches every developer's muscle memory from git. */
+:root {
+  --bg: #0d1117; --panel: #161b22; --border: #30363d;
+  --text: #e6edf3; --muted: #8b949e;
+  --accent: #58a6ff; --green: #3fb950; --red: #f85149; --amber: #d29922;
+  --green-bg: rgba(46, 160, 67, 0.15); --red-bg: rgba(248, 81, 73, 0.15);
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--bg); color: var(--text); font: 14px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+button { cursor: pointer; font: inherit; border-radius: 6px; border: 1px solid var(--border); background: #21262d; color: var(--text); padding: 6px 12px; }
+button:hover { border-color: var(--muted); }
+button.primary { background: #238636; border-color: #238636; color: #fff; }
+button.primary:hover { background: #2ea043; }
+button.danger { background: none; border-color: var(--red); color: var(--red); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+input, textarea, select { background: #0d1117; color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 7px 10px; font: inherit; }
+input:focus, textarea:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+#topbar { display: flex; align-items: center; gap: 16px; padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--border); }
+#topbar .brand { font-weight: 700; color: var(--text); text-decoration: none; }
+#topbar nav a { color: var(--muted); text-decoration: none; margin-right: 14px; }
+#topbar nav a:hover { color: var(--text); }
+.spacer { flex: 1; }
+#whoami { color: var(--muted); }
+#notif-btn { position: relative; }
+#notif-badge { position: absolute; top: -4px; right: -4px; background: var(--red); color: #fff; border-radius: 999px; font-size: 10px; padding: 1px 5px; }
+
+#notif-panel { position: fixed; top: 52px; right: 16px; width: 340px; max-height: 70vh; overflow: auto; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; z-index: 20; box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+.panel-head { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+#notif-list > div { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--muted); }
+#notif-list > div.unread { color: var(--text); background: rgba(88,166,255,.06); }
+
+main { max-width: 1100px; margin: 24px auto; padding: 0 20px; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.muted { color: var(--muted); }
+h2 { margin-bottom: 12px; }
+h3 { margin: 16px 0 8px; }
+a { color: var(--accent); }
+
+/* badges */
+.badge { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; border: 1px solid var(--border); }
+.badge.open { color: var(--green); border-color: var(--green); }
+.badge.merged { color: #a371f7; border-color: #a371f7; }
+.badge.closed { color: var(--red); border-color: var(--red); }
+.badge.approved { color: var(--green); border-color: var(--green); }
+.badge.changes_requested { color: var(--amber); border-color: var(--amber); }
+.badge.commented { color: var(--muted); }
+
+/* lists */
+.list-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 4px; border-bottom: 1px solid var(--border); }
+.list-row:last-child { border-bottom: none; }
+
+/* diff viewer: the core of the product. table-layout keeps line numbers
+   aligned; the whole row is colored so long lines stay readable. */
+.diff { width: 100%; border-collapse: collapse; font: 12px/1.45 ui-monospace, Consolas, monospace; }
+.diff td { padding: 1px 10px; white-space: pre-wrap; word-break: break-all; vertical-align: top; }
+.diff .ln { width: 48px; text-align: right; color: var(--muted); user-select: none; cursor: pointer; border-right: 1px solid var(--border); }
+.diff .ln:hover { color: var(--accent); text-decoration: underline; }
+.diff tr.add td { background: var(--green-bg); }
+.diff tr.del td { background: var(--red-bg); }
+.diff tr.hunk td { background: rgba(88,166,255,.08); color: var(--accent); }
+.file-head { background: var(--panel); border: 1px solid var(--border); border-bottom: none; border-radius: 8px 8px 0 0; padding: 8px 12px; font-family: ui-monospace, monospace; margin-top: 14px; }
+.diff-wrap { border: 1px solid var(--border); border-radius: 0 0 8px 8px; overflow: hidden; margin-bottom: 18px; }
+
+/* comments */
+.comment { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 8px 0; background: var(--panel); }
+.comment .meta { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+.comment.resolved { opacity: 0.55; }
+.comment textarea, .inline-form textarea { width: 100%; min-height: 60px; margin: 6px 0; }
+.inline-form { background: var(--panel); padding: 10px; border-top: 1px dashed var(--border); }
+.thread-indent { margin-left: 24px; }
+
+/* auth */
+.auth-box { max-width: 360px; margin: 8vh auto; }
+.auth-box input { width: 100%; margin-bottom: 10px; }
+.auth-box button { width: 100%; }
+
+/* misc */
+.tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.tabs button.active { background: var(--accent); border-color: var(--accent); color: #0d1117; font-weight: 600; }
+.error { color: var(--red); margin: 8px 0; }
+#toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--accent); padding: 10px 18px; border-radius: 8px; z-index: 30; }
+.metric { text-align: center; padding: 14px; border: 1px solid var(--border); border-radius: 8px; flex: 1; }
+.metric .num { font-size: 26px; font-weight: 700; }
+.bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; margin-top: 4px; }
+.bar > div { height: 100%; background: var(--accent); }
+.check-item { display: flex; gap: 8px; align-items: center; padding: 4px 0; }

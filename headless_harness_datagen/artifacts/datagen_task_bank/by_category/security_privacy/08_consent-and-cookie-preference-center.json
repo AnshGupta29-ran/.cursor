@@ -1,0 +1,32 @@
+{
+  "id": "security_privacy_08_consent-and-cookie-preference-center",
+  "category": "security_privacy",
+  "index": 8,
+  "title": "Consent and cookie preference center",
+  "seed": "Create a consent preference center UI + API: categories of tracking, versioned policies, and user consent records.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "single_shot",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "low",
+    "language_runtime": "java",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "legal_compliance",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "domain twist: niche audience + unusual constraint",
+    "delivery": "single_readme_run",
+    "modality": "text_code"
+  },
+  "workdir": "task_security_privacy_08",
+  "pipeline_cmd": "python main.py \"Create a consent preference center UI + API: categories of tracking, versioned policies, and user consent records.\" --forge-prompt --forge-category security_privacy --workdir task_security_privacy_08",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: java (Java 17+)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: low\n- ui_surface: cli_tui\n- persistence: json_file\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: single_shot\n- repo_state: empty_scratch\n- delivery: single_readme_run\n- novelty: domain twist: niche audience + unusual constraint\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a consent preference center UI + API: categories of tracking, versioned policies, and user consent records.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: java\n- UI surface: cli_tui\n- Persistence: json_file\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: domain twist: niche audience + unusual constraint\n- Delivery: single_readme_run\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

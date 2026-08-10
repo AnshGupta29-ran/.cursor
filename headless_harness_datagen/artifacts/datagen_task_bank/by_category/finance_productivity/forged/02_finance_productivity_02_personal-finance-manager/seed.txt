@@ -1,0 +1,1 @@
+Create a Personal Finance Manager in Python with accounts, transactions, budgets, and reports runnable locally.

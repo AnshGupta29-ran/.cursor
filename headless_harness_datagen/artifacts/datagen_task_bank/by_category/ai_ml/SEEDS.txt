@@ -1,0 +1,47 @@
+1. AI Resume Analyzer
+Create a resume analysis web application using React, FastAPI, and a pre-trained NLP model from Hugging Face Transformers. Users should be able to upload PDF or DOCX resumes, extract structured information, identify skills, estimate experience level, and compare the resume against a provided job description. Display skill gaps, matching percentage, keyword analysis, and recommendations through an intuitive dashboard.
+
+-----
+
+2. ML experiment tracking (MLflow-like)
+Build a machine learning experiment tracking platform similar to MLflow with experiment comparison, metric visualization, artifact storage, and REST APIs.
+
+-----
+
+3. Automated resume screening system
+Create an Automated Resume Screening System in Python that scores resumes against a job description using keyword/skill heuristics or a small local model, with a review queue UI.
+
+-----
+
+4. AI document assistant
+Build an AI Document Assistant: upload text/PDF, chunk and index locally, answer questions with citations from retrieved chunks (stub LLM OK if labeled).
+
+-----
+
+5. Sentiment triage inbox
+Create a support inbox that classifies message sentiment/urgency with a small local model or lexicon baseline and routes tickets to queues.
+
+-----
+
+6. Tabular churn predictor demo
+Build a churn prediction demo: upload CSV, train a simple sklearn model, show feature importances, and predict on new rows.
+
+-----
+
+7. Embedding search for FAQs
+Create an FAQ semantic search API using local embeddings (or TF-IDF fallback), with admin CRUD for FAQ entries and ranked answers.
+
+-----
+
+8. OCR receipt field extractor
+Build a receipt field extractor: accept images, stub OCR to text if needed, parse merchant/date/total with rules, and return structured JSON + UI review.
+
+-----
+
+9. Toxicity filter microservice
+Implement a toxicity/profanity filter microservice with batch and streaming endpoints, allowlists, and unit tests on fixtures.
+
+-----
+
+10. Time-series anomaly flagger
+Create a time-series anomaly flagger: ingest metric CSV, detect spikes with z-score/IQR, plot anomalies, and export flagged windows.

@@ -1,0 +1,252 @@
+{
+  "bands": [
+    "low",
+    "medium",
+    "hard"
+  ],
+  "core_axis_ids": [
+    "task_family",
+    "business_domain",
+    "language_runtime",
+    "artifact_type",
+    "complexity",
+    "value"
+  ],
+  "layers": {
+    "meta": [
+      "task_family",
+      "business_domain",
+      "artifact_type",
+      "language_runtime",
+      "modality",
+      "user_persona"
+    ],
+    "generic": [
+      "agent_topology",
+      "tool_profile",
+      "verification_mode",
+      "session_shape",
+      "repo_state"
+    ],
+    "quality": [
+      "complexity",
+      "value"
+    ]
+  },
+  "dimensions": [
+    {
+      "id": "task_family",
+      "title": "Task family",
+      "layer": "meta",
+      "description": "Primary cognitive/job type. Most generic skill axis for an agentic coding/analysis model.",
+      "values": [
+        "coding_implement",
+        "coding_debug",
+        "coding_refactor",
+        "coding_review",
+        "analysis_reason",
+        "data_visualization",
+        "data_wrangling",
+        "research_synthesize",
+        "planning_decompose",
+        "testing_qa",
+        "documentation",
+        "devops_ops",
+        "spreadsheet_excel",
+        "ml_inference_eval",
+        "security_audit",
+        "migration_upgrade"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "business_domain",
+      "title": "Business / vertical domain",
+      "layer": "meta",
+      "description": "Industry or product vertical the task lives in.",
+      "values": [
+        "ecommerce",
+        "finance_fintech",
+        "healthcare",
+        "education",
+        "devops_platform",
+        "gaming",
+        "iot_automation",
+        "media_cms",
+        "security_privacy",
+        "productivity_collab",
+        "social_comms",
+        "logistics_ops",
+        "legal_compliance",
+        "data_analytics",
+        "general_utilities"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "artifact_type",
+      "title": "Deliverable artifact",
+      "layer": "meta",
+      "description": "What kind of artifact the agent must produce or modify.",
+      "values": [
+        "web_fullstack",
+        "backend_api",
+        "frontend_spa",
+        "cli_tool",
+        "library_sdk",
+        "data_pipeline",
+        "notebook_analysis",
+        "spreadsheet_workbook",
+        "desktop_app",
+        "game_prototype",
+        "infra_as_code",
+        "docs_spec",
+        "test_suite",
+        "mixed_monorepo"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "language_runtime",
+      "title": "Language / runtime",
+      "layer": "meta",
+      "description": "Primary implementation language or office runtime.",
+      "values": [
+        "python",
+        "typescript",
+        "javascript",
+        "cpp",
+        "csharp",
+        "java",
+        "go",
+        "rust",
+        "sql",
+        "excel_office",
+        "bash_shell",
+        "html_css",
+        "mixed_polyglot"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "modality",
+      "title": "Input / output modality",
+      "layer": "meta",
+      "description": "Dominant media the agent must handle.",
+      "values": [
+        "text_code",
+        "tabular_excel",
+        "image_vision",
+        "logs_telemetry",
+        "structured_json",
+        "mixed_multimodal"
+      ],
+      "matrix_axis": false
+    },
+    {
+      "id": "user_persona",
+      "title": "Requester persona",
+      "layer": "meta",
+      "description": "Who is asking \u2014 affects tone, constraints, success criteria.",
+      "values": [
+        "solo_dev",
+        "startup_pm",
+        "enterprise_eng",
+        "data_analyst",
+        "student_learner",
+        "ops_sre"
+      ],
+      "matrix_axis": false
+    },
+    {
+      "id": "agent_topology",
+      "title": "Agent topology",
+      "layer": "generic",
+      "description": "Single-agent vs multi-agent. Current verification path is strongest as single-conversation with optional Agent subagents; full multi-agent spin is a known gap to expand.",
+      "values": [
+        "single_agent",
+        "subagent_spawns",
+        "multi_agent_parallel"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "tool_profile",
+      "title": "Tool use profile",
+      "layer": "generic",
+      "description": "Expected tool intensity and mix.",
+      "values": [
+        "read_only",
+        "edit_light",
+        "edit_heavy",
+        "shell_heavy",
+        "browser_or_ui",
+        "mixed_tools"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "verification_mode",
+      "title": "Verification mode",
+      "layer": "generic",
+      "description": "How success is checked after implementation.",
+      "values": [
+        "none",
+        "smoke_run",
+        "unit_tests",
+        "runtime_pass",
+        "human_review"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "session_shape",
+      "title": "Session shape",
+      "layer": "generic",
+      "description": "Turn structure of the example.",
+      "values": [
+        "single_shot",
+        "multi_turn_repair",
+        "long_horizon"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "repo_state",
+      "title": "Starting repo state",
+      "layer": "generic",
+      "description": "What the agent inherits at turn 0.",
+      "values": [
+        "empty_scratch",
+        "partial_scaffold",
+        "existing_buggy",
+        "brownfield_large"
+      ],
+      "matrix_axis": false
+    },
+    {
+      "id": "complexity",
+      "title": "Complexity",
+      "layer": "quality",
+      "description": "How hard the task is for an agentic coder: scope, deps, ambiguity, verification depth. Bands: low | medium | hard.",
+      "values": [
+        "low",
+        "medium",
+        "hard"
+      ],
+      "matrix_axis": true
+    },
+    {
+      "id": "value",
+      "title": "Training value",
+      "layer": "quality",
+      "description": "How valuable the example is for training an agentic model (signal density, transfer, rarity). Bands: low | medium | hard.",
+      "values": [
+        "low",
+        "medium",
+        "hard"
+      ],
+      "matrix_axis": true
+    }
+  ]
+}

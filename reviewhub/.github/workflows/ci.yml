@@ -1,0 +1,27 @@
+# CI reasoning: two jobs, fail fast. Tests gate everything; the Docker build
+# proves the artifact assembles. Deployment is a manual follow-up step — auto-
+# deploy on green is a business decision, not a default.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+  docker:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t reviewhub:${{ github.sha }} .

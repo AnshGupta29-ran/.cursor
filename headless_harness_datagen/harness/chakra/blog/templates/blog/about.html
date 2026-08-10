@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}About - Django Blog Platform{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h1>About Django Blog Platform</h1>
+
+        <p class="lead">A complete blogging platform built with Django and Python.</p>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Features</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> User authentication and authorization</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Post creation, editing, and deletion</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Comment system with moderation</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Category management</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Search functionality</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Admin panel for content management</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> REST API endpoints</li>
+                    <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Comprehensive test coverage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Technology Stack</h5>
+                <p>• Django 4.2+</p>
+                <p>• Django REST Framework</p>
+                <p>• Bootstrap 5</p>
+                <p>• CKEditor 5</p>
+                <p>• SQLite (default)</p>
+                <p>• pytest for testing</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Getting Started</h5>
+                <ol>
+                    <li>Create a virtual environment</li>
+                    <li>Install requirements: <code>pip install -r requirements.txt</code></li>
+                    <li>Run migrations: <code>python manage.py migrate</code></li>
+                    <li>Create a superuser: <code>python manage.py createsuperuser</code></li>
+                    <li>Start the development server: <code>python manage.py runserver</code></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

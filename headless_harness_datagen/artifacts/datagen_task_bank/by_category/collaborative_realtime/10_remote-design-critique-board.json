@@ -1,0 +1,32 @@
+{
+  "id": "collaborative_realtime_10_remote-design-critique-board",
+  "category": "collaborative_realtime",
+  "index": 10,
+  "title": "Remote design critique board",
+  "seed": "Create a real-time design critique board: upload images, pin comments with coordinates, resolve threads, and show live viewers.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "visual_diff",
+    "session_shape": "approval_gated",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "media_cms",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "deterministic --seed for reproducible runs",
+    "delivery": "notebook_plus_script",
+    "modality": "text_code"
+  },
+  "workdir": "task_collaborative_realtime_10",
+  "pipeline_cmd": "python main.py \"Create a real-time design critique board: upload images, pin comments with coordinates, resolve threads, and show live viewers.\" --forge-prompt --forge-category collaborative_realtime --workdir task_collaborative_realtime_10",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: static_html\n- persistence: csv_files\n- verification_mode: visual_diff\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: approval_gated\n- repo_state: empty_scratch\n- delivery: notebook_plus_script\n- novelty: deterministic --seed for reproducible runs\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a real-time design critique board: upload images, pin comments with coordinates, resolve threads, and show live viewers.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: static_html\n- Persistence: csv_files\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: visual_diff; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: deterministic --seed for reproducible runs\n- Delivery: notebook_plus_script\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

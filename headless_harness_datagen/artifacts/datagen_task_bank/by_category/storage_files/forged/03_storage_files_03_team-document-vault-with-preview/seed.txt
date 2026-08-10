@@ -1,0 +1,1 @@
+Build a team document vault with folder ACLs, text/PDF preview, upload quotas per team, and audit logs of downloads.

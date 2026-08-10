@@ -1,0 +1,1 @@
+Build a Docker container management dashboard that interacts with the Docker Engine API to start, stop, inspect, and monitor containers.

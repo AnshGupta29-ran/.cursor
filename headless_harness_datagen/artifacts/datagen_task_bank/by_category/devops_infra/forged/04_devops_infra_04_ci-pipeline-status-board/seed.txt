@@ -1,0 +1,1 @@
+Create a CI pipeline status board that ingests fake job events, shows stages, flaky detection, and retry buttons.

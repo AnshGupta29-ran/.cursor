@@ -1,0 +1,4 @@
+Sam Lee — Junior Developer
+2022-2024 Bootcamp graduate. Built React pages and basic Node.js APIs for class projects.
+Familiar with HTML, CSS, JavaScript, Git. Internship: fixed bugs in a Django admin panel.
+Looking for IC3 frontend roles. No production ownership yet.

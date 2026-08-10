@@ -1,0 +1,32 @@
+{
+  "id": "iot_automation_06_mqtt-device-playground",
+  "category": "iot_automation",
+  "index": 6,
+  "title": "MQTT device playground",
+  "seed": "Create an MQTT device playground UI + broker stub: subscribe/publish topics, device registry, and rule: if topic X then command Y.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "visual_diff",
+    "session_shape": "approval_gated",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "rust",
+    "artifact_type": "backend_api",
+    "task_family": "coding_implement",
+    "business_domain": "iot_automation",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "deterministic --seed for reproducible runs",
+    "delivery": "notebook_plus_script",
+    "modality": "text_code"
+  },
+  "workdir": "task_iot_automation_06",
+  "pipeline_cmd": "python main.py \"Create an MQTT device playground UI + broker stub: subscribe/publish topics, device registry, and rule: if topic X then command Y.\" --forge-prompt --forge-category iot_automation --workdir task_iot_automation_06",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: rust (Rust)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: static_html\n- persistence: csv_files\n- verification_mode: visual_diff\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: approval_gated\n- repo_state: empty_scratch\n- delivery: notebook_plus_script\n- novelty: deterministic --seed for reproducible runs\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate an MQTT device playground UI + broker stub: subscribe/publish topics, device registry, and rule: if topic X then command Y.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: rust\n- UI surface: static_html\n- Persistence: csv_files\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: visual_diff; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: deterministic --seed for reproducible runs\n- Delivery: notebook_plus_script\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

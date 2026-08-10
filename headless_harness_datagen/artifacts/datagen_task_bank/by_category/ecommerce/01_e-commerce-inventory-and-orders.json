@@ -1,0 +1,32 @@
+{
+  "id": "ecommerce_01_e-commerce-inventory-and-orders",
+  "category": "ecommerce",
+  "index": 1,
+  "title": "E-commerce inventory and orders",
+  "seed": "Create a full-stack inventory management system using React, Node.js, Express, PostgreSQL, and Prisma. Administrators should be able to manage products, categories, suppliers, inventory levels, purchase orders, and customer orders. Include dashboards with analytics, low-stock alerts, pagination, filtering, authentication, and REST APIs with proper validation. Write automated backend tests for critical endpoints.",
+  "source": "archive:7",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "typescript",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "ecommerce",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "must include a live demo mode with sample data",
+    "delivery": "docker_compose_optional",
+    "modality": "text_code"
+  },
+  "workdir": "task_ecommerce_01",
+  "pipeline_cmd": "python main.py \"Create a full-stack inventory management system using React, Node.js, Express, PostgreSQL, and Prisma. Administrators should be able to manage products, categories, suppliers, inventory levels, purchase orders, and customer orders. Include dashboards with analytics, low-stock alerts, pagination, filtering, authentication, and REST APIs with proper validation. Write automated backend tests for critical endpoints.\" --forge-prompt --forge-category ecommerce --workdir task_ecommerce_01",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: html_canvas\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: docker_compose_optional\n- novelty: must include a live demo mode with sample data\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a full-stack inventory management system using React, Node.js, Express, PostgreSQL, and Prisma. Administrators should be able to manage products, categories, suppliers, inventory levels, purchase orders, and customer orders. Include dashboards with analytics, low-stock alerts, pagination, filtering, authentication, and REST APIs with proper validation. Write automated backend tests for critical endpoints.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: html_canvas\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: must include a live demo mode with sample data\n- Delivery: docker_compose_optional\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

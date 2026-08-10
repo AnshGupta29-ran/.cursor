@@ -1,0 +1,1 @@
+Create an Expense Splitter app: groups, shared expenses, balances, and settle-up suggestions.

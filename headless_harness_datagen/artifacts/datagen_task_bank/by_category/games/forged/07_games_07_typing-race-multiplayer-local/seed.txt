@@ -1,0 +1,1 @@
+Create a local multiplayer typing race: shared prompt, per-player progress bars, WPM, and winner screen.

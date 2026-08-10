@@ -1,0 +1,47 @@
+1. Secure password manager
+Create a desktop password manager using Python and PySide6 (Qt). Users should be able to create encrypted password vaults protected by a master password. Implement AES encryption, password generation, categories, search, clipboard copying with automatic clearing, password strength indicators, and secure import/export functionality. Include proper exception handling and unit tests for the encryption logic.
+
+-----
+
+2. Secrets vault API
+Build a secrets vault HTTP API: store sealed secrets, role-based read, audit log, and rotation metadata (no plaintext at rest).
+
+-----
+
+3. 2FA login playground
+Create an auth playground with password login, TOTP 2FA enrollment, backup codes, and session management.
+
+-----
+
+4. PII redaction CLI
+Implement a PII redaction CLI that scans text/CSV for emails/phones/SSNs and writes redacted copies with a report.
+
+-----
+
+5. Permission policy tester
+Build a RBAC/ABAC policy tester: define roles/permissions, evaluate access queries, and show allow/deny with reasons.
+
+-----
+
+6. JWT key rotation lab
+Create a JWT auth service demo with key rotation, JWKS endpoint, and middleware verification tests.
+
+-----
+
+7. Secure file shredder utility
+Build a secure delete utility that overwrites files before unlink and logs operations (cross-platform best-effort).
+
+-----
+
+8. Consent and cookie preference center
+Create a consent preference center UI + API: categories of tracking, versioned policies, and user consent records.
+
+-----
+
+9. API abuse rate-limit gateway
+Build a rate-limit gateway middleware/service with token buckets per API key, 429 responses, and metrics.
+
+-----
+
+10. Certificate expiry monitor
+Create a TLS certificate expiry monitor: check hosts, store notAfter dates, alert when within N days, simple dashboard.

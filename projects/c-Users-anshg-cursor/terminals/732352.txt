@@ -1,0 +1,38 @@
+---
+pid: 18748
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "cd \"C:\\Users\\anshg\\.cursor\"; Get-ChildItem -Force -Directory | Select-Object -ExpandProperty Name; Write-Host \"==== NESTED GIT ====\"; Get-ChildItem -Path . -Force -Recurse -Directory -Filter \".git\" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -ne (Join-Path (Get-Location) \".git\") } | ForEach-Object { $_.FullName }"
+title: "List root dirs and nested .git folders"
+status: failed   
+started_at: 2026-08-10T12:03:09.666Z
+running_for_ms: 407423   
+---
+.claude
+.git
+.pi
+agents
+ai-tracking
+backend
+extensions
+harness
+headless_harness_datagen
+hooks
+node_modules
+plugins
+projects
+reviewhub
+skills-cursor
+smart-home-dashboard
+social-platform
+taskflow
+tower-defense
+whiteboard
+__pycache__
+==== NESTED GIT ====
+C:\Users\anshg\.cursor\headless_harness_datagen\.git
+
+---
+exit_code: 4294967295
+elapsed_ms: 406866
+ended_at: 2026-08-10T12:09:56.532Z
+---

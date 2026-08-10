@@ -1,0 +1,47 @@
+1. E-commerce inventory and orders
+Create a full-stack inventory management system using React, Node.js, Express, PostgreSQL, and Prisma. Administrators should be able to manage products, categories, suppliers, inventory levels, purchase orders, and customer orders. Include dashboards with analytics, low-stock alerts, pagination, filtering, authentication, and REST APIs with proper validation. Write automated backend tests for critical endpoints.
+
+-----
+
+2. Restaurant ordering system
+Create a Restaurant Ordering System in Python: menu, cart, order statuses, kitchen view, and basic payments stub.
+
+-----
+
+3. Inventory management system
+Create an Inventory Management System in Python for SKUs, stock adjustments, suppliers, and low-stock reports.
+
+-----
+
+4. Bike shop merchant catalog
+Build a bike shop merchant catalog with variants (size/color), inventory counts, and checkout cart (no payment processor required).
+
+-----
+
+5. Subscription box admin
+Create a subscription-box admin: plans, subscriber list, skip/pause months, and fulfillment export CSV.
+
+-----
+
+6. Marketplace listings for crafts
+Build a craft marketplace: seller listings, buyer search/filters, orders, and simple ratings.
+
+-----
+
+7. Coupon and promo engine
+Implement a coupon engine API: percent/fixed discounts, min cart, expiry, stacking rules, and unit tests.
+
+-----
+
+8. Returns and RMA portal
+Create a returns/RMA portal: request return, reasons, approval workflow, and refund status tracking.
+
+-----
+
+9. Wholesale price list Excel sync
+Build a wholesale price-list tool that imports/exports Excel price sheets and applies tier pricing to an in-app catalog.
+
+-----
+
+10. POS lite for cafe
+Create a cafe POS lite: product buttons, ticket, tax, cash/card stub tender, and daily sales report.

@@ -1,0 +1,1 @@
+Create a document locker for engineering drawings: check-in/check-out, revision numbers, and lock ownership.

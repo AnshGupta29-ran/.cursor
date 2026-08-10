@@ -1,0 +1,1 @@
+Build a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.

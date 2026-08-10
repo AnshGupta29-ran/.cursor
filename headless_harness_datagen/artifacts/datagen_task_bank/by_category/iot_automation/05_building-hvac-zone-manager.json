@@ -1,0 +1,32 @@
+{
+  "id": "iot_automation_05_building-hvac-zone-manager",
+  "category": "iot_automation",
+  "index": 5,
+  "title": "Building HVAC zone manager",
+  "seed": "Build an HVAC zone manager: multiple zones with setpoints, schedules, occupancy modes, and energy usage history stubs.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "cpp",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "iot_automation",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "testing_depth": "integration_light",
+    "novelty_hook": "accessibility-first keyboard UX",
+    "delivery": "cli_entry_plus_ui",
+    "modality": "text_code"
+  },
+  "workdir": "task_iot_automation_05",
+  "pipeline_cmd": "python main.py \"Build an HVAC zone manager: multiple zones with setpoints, schedules, occupancy modes, and energy usage history stubs.\" --forge-prompt --forge-category iot_automation --workdir task_iot_automation_05",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: cpp (C++17)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: desktop_window\n- persistence: localstorage\n- verification_mode: browser_smoke\n- testing_depth: integration_light\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: multi_turn_repair\n- repo_state: legacy_messy\n- delivery: cli_entry_plus_ui\n- novelty: accessibility-first keyboard UX\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild an HVAC zone manager: multiple zones with setpoints, schedules, occupancy modes, and energy usage history stubs.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: cpp\n- UI surface: desktop_window\n- Persistence: localstorage\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: browser_smoke; tests: integration_light\n- Persona voice: enterprise_buyer\n- Novelty: accessibility-first keyboard UX\n- Delivery: cli_entry_plus_ui\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

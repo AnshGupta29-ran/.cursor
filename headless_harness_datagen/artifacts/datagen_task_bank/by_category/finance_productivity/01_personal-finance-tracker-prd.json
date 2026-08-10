@@ -1,0 +1,32 @@
+{
+  "id": "finance_productivity_01_personal-finance-tracker-prd",
+  "category": "finance_productivity",
+  "index": 1,
+  "title": "Personal finance tracker PRD",
+  "seed": "Build a production-quality Personal Finance Tracker application from scratch. The application should allow users to manage their personal finances, track spending habits, and visualize their financial health through an intuitive interface. Support registration/auth, isolated user data, income/expense CRUD, categories, budgets, monthly/yearly summaries, dashboard charts, search/filter, and tests plus README.",
+  "source": "archive:finance_prd",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "finance_fintech",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "testing_depth": "integration_light",
+    "novelty_hook": "accessibility-first keyboard UX",
+    "delivery": "cli_entry_plus_ui",
+    "modality": "text_code"
+  },
+  "workdir": "task_finance_productivity_01",
+  "pipeline_cmd": "python main.py \"Build a production-quality Personal Finance Tracker application from scratch. The application should allow users to manage their personal finances, track spending habits, and visualize their financial health through an intuitive interface. Support registration/auth, isolated user data, income/expense CRUD, categories, budgets, monthly/yearly summaries, dashboard charts, search/filter, and tests plus README.\" --forge-prompt --forge-category finance_productivity --workdir task_finance_productivity_01",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: desktop_window\n- persistence: localstorage\n- verification_mode: browser_smoke\n- testing_depth: integration_light\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: multi_turn_repair\n- repo_state: legacy_messy\n- delivery: cli_entry_plus_ui\n- novelty: accessibility-first keyboard UX\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild a production-quality Personal Finance Tracker application from scratch. The application should allow users to manage their personal finances, track spending habits, and visualize their financial health through an intuitive interface. Support registration/auth, isolated user data, income/expense CRUD, categories, budgets, monthly/yearly summaries, dashboard charts, search/filter, and tests plus README.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: desktop_window\n- Persistence: localstorage\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: browser_smoke; tests: integration_light\n- Persona voice: enterprise_buyer\n- Novelty: accessibility-first keyboard UX\n- Delivery: cli_entry_plus_ui\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

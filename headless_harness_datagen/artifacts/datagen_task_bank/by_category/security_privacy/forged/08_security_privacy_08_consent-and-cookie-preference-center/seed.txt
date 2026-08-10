@@ -1,0 +1,1 @@
+Create a consent preference center UI + API: categories of tracking, versioned policies, and user consent records.

@@ -1,0 +1,16 @@
+{
+  "thresholds": {
+    "sentiment": {
+      "positive": 0.6,
+      "negative": 0.6
+    },
+    "urgency": {
+      "p1": 0.4,
+      "p2": 0.5,
+      "p3": 0.6,
+      "p4": 0.7
+    },
+    "reviewConfidence": 0.3
+  },
+  "queuePrecedence": ["safety", "fare-billing", "fleet-damage", "accessibility", "general"]
+}

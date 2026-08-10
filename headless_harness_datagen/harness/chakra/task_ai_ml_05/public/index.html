@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harborline Dispatch</title>
+  <link rel="stylesheet" href="/console.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Harborline Dispatch</h1>
+      <p>Ferry + bike-share rider triage — local lexicon scoring, explainable queues, SQLite persistence.</p>
+    </div>
+    <div class="status" id="health">checking…</div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>New rider message</h2>
+      <form id="ticket-form">
+        <label>Channel
+          <select name="channel" required>
+            <option value="kiosk">kiosk</option>
+            <option value="sms">sms</option>
+            <option value="email">email</option>
+          </select>
+        </label>
+        <label>Author handle
+          <input name="author_handle" placeholder="@rider42" />
+        </label>
+        <label>Subject
+          <input name="subject" placeholder="Pier 4 gate jammed" />
+        </label>
+        <label>Body
+          <textarea name="body" rows="5" required placeholder="the dock gate at Pier 4 is jammed and my card was charged twice"></textarea>
+        </label>
+        <div class="row">
+          <button type="submit">Classify &amp; route</button>
+          <button type="button" id="seed-btn" class="secondary">Seed sample tickets</button>
+        </div>
+      </form>
+      <div id="result" class="result hidden"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Queues</h2>
+      <div class="tabs" id="queue-tabs"></div>
+      <div id="queue-list" class="list muted">Select a queue.</div>
+    </section>
+
+    <section class="panel wide">
+      <h2>Ops stats</h2>
+      <pre id="stats" class="code">Loading…</pre>
+      <div class="row">
+        <button type="button" id="refresh-btn" class="secondary">Refresh</button>
+        <button type="button" id="export-btn" class="secondary">Export JSON</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/console.js"></script>
+</body>
+</html>

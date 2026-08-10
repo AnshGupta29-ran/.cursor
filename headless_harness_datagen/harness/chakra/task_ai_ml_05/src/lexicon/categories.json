@@ -1,0 +1,7 @@
+{
+  "safety": ["gate", "jammed", "collision", "injury", "danger", "blocked", "pier", "dock"],
+  "fare-billing": ["card", "charged", "payment", "fare", "ticket", "refund", "billing"],
+  "fleet-damage": ["engine", "propeller", "damage", "leak", "breakdown", "wheel", "brake", "bike", "bent"],
+  "accessibility": ["wheelchair", "ramp", "ramps", "access", "disabled", "elevator", "boarding"],
+  "general": []
+}

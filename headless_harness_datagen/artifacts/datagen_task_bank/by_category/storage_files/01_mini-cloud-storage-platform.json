@@ -1,0 +1,32 @@
+{
+  "id": "storage_files_01_mini-cloud-storage-platform",
+  "category": "storage_files",
+  "index": 1,
+  "title": "Mini cloud storage platform",
+  "seed": "Create a cloud storage web application using React, Node.js, Express, and MongoDB. Users should be able to register, log in, upload files, organize them into folders, rename, move, delete, search, and download files. Implement JWT-based authentication, file size validation, storage usage statistics, and a clean dashboard.",
+  "source": "archive:2",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "single_shot",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "low",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "general_utilities",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "export/import round-trip as acceptance",
+    "delivery": "static_build_preview",
+    "modality": "text_code"
+  },
+  "workdir": "task_storage_files_01",
+  "pipeline_cmd": "python main.py \"Create a cloud storage web application using React, Node.js, Express, and MongoDB. Users should be able to register, log in, upload files, organize them into folders, rename, move, delete, search, and download files. Implement JWT-based authentication, file size validation, storage usage statistics, and a clean dashboard.\" --forge-prompt --forge-category storage_files --workdir task_storage_files_01",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: low\n- ui_surface: api_only\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: single_shot\n- repo_state: partial_scaffold\n- delivery: static_build_preview\n- novelty: export/import round-trip as acceptance\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a cloud storage web application using React, Node.js, Express, and MongoDB. Users should be able to register, log in, upload files, organize them into folders, rename, move, delete, search, and download files. Implement JWT-based authentication, file size validation, storage usage statistics, and a clean dashboard.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: api_only\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: export/import round-trip as acceptance\n- Delivery: static_build_preview\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

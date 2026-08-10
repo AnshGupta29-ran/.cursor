@@ -1,0 +1,47 @@
+1. Greenhouse sensor automation console
+Build a greenhouse IoT automation console: simulate temperature/humidity/soil sensors, set thresholds, trigger watering/fan actuators, show history charts, and schedule rules.
+
+-----
+
+2. Factory machine status board
+Create a factory machine status board with simulated PLC devices, downtime reasons, OEE-style metrics, and operator acknowledgements.
+
+-----
+
+3. Fleet GPS tracker simulator
+Build a vehicle fleet tracker simulator: devices publish GPS points, map/list views, geofence alerts, and trip history.
+
+-----
+
+4. Aquarium controller dashboard
+Create an aquarium controller dashboard: light schedules, temperature alerts, dosing reminders, and device online/offline state.
+
+-----
+
+5. Building HVAC zone manager
+Build an HVAC zone manager: multiple zones with setpoints, schedules, occupancy modes, and energy usage history stubs.
+
+-----
+
+6. MQTT device playground
+Create an MQTT device playground UI + broker stub: subscribe/publish topics, device registry, and rule: if topic X then command Y.
+
+-----
+
+7. Smart irrigation planner
+Build a smart irrigation planner: zones, soil moisture simulation, weather stub, watering schedules, and manual override.
+
+-----
+
+8. Lab instrument rack monitor
+Create a lab instrument rack monitor: power draw simulation, over-temp alarms, maintenance tickets, and CSV export of readings.
+
+-----
+
+9. Home energy meter dashboard
+Build a home energy meter dashboard with simulated circuits, daily kWh charts, peak alerts, and appliance grouping.
+
+-----
+
+10. Parking lot occupancy sensors
+Create a parking lot occupancy system: bay sensors, live map, free-bay counts, and reservation windows.

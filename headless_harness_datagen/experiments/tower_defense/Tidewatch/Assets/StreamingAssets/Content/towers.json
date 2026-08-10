@@ -1,0 +1,124 @@
+{
+  "towers": [
+    {
+      "id": "beacon_spire",
+      "displayName": "Beacon Spire",
+      "description": "A continuous light beam that ramps damage the longer it holds one target. Emits an illumination radius that reveals Shrouded enemies.",
+      "emitsLight": true,
+      "dealsDamage": true,
+      "directFire": true,
+      "bonusVsBeached": 1.0,
+      "tiers": [
+        { "damage": 8,  "range": 4.0, "fireRate": 1.0, "illuminationRadius": 3.0, "cost": 90 },
+        { "damage": 14, "range": 4.5, "fireRate": 1.1, "illuminationRadius": 3.5, "cost": 110 },
+        { "damage": 22, "range": 5.0, "fireRate": 1.2, "illuminationRadius": 4.0, "cost": 0 }
+      ],
+      "branchA": {
+        "id": "solar_lance", "displayName": "Solar Lance",
+        "description": "After holding a target for 3s, the beam flares for +50% burst damage.",
+        "damageMult": 1.1, "burstWindow": true, "cost": 160
+      },
+      "branchB": {
+        "id": "dusk_beam", "displayName": "Dusk Beam",
+        "description": "The beam also chills its target, slowing it 30% on hit.",
+        "appliesSlowOnHit": true, "fireRateMult": 0.95, "cost": 150
+      }
+    },
+    {
+      "id": "flare_mortar",
+      "displayName": "Flare Mortar",
+      "description": "Lobs burning shells that splash in an area and briefly illuminate the impact. Deals bonus damage to Beached enemies.",
+      "emitsLight": false,
+      "dealsDamage": true,
+      "directFire": true,
+      "bonusVsBeached": 2.0,
+      "tiers": [
+        { "damage": 18, "range": 5.5, "fireRate": 0.5, "cost": 100 },
+        { "damage": 30, "range": 6.0, "fireRate": 0.55, "cost": 130 },
+        { "damage": 46, "range": 6.5, "fireRate": 0.6, "cost": 0 }
+      ],
+      "branchA": {
+        "id": "star_shell", "displayName": "Star Shell",
+        "description": "Shells burst wider and burn longer: +25% damage and a larger illumination flare.",
+        "damageMult": 1.25, "cost": 170
+      },
+      "branchB": {
+        "id": "rapid_battery", "displayName": "Rapid Battery",
+        "description": "Twin barrels fire 40% faster at slightly reduced damage.",
+        "fireRateMult": 1.4, "damageMult": 0.85, "cost": 160
+      }
+    },
+    {
+      "id": "prism_array",
+      "displayName": "Prism Array",
+      "description": "Fires chain-light that arcs between nearby enemies. Built adjacent to another Prism, gains +1 arc through resonance.",
+      "emitsLight": false,
+      "dealsDamage": true,
+      "directFire": true,
+      "bonusVsBeached": 1.0,
+      "tiers": [
+        { "damage": 6,  "range": 3.5, "fireRate": 1.2, "chainArcs": 2, "cost": 80 },
+        { "damage": 10, "range": 3.8, "fireRate": 1.3, "chainArcs": 3, "cost": 100 },
+        { "damage": 16, "range": 4.2, "fireRate": 1.4, "chainArcs": 4, "cost": 0 }
+      ],
+      "branchA": {
+        "id": "storm_lattice", "displayName": "Storm Lattice",
+        "description": "The lattice overcharges: +2 arcs and wider chaining.",
+        "chainArcsDelta": 2, "damageMult": 0.9, "cost": 150
+      },
+      "branchB": {
+        "id": "focused_lens", "displayName": "Focused Lens",
+        "description": "Fewer, harder bolts: +60% damage per hit but -1 arc.",
+        "damageMult": 1.6, "chainArcsDelta": -1, "cost": 150
+      }
+    },
+    {
+      "id": "harpoon_ballista",
+      "displayName": "Harpoon Ballista",
+      "description": "A fast physical bolt that pierces in a line. Cheap and reliable, but cannot hit Shrouded targets.",
+      "emitsLight": false,
+      "dealsDamage": true,
+      "directFire": true,
+      "bonusVsBeached": 1.0,
+      "tiers": [
+        { "damage": 10, "range": 4.5, "fireRate": 1.5, "pierce": 2, "cost": 60 },
+        { "damage": 16, "range": 5.0, "fireRate": 1.6, "pierce": 3, "cost": 80 },
+        { "damage": 24, "range": 5.5, "fireRate": 1.8, "pierce": 4, "cost": 0 }
+      ],
+      "branchA": {
+        "id": "twin_cables", "displayName": "Twin Cables",
+        "description": "Fires two bolts per volley: +80% fire rate.",
+        "fireRateMult": 1.8, "damageMult": 0.8, "cost": 120
+      },
+      "branchB": {
+        "id": "broadhead", "displayName": "Broadhead",
+        "description": "Heavy heads punch through everything: +3 pierce and +30% damage.",
+        "pierceDelta": 3, "damageMult": 1.3, "cost": 130
+      }
+    },
+    {
+      "id": "fog_bell",
+      "displayName": "Fog Bell",
+      "description": "A great brass bell. Its toll slows all enemies in radius. Deals no damage, but can be tuned to shred armor or reveal the Shrouded.",
+      "emitsLight": false,
+      "dealsDamage": false,
+      "directFire": false,
+      "bonusVsBeached": 1.0,
+      "tiers": [
+        { "range": 3.5, "fireRate": 0.8, "slowPct": 0.25, "cost": 70 },
+        { "range": 4.0, "fireRate": 0.9, "slowPct": 0.35, "cost": 90 },
+        { "range": 4.5, "fireRate": 1.0, "slowPct": 0.45, "cost": 0 }
+      ],
+      "branchA": {
+        "id": "cracking_tone", "displayName": "Cracking Tone",
+        "description": "A discordant overtone that strips 3 armor from everything it slows.",
+        "armorShredDelta": 3, "cost": 140
+      },
+      "branchB": {
+        "id": "lantern_chorus", "displayName": "Lantern Chorus",
+        "description": "The bell rings with light, revealing Shrouded enemies in its radius.",
+        "illuminationMult": 1.0, "cost": 150
+      }
+    }
+  ]
+}

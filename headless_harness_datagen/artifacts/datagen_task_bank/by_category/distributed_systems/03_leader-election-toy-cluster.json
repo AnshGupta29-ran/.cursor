@@ -1,0 +1,32 @@
+{
+  "id": "distributed_systems_03_leader-election-toy-cluster",
+  "category": "distributed_systems",
+  "index": 3,
+  "title": "Leader election toy cluster",
+  "seed": "Implement a toy leader-election cluster (raft-lite or bully): nodes, heartbeat, failover demo CLI.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "subagent_spawns",
+    "verification_mode": "unit_tests",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "shell_heavy",
+    "user_persona": "staff_eng",
+    "complexity": "medium",
+    "value": "medium",
+    "language_runtime": "python",
+    "artifact_type": "cli_tool",
+    "task_family": "coding_implement",
+    "business_domain": "devops_platform",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "testing_depth": "unit_light",
+    "novelty_hook": "must include a live demo mode with sample data",
+    "delivery": "docker_compose_optional",
+    "modality": "text_code"
+  },
+  "workdir": "task_distributed_systems_03",
+  "pipeline_cmd": "python main.py \"Implement a toy leader-election cluster (raft-lite or bully): nodes, heartbeat, failover demo CLI.\" --forge-prompt --forge-category distributed_systems --workdir task_distributed_systems_03",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: medium → solid MVP — core features + light tests, avoid gold-plating\n- value: medium\n- ui_surface: html_canvas\n- persistence: sqlite\n- verification_mode: unit_tests\n- testing_depth: unit_light\n- tool_profile: shell_heavy\n- user_persona: staff_eng\n- agent_topology: subagent_spawns\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: docker_compose_optional\n- novelty: must include a live demo mode with sample data\n- time_budget_minutes: 15\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nImplement a toy leader-election cluster (raft-lite or bully): nodes, heartbeat, failover demo CLI.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: html_canvas\n- Persistence: sqlite\n- Complexity band: medium (solid MVP — core features + light tests, avoid gold-plating)\n- Verification: unit_tests; tests: unit_light\n- Persona voice: staff_eng\n- Novelty: must include a live demo mode with sample data\n- Delivery: docker_compose_optional\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

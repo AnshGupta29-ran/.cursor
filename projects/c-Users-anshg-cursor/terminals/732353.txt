@@ -1,0 +1,31 @@
+---
+pid: 19720
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "Stop-Process -Id 18748 -Force -ErrorAction SilentlyContinue; $dirs = @(\n  \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\.git\",\n  \"C:\\Users\\anshg\\.cursor\\hooks\\.git\",\n  \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\snake_ai\\.git\",\n  \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_games_04\\.git\",\n  \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\tower_defense\\.git\"\n); foreach ($d in $dirs) { if (Test-Path $d) { Rename-Item $d \".git.bak\" -Force; \"renamed $d\" } else { \"missing $d\" } }; cd \"C:\\Users\\anshg\\.cursor\"; git check-ignore -v headless_harness_datagen\\README.md 2>&1; git check-ignore -v backend 2>&1; git check-ignore -v node_modules 2>&1; git check-ignore -v headless_harness_datagen\\.env 2>&1"
+title: "Detach nested repos; verify ignore rules"
+status: succeeded
+started_at: 2026-08-10T12:08:41.684Z
+running_for_ms: 159464   
+---
+Rename-Item : Access to the path 'C:\Users\anshg\.cursor\headless_harness_datagen\.git' is denied.
+At C:\Users\anshg\AppData\Local\Temp\ps-script-51ba5948-2b37-4a52-b8b8-9a3283052cc3.ps1:110 char:48
++ ... $dirs) { if (Test-Path $d) { Rename-Item $d ".git.bak" -Force; "renam ...
++                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (C:\Users\anshg\...ss_datagen\.git:String) [Rename-Item], IOException
+    + FullyQualifiedErrorId : RenameItemIOError,Microsoft.PowerShell.Commands.RenameItemCommand
+ 
+renamed C:\Users\anshg\.cursor\headless_harness_datagen\.git
+renamed C:\Users\anshg\.cursor\hooks\.git
+renamed C:\Users\anshg\.cursor\headless_harness_datagen\experiments\snake_ai\.git
+renamed C:\Users\anshg\.cursor\headless_harness_datagen\experiments\task_games_04\.git
+renamed C:\Users\anshg\.cursor\headless_harness_datagen\experiments\tower_defense\.git
+.gitignore:51:!*/**	"headless_harness_datagen\\README.md"
+.gitignore:50:!*/	backend
+.gitignore:55:**/node_modules/	node_modules
+headless_harness_datagen/.gitignore:14:.env	"headless_harness_datagen\\.env"
+
+---
+exit_code: 0
+elapsed_ms: 159463
+ended_at: 2026-08-10T12:11:21.147Z
+---

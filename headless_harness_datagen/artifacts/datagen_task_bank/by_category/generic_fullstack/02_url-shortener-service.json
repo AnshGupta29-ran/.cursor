@@ -1,0 +1,32 @@
+{
+  "id": "generic_fullstack_02_url-shortener-service",
+  "category": "generic_fullstack",
+  "index": 2,
+  "title": "URL shortener service",
+  "seed": "Create a URL Shortener Service with custom aliases, click analytics, and expiry.",
+  "source": "archive:python_6",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "typescript",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "general_utilities",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "multi-theme or multi-difficulty presets",
+    "delivery": "library_plus_demo_app",
+    "modality": "text_code"
+  },
+  "workdir": "task_generic_fullstack_02",
+  "pipeline_cmd": "python main.py \"Create a URL Shortener Service with custom aliases, click analytics, and expiry.\" --forge-prompt --forge-category generic_fullstack --workdir task_generic_fullstack_02",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: dashboard_charts\n- persistence: memory_only\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: library_plus_demo_app\n- novelty: multi-theme or multi-difficulty presets\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a URL Shortener Service with custom aliases, click analytics, and expiry.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: dashboard_charts\n- Persistence: memory_only\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: multi-theme or multi-difficulty presets\n- Delivery: library_plus_demo_app\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

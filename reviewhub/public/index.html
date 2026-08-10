@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReviewHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="topbar" hidden>
+    <a href="#/dashboard" class="brand">ReviewHub</a>
+    <nav>
+      <a href="#/dashboard">Dashboard</a>
+      <a href="#/prs">Pull Requests</a>
+    </nav>
+    <div class="spacer"></div>
+    <button id="notif-btn" title="Notifications">🔔<span id="notif-badge" hidden></span></button>
+    <span id="whoami"></span>
+    <button id="logout-btn">Log out</button>
+  </header>
+
+  <div id="notif-panel" hidden>
+    <div class="panel-head">
+      <strong>Notifications</strong>
+      <button id="notif-read-all">Mark all read</button>
+    </div>
+    <div id="notif-list"></div>
+  </div>
+
+  <main id="view"></main>
+  <div id="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

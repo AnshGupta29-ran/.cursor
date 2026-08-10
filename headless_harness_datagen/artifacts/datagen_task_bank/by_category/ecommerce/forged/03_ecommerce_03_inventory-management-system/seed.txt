@@ -1,0 +1,1 @@
+Create an Inventory Management System in Python for SKUs, stock adjustments, suppliers, and low-stock reports.

@@ -1,0 +1,32 @@
+{
+  "id": "games_09_puzzle-match-3-lite",
+  "category": "games",
+  "index": 9,
+  "title": "Puzzle match-3 lite",
+  "seed": "Build a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "python",
+    "artifact_type": "game_prototype",
+    "task_family": "coding_implement",
+    "business_domain": "gaming",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "testing_depth": "integration_light",
+    "novelty_hook": "accessibility-first keyboard UX",
+    "delivery": "cli_entry_plus_ui",
+    "modality": "text_code"
+  },
+  "workdir": "task_games_09",
+  "pipeline_cmd": "python main.py \"Build a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.\" --forge-prompt --forge-category games --workdir task_games_09",
+  "forge_brief": "[DIMENSION LOCK \u2014 mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: low \u2192 thin MVP \u2014 few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: desktop_window\n- persistence: json_file\n- verification_mode: browser_smoke\n- testing_depth: integration_light\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: multi_turn_repair\n- repo_state: legacy_messy\n- delivery: cli_entry_plus_ui\n- novelty: accessibility-first keyboard UX\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: desktop_window\n- Persistence: json_file\n- Complexity band: low (thin MVP \u2014 few files, minimal polish, ship a runnable demo)\n- Verification: browser_smoke; tests: integration_light\n- Persona voice: enterprise_buyer\n- Novelty: accessibility-first keyboard UX\n- Delivery: cli_entry_plus_ui\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "monitoring_ops_09_uptime-excel-weekly-report",
+  "category": "monitoring_ops",
+  "index": 9,
+  "title": "Uptime Excel weekly report",
+  "seed": "Build a tool that reads uptime check CSVs and produces a weekly Excel report with SLO burn and incident list.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "approval_gated",
+    "repo_state": "partial_scaffold",
+    "tool_profile": "mixed",
+    "user_persona": "staff_eng",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "typescript",
+    "artifact_type": "spreadsheet_workbook",
+    "task_family": "spreadsheet_excel",
+    "business_domain": "devops_platform",
+    "modality": "text_code",
+    "ui_surface": "game_loop_window",
+    "persistence": "sqlite",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "chaos toggle: inject one recoverable failure path",
+    "delivery": "one_command_dev_server"
+  },
+  "workdir": "task_monitoring_ops_09",
+  "pipeline_cmd": "python main.py \"Build a tool that reads uptime check CSVs and produces a weekly Excel report with SLO burn and incident list.\" --forge-prompt --forge-category monitoring_ops --workdir task_monitoring_ops_09",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: typescript (TypeScript (Node or Vite))\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: game_loop_window\n- persistence: sqlite\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: mixed\n- user_persona: staff_eng\n- agent_topology: plan_then_execute\n- session_shape: approval_gated\n- repo_state: partial_scaffold\n- delivery: one_command_dev_server\n- novelty: chaos toggle: inject one recoverable failure path\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nBuild a tool that reads uptime check CSVs and produces a weekly Excel report with SLO burn and incident list.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: typescript\n- UI surface: game_loop_window\n- Persistence: sqlite\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: staff_eng\n- Novelty: chaos toggle: inject one recoverable failure path\n- Delivery: one_command_dev_server\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

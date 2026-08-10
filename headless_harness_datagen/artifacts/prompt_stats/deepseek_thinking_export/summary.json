@@ -1,0 +1,115 @@
+{
+  "exported_at": "2026-08-05T06:53:57.927520+00:00",
+  "sessions_with_deepseek": 4,
+  "sessions_with_thinking": 0,
+  "sessions": [
+    {
+      "session_file": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\06d8609d-2422-436e-9a17-2fe13e7747b2.jsonl",
+      "session_id": "06d8609d-2422-436e-9a17-2fe13e7747b2",
+      "bytes": 474369,
+      "deepseek_assistant_msgs": 109,
+      "models": {
+        "deepseek-v4-flash": 109
+      },
+      "title": null,
+      "think_blocks": 0,
+      "text_blocks": 55,
+      "think_chars": 0,
+      "text_chars": 9342,
+      "has_thinking": false,
+      "usage_keys": {
+        "input_tokens": 109,
+        "cache_creation_input_tokens": 109,
+        "cache_read_input_tokens": 109,
+        "output_tokens": 109,
+        "server_tool_use": 55,
+        "service_tier": 55,
+        "cache_creation": 55,
+        "inference_geo": 55,
+        "iterations": 55,
+        "speed": 55
+      }
+    },
+    {
+      "session_file": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3.jsonl",
+      "session_id": "7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3",
+      "bytes": 294165,
+      "deepseek_assistant_msgs": 76,
+      "models": {
+        "deepseek-v4-flash": 76
+      },
+      "title": null,
+      "think_blocks": 0,
+      "text_blocks": 39,
+      "think_chars": 0,
+      "text_chars": 5210,
+      "has_thinking": false,
+      "usage_keys": {
+        "input_tokens": 76,
+        "cache_creation_input_tokens": 76,
+        "cache_read_input_tokens": 76,
+        "output_tokens": 76,
+        "server_tool_use": 39,
+        "service_tier": 39,
+        "cache_creation": 39,
+        "inference_geo": 39,
+        "iterations": 39,
+        "speed": 39
+      }
+    },
+    {
+      "session_file": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\a28c82c9-07c8-460f-beb9-54c40cc96e99.jsonl",
+      "session_id": "a28c82c9-07c8-460f-beb9-54c40cc96e99",
+      "bytes": 205661,
+      "deepseek_assistant_msgs": 73,
+      "models": {
+        "deepseek-v4-flash": 73
+      },
+      "title": null,
+      "think_blocks": 0,
+      "text_blocks": 38,
+      "think_chars": 0,
+      "text_chars": 1486,
+      "has_thinking": false,
+      "usage_keys": {
+        "input_tokens": 73,
+        "cache_creation_input_tokens": 73,
+        "cache_read_input_tokens": 73,
+        "output_tokens": 73,
+        "server_tool_use": 37,
+        "service_tier": 37,
+        "cache_creation": 37,
+        "inference_geo": 37,
+        "iterations": 37,
+        "speed": 37
+      }
+    },
+    {
+      "session_file": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\00af346f-ab5a-493b-b588-01206991530d.jsonl",
+      "session_id": "00af346f-ab5a-493b-b588-01206991530d",
+      "bytes": 33763,
+      "deepseek_assistant_msgs": 3,
+      "models": {
+        "deepseek-v4-flash": 3
+      },
+      "title": null,
+      "think_blocks": 0,
+      "text_blocks": 3,
+      "think_chars": 0,
+      "text_chars": 20875,
+      "has_thinking": false,
+      "usage_keys": {
+        "input_tokens": 3,
+        "cache_creation_input_tokens": 3,
+        "cache_read_input_tokens": 3,
+        "output_tokens": 3,
+        "server_tool_use": 3,
+        "service_tier": 3,
+        "cache_creation": 3,
+        "inference_geo": 3,
+        "iterations": 3,
+        "speed": 3
+      }
+    }
+  ]
+}

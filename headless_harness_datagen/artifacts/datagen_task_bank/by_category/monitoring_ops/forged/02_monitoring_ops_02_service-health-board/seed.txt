@@ -1,0 +1,1 @@
+Build a service health board aggregating synthetic checks, dependency status, and a public status page with incident history.

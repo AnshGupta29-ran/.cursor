@@ -1,0 +1,25 @@
+{
+  "difficulties": [
+    {
+      "id": "calm_sea",
+      "displayName": "Calm Sea",
+      "enemyHpMult": 0.85, "enemySpeedMult": 0.9, "bountyMult": 1.1,
+      "startingSalvage": 260, "lanternLight": 25,
+      "tideCadenceMult": 1.2, "leakMult": 1.0
+    },
+    {
+      "id": "rising_gale",
+      "displayName": "Rising Gale",
+      "enemyHpMult": 1.0, "enemySpeedMult": 1.0, "bountyMult": 1.0,
+      "startingSalvage": 200, "lanternLight": 20,
+      "tideCadenceMult": 1.0, "leakMult": 1.0
+    },
+    {
+      "id": "abyssal_night",
+      "displayName": "Abyssal Night",
+      "enemyHpMult": 1.3, "enemySpeedMult": 1.1, "bountyMult": 0.9,
+      "startingSalvage": 160, "lanternLight": 15,
+      "tideCadenceMult": 0.8, "leakMult": 1.25
+    }
+  ]
+}

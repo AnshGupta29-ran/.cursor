@@ -1,0 +1,32 @@
+{
+  "id": "iot_automation_08_lab-instrument-rack-monitor",
+  "category": "iot_automation",
+  "index": 8,
+  "title": "Lab instrument rack monitor",
+  "seed": "Create a lab instrument rack monitor: power draw simulation, over-temp alarms, maintenance tickets, and CSV export of readings.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "plan_then_execute",
+    "verification_mode": "runtime_pass",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "empty_scratch",
+    "tool_profile": "browser_heavy",
+    "user_persona": "pm_non_technical",
+    "complexity": "hard",
+    "value": "hard",
+    "language_runtime": "java",
+    "artifact_type": "web_fullstack",
+    "task_family": "coding_implement",
+    "business_domain": "healthcare",
+    "ui_surface": "excel_workbook",
+    "persistence": "json_file",
+    "testing_depth": "unit_plus_smoke",
+    "novelty_hook": "observability: structured logs + simple metrics endpoint",
+    "delivery": "worker_plus_api",
+    "modality": "text_code"
+  },
+  "workdir": "task_iot_automation_08",
+  "pipeline_cmd": "python main.py \"Create a lab instrument rack monitor: power draw simulation, over-temp alarms, maintenance tickets, and CSV export of readings.\" --forge-prompt --forge-category iot_automation --workdir task_iot_automation_08",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: java (Java 17+)\n- complexity: hard → full PRD depth — richer acceptance criteria and verification\n- value: hard\n- ui_surface: excel_workbook\n- persistence: json_file\n- verification_mode: runtime_pass\n- testing_depth: unit_plus_smoke\n- tool_profile: browser_heavy\n- user_persona: pm_non_technical\n- agent_topology: plan_then_execute\n- session_shape: multi_turn_repair\n- repo_state: empty_scratch\n- delivery: worker_plus_api\n- novelty: observability: structured logs + simple metrics endpoint\n- time_budget_minutes: 25\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a lab instrument rack monitor: power draw simulation, over-temp alarms, maintenance tickets, and CSV export of readings.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: java\n- UI surface: excel_workbook\n- Persistence: json_file\n- Complexity band: hard (full PRD depth — richer acceptance criteria and verification)\n- Verification: runtime_pass; tests: unit_plus_smoke\n- Persona voice: pm_non_technical\n- Novelty: observability: structured logs + simple metrics endpoint\n- Delivery: worker_plus_api\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

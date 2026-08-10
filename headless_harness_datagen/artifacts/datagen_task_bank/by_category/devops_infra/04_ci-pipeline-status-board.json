@@ -1,0 +1,32 @@
+{
+  "id": "devops_infra_04_ci-pipeline-status-board",
+  "category": "devops_infra",
+  "index": 4,
+  "title": "CI pipeline status board",
+  "seed": "Create a CI pipeline status board that ingests fake job events, shows stages, flaky detection, and retry buttons.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "single_agent",
+    "verification_mode": "static_pass",
+    "session_shape": "single_shot",
+    "repo_state": "empty_scratch",
+    "tool_profile": "edit_heavy",
+    "user_persona": "solo_dev",
+    "complexity": "low",
+    "value": "low",
+    "language_runtime": "python",
+    "artifact_type": "web_fullstack",
+    "task_family": "devops_ops",
+    "business_domain": "devops_platform",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "testing_depth": "smoke_only",
+    "novelty_hook": "domain twist: niche audience + unusual constraint",
+    "delivery": "single_readme_run",
+    "modality": "text_code"
+  },
+  "workdir": "task_devops_infra_04",
+  "pipeline_cmd": "python main.py \"Create a CI pipeline status board that ingests fake job events, shows stages, flaky detection, and retry buttons.\" --forge-prompt --forge-category devops_infra --workdir task_devops_infra_04",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: python (Python 3.10+)\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: low\n- ui_surface: cli_tui\n- persistence: json_file\n- verification_mode: static_pass\n- testing_depth: smoke_only\n- tool_profile: edit_heavy\n- user_persona: solo_dev\n- agent_topology: single_agent\n- session_shape: single_shot\n- repo_state: empty_scratch\n- delivery: single_readme_run\n- novelty: domain twist: niche audience + unusual constraint\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a CI pipeline status board that ingests fake job events, shows stages, flaky detection, and retry buttons.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: python\n- UI surface: cli_tui\n- Persistence: json_file\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: static_pass; tests: smoke_only\n- Persona voice: solo_dev\n- Novelty: domain twist: niche audience + unusual constraint\n- Delivery: single_readme_run\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

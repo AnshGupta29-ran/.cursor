@@ -1,0 +1,139 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }} - Django Blog Platform{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <article>
+            <h1>{{ post.title }}</h1>
+            <p class="text-muted">
+                By <a href="#" class="text-decoration-none">{{ post.author.get_full_name|default:post.author.username }}</a>
+                on {{ post.published_at|date:"F d, Y" }}
+                {% if post.category %}
+                    | Category: <a href="{% url 'blog:category_posts' post.category.slug %}" class="text-decoration-none">{{ post.category.name }}</a>
+                {% endif %}
+            </p>
+
+            {% if post.featured_image %}
+                <img src="{{ post.featured_image.url }}" class="img-fluid rounded mb-4" alt="{{ post.title }}">
+            {% endif %}
+
+            <div class="content">
+                {{ post.content|safe }}
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge bg-secondary me-2">
+                        <i class="fas fa-clock"></i> {{ post.word_count }} words
+                    </span>
+                    <span class="badge bg-info">
+                        <i class="fas fa-comment"></i> {{ comments.count }} comments
+                    </span>
+                </div>
+                {% if user.is_authenticated and user == post.author %}
+                    <div>
+                        <a href="{% url 'blog:edit_post' post.slug %}" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a href="{% url 'blog:delete_post' post.slug %}" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash"></i> Delete
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </article>
+
+        <!-- Comments Section -->
+        <section class="mt-5">
+            <h3><i class="fas fa-comments"></i> Comments ({{ comments.count }})</h3>
+
+            {% if user.is_authenticated %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <form method="post" action="{% url 'blog:add_comment' post.slug %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                {{ comment_form.content }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Comment</button>
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    <a href="{% url 'admin:login' %}">Login</a> to add a comment.
+                </div>
+            {% endif %}
+
+            {% for comment in comments %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            {{ comment.author.get_full_name|default:comment.author.username }}
+                            <small class="text-muted">{{ comment.created_at|date:"F d, Y g:i A" }}</small>
+                        </h6>
+                        <p class="card-text">{{ comment.content }}</p>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="alert alert-secondary">
+                    <i class="fas fa-comment-slash"></i> No comments yet. Be the first to comment!
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-search"></i> Search Posts</h5>
+            </div>
+            <div class="card-body">
+                <form method="get" action="{% url 'blog:search_results' %}">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search posts..." required>
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5><i class="fas fa-folder"></i> Categories</h5>
+            </div>
+            <div class="card-body">
+                {% for category in categories %}
+                    <a href="{% url 'blog:category_posts' category.slug %}" class="badge bg-secondary text-decoration-none me-2 mb-2">
+                        {{ category.name }}
+                    </a>
+                {% empty %}
+                    <p>No categories available.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5><i class="fas fa-calendar-alt"></i> Recent Posts</h5>
+            </div>
+            <div class="card-body">
+                {% for recent_post in recent_posts %}
+                    <a href="{% url 'blog:post_detail' recent_post.slug %}" class="d-block text-decoration-none mb-2">
+                        <small>{{ recent_post.title }}</small>
+                    </a>
+                {% empty %}
+                    <p>No recent posts.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

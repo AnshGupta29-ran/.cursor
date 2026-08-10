@@ -1,0 +1,6 @@
+{
+  "p1": ["low", "minor", "informational"],
+  "p2": ["moderate", "notice", "warning"],
+  "p3": ["high", "urgent", "critical"],
+  "p4": ["critical", "emergency", "blocked"]
+}

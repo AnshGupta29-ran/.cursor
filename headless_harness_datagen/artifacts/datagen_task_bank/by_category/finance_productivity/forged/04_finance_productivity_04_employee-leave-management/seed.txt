@@ -1,0 +1,1 @@
+Create an Employee Leave Management System: leave types, balances, approvals, and calendar conflicts.

@@ -1,0 +1,20 @@
+{
+  "name": "social-platform",
+  "version": "1.0.0",
+  "description": "Complete social media platform API: profiles, posts, follows, feed, notifications, messaging, moderation, analytics. Mobile-ready REST + WebSocket.",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "seed": "node src/seed.js",
+    "smoke": "node test/smoke.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,503 @@
+Unstaged changes after reset:
+M	.example.env
+M	.gitignore
+M	README.md
+M	controller/conversation_config.py
+M	controller/session_health.py
+M	harness/chakra/README.md
+M	harness/chakra/bin/chakra
+M	harness/chakra/src/constants/cyberRiskInstruction.ts
+M	harness/chakra/src/constants/promptIdentity.test.ts
+M	harness/chakra/src/constants/prompts.ts
+M	harness/chakra/src/constants/system.ts
+M	harness/chakra/src/memdir/memdir.ts
+M	harness/chakra/src/memdir/memoryTypes.ts
+M	harness/chakra/src/memdir/teamMemPrompts.ts
+M	harness/chakra/src/services/api/errors.ts
+M	harness/chakra/src/tools/AgentTool/built-in/exploreAgent.ts
+M	harness/chakra/src/tools/AgentTool/built-in/generalPurposeAgent.ts
+M	harness/chakra/src/utils/model/modelOptions.ts
+M	harness/chakra/src/utils/model/openaiContextWindows.ts
+M	harness/chakra/src/utils/model/openaiModelDiscovery.ts
+M	harness/chakra/src/utils/providerProfiles.ts
+M	main.py
+M	pyproject.toml
+M	tests/test_conversation_runner.py
+M	verification/prompts.py
+M	verification/report.py
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/bin/chakra', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/cyberRiskInstruction.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/promptIdentity.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/prompts.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/constants/system.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/memdir.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/memoryTypes.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/memdir/teamMemPrompts.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/tools/AgentTool/built-in/exploreAgent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/tools/AgentTool/built-in/generalPurposeAgent.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'pyproject.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'artifacts/prompt_stats/deepseek_full_logs/misc/settings.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'artifacts/prompt_stats/deepseek_full_logs/sessions/C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__00af346f-ab5a-493b-b588-01206991530d.jsonl', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'artifacts/prompt_stats/deepseek_full_logs/sessions/C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__06d8609d-2422-436e-9a17-2fe13e7747b2.jsonl', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'artifacts/prompt_stats/deepseek_full_logs/sessions/C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__7168cb40-da15-4dc0-8a1e-ba3fafc8a5e3.jsonl', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'artifacts/prompt_stats/deepseek_full_logs/sessions/C--Users-anshg--cursor-headless-harness-datagen-harness-chakra__a28c82c9-07c8-460f-beb9-54c40cc96e99.jsonl', LF will be replaced by CRLF the next time Git touches it
+warning: adding embedded git repository: experiments/snake_ai
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint: 	git submodule add <url> experiments/snake_ai
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint: 	git rm --cached experiments/snake_ai
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config set advice.addEmbeddedRepo false"
+warning: adding embedded git repository: experiments/task_games_04
+warning: adding embedded git repository: experiments/tower_defense
+warning: in the working copy of 'finance-dashboard/backend/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/backend/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/postcss.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/api.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/components/RunwayCard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/components/Sidebar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/components/StatCard.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/context/ThemeContext.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/src/types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/tailwind.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'finance-dashboard/frontend/vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Resources/cards.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scenes/MainScene.unity', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/AIController.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/Board.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/Card.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/CardDatabase.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/CardUI.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/Frostline.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/GameManager.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/GlacialPulse.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/ManaPool.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Scripts/PlayerController.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/FrostborneClash/Assets/Tests/PlayModeTests.cs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/_smoke_pygame_main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/__init__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/admin.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/api_urls.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/api_views.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/forms.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/migrations/0001_initial.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/models.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/serializers.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/about.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/base.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/category_posts.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/contact.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/create_post.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/delete_post.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/edit_post.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/post_detail.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/post_list.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/templates/blog/search_results.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/tests.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/urls.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog/views.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog_platform/settings.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog_platform/urls.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/blog_platform/wsgi.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/postcss.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/App.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/components/Header.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/context/AuthContext.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/CreateResource.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/EditResource.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/Home.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/Login.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/Profile.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/Register.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/pages/Resources.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/src/services/api.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/client/tailwind.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/dev.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/client/engine.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/client/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/engine/modules/audio.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/engine/modules/input.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/engine/modules/multiplayer.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/engine/modules/physics.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/engine/modules/rendering.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/services/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/gaming-platform/services/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/manage.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/.claude/hooks/datagen-continue.cjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/fixtures/resume1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/meritlens/.claude/hooks/datagen-continue.cjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/public/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/src/engine.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/src/main.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/src/types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/meritlens/vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/classifier.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/db.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/errors.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/logging_config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/mapping.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/profiles.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/routes.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/schemas.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/app/validation.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/category_map.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/profiles.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/pytest.ini', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/run.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/tests/conftest.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/tests/test_batch_review_auth.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/tests/test_predictions.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/palletlens/tests/test_real_model_smoke.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/pytest.ini', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/.env.example', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/config/database.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/controllers/authController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/controllers/resourcesController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/controllers/usersController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/middleware/auth.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/migrations/20230727000000-create-users.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/migrations/20230727000001-create-resources.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/models/Resource.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/models/User.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/routes/auth.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/routes/resources.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/routes/users.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/seeders/20230727000000-demo-users.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/seeders/20230727000001-demo-resources.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/server/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/db.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/epochledger/__init__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/epochledger/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/epochledger/models.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/epochledger/router.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/epochledger/state.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/src/ingest.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/styles.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_01/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/public/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/api.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/main.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/pages/Experiments.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/pages/Home.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/src/pages/RunDetail.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/client/vite.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_02/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_03/client/src/scorer.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_03/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/data/answers.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/data/chunks.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/fixtures/sample.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/pytest.ini', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/scripts/snapshot.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_04/tests/test_app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/migrations/001_init.sql', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/config/routing.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/db.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/lexicon/categories.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/lexicon/sentiment.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/lexicon/urgency.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/preview.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/seed.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/store.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/src/utils.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_05/tests/test_api.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_06/.claude/hooks/datagen-continue.cjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_06/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_06/fixtures/sample_members.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_06/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_07/data/seed_faqs.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_07/go.mod', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_07/main.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_07/web/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_08/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_08/fixtures/sample_receipt.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_08/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_08/slipsift/__init__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_09/Cargo.toml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_09/data/lexicon.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_10/examples/hive_weight_may.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_10/hivepulse/__init__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_ai_ml_10/hivepulse/cli.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/__main__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/app.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/core/constants.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/core/engine.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/core/level.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/core/persistence.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/core/snapshot.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/preview.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/coretap/render/draw.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/levels/site_01.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/levels/site_02.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/levels/site_03.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/tests/test_core.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_01/tests/test_smoke.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/DESIGN.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/scripts/headless_match.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/ai.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/board.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/combat.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/game.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/los.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/persist.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/rng.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/types.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/core/win.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/.smoke-build/src/data/maps.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/headless_match.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/scripts/smoke.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/server/api.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/ai.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/board.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/combat.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/game.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/los.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/persist.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/rng.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/types.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/core/win.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/data/maps.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/main.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/net/telemetry.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/ui/render.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/worker/aiClient.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/src/worker/scrapbrain.worker.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/tests/rules.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/tsconfig.smoke.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_02/vitest.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_03/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_03/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_04/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_04/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_05/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_05/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_06/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_06/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_06/requirements.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_06/test_smoke.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/Countdown.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/DemoDesk.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/History.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/Menu.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/Race.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/Results.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/SettingsView.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/components/Setup.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/data/demoData.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/data/transmissions.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/index.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/ghost.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/ghost.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/race.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/race.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/rng.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/rng.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/scoring.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/scoring.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/storage.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/lib/storage.test.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/src/main.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_07/vite.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/dungeon.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/entity.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/fov.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/game.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/inventory.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/save.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/ui.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/dungeon.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/entity.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/fov.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/game.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/inventory.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/main.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/save.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/src/ui.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_08/web/vite.config.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_09/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_09/board.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_09/game.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_09/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_09/tests/test_board.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/db.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/generate_data.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/go.mod', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/handlers.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/main.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/models.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/prng.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/templates/floor.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/templates/home.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/task_games_10/utils.go', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/test_python_system.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/tests/test_api.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/__main__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/ai/__init__.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/ai/trace_engine.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/engine.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/food.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/game.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/grid.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/persistence.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/smoke.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/snake.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_ai.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_ai_wander.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_engine.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_food.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_grid.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_render_smoke.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace/tests/test_snake.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace_web/engine.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace_web/game.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace_web/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace_web/style.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'harness/chakra/viper_trace_web/verify.cjs', LF will be replaced by CRLF the next time Git touches it
+1323
+## main...origin/main
+M  .example.env
+M  .gitignore
+M  README.md
+A  artifacts/datagen_dims/ledger_stats.json
+A  artifacts/datagen_dims/matrix_plan.json
+A  artifacts/datagen_dims/taxonomy.json
+A  artifacts/datagen_task_bank/README.md
+A  artifacts/datagen_task_bank/RUN_CATEGORY_BATCHES.md
+A  artifacts/datagen_task_bank/by_category.zip
+A  artifacts/datagen_task_bank/by_category/ai_ml/01_ai-resume-analyzer.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/01_ai-resume-analyzer.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/02_ml-experiment-tracking-mlflow-like.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/02_ml-experiment-tracking-mlflow-like.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/03_automated-resume-screening-system.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/03_automated-resume-screening-system.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/04_ai-document-assistant.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/04_ai-document-assistant.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/05_sentiment-triage-inbox.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/05_sentiment-triage-inbox.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/06_tabular-churn-predictor-demo.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/06_tabular-churn-predictor-demo.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/07_embedding-search-for-faqs.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/07_embedding-search-for-faqs.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/08_ocr-receipt-field-extractor.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/08_ocr-receipt-field-extractor.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/09_toxicity-filter-microservice.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/09_toxicity-filter-microservice.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/10_time-series-anomaly-flagger.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/10_time-series-anomaly-flagger.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/CHAKRA_PASTE_ALL_10.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/CHAKRA_PASTE_ALL_10_FORGED.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/HOW_TO_RUN_ALL_10.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/PI_MARATHON_FROM_04.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/PI_MARATHON_RUNNER.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/PI_POLISH_ALL_10.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/SEEDS.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/01_ai_ml_01_ai-resume-analyzer/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/01_ai_ml_01_ai-resume-analyzer/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/01_ai_ml_01_ai-resume-analyzer/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/02_ai_ml_02_ml-experiment-tracking-mlflow-like/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/02_ai_ml_02_ml-experiment-tracking-mlflow-like/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/02_ai_ml_02_ml-experiment-tracking-mlflow-like/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/03_ai_ml_03_automated-resume-screening-system/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/03_ai_ml_03_automated-resume-screening-system/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/03_ai_ml_03_automated-resume-screening-system/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/04_ai_ml_04_ai-document-assistant/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/04_ai_ml_04_ai-document-assistant/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/04_ai_ml_04_ai-document-assistant/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/05_ai_ml_05_sentiment-triage-inbox/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/05_ai_ml_05_sentiment-triage-inbox/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/05_ai_ml_05_sentiment-triage-inbox/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/06_ai_ml_06_tabular-churn-predictor-demo/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/06_ai_ml_06_tabular-churn-predictor-demo/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/06_ai_ml_06_tabular-churn-predictor-demo/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/07_ai_ml_07_embedding-search-for-faqs/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/07_ai_ml_07_embedding-search-for-faqs/platform_prompt.md
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/07_ai_ml_07_embedding-search-for-faqs/seed.txt
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/08_ai_ml_08_ocr-receipt-field-extractor/forge_meta.json
+A  artifacts/datagen_task_bank/by_category/ai_ml/forged/08_ai_ml_08_ocr-receipt-field-extractor/platform_prompt.md
+ prompt_stats/chakra_sessions.py                    |  562 +++
+ prompt_stats/cli.py                                |  101 +
+ prompt_stats/collectors.py                         |  370 ++
+ prompt_stats/hooks.py                              |  359 ++
+ prompt_stats/ledger.py                             |  102 +
+ prompt_stats/metrics.py                            |  144 +
+ prompt_stats/pi_sessions.py                        |  430 +++
+ prompt_stats/report.py                             |  176 +
+ prompt_stats/server.py                             |  168 +
+ prompt_stats/static/app.js                         |  645 ++++
+ prompt_stats/static/index.html                     |  351 ++
+ pyproject.toml                                     |    5 +-
+ scripts/assemble_forged_paste.py                   |   40 +
+ scripts/diversify_task_bank.py                     |  390 +++
+ scripts/forge_all_categories.py                    |   56 +
+ scripts/forge_category_batch.py                    |  207 ++
+ scripts/gen_category_paste_batches.py              |  385 +++
+ scripts/gen_datagen_task_bank.py                   | 1910 +++++++++++
+ scripts/run_task_bank_category.py                  |  102 +
+ scripts/upgrade_category_forges.py                 |  465 +++
+ tests/test_conversation_runner.py                  |   19 +
+ tests/test_prompt_forge.py                         |   60 +
+ verification/prompts.py                            |   44 +-
+ verification/report.py                             |   26 +
+ 1322 files changed, 100339 insertions(+), 527 deletions(-)

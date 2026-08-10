@@ -1,0 +1,1 @@
+Create a Hospital Appointment Management system: doctors, patients, slots, bookings, cancellations, and reminders stub.

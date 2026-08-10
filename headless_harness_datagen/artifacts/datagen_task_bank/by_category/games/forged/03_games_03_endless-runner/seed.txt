@@ -1,0 +1,1 @@
+Create an endless runner with procedural obstacles, score distance, difficulty ramp, and restart flow (canvas or Pygame).

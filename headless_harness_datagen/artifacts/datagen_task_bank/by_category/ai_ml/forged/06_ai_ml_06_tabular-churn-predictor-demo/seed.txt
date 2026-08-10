@@ -1,0 +1,1 @@
+Build a churn prediction demo: upload CSV, train a simple sklearn model, show feature importances, and predict on new rows.

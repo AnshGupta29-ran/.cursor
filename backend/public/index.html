@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecommerce Shop</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Segoe UI, system-ui, sans-serif; background: #f6f7fb; color: #111827; }
+    header { background: #111827; color: #fff; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+    header a { color: #93c5fd; margin-left: 1rem; text-decoration: none; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: .5rem; }
+    .price { font-weight: 700; color: #2563eb; }
+    button { border: 0; border-radius: 8px; padding: .55rem .8rem; background: #2563eb; color: #fff; cursor: pointer; }
+    button.secondary { background: #374151; }
+    .panel { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin-top: 1rem; }
+    input { padding: .5rem .7rem; border: 1px solid #d1d5db; border-radius: 8px; width: 100%; margin: .25rem 0 .6rem; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; }
+    #status { min-height: 1.2em; color: #b91c1c; }
+    .muted { color: #6b7280; font-size: .92rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>Ecommerce Platform</strong> <span class="muted">local demo</span></div>
+    <div>
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart</a>
+      <a href="#admin">Admin</a>
+      <a href="/api/products" target="_blank">API</a>
+    </div>
+  </header>
+  <main>
+    <p id="status"></p>
+
+    <section id="shop">
+      <h2>Products</h2>
+      <div id="products" class="grid"></div>
+    </section>
+
+    <section id="cart" class="panel">
+      <h2>Cart</h2>
+      <div id="cartList" class="muted">Login to load cart</div>
+      <div class="row" style="margin-top:.75rem">
+        <button id="checkoutBtn" type="button">Checkout</button>
+        <button id="refreshCart" class="secondary" type="button">Refresh cart</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Account</h2>
+      <div class="row">
+        <div style="flex:1;min-width:220px">
+          <label>Username (register)</label>
+          <input id="username" value="demo" />
+          <label>Email (login/register)</label>
+          <input id="email" value="demo@example.com" />
+          <label>Password</label>
+          <input id="password" type="password" value="demo1234" />
+          <div class="row">
+            <button id="registerBtn" type="button">Register</button>
+            <button id="loginBtn" class="secondary" type="button">Login</button>
+          </div>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <p class="muted">Token: <span id="tokenPreview">none</span></p>
+          <p class="muted">User: <span id="userPreview">guest</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="admin" class="panel">
+      <h2>Admin</h2>
+      <p class="muted">Needs an admin user (role=admin). Seed creates one: admin / admin123</p>
+      <button id="statsBtn" type="button">Load stats</button>
+      <pre id="stats" class="muted"></pre>
+    </section>
+  </main>
+
+  <script>
+    const API = '';
+    let token = localStorage.getItem('ecom_token') || '';
+    let user = JSON.parse(localStorage.getItem('ecom_user') || 'null');
+
+    const statusEl = document.getElementById('status');
+    const tokenPreview = document.getElementById('tokenPreview');
+    const userPreview = document.getElementById('userPreview');
+
+    function setStatus(msg, ok) {
+      statusEl.style.color = ok ? '#047857' : '#b91c1c';
+      statusEl.textContent = msg || '';
+    }
+    function refreshAuthUI() {
+      tokenPreview.textContent = token ? token.slice(0, 18) + '...' : 'none';
+      userPreview.textContent = user ? (user.username + ' (' + (user.role || 'customer') + ')') : 'guest';
+    }
+    async function api(path, opts = {}) {
+      const headers = { 'Content-Type': 'application/json', ...(opts.headers || {}) };
+      if (token) headers.Authorization = 'Bearer ' + token;
+      const res = await fetch(API + path, { ...opts, headers });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message || data.error || ('HTTP ' + res.status));
+      return data;
+    }
+
+    async function loadProducts() {
+      const products = await api('/api/products');
+      const root = document.getElementById('products');
+      if (!products.length) {
+        root.innerHTML = '<div class="card">No products yet</div>';
+        return;
+      }
+      root.innerHTML = products.map(p => `
+        <div class="card">
+          <strong>${p.name}</strong>
+          <div class="muted">${p.description || ''}</div>
+          <div class="price">$${Number(p.price).toFixed(2)}</div>
+          <div class="muted">Stock: ${p.stock}</div>
+          <button data-id="${p.id}" class="addBtn" type="button">Add to cart</button>
+        </div>
+      `).join('');
+      document.querySelectorAll('.addBtn').forEach(btn => {
+        btn.onclick = async () => {
+          try {
+            if (!token) return setStatus('Login first');
+            await api('/api/cart', { method: 'POST', body: JSON.stringify({ product_id: Number(btn.dataset.id), quantity: 1 }) });
+            setStatus('Added to cart', true);
+            loadCart();
+          } catch (e) { setStatus(e.message); }
+        };
+      });
+    }
+
+    async function loadCart() {
+      const el = document.getElementById('cartList');
+      if (!token) { el.textContent = 'Login to load cart'; return; }
+      try {
+        const items = await api('/api/cart');
+        if (!items.length) { el.textContent = 'Cart is empty'; return; }
+        el.innerHTML = items.map(i => `<div>${i.name || ('Product #' + i.product_id)} × ${i.quantity} — $${Number(i.price || 0).toFixed(2)}</div>`).join('');
+      } catch (e) { el.textContent = e.message; }
+    }
+
+    document.getElementById('registerBtn').onclick = async () => {
+      try {
+        const body = {
+          username: document.getElementById('username').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          password: document.getElementById('password').value
+        };
+        await api('/api/auth/register', { method: 'POST', body: JSON.stringify(body) });
+        setStatus('Registered — now login', true);
+      } catch (e) { setStatus(e.message); }
+    };
+
+    document.getElementById('loginBtn').onclick = async () => {
+      try {
+        const body = {
+          email: document.getElementById('email').value.trim(),
+          password: document.getElementById('password').value
+        };
+        const data = await api('/api/auth/login', { method: 'POST', body: JSON.stringify(body) });
+        token = data.token;
+        user = data.user || { email: body.email, role: data.role || 'customer' };
+        localStorage.setItem('ecom_token', token);
+        localStorage.setItem('ecom_user', JSON.stringify(user));
+        refreshAuthUI();
+        setStatus('Logged in', true);
+        loadCart();
+      } catch (e) { setStatus(e.message); }
+    };
+
+    document.getElementById('refreshCart').onclick = loadCart;
+    document.getElementById('checkoutBtn').onclick = async () => {
+      try {
+        if (!token) return setStatus('Login first');
+        const items = await api('/api/cart');
+        const total = items.reduce((s, i) => s + Number(i.price || 0) * Number(i.quantity || 1), 0);
+        const order = await api('/api/orders', {
+          method: 'POST',
+          body: JSON.stringify({
+            total,
+            items: items.map(i => ({ product_id: i.product_id, quantity: i.quantity, price: i.price }))
+          })
+        });
+        setStatus('Order created #' + order.id, true);
+      } catch (e) { setStatus(e.message); }
+    };
+
+    document.getElementById('statsBtn').onclick = async () => {
+      try {
+        const stats = await api('/api/admin/stats');
+        document.getElementById('stats').textContent = JSON.stringify(stats, null, 2);
+      } catch (e) { setStatus(e.message); }
+    };
+
+    refreshAuthUI();
+    loadProducts().catch(e => setStatus(e.message));
+    loadCart();
+  </script>
+</body>
+</html>

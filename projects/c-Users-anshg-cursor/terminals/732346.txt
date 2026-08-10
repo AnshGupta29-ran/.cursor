@@ -1,0 +1,26 @@
+---
+pid: 21956
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "cd \"C:\\Users\\anshg\\.cursor\"; git commit --trailer \"Co-authored-by: Cursor <cursoragent@cursor.com>\" -m \"$(@'\nSync local Cursor project state and terminal snapshots.\n\n'@)\"; git push -u origin HEAD; git status -sb"
+title: "Commit and push .cursor to GitHub"
+status: succeeded
+started_at: 2026-08-10T11:30:17.409Z
+running_for_ms: 60105    
+---
+[main 7b3aa15] Sync local Cursor project state and terminal snapshots.
+ 7 files changed, 245 insertions(+), 25 deletions(-)
+ create mode 100644 projects/c-Users-anshg-cursor/terminals/732343.txt
+ create mode 100644 projects/c-Users-anshg-cursor/terminals/732344.txt
+ create mode 100644 projects/c-Users-anshg-cursor/terminals/732345.txt
+ create mode 100644 projects/c-Users-anshg-cursor/terminals/9.txt
+branch 'main' set up to track 'origin/main'.
+To https://github.com/AnshGupta29-ran/.cursor.git
+   e740e9f..7b3aa15  HEAD -> main
+## main...origin/main
+ ? plugins/cache/cursor-public/langfuse/8e6c2d02accefc0dad3b7d3be3751f7fcc210885
+
+---
+exit_code: 0
+elapsed_ms: 60104
+ended_at: 2026-08-10T11:31:17.513Z
+---

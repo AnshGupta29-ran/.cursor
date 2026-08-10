@@ -1,0 +1,1 @@
+Implement a local S3-like object store CLI and HTTP API: buckets, put/get/list/delete objects, and simple versioning.

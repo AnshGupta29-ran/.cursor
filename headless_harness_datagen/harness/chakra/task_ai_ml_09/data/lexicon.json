@@ -1,0 +1,5 @@
+[
+  {"term": "gronk", "category": "profanity", "severity_tier": "T1", "locale": "en"},
+  {"term": "zibble", "category": "harassment", "severity_tier": "T2", "locale": "en"},
+  {"term": "blork", "category": "threat", "severity_tier": "T3", "locale": "en"}
+]

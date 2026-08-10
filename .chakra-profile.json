@@ -1,0 +1,10 @@
+{
+  "profile": "openai",
+  "env": {
+    "OPENAI_BASE_URL": "https://api.tensorstudio.ai/v1",
+    "OPENAI_MODEL": "kimi3",
+    "OPENAI_API_KEY": "sk-litellm-master-key",
+    "CLAUDE_CODE_USE_OPENAI": "1"
+  },
+  "createdAt": "2026-07-27T06:19:11.962Z"
+}

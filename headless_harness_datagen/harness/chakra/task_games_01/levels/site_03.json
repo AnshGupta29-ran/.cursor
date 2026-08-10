@@ -1,0 +1,13 @@
+{
+  "name": "Abyssal Core",
+  "depth_m": 4100,
+  "speed_ramp": 1.3,
+  "drop_table": {"ore": 0.35, "other": 0.10},
+  "grid": [
+    "bccccccb",
+    "boooooob",
+    "scbbbbcs",
+    "sccooocs",
+    ".ss..ss."
+  ]
+}

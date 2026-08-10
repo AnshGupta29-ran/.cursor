@@ -1,0 +1,47 @@
+1. Hospital appointment management
+Create a Hospital Appointment Management system: doctors, patients, slots, bookings, cancellations, and reminders stub.
+
+-----
+
+2. URL shortener service
+Create a URL Shortener Service with custom aliases, click analytics, and expiry.
+
+-----
+
+3. Local code search engine
+Create a Local Code Search Engine that indexes a repo directory and supports fast text/symbol search with a UI.
+
+-----
+
+4. Community forum
+Build a community forum with threads, replies, votes, moderation flags, and user profiles.
+
+-----
+
+5. Job board
+Create a job board: employer posts, seeker applications, filters, and saved jobs.
+
+-----
+
+6. Helpdesk ticket system
+Build a helpdesk ticket system with priorities, SLA timers, agent assignment, and canned responses.
+
+-----
+
+7. Bookmark manager
+Create a bookmark manager with folders, tags, full-text search, and import/export HTML.
+
+-----
+
+8. Survey builder
+Build a survey builder: form fields, publish link, responses table, and basic charts.
+
+-----
+
+9. Classroom attendance app
+Create a classroom attendance app: roster, date sessions, present/absent, and export CSV.
+
+-----
+
+10. Personal CRM lite
+Build a personal CRM lite: contacts, companies, interaction notes, and follow-up reminders.

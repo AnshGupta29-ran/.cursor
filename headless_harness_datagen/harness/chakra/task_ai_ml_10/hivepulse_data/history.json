@@ -1,0 +1,12 @@
+[
+  {
+    "run_id": "19747953-7ac1-4625-8bef-5345fcd577db",
+    "input_file": "examples/hive_weight_may.csv",
+    "detector": "zscore",
+    "threshold": 2.0,
+    "preset": "default",
+    "timestamp": "2026-08-07T21:14:06.017749",
+    "window_count": 0,
+    "export_path": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\task_ai_ml_10\\out_report.json"
+  }
+]

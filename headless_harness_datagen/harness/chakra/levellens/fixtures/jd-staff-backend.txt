@@ -1,0 +1,5 @@
+Staff Backend Engineer (IC6)
+Own high-scale APIs in Python/Go. Architected event systems with Kafka, Redis, PostgreSQL.
+Must have Kubernetes, AWS, Terraform, CI/CD, observability (Prometheus/Grafana).
+Leadership: mentored engineers, design reviews, RFCs, hiring. Impact: latency, reliability, millions of users.
+Nice: GraphQL, FastAPI, fraud/ML feature store experience.

@@ -1,0 +1,20 @@
+[
+  {
+    "Id": "c001",
+    "Name": "Frost Warrior",
+    "ManaCost": 2,
+    "Type": "Creature"
+  },
+  {
+    "Id": "c002",
+    "Name": "Ice Blast",
+    "ManaCost": 3,
+    "Type": "Spell"
+  },
+  {
+    "Id": "c003",
+    "Name": "Glacial Shield",
+    "ManaCost": 1,
+    "Type": "Artifact"
+  }
+]

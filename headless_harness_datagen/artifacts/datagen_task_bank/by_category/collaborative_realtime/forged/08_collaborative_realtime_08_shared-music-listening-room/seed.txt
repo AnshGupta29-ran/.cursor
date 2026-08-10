@@ -1,0 +1,1 @@
+Create a synchronized listening room: queue tracks, play/pause sync across clients, chat, and host controls.

@@ -1,0 +1,32 @@
+{
+  "id": "monitoring_ops_03_log-error-rate-monitor",
+  "category": "monitoring_ops",
+  "index": 3,
+  "title": "Log error rate monitor",
+  "seed": "Create a log tail monitor that counts error patterns, charts rates, and fires threshold alerts.",
+  "source": "original",
+  "dimensions_hint": {
+    "agent_topology": "tool_swarm",
+    "verification_mode": "browser_smoke",
+    "session_shape": "multi_turn_repair",
+    "repo_state": "legacy_messy",
+    "tool_profile": "mixed",
+    "user_persona": "enterprise_buyer",
+    "complexity": "low",
+    "value": "medium",
+    "language_runtime": "javascript",
+    "artifact_type": "cli_tool",
+    "task_family": "coding_implement",
+    "business_domain": "devops_platform",
+    "modality": "text_code",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "testing_depth": "integration_light",
+    "novelty_hook": "accessibility-first keyboard UX",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "workdir": "task_monitoring_ops_03",
+  "pipeline_cmd": "python main.py \"Create a log tail monitor that counts error patterns, charts rates, and fires threshold alerts.\" --forge-prompt --forge-category monitoring_ops --workdir task_monitoring_ops_03",
+  "forge_brief": "[DIMENSION LOCK — mandatory for this synthetic run]\n- language_runtime: javascript (JavaScript (Node or browser))\n- complexity: low → thin MVP — few files, minimal polish, ship a runnable demo\n- value: medium\n- ui_surface: desktop_window\n- persistence: localstorage\n- verification_mode: browser_smoke\n- testing_depth: integration_light\n- tool_profile: mixed\n- user_persona: enterprise_buyer\n- agent_topology: tool_swarm\n- session_shape: multi_turn_repair\n- repo_state: legacy_messy\n- delivery: cli_entry_plus_ui\n- novelty: accessibility-first keyboard UX\n- time_budget_minutes: 8\nDo NOT switch stacks. Honor language + UI surface + persistence exactly.\n\nUSER SEED:\nCreate a log tail monitor that counts error patterns, charts rates, and fires threshold alerts.",
+  "diversity_hint": "HARD CONSTRAINTS for uniqueness (must appear in the PRD):\n- Stack/language: javascript\n- UI surface: desktop_window\n- Persistence: localstorage\n- Complexity band: low (thin MVP — few files, minimal polish, ship a runnable demo)\n- Verification: browser_smoke; tests: integration_light\n- Persona voice: enterprise_buyer\n- Novelty: accessibility-first keyboard UX\n- Delivery: cli_entry_plus_ui\nInvent a unique product name and niche; do not reuse generic tutorial apps."
+}

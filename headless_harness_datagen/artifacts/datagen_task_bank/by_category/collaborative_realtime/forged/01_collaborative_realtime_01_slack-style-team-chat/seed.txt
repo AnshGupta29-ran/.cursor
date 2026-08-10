@@ -1,0 +1,1 @@
+Build a Slack-style team chat application with channels, private messaging, notifications, and file sharing.

@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: MainSceneRoot
+  m_Component:
+  - {fileID: 1001}
+  - {fileID: 1002}
+  - {fileID: 1003}
+  - {fileID: 1004}
+  - {fileID: 1005}
+  - {fileID: 1006}
+  - {fileID: 1007}
+  - {fileID: 1008}
+  m_Layer: 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+--- !u!114 &1001
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 1000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &1002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!1 &2000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: GameManager
+  m_Component:
+  - {fileID: 1002}
+  - {fileID: 2001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &2001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 2000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 0000000000000000d000000000000000, type: 3}
+  m_Name: GameManager
+  m_EditorClassIdentifier:
+--- !u!1 &3000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: Board
+  m_Component:
+  - {fileID: 3002}
+  - {fileID: 3001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &3002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 3000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &3001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 3000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 1111111111111111d000000000000000, type: 3}
+  m_Name: Board
+--- !u!1 &4000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: PlayerController
+  m_Component:
+  - {fileID: 4002}
+  - {fileID: 4001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &4002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 4000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &4001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 4000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 2222222222222222d000000000000000, type: 3}
+  m_Name: PlayerController
+--- !u!1 &5000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: AIController
+  m_Component:
+  - {fileID: 5002}
+  - {fileID: 5001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &5002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 5000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &5001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 5000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 3333333333333333d000000000000000, type: 3}
+  m_Name: AIController
+--- !u!1 &6000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: ManaPool
+  m_Component:
+  - {fileID: 6002}
+  - {fileID: 6001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &6002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 6000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &6001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 6000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 4444444444444444d000000000000000, type: 3}
+  m_Name: ManaPool
+--- !u!1 &7000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: Frostline
+  m_Component:
+  - {fileID: 7002}
+  - {fileID: 7001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &7002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 7000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &7001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 7000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 5555555555555555d000000000000000, type: 3}
+  m_Name: Frostline
+--- !u!1 &8000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: GlacialPulse
+  m_Component:
+  - {fileID: 8002}
+  - {fileID: 8001}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &8002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 8000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &8001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 8000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 6666666666666666d000000000000000, type: 3}
+  m_Name: GlacialPulse
+--- !u!1 &9000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: Canvas
+  m_Component:
+  - {fileID: 9002}
+  - {fileID: 9003}
+  - {fileID: 9004}
+  m_Layer: 5
+  m_TagString: Untagged
+--- !u!114 &9002
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 9000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!224 &9003
+Canvas:
+  m_ObjectHideFlags: 0
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_OverrideSorting: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!222 &9004
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 9000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &10000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_Name: CardUI_Prefab
+  m_Component:
+  - {fileID: 10001}
+  - {fileID: 10002}
+  m_Layer: 0
+  m_TagString: Untagged
+--- !u!114 &10001
+Transform:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 10000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+--- !u!114 &10002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_GameObject: {fileID: 10000}
+  m_Enabled: 1
+  m_Script: {fileID: 11500000, guid: 7777777777777777d000000000000000, type: 3}
+  m_Name: CardUI
+--- End of File

@@ -1,0 +1,1 @@
+Build a newsroom desk: story assignments, statuses (pitch→edit→publish), embargo times, and role-based access.

@@ -1,0 +1,1 @@
+Create an Automated Resume Screening System in Python that scores resumes against a job description using keyword/skill heuristics or a small local model, with a review queue UI.

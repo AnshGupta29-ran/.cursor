@@ -1,0 +1,13 @@
+{
+  "name": "Vent Field",
+  "depth_m": 2600,
+  "speed_ramp": 1.15,
+  "drop_table": {"ore": 0.35, "other": 0.10},
+  "grid": [
+    "bbbbbbbb",
+    "sccssccs",
+    "ooossooo",
+    "ss.cc.ss",
+    ".s....s."
+  ]
+}

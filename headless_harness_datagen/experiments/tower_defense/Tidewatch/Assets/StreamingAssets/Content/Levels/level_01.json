@@ -1,0 +1,47 @@
+{
+  "id": "level_01",
+  "displayName": "First Light",
+  "briefing": "A single causeway guards the Lantern. Skitterlings and Brine Hulk escorts test your footing. Learn the tide: the trenches drain at Low, and flood at High.",
+  "expectedEnemies": ["skitterling", "brine_hulk"],
+  "parTimeSeconds": 420,
+  "tideSchedule": [
+    { "phase": "Low",    "seconds": 30 },
+    { "phase": "Rising", "seconds": 20 },
+    { "phase": "High",   "seconds": 30 },
+    { "phase": "Ebbing", "seconds": 20 }
+  ],
+  "grid": [
+    "~~~~~~~~~~~~~~~~",
+    "~....#....#....~",
+    "~.CGGGGGGGGGC.~",
+    "~....#....#....~",
+    "~~~~~~~~~~~~~~~~",
+    "~~~~~~~~~~~~~~~~",
+    "~~~~~~~~~~~~~~~~",
+    "~~~~~~~~~~~~~~~~"
+  ],
+  "waves": [
+    { "entries": [ { "enemyId": "skitterling", "count": 6, "interval": 0.9, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 10, "interval": 0.7, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 8, "interval": 0.7, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 1, "interval": 0, "gate": 0, "delay": 4 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 12, "interval": 0.6, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 2, "interval": 3, "gate": 0, "delay": 3 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 14, "interval": 0.5, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 3, "interval": 3, "gate": 0, "delay": 2 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 16, "interval": 0.5, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 4, "interval": 2.5, "gate": 0, "delay": 2 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 18, "interval": 0.45, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 5, "interval": 2.5, "gate": 0, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 20, "interval": 0.4, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 6, "interval": 2, "gate": 0, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 22, "interval": 0.4, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 7, "interval": 2, "gate": 0, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 24, "interval": 0.35, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 8, "interval": 2, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 26, "interval": 0.35, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 10, "interval": 1.8, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 30, "interval": 0.3, "gate": 0, "delay": 0 },
+                   { "enemyId": "brine_hulk", "count": 12, "interval": 1.5, "gate": 0, "delay": 0 } ] }
+  ]
+}

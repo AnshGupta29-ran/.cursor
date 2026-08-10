@@ -1,0 +1,1 @@
+Build an incident war-room chat with channels per incident, @mentions, severity tags, and a timeline of status updates synced live.

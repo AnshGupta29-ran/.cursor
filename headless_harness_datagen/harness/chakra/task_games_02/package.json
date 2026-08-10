@@ -1,0 +1,23 @@
+{
+  "name": "rustwake-core-rush",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turn-based tactics skirmish in a junkyard over a crashed hauler's power core.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "api": "node server/api.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.1.0"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

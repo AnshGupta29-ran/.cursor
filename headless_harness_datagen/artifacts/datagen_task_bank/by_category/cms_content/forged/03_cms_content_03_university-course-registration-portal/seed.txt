@@ -1,0 +1,1 @@
+Build a University Course Registration Portal: course catalog, student enrollment, waitlists, conflicts detection, and admin overrides.

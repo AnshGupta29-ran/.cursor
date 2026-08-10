@@ -1,0 +1,1 @@
+Create a magazine CMS: issues, articles, authors, draft/publish workflow, and public reading site.

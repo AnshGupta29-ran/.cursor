@@ -1,0 +1,177 @@
+{
+  "plan": {
+    "mode": "core_starter",
+    "axes": [
+      {
+        "id": "task_family",
+        "n_values": 16,
+        "values": [
+          "coding_implement",
+          "coding_debug",
+          "coding_refactor",
+          "coding_review",
+          "analysis_reason",
+          "data_visualization",
+          "data_wrangling",
+          "research_synthesize",
+          "planning_decompose",
+          "testing_qa",
+          "documentation",
+          "devops_ops",
+          "spreadsheet_excel",
+          "ml_inference_eval",
+          "security_audit",
+          "migration_upgrade"
+        ]
+      },
+      {
+        "id": "business_domain",
+        "n_values": 15,
+        "values": [
+          "ecommerce",
+          "finance_fintech",
+          "healthcare",
+          "education",
+          "devops_platform",
+          "gaming",
+          "iot_automation",
+          "media_cms",
+          "security_privacy",
+          "productivity_collab",
+          "social_comms",
+          "logistics_ops",
+          "legal_compliance",
+          "data_analytics",
+          "general_utilities"
+        ]
+      },
+      {
+        "id": "language_runtime",
+        "n_values": 13,
+        "values": [
+          "python",
+          "typescript",
+          "javascript",
+          "cpp",
+          "csharp",
+          "java",
+          "go",
+          "rust",
+          "sql",
+          "excel_office",
+          "bash_shell",
+          "html_css",
+          "mixed_polyglot"
+        ]
+      },
+      {
+        "id": "complexity",
+        "n_values": 3,
+        "values": [
+          "low",
+          "medium",
+          "hard"
+        ]
+      },
+      {
+        "id": "value",
+        "n_values": 3,
+        "values": [
+          "low",
+          "medium",
+          "hard"
+        ]
+      }
+    ],
+    "filters_applied": {
+      "task_family": [
+        "analysis_reason",
+        "coding_debug",
+        "coding_implement",
+        "coding_refactor",
+        "data_visualization",
+        "data_wrangling",
+        "devops_ops",
+        "ml_inference_eval",
+        "spreadsheet_excel",
+        "testing_qa"
+      ],
+      "business_domain": [
+        "data_analytics",
+        "devops_platform",
+        "ecommerce",
+        "finance_fintech",
+        "gaming",
+        "general_utilities",
+        "iot_automation",
+        "media_cms",
+        "productivity_collab",
+        "social_comms"
+      ],
+      "language_runtime": [
+        "cpp",
+        "csharp",
+        "excel_office",
+        "javascript",
+        "mixed_polyglot",
+        "python",
+        "typescript"
+      ]
+    },
+    "n_combinations": 6300,
+    "unfiltered_product": 28080,
+    "sample": [
+      {
+        "task_family": "coding_implement",
+        "business_domain": "ecommerce",
+        "language_runtime": "python",
+        "complexity": "low",
+        "value": "low"
+      },
+      {
+        "task_family": "coding_implement",
+        "business_domain": "ecommerce",
+        "language_runtime": "python",
+        "complexity": "low",
+        "value": "medium"
+      }
+    ],
+    "taxonomy_layers": {
+      "meta": [
+        "task_family",
+        "business_domain",
+        "artifact_type",
+        "language_runtime",
+        "modality",
+        "user_persona"
+      ],
+      "generic": [
+        "agent_topology",
+        "tool_profile",
+        "verification_mode",
+        "session_shape",
+        "repo_state"
+      ],
+      "quality": [
+        "complexity",
+        "value"
+      ]
+    },
+    "note": "Default starter filters keep the matrix around a few thousand cells. Pass starter=False / --all-core for the full core cartesian product, or --full (huge) with --filter."
+  },
+  "budget": {
+    "model": "kimi3",
+    "input_tokens": 472500000.0,
+    "output_tokens": 1512000000.0,
+    "total_tokens": 1984500000.0,
+    "usd": 3260.25,
+    "compute_units": 1984.5,
+    "price_input_usd_per_m": 0.5,
+    "price_output_usd_per_m": 2.0,
+    "n_combinations": 6300,
+    "examples_per_combo": 3,
+    "n_examples": 18900,
+    "avg_input_tokens": 25000.0,
+    "avg_output_tokens": 80000.0
+  }
+}

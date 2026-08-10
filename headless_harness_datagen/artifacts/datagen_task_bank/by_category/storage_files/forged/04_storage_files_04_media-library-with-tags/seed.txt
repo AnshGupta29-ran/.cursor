@@ -1,0 +1,1 @@
+Create a media library service for images and videos: upload, tag, search, thumbnail generation stubs, and collections.

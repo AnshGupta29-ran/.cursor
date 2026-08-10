@@ -1,0 +1,1 @@
+Create a log tail monitor that counts error patterns, charts rates, and fires threshold alerts.

@@ -1,0 +1,1 @@
+Build Minesweeper with difficulty presets and a hint mode that highlights a safe deduction when possible.

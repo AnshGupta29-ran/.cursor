@@ -1,0 +1,49 @@
+{
+  "id": "level_03",
+  "displayName": "Where the Lurkers Swim",
+  "briefing": "Deep trenches ring the Lantern and Abyssal Lurkers come in force. They are Shrouded in dark water — direct-fire towers cannot touch them unless a light tower or the Lantern's aura reveals them. Invest in illumination.",
+  "expectedEnemies": ["abyssal_lurker", "skitterling", "spitter"],
+  "parTimeSeconds": 600,
+  "tideSchedule": [
+    { "phase": "Rising", "seconds": 18 },
+    { "phase": "High",   "seconds": 30 },
+    { "phase": "Ebbing", "seconds": 18 },
+    { "phase": "Low",    "seconds": 22 }
+  ],
+  "grid": [
+    "~~~~~~~~~~~~~~~~~~",
+    "~GG...DDDDDD...GG~",
+    "~CC...DDDDDD...CC~",
+    "~CCTTTDDDDDDTTTCC~",
+    "~C.T..#....#..T.C~",
+    "~C.T....BB....T.C~",
+    "~C.T..#....#..T.C~",
+    "~CCTTTTTTTTTTTTCC~",
+    "~CC....#..#....CC~",
+    "~~~~~~~~~~~~~~~~~~"
+  ],
+  "waves": [
+    { "entries": [ { "enemyId": "skitterling", "count": 8, "interval": 0.8, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 5, "interval": 1.5, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 8, "interval": 1.2, "gate": 1, "delay": 0 },
+                   { "enemyId": "skitterling", "count": 8, "interval": 0.7, "gate": 0, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 10, "interval": 1.0, "gate": 0, "delay": 0 },
+                   { "enemyId": "spitter", "count": 2, "interval": 3, "gate": 1, "delay": 2 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 12, "interval": 1.0, "gate": 1, "delay": 0 },
+                   { "enemyId": "skitterling", "count": 10, "interval": 0.6, "gate": 0, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 14, "interval": 0.9, "gate": 0, "delay": 0 },
+                   { "enemyId": "spitter", "count": 3, "interval": 2.5, "gate": 1, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 16, "interval": 0.8, "gate": 1, "delay": 0 },
+                   { "enemyId": "abyssal_lurker", "count": 8, "interval": 1.0, "gate": 0, "delay": 2 } ] },
+    { "entries": [ { "enemyId": "spitter", "count": 4, "interval": 2.5, "gate": 0, "delay": 0 },
+                   { "enemyId": "abyssal_lurker", "count": 18, "interval": 0.8, "gate": 1, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 20, "interval": 0.7, "gate": 0, "delay": 0 },
+                   { "enemyId": "abyssal_lurker", "count": 12, "interval": 0.9, "gate": 1, "delay": 1 } ] },
+    { "entries": [ { "enemyId": "skitterling", "count": 20, "interval": 0.5, "gate": 0, "delay": 0 },
+                   { "enemyId": "abyssal_lurker", "count": 22, "interval": 0.7, "gate": 1, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 26, "interval": 0.6, "gate": 0, "delay": 0 },
+                   { "enemyId": "spitter", "count": 5, "interval": 2, "gate": 1, "delay": 0 } ] },
+    { "entries": [ { "enemyId": "abyssal_lurker", "count": 30, "interval": 0.6, "gate": 1, "delay": 0 },
+                   { "enemyId": "abyssal_lurker", "count": 16, "interval": 0.7, "gate": 0, "delay": 0 } ] }
+  ]
+}

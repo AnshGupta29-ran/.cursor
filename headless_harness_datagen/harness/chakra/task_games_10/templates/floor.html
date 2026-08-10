@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head><title>Run {{.Run.ID}} - Floor</title></head>
+<body>
+<h1>Run {{.Run.ID}} – {{.Run.Handle}}</h1>
+<p>Tick: {{.Run.Tick}} / 239</p>
+<p>Cash: {{.Cash}}</p>
+<h2>Holdings</h2>
+<table border="1">
+<tr><th>Symbol</th><th>Qty</th><th>Current Price</th></tr>
+{{range .Holdings}}
+<tr>
+  <td>{{.Symbol}}</td>
+  <td>{{.Qty}}</td>
+  <td>{{.Price}}</td>
+</tr>
+{{end}}
+</table>
+{{if .Events}}
+<h3>Events</h3>
+<ul>
+{{range .Events}}<li>{{.}}</li>{{end}}
+</ul>
+{{end}}
+<h2>Place Order</h2>
+<form method="POST" action="/run/{{.Run.ID}}/trade">
+  Symbol: <input name="symbol" type="text" required />
+  Side: <select name="side"><option value="buy">Buy</option><option value="sell">Sell</option></select>
+  Qty: <input name="qty" type="number" min="1" required />
+  <button type="submit">Submit</button>
+</form>
+<h2>Advance</h2>
+<form method="POST" action="/run/{{.Run.ID}}/advance">
+  Delta: <select name="delta"><option value="1">1</option><option value="10">10</option><option value="30">30</option></select>
+  <button type="submit">Advance</button>
+</form>
+{{if eq .Run.Tick 239}}
+<form method="POST" action="/run/{{.Run.ID}}/settle"><button type="submit">Settle</button></form>
+{{end}}
+<p><a href="/leaderboard">Leaderboard</a> | <a href="/run/{{.Run.ID}}/tape">Trade Tape</a></p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Frontend Platform Lead
+Lead React/TypeScript platform. Own design system, Vite/webpack tooling, accessibility.
+Drive roadmap with stakeholders; mentor IC3–IC5 engineers. Experience with GraphQL and CI/CD required.
+Kubernetes knowledge helpful for preview environments. Quantified UX/perf impact expected.

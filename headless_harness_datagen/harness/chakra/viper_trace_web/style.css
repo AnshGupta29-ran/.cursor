@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0d1117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+}
+canvas {
+  display: block;
+  box-shadow: 0 0 40px rgba(63, 224, 120, 0.15);
+  border-radius: 6px;
+}

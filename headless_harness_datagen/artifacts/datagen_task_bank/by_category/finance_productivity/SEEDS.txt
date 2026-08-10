@@ -1,0 +1,47 @@
+1. Personal finance tracker PRD
+Build a production-quality Personal Finance Tracker application from scratch. The application should allow users to manage their personal finances, track spending habits, and visualize their financial health through an intuitive interface. Support registration/auth, isolated user data, income/expense CRUD, categories, budgets, monthly/yearly summaries, dashboard charts, search/filter, and tests plus README.
+
+-----
+
+2. Personal finance manager
+Create a Personal Finance Manager in Python with accounts, transactions, budgets, and reports runnable locally.
+
+-----
+
+3. Expense splitter
+Create an Expense Splitter app: groups, shared expenses, balances, and settle-up suggestions.
+
+-----
+
+4. Employee leave management
+Create an Employee Leave Management System: leave types, balances, approvals, and calendar conflicts.
+
+-----
+
+5. Task and project management tool
+Create a Task & Project Management Tool with projects, tasks, assignees, due dates, and status workflow.
+
+-----
+
+6. Invoice generator
+Build an invoice generator: clients, line items, tax, PDF/HTML export, and payment status tracking.
+
+-----
+
+7. Habit streak tracker API
+Create a habit streak tracker API + minimal UI: daily check-ins, streaks, and weekly heatmap.
+
+-----
+
+8. Meeting notes action extractor
+Build a meeting-notes tool that stores notes and extracts action items with owners/due dates (rules or light NLP).
+
+-----
+
+9. Budget workbook assistant
+Create a budget workbook assistant that generates and updates an Excel monthly budget with categories and variance formulas.
+
+-----
+
+10. OKR tracker
+Build an OKR tracker: objectives, key results with progress %, check-ins, and team rollup view.

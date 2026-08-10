@@ -1,0 +1,4 @@
+query_id,asked_at,question,seed,profile,top_k
+d589217292b2,2026-08-07T12:05:13+00:00,What was the roll-call vote on the short-term rental ordinance?,42,balanced,4
+fa9e0cf63559,2026-08-07T12:06:11+00:00,What is name of the Applicant,42,balanced,4
+f48f871a4726,2026-08-07T12:06:22+00:00,What is name of the Applicant,42,strict,3

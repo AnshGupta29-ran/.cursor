@@ -1,0 +1,1 @@
+Create a habit streak tracker API + minimal UI: daily check-ins, streaks, and weekly heatmap.

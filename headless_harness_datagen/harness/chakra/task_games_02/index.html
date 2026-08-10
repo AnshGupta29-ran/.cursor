@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rustwake: Core Rush</title>
+    <style>
+      :root {
+        --bg: #14100d;
+        --panel: #241c15;
+        --panel-edge: #4a3826;
+        --copper: #d98e4a;
+        --rust: #a4552f;
+        --teal: #4aa3a2;
+        --text: #e8dcc8;
+        --dim: #9a8a72;
+        --danger: #d95f4a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      #app { padding: 12px; }
+      .screen { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      h1 {
+        font-size: 34px;
+        letter-spacing: 3px;
+        color: var(--copper);
+        margin: 18px 0 2px;
+        text-transform: uppercase;
+        text-shadow: 0 2px 0 #000;
+      }
+      h2 { color: var(--teal); margin: 0; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; }
+      .tagline { color: var(--dim); margin: 0 0 10px; }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--panel-edge);
+        border-radius: 8px;
+        padding: 16px 20px;
+        min-width: 420px;
+      }
+      button {
+        background: var(--rust);
+        color: var(--text);
+        border: 1px solid var(--copper);
+        border-radius: 6px;
+        padding: 10px 18px;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 4px;
+        letter-spacing: 1px;
+      }
+      button:hover { background: var(--copper); color: #1a120a; }
+      button:disabled { opacity: 0.4; cursor: default; }
+      button.secondary { background: transparent; }
+      .map-card {
+        border: 1px solid var(--panel-edge);
+        border-radius: 6px;
+        padding: 10px 14px;
+        margin: 6px 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .map-card:hover, .map-card.selected { border-color: var(--copper); background: #2e2418; }
+      .row { display: flex; gap: 12px; align-items: center; }
+      .label { color: var(--dim); font-size: 13px; }
+      canvas {
+        background: #1b1510;
+        border: 2px solid var(--panel-edge);
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      #hud {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 960px;
+        margin-bottom: 6px;
+        gap: 8px;
+      }
+      #banner {
+        font-size: 18px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--copper);
+      }
+      #logstrip {
+        width: 960px;
+        min-height: 66px;
+        background: #100c09;
+        border: 1px solid var(--panel-edge);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-family: 'Consolas', monospace;
+        font-size: 12px;
+        color: var(--dim);
+        margin-top: 6px;
+        white-space: pre-line;
+      }
+      #overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 7, 5, 0.88);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+      #overlay .panel { max-width: 520px; }
+      #overlay kbd {
+        background: #000;
+        border: 1px solid var(--copper);
+        border-radius: 4px;
+        padding: 1px 7px;
+        font-family: monospace;
+      }
+      .history-row { display: flex; justify-content: space-between; font-size: 13px; padding: 3px 0; border-bottom: 1px dotted #3a2d1e; }
+      .win { color: var(--teal); }
+      .loss { color: var(--danger); }
+      .draw { color: var(--dim); }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

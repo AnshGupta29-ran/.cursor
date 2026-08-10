@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>SeedStreet Exchange - Home</title></head>
+<body>
+<h1>SeedStreet Exchange</h1>
+<form method="POST" action="/run/new">
+  Handle: <input name="handle" type="text" placeholder="Trader" />
+  Seed: <input name="seed" type="text" placeholder="42" />
+  <button type="submit">Start Run</button>
+</form>
+<h2>Recent Runs</h2>
+<table border="1">
+<tr><th>ID</th><th>Handle</th><th>Cash</th><th>Tick</th><th>Status</th></tr>
+{{range .Runs}}
+<tr>
+  <td><a href="/run/{{.ID}}">{{.ID}}</a></td>
+  <td>{{.Handle}}</td>
+  <td>{{.Cash}}</td>
+  <td>{{.Tick}}</td>
+  <td>{{.Status}}</td>
+</tr>
+{{end}}
+</table>
+<p><a href="/leaderboard">Leaderboard</a></p>
+</body>
+</html>

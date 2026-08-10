@@ -1,0 +1,975 @@
+# Development Journal
+
+Chronological engineering record for the headless harness project.
+
+## Milestone 3.1 — Harness Interface Design
+- **Timestamp:** 2026-07-02T11:43:31.564265+00:00
+- **Objective:** Define abstract harness operations without backend-specific concepts.
+- **Design Decisions:**
+  - Single Harness ABC with TurnStream for active turns.
+  - Operations expressed as connect/session/send_turn rather than transport calls.
+  - Capabilities advertised explicitly via HarnessCapabilities.
+- **Implementation Progress:**
+  - interface/harness.py
+  - interface/capabilities.py
+  - interface/exceptions.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Harness operations: ['capabilities', 'close_session', 'connect', 'connection_info', 'create_session', 'disconnect', 'get_session_status', 'resume_session', 'send_turn']
+  - TurnStream operations: ['cancel', 'respond', 'result']
+- **Conclusions:**
+  - Interface is suitable for multiple adapter implementations.
+  - No backend protocol terms appear in core contract modules.
+- **Next Steps:**
+  - Define shared request/response/session models (Milestone 3.2).
+## Milestone 3.2 — Common Data Models
+- **Timestamp:** 2026-07-02T11:43:31.610771+00:00
+- **Objective:** Define backend-independent request, response, and session models.
+- **Design Decisions:**
+  - Immutable request/response dataclasses; mutable session handle.
+  - Generic ConnectionConfig.options bag for adapter-specific settings.
+  - TurnResult captures terminal text and usage counters.
+- **Implementation Progress:**
+  - interface/models/requests.py
+  - interface/models/responses.py
+  - interface/models/session.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Validated 10 model types with in-memory harness.
+  - Session lifecycle models work end-to-end without backend protocol types.
+- **Conclusions:**
+  - Models are generic enough for non-Chakra backends.
+- **Next Steps:**
+  - Define universal event model (Milestone 3.3).
+## Milestone 3.3 — Common Event System
+- **Timestamp:** 2026-07-02T11:43:31.657842+00:00
+- **Objective:** Provide consistent streamed event representation across harnesses.
+- **Design Decisions:**
+  - Discriminated event union with explicit HarnessEventType values.
+  - Terminal events: turn_completed and turn_failed.
+  - Phase 2 backend events mapped in interface/validation/event_mapping.py.
+- **Implementation Progress:**
+  - interface/events.py
+  - interface/validation/event_mapping.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Phase 2 mapping targets: ['intervention_required', 'text_delta', 'tool_completed', 'tool_started', 'turn_completed', 'turn_failed']
+  - Stream events observed: [<HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TURN_COMPLETED: 'turn_completed'>]
+  - Tool events observed: [<HarnessEventType.TOOL_STARTED: 'tool_started'>, <HarnessEventType.INTERVENTION_REQUIRED: 'intervention_required'>, <HarnessEventType.TOOL_COMPLETED: 'tool_completed'>, <HarnessEventType.TURN_COMPLETED: 'turn_completed'>]
+  - Error events observed: [<HarnessEventType.TURN_FAILED: 'turn_failed'>]
+- **Conclusions:**
+  - Every Phase 2 backend event maps to a harness contract event.
+  - Event lifecycle supports streaming, intervention, and failure paths.
+- **Next Steps:**
+  - Run full contract validation review (Milestone 3.4).
+## Milestone 3.4 — Contract Validation
+- **Timestamp:** 2026-07-02T11:43:31.704469+00:00
+- **Objective:** Finalize backend-independent contract for adapter implementation.
+- **Design Decisions:**
+  - Reference in-memory harness validates contract without backend coupling.
+  - Validation/mapping modules isolated from core interface package surface.
+  - Higher layers should import only from interface package.
+- **Implementation Progress:**
+  - interface/reference/in_memory_harness.py
+  - scripts/test_phase3_interface.py
+  - scripts/test_phase3_models.py
+  - scripts/test_phase3_events.py
+  - scripts/test_phase3_contract_validation.py
+  - docs/architecture_reference.md
+- **Validation Notes:** PASS
+- **Observations:**
+  - Loaded interface modules: 11
+  - Contract supports multiple harness classes implementing Harness ABC.
+- **Conclusions:**
+  - Phase 3 contract is consistent and backend-independent.
+  - Ready for Phase 4 Chakra adapter implementation.
+- **Next Steps:**
+  - Implement ChakraHarness adapter translating protocol to contract.
+## Milestone 3.1 — Harness Interface Design
+- **Timestamp:** 2026-07-02T11:51:11.282976+00:00
+- **Objective:** Define abstract harness operations without backend-specific concepts.
+- **Design Decisions:**
+  - Single Harness ABC with TurnStream for active turns.
+  - Operations expressed as connect/session/send_turn rather than transport calls.
+  - Capabilities advertised explicitly via HarnessCapabilities.
+- **Implementation Progress:**
+  - interface/harness.py
+  - interface/capabilities.py
+  - interface/exceptions.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Harness operations: ['capabilities', 'close_session', 'connect', 'connection_info', 'create_session', 'disconnect', 'get_session_status', 'resume_session', 'send_turn']
+  - TurnStream operations: ['cancel', 'respond', 'result']
+- **Conclusions:**
+  - Interface is suitable for multiple adapter implementations.
+  - No backend protocol terms appear in core contract modules.
+- **Next Steps:**
+  - Define shared request/response/session models (Milestone 3.2).
+## Milestone 3.2 — Common Data Models
+- **Timestamp:** 2026-07-02T11:51:17.484379+00:00
+- **Objective:** Define backend-independent request, response, and session models.
+- **Design Decisions:**
+  - Immutable request/response dataclasses; mutable session handle.
+  - Generic ConnectionConfig.options bag for adapter-specific settings.
+  - TurnResult captures terminal text and usage counters.
+- **Implementation Progress:**
+  - interface/models/requests.py
+  - interface/models/responses.py
+  - interface/models/session.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Validated 10 model types with in-memory harness.
+  - Session lifecycle models work end-to-end without backend protocol types.
+- **Conclusions:**
+  - Models are generic enough for non-Chakra backends.
+- **Next Steps:**
+  - Define universal event model (Milestone 3.3).
+## Milestone 3.3 — Common Event System
+- **Timestamp:** 2026-07-02T11:51:20.112076+00:00
+- **Objective:** Provide consistent streamed event representation across harnesses.
+- **Design Decisions:**
+  - Discriminated event union with explicit HarnessEventType values.
+  - Terminal events: turn_completed and turn_failed.
+  - Phase 2 backend events mapped in interface/validation/event_mapping.py.
+- **Implementation Progress:**
+  - interface/events.py
+  - interface/validation/event_mapping.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Phase 2 mapping targets: ['intervention_required', 'text_delta', 'tool_completed', 'tool_started', 'turn_completed', 'turn_failed']
+  - Stream events observed: [<HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TEXT_DELTA: 'text_delta'>, <HarnessEventType.TURN_COMPLETED: 'turn_completed'>]
+  - Tool events observed: [<HarnessEventType.TOOL_STARTED: 'tool_started'>, <HarnessEventType.INTERVENTION_REQUIRED: 'intervention_required'>, <HarnessEventType.TOOL_COMPLETED: 'tool_completed'>, <HarnessEventType.TURN_COMPLETED: 'turn_completed'>]
+  - Error events observed: [<HarnessEventType.TURN_FAILED: 'turn_failed'>]
+- **Conclusions:**
+  - Every Phase 2 backend event maps to a harness contract event.
+  - Event lifecycle supports streaming, intervention, and failure paths.
+- **Next Steps:**
+  - Run full contract validation review (Milestone 3.4).
+## Milestone 3.4 — Contract Validation
+- **Timestamp:** 2026-07-02T11:51:22.995841+00:00
+- **Objective:** Finalize backend-independent contract for adapter implementation.
+- **Design Decisions:**
+  - Reference in-memory harness validates contract without backend coupling.
+  - Validation/mapping modules isolated from core interface package surface.
+  - Higher layers should import only from interface package.
+- **Implementation Progress:**
+  - interface/reference/in_memory_harness.py
+  - scripts/test_phase3_interface.py
+  - scripts/test_phase3_models.py
+  - scripts/test_phase3_events.py
+  - scripts/test_phase3_contract_validation.py
+  - docs/architecture_reference.md
+- **Validation Notes:** PASS
+- **Observations:**
+  - Loaded interface modules: 11
+  - Contract supports multiple harness classes implementing Harness ABC.
+- **Conclusions:**
+  - Phase 3 contract is consistent and backend-independent.
+  - Ready for Phase 4 Chakra adapter implementation.
+- **Next Steps:**
+  - Implement ChakraHarness adapter translating protocol to contract.
+## Step 4.1 — Connection Adapter
+- **Timestamp:** 2026-07-02T12:16:18.393847+00:00
+- **Design Decisions:**
+  - ChakraHarness wraps ChakraClient behind Harness.connect/disconnect.
+  - ConnectionConfig endpoint maps to Chakra gRPC host/port.
+- **Implementation Progress:**
+  - adapter/chakra/harness.py
+  - adapter/chakra/config.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Connected to localhost:50201 through Harness interface only.
+  - Capabilities advertised for streaming and sessions.
+- **Conclusions:**
+  - Higher layers can connect without importing ChakraClient.
+- **Next Steps:**
+  - Implement session adapter (Step 4.2).
+## Step 4.2 — Session Adapter
+- **Timestamp:** 2026-07-02T12:16:18.730817+00:00
+- **Design Decisions:**
+  - HarnessSession.session_id maps directly to Chakra ChatRequest.session_id.
+  - Session close is client-side state; no backend delete RPC required.
+- **Implementation Progress:**
+  - adapter/chakra/session.py
+  - adapter/chakra/harness.py
+- **Validation Results:** FAIL
+- **Issues Encountered:**
+- **Observations:**
+  - Multi-turn context persisted across turns via session_id.
+  - Only HarnessSession exposed to caller.
+- **Conclusions:**
+  - Session lifecycle fully adapted to common abstraction.
+- **Next Steps:**
+  - Implement turn execution adapter (Step 4.3).
+## Step 4.2 — Session Adapter
+- **Timestamp:** 2026-07-02T12:16:38.369307+00:00
+- **Design Decisions:**
+  - HarnessSession.session_id maps directly to Chakra ChatRequest.session_id.
+  - Session close is client-side state; no backend delete RPC required.
+- **Implementation Progress:**
+  - adapter/chakra/session.py
+  - adapter/chakra/harness.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Multi-turn context persisted across turns via session_id.
+  - Only HarnessSession exposed to caller.
+- **Conclusions:**
+  - Session lifecycle fully adapted to common abstraction.
+- **Next Steps:**
+  - Implement turn execution adapter (Step 4.3).
+## Step 4.3 — Turn Execution Adapter
+- **Timestamp:** 2026-07-02T12:16:38.724248+00:00
+- **Design Decisions:**
+  - ChakraTurnStream owns one Chakra bidi stream per harness turn.
+  - Turn result derived from terminal harness events only.
+- **Implementation Progress:**
+  - adapter/chakra/stream.py
+  - adapter/chakra/harness.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Observed event sequence: ['text_delta', 'text_delta', 'text_delta', 'turn_completed']
+  - Final text length: 19
+- **Conclusions:**
+  - Full user turn executes exclusively through Harness API.
+- **Next Steps:**
+  - Validate event translation layer (Step 4.4).
+## Step 4.4 — Event Translation
+- **Timestamp:** 2026-07-02T12:16:38.866583+00:00
+- **Design Decisions:**
+  - Dedicated translator module maps Chakra ServerEvent to harness events.
+  - Higher layers never receive client.chakra_client.ServerEvent.
+- **Implementation Progress:**
+  - adapter/chakra/translator.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - All Phase 2 backend event families have harness equivalents.
+- **Conclusions:**
+  - Event translation is complete and backend-agnostic at boundary.
+- **Next Steps:**
+  - Run full adapter validation suite (Step 4.5).
+## Step 4.5 — Adapter Validation
+- **Timestamp:** 2026-07-02T12:16:39.254860+00:00
+- **Design Decisions:**
+  - ChakraHarness is the sole production entrypoint for Chakra integration.
+  - Validation ensures contract completeness and layer isolation.
+- **Implementation Progress:**
+  - adapter/chakra/harness.py
+  - adapter/chakra/stream.py
+  - adapter/chakra/translator.py
+  - adapter/chakra/session.py
+  - scripts/test_phase4_adapter_validation.py
+- **Validation Results:** FAIL leaks=['scripts/test_session.py references `from client.chakra_client`', 'scripts/test_session.py references `ChakraClient(`', 'scripts/test_minimal_chat.py references `from client.chakra_client`', 'scripts/test_minimal_chat.py references `ChakraClient(`', 'scripts/test_phase2_tool_interaction.py references `from client.chakra_client`', 'scripts/test_phase2_tool_interaction.py references `ChakraClient(`', 'scripts/test_phase2_session_lifecycle.py references `from client.chakra_client`', 'scripts/test_phase2_session_lifecycle.py references `ChakraClient(`', 'scripts/test_phase2_models.py references `from client.chakra_client`', 'scripts/test_phase2_models.py references `ChakraClient(`', 'scripts/test_phase2_streaming.py references `from client.chakra_client`', 'scripts/test_phase2_streaming.py references `ChakraClient(`', 'scripts/test_connectivity.py references `from client.chakra_client`', 'scripts/test_connectivity.py references `ChakraClient(`', 'scripts/test_phase2_error_cancellation.py references `from client.chakra_client`', 'scripts/test_phase2_error_cancellation.py references `ChakraClient(`', 'scripts/test_phase2_api_surface.py references `from client.chakra_client`', 'scripts/test_phase2_api_surface.py references `ChakraClient(`']
+- **Issues Encountered:**
+  - scripts/test_session.py references `from client.chakra_client`
+  - scripts/test_session.py references `ChakraClient(`
+  - scripts/test_minimal_chat.py references `from client.chakra_client`
+  - scripts/test_minimal_chat.py references `ChakraClient(`
+  - scripts/test_phase2_tool_interaction.py references `from client.chakra_client`
+  - scripts/test_phase2_tool_interaction.py references `ChakraClient(`
+  - scripts/test_phase2_session_lifecycle.py references `from client.chakra_client`
+  - scripts/test_phase2_session_lifecycle.py references `ChakraClient(`
+  - scripts/test_phase2_models.py references `from client.chakra_client`
+  - scripts/test_phase2_models.py references `ChakraClient(`
+  - scripts/test_phase2_streaming.py references `from client.chakra_client`
+  - scripts/test_phase2_streaming.py references `ChakraClient(`
+  - scripts/test_connectivity.py references `from client.chakra_client`
+  - scripts/test_connectivity.py references `ChakraClient(`
+  - scripts/test_phase2_error_cancellation.py references `from client.chakra_client`
+  - scripts/test_phase2_error_cancellation.py references `ChakraClient(`
+  - scripts/test_phase2_api_surface.py references `from client.chakra_client`
+  - scripts/test_phase2_api_surface.py references `ChakraClient(`
+- **Observations:**
+  - Harness methods implemented: ['capabilities', 'close_session', 'connect', 'connection_info', 'create_session', 'disconnect', 'get_session_status', 'resume_session', 'send_turn']
+  - Streaming, intervention, error, and cancellation paths validated.
+- **Conclusions:**
+  - Phase 4 adapter satisfies the common harness contract.
+  - No Chakra client leakage detected in interface layer.
+- **Next Steps:**
+  - Integrate ChakraHarness into conversation engine (Phase 5).
+## Step 4.5 — Adapter Validation
+- **Timestamp:** 2026-07-02T12:16:50.770210+00:00
+- **Design Decisions:**
+  - ChakraHarness is the sole production entrypoint for Chakra integration.
+  - Validation ensures contract completeness and layer isolation.
+- **Implementation Progress:**
+  - adapter/chakra/harness.py
+  - adapter/chakra/stream.py
+  - adapter/chakra/translator.py
+  - adapter/chakra/session.py
+  - scripts/test_phase4_adapter_validation.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Harness methods implemented: ['capabilities', 'close_session', 'connect', 'connection_info', 'create_session', 'disconnect', 'get_session_status', 'resume_session', 'send_turn']
+  - Streaming, intervention, error, and cancellation paths validated.
+- **Conclusions:**
+  - Phase 4 adapter satisfies the common harness contract.
+  - No Chakra client leakage detected in interface layer.
+- **Next Steps:**
+  - Integrate ChakraHarness into conversation engine (Phase 5).
+## Step 4.1 — Connection Adapter
+- **Timestamp:** 2026-07-02T12:17:01.139584+00:00
+- **Design Decisions:**
+  - ChakraHarness wraps ChakraClient behind Harness.connect/disconnect.
+  - ConnectionConfig endpoint maps to Chakra gRPC host/port.
+- **Implementation Progress:**
+  - adapter/chakra/harness.py
+  - adapter/chakra/config.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Connected to localhost:50201 through Harness interface only.
+  - Capabilities advertised for streaming and sessions.
+- **Conclusions:**
+  - Higher layers can connect without importing ChakraClient.
+- **Next Steps:**
+  - Implement session adapter (Step 4.2).
+## Step 4.2 — Session Adapter
+- **Timestamp:** 2026-07-02T12:17:01.471095+00:00
+- **Design Decisions:**
+  - HarnessSession.session_id maps directly to Chakra ChatRequest.session_id.
+  - Session close is client-side state; no backend delete RPC required.
+- **Implementation Progress:**
+  - adapter/chakra/session.py
+  - adapter/chakra/harness.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Multi-turn context persisted across turns via session_id.
+  - Only HarnessSession exposed to caller.
+- **Conclusions:**
+  - Session lifecycle fully adapted to common abstraction.
+- **Next Steps:**
+  - Implement turn execution adapter (Step 4.3).
+## Step 4.3 — Turn Execution Adapter
+- **Timestamp:** 2026-07-02T12:17:01.822763+00:00
+- **Design Decisions:**
+  - ChakraTurnStream owns one Chakra bidi stream per harness turn.
+  - Turn result derived from terminal harness events only.
+- **Implementation Progress:**
+  - adapter/chakra/stream.py
+  - adapter/chakra/harness.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Observed event sequence: ['text_delta', 'text_delta', 'text_delta', 'turn_completed']
+  - Final text length: 19
+- **Conclusions:**
+  - Full user turn executes exclusively through Harness API.
+- **Next Steps:**
+  - Validate event translation layer (Step 4.4).
+## Step 4.4 — Event Translation
+- **Timestamp:** 2026-07-02T12:17:01.966425+00:00
+- **Design Decisions:**
+  - Dedicated translator module maps Chakra ServerEvent to harness events.
+  - Higher layers never receive client.chakra_client.ServerEvent.
+- **Implementation Progress:**
+  - adapter/chakra/translator.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - All Phase 2 backend event families have harness equivalents.
+- **Conclusions:**
+  - Event translation is complete and backend-agnostic at boundary.
+- **Next Steps:**
+  - Run full adapter validation suite (Step 4.5).
+## Step 4.5 — Adapter Validation
+- **Timestamp:** 2026-07-02T12:17:02.359460+00:00
+- **Design Decisions:**
+  - ChakraHarness is the sole production entrypoint for Chakra integration.
+  - Validation ensures contract completeness and layer isolation.
+- **Implementation Progress:**
+  - adapter/chakra/harness.py
+  - adapter/chakra/stream.py
+  - adapter/chakra/translator.py
+  - adapter/chakra/session.py
+  - scripts/test_phase4_adapter_validation.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Harness methods implemented: ['capabilities', 'close_session', 'connect', 'connection_info', 'create_session', 'disconnect', 'get_session_status', 'resume_session', 'send_turn']
+  - Streaming, intervention, error, and cancellation paths validated.
+- **Conclusions:**
+  - Phase 4 adapter satisfies the common harness contract.
+  - No Chakra client leakage detected in interface layer.
+- **Next Steps:**
+  - Integrate ChakraHarness into conversation engine (Phase 5).
+## Step 5.1 — Conversation State
+- **Timestamp:** 2026-07-02T12:51:17.436536+00:00
+- **Design Decisions:**
+  - ConversationState tracks history, turns, active turn, and harness session.
+  - snapshot()/from_snapshot() enable reconstruction at any point.
+- **Implementation Progress:**
+  - engine/state.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Snapshot keys: ['conversation_id', 'status', 'session_id', 'session_state', 'session_turn_count', 'working_directory', 'metadata', 'history', 'turns', 'active_turn_id', 'created_at', 'updated_at']
+- **Conclusions:**
+  - Conversation state is reconstructable from snapshots.
+- **Next Steps:**
+  - Implement event dispatcher.
+
+## Step 5.2 — Event Dispatcher
+- **Timestamp:** 2026-07-02T12:51:18.419673+00:00
+- **Design Decisions:**
+  - EventDispatcher is the single path for harness event -> state updates.
+  - Terminal and intervention events transition conversation status explicitly.
+- **Implementation Progress:**
+  - engine/dispatcher.py
+- **Validation Results:** FAIL
+- **Issues Encountered:**
+- **Observations:**
+  - Final status: active
+  - Turn status: completed
+  - Event records: 5
+- **Conclusions:**
+  - All harness event types update conversation state correctly.
+- **Next Steps:**
+  - Implement execution engine.
+
+## Step 5.2 — Event Dispatcher
+- **Timestamp:** 2026-07-02T12:51:35.261231+00:00
+- **Design Decisions:**
+  - EventDispatcher is the single path for harness event -> state updates.
+  - Terminal and intervention events transition conversation status explicitly.
+- **Implementation Progress:**
+  - engine/dispatcher.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Final status: active
+  - Turn status: completed
+  - Event records: 5
+- **Conclusions:**
+  - All harness event types update conversation state correctly.
+- **Next Steps:**
+  - Implement execution engine.
+
+## Step 5.3 — Execution Engine
+- **Timestamp:** 2026-07-02T12:51:35.562513+00:00
+- **Design Decisions:**
+  - ConversationEngine delegates all backend I/O to Harness only.
+  - InterventionHandler supplies external decisions (controller hook for Phase 6).
+  - EngineObserver emits lifecycle notifications for future controller integration.
+- **Implementation Progress:**
+  - engine/conversation_engine.py
+  - engine/types.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Notifications: ['conversation_started', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'intervention_resolved', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'conversation_closed']
+- **Conclusions:**
+  - Engine executes full conversations with external intervention policy.
+- **Next Steps:**
+  - Run full engine validation suite.
+
+## Step 5.4 — Engine Validation
+- **Timestamp:** 2026-07-02T12:51:47.217058+00:00
+- **Design Decisions:**
+  - Real LLM validation uses ChakraHarness injected into ConversationEngine.
+  - Engine remains backend-agnostic — only Harness interface is used by engine/.
+- **Implementation Progress:**
+  - scripts/test_phase5_engine.py
+  - scripts/test_phase5_engine_real.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - User turns: 4
+  - Assistant turns: 4
+  - Recall response: orchid
+- **Conclusions:**
+  - Conversation engine manages full lifecycle on real backend.
+- **Next Steps:**
+  - Implement controller (Phase 6) to supply decisions via InterventionHandler.
+
+## Step 5.1 — Conversation State
+- **Timestamp:** 2026-07-02T12:52:35.503901+00:00
+- **Design Decisions:**
+  - ConversationState tracks history, turns, active turn, and harness session.
+  - snapshot()/from_snapshot() enable reconstruction at any point.
+- **Implementation Progress:**
+  - engine/state.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Snapshot keys: ['conversation_id', 'status', 'session_id', 'session_state', 'session_turn_count', 'working_directory', 'metadata', 'history', 'turns', 'active_turn_id', 'created_at', 'updated_at']
+- **Conclusions:**
+  - Conversation state is reconstructable from snapshots.
+- **Next Steps:**
+  - Implement event dispatcher.
+
+## Step 5.2 — Event Dispatcher
+- **Timestamp:** 2026-07-02T12:52:35.591383+00:00
+- **Design Decisions:**
+  - EventDispatcher is the single path for harness event -> state updates.
+  - Terminal and intervention events transition conversation status explicitly.
+- **Implementation Progress:**
+  - engine/dispatcher.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Final status: active
+  - Turn status: completed
+  - Event records: 5
+- **Conclusions:**
+  - All harness event types update conversation state correctly.
+- **Next Steps:**
+  - Implement execution engine.
+
+## Step 5.3 — Execution Engine
+- **Timestamp:** 2026-07-02T12:52:35.741920+00:00
+- **Design Decisions:**
+  - ConversationEngine delegates all backend I/O to Harness only.
+  - InterventionHandler supplies external decisions (controller hook for Phase 6).
+  - EngineObserver emits lifecycle notifications for future controller integration.
+- **Implementation Progress:**
+  - engine/conversation_engine.py
+  - engine/types.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Notifications: ['conversation_started', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'intervention_resolved', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'conversation_closed']
+- **Conclusions:**
+  - Engine executes full conversations with external intervention policy.
+- **Next Steps:**
+  - Run full engine validation suite.
+
+## Step 5.1 — Conversation State
+- **Timestamp:** 2026-07-02T13:11:10.487656+00:00
+- **Design Decisions:**
+  - ConversationState tracks history, turns, active turn, and harness session.
+  - snapshot()/from_snapshot() enable reconstruction at any point.
+- **Implementation Progress:**
+  - engine/state.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Snapshot keys: ['conversation_id', 'status', 'session_id', 'session_state', 'session_turn_count', 'working_directory', 'metadata', 'history', 'turns', 'active_turn_id', 'created_at', 'updated_at']
+- **Conclusions:**
+  - Conversation state is reconstructable from snapshots.
+- **Next Steps:**
+  - Implement event dispatcher.
+
+## Step 5.2 — Event Dispatcher
+- **Timestamp:** 2026-07-02T13:11:10.685189+00:00
+- **Design Decisions:**
+  - EventDispatcher is the single path for harness event -> state updates.
+  - Terminal and intervention events transition conversation status explicitly.
+- **Implementation Progress:**
+  - engine/dispatcher.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Final status: active
+  - Turn status: completed
+  - Event records: 5
+- **Conclusions:**
+  - All harness event types update conversation state correctly.
+- **Next Steps:**
+  - Implement execution engine.
+
+## Step 5.3 — Execution Engine
+- **Timestamp:** 2026-07-02T13:11:19.407497+00:00
+- **Design Decisions:**
+  - ExecutionEngine delegates all backend I/O to Harness only.
+  - InterventionHandler supplies external decisions (controller hook for Phase 6).
+  - EngineObserver emits lifecycle notifications for future controller integration.
+- **Implementation Progress:**
+  - engine/execution_engine.py
+  - engine/types.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Notifications: ['conversation_started', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'turn_started', 'event_received', 'event_received', 'intervention_required', 'intervention_resolved', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'turn_started', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'event_received', 'turn_completed', 'conversation_closed']
+- **Conclusions:**
+  - Engine executes full conversations with external intervention policy.
+- **Next Steps:**
+  - Run full engine validation suite.
+
+## Step 6.1 — Controller Context
+- **Timestamp:** 2026-07-02T13:12:33.620585+00:00
+- **Design Decisions:**
+  - ControllerContext is built only from ExecutionEngine ConversationState.
+  - Context includes objective, session, history, and recent harness events.
+- **Implementation Progress:**
+  - controller/context_builder.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Context keys: ['active_turn_status', 'conversation_id', 'conversation_status', 'history', 'last_assistant_message', 'last_user_message', 'metadata', 'objective', 'recent_events', 'session_id', 'session_state', 'turn_count', 'working_directory']
+- **Conclusions:**
+  - Controller receives backend-neutral state for every decision.
+- **Next Steps:**
+  - Finalize prompting strategy.
+
+## Step 6.2 — Prompting Strategy
+- **Timestamp:** 2026-07-02T13:12:33.901726+00:00
+- **Design Decisions:**
+  - System prompt defines role, actions, JSON schema, and constraints.
+  - Decision prompts are deterministic for identical ControllerContext input.
+- **Implementation Progress:**
+  - controller/prompt_builder.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Prompt message count: 2
+- **Conclusions:**
+  - Identical contexts produce identical prompts and valid actions.
+- **Next Steps:**
+  - Implement action generation and validation.
+
+## Step 6.3 — Action Generation
+- **Timestamp:** 2026-07-02T13:12:34.182307+00:00
+- **Design Decisions:**
+  - Actions are JSON with explicit action field and validation per type.
+  - DecisionPolicy retries invalid LLM output with corrective feedback.
+- **Implementation Progress:**
+  - controller/decision.py
+  - controller/policies.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Parsed send action: send_message
+  - Intervention response: yes
+- **Conclusions:**
+  - Every generated action is parseable and executable by the engine.
+- **Next Steps:**
+  - Implement controller runtime loop.
+
+## Step 6.4 — Controller Runtime
+- **Timestamp:** 2026-07-02T13:12:34.465505+00:00
+- **Design Decisions:**
+  - Controller loop: build context → decide → execute_turn or complete.
+  - InterventionHandler delegates to DecisionPolicy during active turns.
+- **Implementation Progress:**
+  - controller/controller.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Next Steps:**
+  - Run end-to-end validation on real backend.
+
+## Step 6.5 — End-to-End Validation
+- **Timestamp:** 2026-07-02T13:12:43.184493+00:00
+- **Design Decisions:**
+  - Autonomous stack: Controller → ExecutionEngine → Harness → Adapter.
+  - Controller LLM uses OPENAI_* env vars; backend uses Chakra harness.
+- **Implementation Progress:**
+  - controller/controller.py
+  - scripts/test_phase6_runtime.py
+  - scripts/test_phase6_e2e_real.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Turns executed: 1
+  - Actions taken: 2
+  - Workdir: /Users/anuragupperwal/Documents/Coding/Internship_Soket/headless_harness/experiments/phase6_autonomous
+  - Summary: Task completed successfully with confirmation of 'harness integration ok.'
+- **Conclusions:**
+  - Full architecture operates autonomously from objective to completion.
+- **Next Steps:**
+  - Phase 7 — persona orchestration.
+
+## Step 6.4 — Controller Runtime
+- **Timestamp:** 2026-07-02T13:28:12.012412+00:00
+- **Design Decisions:**
+  - Controller loop: build context → decide → execute_turn or complete.
+  - InterventionHandler delegates to DecisionPolicy during active turns.
+- **Implementation Progress:**
+  - controller/controller.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Actions: ['send_message', 'complete']
+  - Summary: Received echo response
+- **Conclusions:**
+  - Controller autonomously guides conversations via ExecutionEngine.
+- **Next Steps:**
+  - Run end-to-end validation on real backend.
+
+## Step 6.1 — Controller Context
+- **Timestamp:** 2026-07-02T13:28:12.242525+00:00
+- **Design Decisions:**
+  - ControllerContext is built only from ExecutionEngine ConversationState.
+  - Context includes objective, session, history, and recent harness events.
+- **Implementation Progress:**
+  - controller/context_builder.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Context keys: ['active_turn_status', 'conversation_id', 'conversation_status', 'history', 'last_assistant_message', 'last_user_message', 'metadata', 'objective', 'recent_events', 'session_id', 'session_state', 'turn_count', 'working_directory']
+- **Conclusions:**
+  - Controller receives backend-neutral state for every decision.
+- **Next Steps:**
+  - Finalize prompting strategy.
+
+## Step 6.4 — Controller Runtime
+- **Timestamp:** 2026-07-06T13:00:46.156739+00:00
+- **Design Decisions:**
+  - Controller loop: build context → decide → execute_turn or complete.
+  - InterventionHandler delegates to DecisionPolicy during active turns.
+- **Implementation Progress:**
+  - controller/controller.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Actions: ['send_message', 'complete']
+  - Summary: Received echo response
+- **Conclusions:**
+  - Controller autonomously guides conversations via ExecutionEngine.
+- **Next Steps:**
+  - Run end-to-end validation on real backend.
+
+## Phase 7 — Repository Verification
+- **Timestamp:** 2026-07-06T19:30:00+00:00
+- **Design Decisions:**
+  - Verification is a fresh controller conversation — never reuses generation history.
+  - `VerificationDecisionPolicy` relays the verification prompt to Chakra and auto-approves tools.
+  - No deterministic validation; Chakra autonomously inspects, builds, tests, and judges.
+  - Verdict extracted via `VERDICT: PASS|FAIL|PARTIAL` regex on the final report.
+  - Artifacts stored under `runs/<run_id>/verification/`.
+- **Implementation Progress:**
+  - verification/prompts.py, parser.py, report.py, policy.py
+  - main.py — generation then verification flow
+  - controller/controller.py — optional `policy` injection for verification relay
+- **Validation Results:** PASS (`scripts/test_phase7_verification.py`)
+- **Issues Encountered:**
+  - None in unit tests; real LLM verification pending Chakra backend run.
+- **Observations:**
+  - Verification prompt is technology-independent; harness chooses commands.
+  - Generation and verification traces are isolated under `runs/<run_id>/generation/` and `verification/`.
+- **Conclusions:**
+  - Phase 7 adds autonomous post-generation verification without an orchestration framework.
+- **Next Steps:**
+  - Phase 8 — repository repair on `VERDICT: FAIL`.
+
+## Subagent Integration — Phase 1: Enable Chakra Built-in Subagents on gRPC
+- **Timestamp:** 2026-07-10T06:15:00+00:00
+- **Objective:** Register Chakra built-in subagents on every gRPC session so the harness can orchestrate `Plan`, `general-purpose`, `verification`, and `Explore` without feature-flag gating.
+- **Design Decisions:**
+  - Explicit imports in `builtInGrpcAgents.ts` instead of `getBuiltInAgents()` — avoids `bun:bundle` `VERIFICATION_AGENT` flag and GrowthBook `tengu_hive_evidence` defaulting off.
+  - Local patch under `harness/chakra/src/grpc/` (exception to upstream read-only mirror).
+  - Smoke test uses live LLM + Explore subagent spawn, not unit mocks.
+- **Implementation Progress:**
+  - `harness/chakra/src/grpc/builtInGrpcAgents.ts` — registry
+  - `harness/chakra/src/grpc/server.ts` — `agents: GRPC_BUILTIN_AGENTS`
+  - `harness/chakra/scripts/start-grpc.ts` — startup log of registered types
+  - `scripts/smoke_chakra_subagents.py` — workflow verification
+  - `README.md`, `docs/architecture_reference.md`
+- **Validation Notes:** Run `python scripts/smoke_chakra_subagents.py` after restarting `./scripts/start_chakra.sh`.
+- **Observations:**
+  - Agent tool wire name is `Agent` (legacy alias `Task`).
+  - Plan agent type is `Plan` (capital P), Explore is `Explore`.
+  - Subagent tool calls still require harness intervention approval on gRPC.
+- **Conclusions:**
+  - Phase 1 complete; harness can rely on Chakra subagents being available on every gRPC turn.
+- **Next Steps:**
+  - Phase 2 — generation workflow: mandatory `Plan` → `general-purpose` → `plan.md`.
+
+## Subagent Integration — Phase 2: Planning-First Generation Workflow
+- **Timestamp:** 2026-07-10T06:55:00+00:00
+- **Objective:** Refactor generation so every session begins with the Plan subagent, writes `plan.md`, then delegates implementation to general-purpose before transitioning to validation.
+- **Design Decisions:**
+  - `GenerationWorkflowPolicy` makes deterministic orchestration decisions (no controller LLM for routing).
+  - LLM retained only for intervention approvals during generation.
+  - Completion signal: `IMPLEMENTATION_STATUS: COMPLETE` in backend text (Phase 3 will add verification gate).
+  - Plan subagent is read-only; main Chakra agent must write `plan.md` from Plan output.
+- **Implementation Progress:**
+  - `controller/generation_workflow.py`
+  - `main.py`, `scripts/run_autonomous.py` — wire `GenerationWorkflowPolicy`
+  - `verification/prompts.py` — updated `build_generation_objective` for phased workflow
+  - `scripts/test_generation_workflow.py`
+  - `README.md`, `docs/architecture_reference.md`
+- **Validation Notes:** `python scripts/test_generation_workflow.py` (unit). Live: `main.py --skip-validation` on small objective.
+- **Observations:**
+  - Plan agent type is `Plan`; implementation uses `general-purpose`.
+  - Multiple backend turns may be needed if `plan.md` is missing after planning turn.
+- **Conclusions:**
+  - Phase 2 complete; generation is orchestration-driven rather than open-ended LLM controller routing.
+- **Next Steps:**
+  - Phase 3 — stricter completion guard requiring verification subagent + `VERDICT: PASS`.
+
+## Subagent Integration — Phase 3: Completion Guard
+- **Timestamp:** 2026-07-10T07:30:00+00:00
+- **Objective:** Generation completes only when verification subagent returns `VERDICT: PASS`; `IMPLEMENTATION_STATUS: COMPLETE` is no longer sufficient.
+- **Design Decisions:**
+  - Added Phase 3 verification orchestration messages in `generation_workflow.py`.
+  - `verification_passed()` requires both subagent invocation evidence and `VERDICT: PASS`.
+  - On `VERDICT: FAIL`, harness sends repair-and-reverify message (full repair loop in Phase 4).
+  - `turn_limit_reached` metadata allows Condition 1 termination without PASS.
+  - `main.py` persists `generation/verification_report.md` and exits non-zero without PASS.
+  - `--skip-validation` skips legacy validation controller when generation already verified.
+- **Implementation Progress:**
+  - `controller/generation_workflow.py` — verification phase + completion guard
+  - `controller/controller.py`, `controller/context_builder.py` — turn limit metadata
+  - `main.py`, `verification/prompts.py`
+  - `scripts/test_generation_workflow.py` — Phase 3 tests
+- **Validation Notes:** `python scripts/test_generation_workflow.py`
+- **Conclusions:**
+  - Phase 3 complete; verification agent is authoritative for generation completion.
+- **Next Steps:**
+  - Phase 4 — verification/repair orchestration loop on FAIL without legacy validation package.
+
+## Subagent Integration — Phase 4–5: Verify ↔ Repair Orchestration
+- **Timestamp:** 2026-07-10T09:00:00+00:00
+- **Objective:** On `VERDICT: FAIL`, persist verifier report and orchestrate Plan → general-purpose repair → re-verification loop until PASS or repair limit.
+- **Design Decisions:**
+  - Removed ad-hoc `build_verification_fail_message` self-fix path.
+  - Phase 4 repair planning uses `Plan` subagent; Phase 5 repair uses `general-purpose`.
+  - `REPAIR_STATUS: COMPLETE` gates re-verification; `VERIFICATION_RERUN_MARKER` per cycle.
+  - Fail reports saved to `logs/<run-id>/generation/verification_report_iter_XX_fail.md`.
+  - Legacy validation controller opt-in via `--legacy-validation` (default off).
+  - `--max-repair-iterations` caps the verify→repair loop.
+- **Implementation Progress:**
+  - `controller/generation_workflow.py` — repair state machine + artifact persistence
+  - `main.py`, `scripts/run_autonomous.py` — `log_root`, repair limits
+  - `scripts/test_generation_workflow.py` — Phase 4 tests
+  - `README.md`, `docs/architecture_reference.md`
+- **Validation Notes:** `python scripts/test_generation_workflow.py`
+- **Conclusions:**
+  - Phase 4–5 complete; generation owns verify/repair orchestration without Python validation logic.
+- **Next Steps:**
+  - Phase 6 — loop hardening and legacy validation retirement.
+
+## Subagent Integration — Phase 6–7: Verification Hardening & Explore Integration
+- **Timestamp:** 2026-07-10T12:00:00+00:00
+- **Objective:** Prevent main-agent self-assigned VERDICT; complete verify/repair loop hardening; expose Explore subagent in prompts.
+- **Design Decisions:**
+  - `VERDICT` accepted only from verification subagent tool evidence (`Agent` tool_completed with substantive output, or `Read` of async subagent output file).
+  - Removed fallback that treated any `verdict:` in conversation text as subagent evidence.
+  - `context_builder` now includes `tool_events` from all turns for cross-turn subagent detection.
+  - Self-assigned verdict triggers explicit rejection message in verification continue phase.
+  - Explore hints added to phase prompts and `build_generation_objective` (optional, not forced).
+- **Implementation Progress:**
+  - `controller/context_builder.py` — `tool_events` field
+  - `controller/generation_workflow.py` — `verification_subagent_verdict`, `self_assigned_verdict_detected`, Explore hints
+  - `verification/prompts.py` — Explore availability in generation objective
+  - `scripts/test_generation_workflow.py` — 12 tests including self-assigned rejection and async Read path
+- **Validation Notes:** `python scripts/test_generation_workflow.py` — all 12 pass
+- **Conclusions:**
+  - Phase 6–7 complete; verification subagent is the only authoritative VERDICT source.
+- **Next Steps:**
+  - Phase 8 — deterministic intervention policy.
+
+## Subagent Integration — Stage Split: Generation vs Verification
+- **Timestamp:** 2026-07-10T18:30:00+00:00
+- **Objective:** Split pipeline into two orchestrator stages so generation (Plan → implement) completes before verification/repair begins in a new Chakra conversation.
+- **Design Decisions:**
+  - `GenerationWorkflowPolicy` — Plan + implement only; completes on `IMPLEMENTATION_STATUS: COMPLETE`.
+  - `VerificationWorkflowPolicy` — verify ↔ repair loop; completes on subagent `VERDICT: PASS`.
+  - Shared helpers in `controller/workflow_common.py`; stronger verification phase prompts forbid self-verification and out-of-repo reads.
+  - `main.py` runs generation then verification (new conversation); `--skip-verification` for generation-only runs.
+  - Removed legacy `verification/policy.py`, `ValidationDecisionPolicy`, `--legacy-validation`, and `build_validation_objective`.
+  - Artifacts: `logs/<run-id>/generation/` (impl) and `logs/<run-id>/verification/` (reports, verdict).
+- **Implementation Progress:**
+  - `controller/generation_workflow.py` — slimmed to generation-only
+  - `controller/verification_workflow.py` — new verification/repair policy
+  - `controller/workflow_common.py` — shared verdict parsing and markers
+  - `main.py`, `verification/prompts.py`, `verification/report.py`, `verification/__init__.py`
+  - `scripts/test_generation_workflow.py`, `scripts/test_verification_workflow.py`, `scripts/test_phase7_verification.py`
+  - `README.md`, `docs/architecture_reference.md`
+- **Validation Notes:** `python scripts/test_generation_workflow.py`, `python scripts/test_verification_workflow.py`, `python scripts/test_phase7_verification.py`
+- **Conclusions:**
+  - Two-stage pipeline matches `docs/explicit_backend_agent_call.md`; main agent no longer enters verification during generation.
+- **Next Steps:**
+  - Phase 8 — deterministic intervention policy (deny out-of-repo reads during verification).
+
+## Completion Protocol Fix — Truncation and Verification Handoff
+- **Timestamp:** 2026-07-10T19:30:00+00:00
+- **Objective:** Fix generation→verification handoff when `IMPLEMENTATION_STATUS: COMPLETE` was emitted but lost from controller summary due to `summarize()` truncation; always run verification when generation controller completes.
+- **Root Cause:** Run `20260710_131435_a71120c9` — backend message (2611 chars) ended with `IMPLEMENTATION_STATUS: COMPLETE`; policy detected it from full `last_assistant_message` and returned COMPLETE; `summarize(limit=2000)` dropped the marker; `main.py` re-checked truncated summary and exited before verification.
+- **Design Decisions:**
+  - `summarize_preserving_markers()` appends protocol markers when truncation would drop them.
+  - `implementation_complete_in_text()` centralizes marker detection.
+  - `main.py` warns on missing marker but always proceeds to verification when `gen_result.completed` (unless `--skip-verification`).
+  - `save_generation_artifacts()` records `implementation_marker_present` and `completion_reasoning`.
+- **Implementation Progress:**
+  - `controller/workflow_common.py`, `controller/generation_workflow.py`, `main.py`, `verification/report.py`, `verification/prompts.py`
+  - `scripts/test_completion_protocol.py`
+- **Validation Notes:** `python scripts/test_completion_protocol.py`, `python scripts/test_generation_workflow.py`
+
+## Step 6.1 — Controller Context
+- **Timestamp:** 2026-07-17T14:02:29.547242+00:00
+- **Design Decisions:**
+  - ControllerContext is built only from ExecutionEngine ConversationState.
+  - Context includes objective, session, history, and recent harness events.
+- **Implementation Progress:**
+  - controller/context_builder.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+  - None
+- **Observations:**
+  - Context keys: ['active_turn_status', 'conversation_id', 'conversation_status', 'history', 'last_assistant_message', 'last_user_message', 'metadata', 'objective', 'recent_events', 'session_id', 'session_state', 'tool_events', 'turn_count', 'working_directory']
+- **Conclusions:**
+  - Controller receives backend-neutral state for every decision.
+- **Next Steps:**
+  - Finalize prompting strategy.
+
+## Milestone 3.2 — Common Data Models
+- **Timestamp:** 2026-07-17T14:02:29.600686+00:00
+- **Objective:** Define backend-independent request, response, and session models.
+- **Design Decisions:**
+  - Immutable request/response dataclasses; mutable session handle.
+  - Generic ConnectionConfig.options bag for adapter-specific settings.
+  - TurnResult captures terminal text and usage counters.
+- **Implementation Progress:**
+  - interface/models/requests.py
+  - interface/models/responses.py
+  - interface/models/session.py
+- **Validation Notes:** PASS
+- **Observations:**
+  - Validated 10 model types with in-memory harness.
+  - Session lifecycle models work end-to-end without backend protocol types.
+- **Conclusions:**
+  - Models are generic enough for non-Chakra backends.
+- **Next Steps:**
+  - Define universal event model (Milestone 3.3).
+## Step 4.4 — Event Translation
+- **Timestamp:** 2026-07-17T14:02:35.139231+00:00
+- **Design Decisions:**
+  - Dedicated translator module maps Chakra ServerEvent to harness events.
+  - Higher layers never receive client.chakra_client.ServerEvent.
+- **Implementation Progress:**
+  - adapter/chakra/translator.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - All Phase 2 backend event families have harness equivalents.
+- **Conclusions:**
+  - Event translation is complete and backend-agnostic at boundary.
+- **Next Steps:**
+  - Run full adapter validation suite (Step 4.5).
+## Step 5.1 — Conversation State
+- **Timestamp:** 2026-07-17T14:02:35.199682+00:00
+- **Design Decisions:**
+  - ConversationState tracks history, turns, active turn, and harness session.
+  - snapshot()/from_snapshot() enable reconstruction at any point.
+- **Implementation Progress:**
+  - engine/state.py
+- **Validation Results:** PASS
+- **Issues Encountered:**
+- **Observations:**
+  - Snapshot keys: ['conversation_id', 'status', 'session_id', 'session_state', 'session_turn_count', 'working_directory', 'metadata', 'history', 'turns', 'active_turn_id', 'created_at', 'updated_at']
+- **Conclusions:**
+  - Conversation state is reconstructable from snapshots.
+- **Next Steps:**
+  - Implement event dispatcher.
+

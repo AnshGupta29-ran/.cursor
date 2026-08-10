@@ -1,0 +1,1 @@
+Build a greenhouse IoT automation console: simulate temperature/humidity/soil sensors, set thresholds, trigger watering/fan actuators, show history charts, and schedule rules.

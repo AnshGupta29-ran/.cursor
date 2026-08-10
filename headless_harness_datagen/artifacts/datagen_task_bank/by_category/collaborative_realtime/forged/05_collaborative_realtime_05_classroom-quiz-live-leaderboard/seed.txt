@@ -1,0 +1,1 @@
+Build a live classroom quiz app where a teacher pushes questions and students answer in real time with a running leaderboard.
