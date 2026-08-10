@@ -1,0 +1,39 @@
+---
+pid: 3704
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "curl -s -o NUL -w \"%{http_code}\" http://localhost:5173 2>$null; Write-Host \"\"; Get-ChildItem \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\task_ai_ml_02\\client\\src\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName; Get-Content \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\task_ai_ml_02\\client\\src\\App.jsx\" -ErrorAction SilentlyContinue"
+title: "Check Vite and task_02 App.jsx"
+status: succeeded
+started_at: 2026-08-10T09:00:23.235Z
+running_for_ms: 94497    
+---
+Invoke-WebRequest : Missing an argument for parameter 'SessionVariable'. Specify a parameter of type 'System.String' 
+and try again.
+At C:\Users\anshg\AppData\Local\Temp\ps-script-f392b6c6-2e4b-42db-b83e-351d726b39df.ps1:104 char:6
++ curl -s -o NUL -w "%{http_code}" http://localhost:5173 2>$null; Write ...
++      ~~
+    + CategoryInfo          : InvalidArgument: (:) [Invoke-WebRequest], ParameterBindingException
+    + FullyQualifiedErrorId : MissingArgument,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+ 
+
+
+FullName                                                                                        
+--------                                                                                        
+C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\task_ai_ml_02\client\src\App.jsx 
+C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\task_ai_ml_02\client\src\main.jsx
+import React from 'react';
+
+export default function App() {
+  return (
+    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+      <h1>EpochLedger Demo</h1>
+      <p>This is a minimal React SPA built with Vite.</p>
+    </div>
+  );
+}
+
+---
+exit_code: 0
+elapsed_ms: 94494
+ended_at: 2026-08-10T09:01:57.729Z
+---

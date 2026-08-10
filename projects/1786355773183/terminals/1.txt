@@ -1,0 +1,6 @@
+---
+pid: 8772
+cwd: |
+  C:\Users\anshg
+---
+PS C:\Users\anshg> 

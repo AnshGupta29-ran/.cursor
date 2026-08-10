@@ -1,0 +1,871 @@
+You're using Claude Code hooks wrong
+
+# The AI-Augmented Engineer
+
+SubscribeSign in
+
+# You're using Claude Code hooks wrong
+
+### Everything you need to know about Claude Code's hidden automation layer
+
+Jeff Morhous and Michael Jovanovich
+
+Nov 13, 2025
+
+21
+
+4
+
+1
+
+Share
+
+If you’re reading this, you’re probably already using Claude Code to write files, run commands, edit code. Each time Claude touches your filesystem, you approve or deny. But here’s something you might not know: you can inject your own commands into that flow. Automatically.
+
+They’re called hooks. They run when specific events happen. Before Claude writes a file, after it runs a test, when you submit a prompt. You write a script, configure when it fires, and Claude Code handles the execution.
+
+Subscribe
+
+This changes how you work with AI coding tools.
+
+Today’s deep dive is written by Michael Jovanovich, an expert in Claude Code.
+
+Michael is a self-taught programmer who specializes in AI-assisted development frameworks. He’s spent hundreds of hours exploring orchestration patterns and extensibility features in Claude Code, focusing on techniques that scale beyond simple tasks into genuinely complex and autonomous workflows. He writes Claude Code: Response Awareness Methodology teaching developers to build sophisticated systems using AI tools and orchestration patterns.
+
+Here are some great articles by Michael that you may also love:
+
+Claude Code: Response Awareness MethodologyThe Science of AI Internal State Awareness: Two Papers That Validate Response-Awareness MethodologyThe Science of AI Internal State Awareness…Read more10 months ago · 9 likes · 2 comments · Michael Jovanovich
+
+Claude Code: Response Awareness MethodologyLLMs as Interpreters: The Probabilistic Runtime for English ProgramsWhen we started building the response-awareness framework, I thought we were adding error-checking tags to catch Claude’s mistakes. Tag where the model makes assumptions, verify them later, ship better code…Read more10 months ago · 3 likes · Michael Jovanovich
+
+Visit response awareness methodology
+
+## Claude Code’s hidden automation layer
+
+Let’s start simple. Let’s say that every time Claude writes or edits a file, you want to run Prettier on it. Here’s the complete configuration:
+
+```
+{
+  “hooks”: {
+    “PostToolUse”: [
+      {
+        “matcher”: “Write|Edit”,
+        “hooks”: [
+          {
+            “type”: “command”,
+            “command”: “prettier --write \”$CLAUDE_PROJECT_DIR\”/.claude/last-modified.txt”
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This goes in one of three places:
+
+`~/.claude/settings.json`- Applies to all your projects
+
+`.claude/settings.json`- Project-specific, committed to git
+
+`.claude/settings.local.json`- Project-specific, stays local
+
+The `PostToolUse` event fires after Claude successfully uses a tool. The `matcher` field tells Claude Code which tools you care about. In this case: Write or Edit. The `command` runs immediately after either tool completes.
+
+### Why this matters
+
+You’re no longer manually reformatting Claude’s output. The formatting happens automatically, consistently, every single time. No exceptions. No forgetting.
+
+Multiple hooks can match the same event. Add another formatter, or run a linter, or stage files to git:
+
+```
+{
+  “hooks”: {
+    “PostToolUse”: [
+      {
+        “matcher”: “Write”,
+        “hooks”: [
+          {
+            “type”: “command”,
+            “command”: “prettier --write”
+          }
+        ]
+      },
+      {
+        “matcher”: “Write”,
+        “hooks”: [
+          {
+            “type”: “command”,
+            “command”: “eslint --fix”
+          }
+        ]
+      },
+      {
+        “matcher”: “Write|Edit”,
+        “hooks”: [
+          {
+            “type”: “command”,
+            “command”: “git add”
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+All three hooks fire on Write. They run in parallel. If one fails, the others continue. Claude Code automatically deduplicates identical commands.
+
+## The eight hook events you can choose
+
+Claude Code fires eight different events. Each one represents a specific moment in the interaction flow, so you’ll want to pick the right one.
+
+PreToolUse: Claude has decided to use a tool but hasn’t executed it yet. You can inspect the parameters, modify them, or block the execution entirely.
+
+PostToolUse: Claude just finished using a tool successfully. The file is written, the command ran, the search completed. Now you respond.
+
+UserPromptSubmit: You hit enter. Before Claude even sees your prompt, your hook runs. You can add context, validate the input, or block prompts that violate policies.
+
+SessionStart: Claude Code just started. Fresh session. This is when you load the development context, set environment variables, install dependencies.
+
+Stop: Claude finished responding. The main agent stopped. Your hook can force it to continue if the work isn’t done.
+
+SubagentStop: Same as Stop, but for subagents (Task tool calls).
+
+PreCompact: Claude’s about to compact the conversation history. You can prepare context or run analysis before the compression happens.
+
+SessionEnd: Session over. Cleanup time. Log statistics, save state, close connections.
+
+## Validation that actually works
+
+Here’s where hooks get interesting. You can enforce coding standards before Claude even tries to write code:
+
+```
+#!/usr/bin/env python3
+import json
+import sys
+import re
+
+try:
+    input_data = json.load(sys.stdin)
+except json.JSONDecodeError as e:
+    print(f”Invalid JSON: {e}”, file=sys.stderr)
+    sys.exit(1)
+
+tool_input = input_data.get(”tool_input”, {})
+command = tool_input.get(”command”, “”)
+
+# Block dangerous patterns
+FORBIDDEN = [
+    (r”\brm\s+-rf\s+/”, “Blocked: recursive delete on root”),
+    (r”\bsudo\b”, “Blocked: sudo commands require manual approval”),
+    (r”>\s*/dev/sd[a-z]”, “Blocked: direct disk writes”),
+]
+
+for pattern, message in FORBIDDEN:
+    if re.search(pattern, command):
+        print(message, file=sys.stderr)
+        sys.exit(2)  # Exit code 2 blocks the tool and shows error to Claude
+
+sys.exit(0)
+
+Save this as `.claude/hooks/validate-bash.py`. Configure it:
+
+json
+{
+  “hooks”: {
+    “PreToolUse”: [
+      {
+        “matcher”: “Bash”,
+        “hooks”: [
+          {
+            “type”: “command”,
+            “command”: “python3 \”$CLAUDE_PROJECT_DIR\”/.claude/hooks/validate-bash.py”
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Claude proposes `rm -rf /`. Your hook intercepts it. Exit code 2 blocks the command. Claude sees the error message. Claude adjusts its approach. The dangerous command never runs.
+
+### The magic of exit codes
+
+Hooks communicate through three exit codes:
+
+Exit code 0: Success. Everything’s fine. For most hooks, output goes to the transcript (Ctrl-R shows it). For UserPromptSubmit and SessionStart, output gets added to Claude’s context.
+
+Exit code 2: Blocking error. This stops execution. For PreToolUse, it blocks the tool call and feeds your error message to Claude. For UserPromptSubmit, it erases the prompt and blocks processing. For Stop hooks, it prevents Claude from stopping.
+
+Any other exit code: Non-blocking error. Your error message shows to the user, but execution continues.
+
+Importantly, Exit code 2 creates a feedback loop directly to Claude. Claude sees your error message. Claude adjusts. Claude tries something different. You’ve turned validation failures into learning opportunities.
+
+Subscribe
+
+## Environment variables you need to know
+
+Hooks run with special environment variables:
+
+CLAUDE_PROJECT_DIR: Absolute path to your project root. The directory where you started Claude Code. Use this in every hook command:
+
+```
+“$CLAUDE_PROJECT_DIR”/scripts/validate.sh
+```
+
+Not this:
+
+```
+./scripts/validate.sh  # Breaks when Claude’s working directory changes
+```
+
+CLAUDE_ENV_FILE: Only available in SessionStart hooks. Write to this file to persist environment variables for the entire session:
+
+```
+#!/bin/bash
+
+if [ -n “$CLAUDE_ENV_FILE” ]; then
+  echo ‘export NODE_ENV=production’ >> “$CLAUDE_ENV_FILE”
+  echo ‘export API_KEY=your-api-key’ >> “$CLAUDE_ENV_FILE”
+fi
+```
+
+Any variables you write here become available in all subsequent bash commands Claude runs.
+
+CLAUDE_CODE_REMOTE: Indicates whether you’re running in the web interface (“true”) or local CLI (empty/not set). Use this to adjust behavior based on environment.
+
+## Adding context when it matters
+
+UserPromptSubmit hooks can inject context before Claude processes your prompt. But adding context on every prompt wastes tokens. A better pattern is to add context after specific tool uses when that context is actually relevant.
+
+Example: Claude just modified a function. Your hook finds everywhere that function is called. Claude sees the call sites. Claude can proactively update them.
+
+```
+
+#!/usr/bin/env python3
+import json
+import sys
+import subprocess
+import re
+import os
+
+def format_call_sites(sites):
+    “”“Format call sites into readable context”“”
+    result = “\n\nFunction call sites in codebase:\n”
+    for func_name, calls in sites.items():
+        result += f”\n{func_name}() is called in:\n”
+        for call in calls:
+            result += f”  {call}\n”
+    result += “\nConsider whether these call sites need updates.\n”
+    return result
+
+# This runs as a PostToolUse hook for Write/Edit
+input_data = json.load(sys.stdin)
+
+tool_name = input_data.get(”tool_name”, “”)
+tool_input = input_data.get(”tool_input”, {})
+
+if tool_name not in [”Write”, “Edit”]:
+    sys.exit(0)
+
+file_path = tool_input.get(”file_path”, “”)
+content = tool_input.get(”content”, “”)
+
+# Extract function definitions from the modified content
+# Simplified regex - adjust for your language
+function_pattern = r”(?:def|function|const|let|var)\s+(\w+)\s*\(”
+functions = re.findall(function_pattern, content)
+
+if not functions:
+    sys.exit(0)
+
+# Search for calls to these functions across the codebase
+project_dir = os.environ.get(”CLAUDE_PROJECT_DIR”, “.”)
+call_sites = {}
+
+for func_name in functions:
+    try:
+        # Use ripgrep if available, fallback to grep
+        result = subprocess.run(
+            [”rg”, “-n”, f”\\b{func_name}\\(”, 
+             “--type-not”, “markdown”,
+             “--type-not”, “json”],
+            capture_output=True,
+            text=True,
+            cwd=project_dir
+        )
+        
+        if result.returncode == 0 and result.stdout.strip():
+            # Parse results: filename:line:content
+            lines = result.stdout.strip().split(’\n’)
+            # Filter out the definition itself
+            call_lines = [
+                line for line in lines 
+                if file_path not in line or “def “ not in line
+            ]
+            
+            if call_lines:
+                call_sites[func_name] = call_lines[:10]  # Limit to 10 calls
+                
+    except FileNotFoundError:
+        # ripgrep not available, skip
+        pass
+
+if call_sites:
+    output = {
+        “hookSpecificOutput”: {
+            “hookEventName”: “PostToolUse”,
+            “additionalContext”: format_call_sites(call_sites)
+        }
+    }
+    print(json.dumps(output))
+    sys.exit(0)
+
+sys.exit(0)
+```
+
+Here, Claude edits a function. Your hook extracts function names from the new content. The hook searches the codebase for calls to those functions. Claude receives the call sites as context. Claude sees where the function is used. Claude can update call sites if the signature changed.
+
+### Why this matters
+
+The context arrives exactly when it’s useful. Not on every prompt. Only after editing code. Only for the specific functions that changed. Claude gets relevant information without wasting tokens on irrelevant context.
+
+Variant: Detect signature changes
+
+```
+#!/usr/bin/env python3
+import json
+import sys
+import subprocess
+import re
+import os
+
+input_data = json.load(sys.stdin)
+
+if input_data.get(”tool_name”) != “Edit”:
+    sys.exit(0)
+
+file_path = input_data.get(”tool_input”, {}).get(”file_path”, “”)
+
+# Get the diff to see what actually changed
+try:
+    result = subprocess.run(
+        [”git”, “diff”, “HEAD”, file_path],
+        capture_output=True,
+        text=True,
+        cwd=os.environ.get(”CLAUDE_PROJECT_DIR”, “.”)
+    )
+    
+    diff = result.stdout
+    
+    # Look for function signature changes
+    # Pattern: lines that were removed (-) and added (+) with function definitions
+    signature_pattern = r”^[-+]\s*(?:def|function|const)\s+(\w+)\s*\(([^)]*)\)”
+    
+    removed_sigs = {}
+    added_sigs = {}
+    
+    for line in diff.split(’\n’):
+        match = re.match(signature_pattern, line)
+        if match:
+            func_name, params = match.groups()
+            if line.startswith(’-’):
+                removed_sigs[func_name] = params
+            elif line.startswith(’+’):
+                added_sigs[func_name] = params
+    
+    # Find functions where signature changed
+    changed_functions = []
+    for func_name in set(removed_sigs.keys()) & set(added_sigs.keys()):
+        if removed_sigs[func_name] != added_sigs[func_name]:
+            changed_functions.append({
+                “name”: func_name,
+                “old”: removed_sigs[func_name],
+                “new”: added_sigs[func_name]
+            })
+    
+    if changed_functions:
+        # Search for call sites
+        project_dir = os.environ.get(”CLAUDE_PROJECT_DIR”, “.”)
+        context = “\n\nFunction signatures changed:\n”
+        
+        for func in changed_functions:
+            context += f”\n{func[’name’]}({func[’old’]}) → {func[’name’]}({func[’new’]})\n”
+            
+            # Find call sites
+            result = subprocess.run(
+                [”rg”, “-n”, f”\\b{func[’name’]}\\(”],
+                capture_output=True,
+                text=True,
+                cwd=project_dir
+            )
+            
+            if result.stdout.strip():
+                call_sites = result.stdout.strip().split(’\n’)[:5]
+                context += f”Called in:\n”
+                for site in call_sites:
+                    context += f”  {site}\n”
+        
+        context += “\nPlease verify these call sites match the new signature.\n”
+        
+        output = {
+            “decision”: “block”,
+            “reason”: context
+        }
+        print(json.dumps(output))
+        sys.exit(0)
+        
+except subprocess.CalledProcessError:
+    pass
+
+sys.exit(0)
+```
+
+### Result
+
+Claude changes a function signature. Your hook detects the parameter change. The hook finds existing call sites. Claude receives a blocking message with the old vs new signature and all call sites. Claude must verify call sites before continuing.
+
+This pattern catches breaking changes automatically.
+
+JSON Output for Fine Control
+
+Exit codes work for most cases. Use them first. They’re simple: 0 for success, 2 to block, anything else for non-blocking errors.
+
+When you need more control, output JSON to stdout:
+
+```
+{
+  “decision”: “block”,
+  “reason”: “Files containing secrets detected”,
+  “continue”: false,
+  “stopReason”: “Security policy violation”,
+  “suppressOutput”: true
+}
+
+```
+
+When to use JSON instead of exit codes:
+
+You want to block but also provide structured feedback (`decision + reason`)
+
+You need to modify tool inputs before execution (`updatedInput` in PreToolUse)
+
+You want to auto-approve specific operations (`permissionDecision: “allow”`)
+
+You need to suppress output from transcript mode (`suppressOutput`)
+
+You want to add context without blocking (`additionalContext`)
+
+When to stick with exit codes:
+
+Simple validation that just needs to block or pass
+
+You don’t need to customize messages beyond stderr
+
+The hook is straightforward (most hooks are)
+
+Common JSON fields:
+
+`continue`: Whether Claude should keep processing (default: true)
+
+`stopReason`: Message shown when continue is false
+
+`suppressOutput`: Hide stdout from transcript mode
+
+`systemMessage`: Warning message for the user
+
+PreToolUse specific:
+
+```
+{
+  “hookSpecificOutput”: {
+    “hookEventName”: “PreToolUse”,
+    “permissionDecision”: “allow”,
+    “permissionDecisionReason”: “Auto-approved documentation file”,
+    “updatedInput”: {
+      “file_path”: “/corrected/path/to/file.txt”
+    }
+  }
+}
+```
+
+The `permissionDecision` field has three options:
+
+”allow”: Bypass permission system, auto-approve
+
+”deny”: Block the tool call, send reason to Claude
+
+”ask”: Prompt user for confirmation
+
+The`updatedInput` field lets you modify tool parameters before execution. You can correct file paths, adjust commands, add flags.
+
+Practical Pattern: Auto-Approve Safe Operations
+
+```
+#!/usr/bin/env python3
+import json
+import sys
+
+input_data = json.load(sys.stdin)
+tool_name = input_data.get(”tool_name”, “”)
+tool_input = input_data.get(”tool_input”, {})
+
+# Auto-approve reads of documentation files
+if tool_name == “Read”:
+    file_path = tool_input.get(”file_path”, “”)
+    if file_path.endswith((”.md”, “.txt”, “.json”, “README”)):
+        output = {
+            “hookSpecificOutput”: {
+                “hookEventName”: “PreToolUse”,
+                “permissionDecision”: “allow”,
+                “permissionDecisionReason”: “Documentation file auto-approved”
+            },
+            “suppressOutput”: True
+        }
+        print(json.dumps(output))
+        sys.exit(0)
+
+# Everything else goes through normal approval
+sys.exit(0)
+```
+
+### What this does
+
+Documentation files get read automatically. No approval needed. Code files still require permission. You’ve created a tier system based on file type.
+
+## You can’t skip security
+
+Hooks execute shell commands automatically. They run with your user permissions. They can delete files, modify code, access secrets, make network requests.
+
+This is dangerous!.
+
+There are some best practices that will keep you out of trouble:
+
+Quote all shell variables: Use `”$VAR”` not `$VAR`
+
+Validate inputs: Never trust tool_input blindly
+
+Block path traversal: Check for `..` in file paths
+
+Use absolute paths: Specify full paths for scripts
+
+Skip sensitive files: Never touch `.env`, `.git/`, SSH keys
+
+Test in isolation: Run hooks in a safe environment first
+
+Here’s an example validation:
+
+```
+
+file_path = tool_input.get(”file_path”, “”)
+
+# Block path traversal
+if “..” in file_path:
+    print(”Path traversal detected”, file=sys.stderr)
+    sys.exit(2)
+
+# Block sensitive files
+sensitive = [”.env”, “.git/”, “.ssh/”, “id_rsa”, “credentials”]
+if any(pattern in file_path for pattern in sensitive):
+    print(”Sensitive file blocked”, file=sys.stderr)
+    sys.exit(2)
+```
+
+Direct edits to hooks don’t apply immediately. Claude Code captures a snapshot at startup. If hooks change during a session, you see a warning. Changes require review in the `/hooks` menu. This prevents malicious modifications from affecting your current session.
+
+## Debugging when things break
+
+Hooks fail silently by default. Use `claude --debug` to see execution details:
+
+```
+[DEBUG] Executing hooks for PostToolUse:Write
+[DEBUG] Found 1 hook commands to execute
+[DEBUG] Executing hook command: /path/to/script.py with timeout 60000ms
+[DEBUG] Hook command completed with status 0
+```
+
+Here are some common issues:
+
+Hook not firing: Run `/hooks` to verify configuration is loaded. Check your matcher pattern. Tool names are case-sensitive.
+
+Command not found: Use absolute paths. The `$CLAUDE_PROJECT_DIR` variable gives you project root.
+
+Timeout: Default timeout is 60 seconds per command. Increase it.
+
+JSON parsing errors: Test your hook script manually. Pipe in sample input.
+
+## The SessionStart pattern
+
+SessionStart hooks run when Claude Code starts. This is your initialization moment. But environment setup is boring. Better use: load project context Claude needs to work effectively.
+
+Load your active issues:
+
+```
+bash
+#!/bin/bash
+
+# For SessionStart hooks, stdout becomes context
+echo “=== Active Development Context ===”
+echo “”
+
+# Load issues assigned to you from GitHub
+if command -v gh &> /dev/null; then
+  echo “Your assigned issues:”
+  gh issue list --assignee @me --limit 5 --json number,title,labels --jq ‘.[] | “  #\(.number): \(.title) [\(.labels[].name | join(”, “))]”’
+  echo “”
+fi
+
+# Load recent failing CI runs
+if command -v gh &> /dev/null; then
+  echo “Recent CI failures:”
+  gh run list --limit 3 --status failure --json conclusion,name,displayTitle --jq ‘.[] | “  [FAIL] \(.name): \(.displayTitle)”’
+  echo “”
+fi
+
+# Load project conventions if they exist
+if [ -f “$CLAUDE_PROJECT_DIR/CONVENTIONS.md” ]; then
+  echo “Project coding conventions:”
+  cat “$CLAUDE_PROJECT_DIR/CONVENTIONS.md”
+  echo “”
+fi
+
+exit 0
+```
+
+Claude Code starts. Your hook runs. It fetches your assigned GitHub issues. It checks recent CI failures. It reads project conventions. All of this becomes context. Claude sees what you’re working on before you say anything.
+
+### Why this matters
+
+You type: “Fix the authentication bug.”
+
+Without the hook: Claude asks which bug. You explain. You paste the issue. You describe the context.
+
+With the hook: Claude already sees issue #847 in context. Claude knows it’s about JWT expiration. Claude knows the failing test. Claude starts fixing immediately.
+
+Load project-specific constraints:
+
+```
+#!/bin/bash
+
+PROJECT_DIR=”$CLAUDE_PROJECT_DIR”
+
+echo “=== Project Context ===”
+echo “”
+
+# Check for architecture decision records
+if [ -d “$PROJECT_DIR/docs/adr” ]; then
+  echo “Recent architecture decisions:”
+  ls -t “$PROJECT_DIR/docs/adr” | head -5 | while read adr; do
+    title=$(grep “^# “ “$PROJECT_DIR/docs/adr/$adr” | head -1 | sed ‘s/^# //’)
+    echo “  - $title”
+  done
+  echo “”
+fi
+
+# Load tech stack and constraints
+if [ -f “$PROJECT_DIR/.claude/context.json” ]; then
+  echo “Tech stack constraints:”
+  cat “$PROJECT_DIR/.claude/context.json” | jq -r ‘.constraints[]’
+  echo “”
+fi
+
+# Check for pending migrations
+if [ -d “$PROJECT_DIR/migrations/pending” ]; then
+  pending_count=$(ls “$PROJECT_DIR/migrations/pending” | wc -l)
+  if [ “$pending_count” -gt 0 ]; then
+    echo “WARNING: $pending_count pending database migrations”
+    echo “”
+  fi
+fi
+
+# Load API deprecations
+if [ -f “$PROJECT_DIR/DEPRECATIONS.md” ]; then
+  echo “Current deprecations:”
+  cat “$PROJECT_DIR/DEPRECATIONS.md”
+  echo “”
+fi
+
+exit 0
+```
+
+Create`.claude/context.json ` in your project:
+
+```
+{
+  “constraints”: [
+    “Never use ‘any’ type in TypeScript”,
+    “All API responses must include correlation IDs”,
+    “Database queries must use prepared statements”,
+    “No synchronous file I/O in request handlers”,
+    “All errors logged with structured context”
+  ],
+  “patterns”: {
+    “api_versioning”: “URL-based versioning (e.g., /v1/users)”,
+    “error_handling”: “Return Problem Details (RFC 7807)”,
+    “authentication”: “JWT with 15min expiry, refresh tokens in httpOnly cookies”
+  }
+}
+```
+
+Result: Claude starts with knowledge of your architecture decisions, tech stack constraints, and project-specific patterns. Claude won’t suggest approaches that violate your standards. Claude follows your conventions from the first response.
+
+Check dependency health:
+
+```
+#!/bin/bash
+
+echo “=== Dependency Status ===”
+echo “”
+
+# Check for outdated dependencies
+if [ -f “$CLAUDE_PROJECT_DIR/package.json” ]; then
+  outdated=$(npm outdated 2>/dev/null | wc -l)
+  if [ “$outdated” -gt 1 ]; then
+    echo “WARNING: $((outdated - 1)) outdated npm packages”
+  fi
+fi
+
+# Check for security vulnerabilities
+if command -v npm &> /dev/null; then
+  audit_output=$(npm audit --audit-level=moderate 2>&1)
+  if echo “$audit_output” | grep -q “vulnerabilities”; then
+    echo “$audit_output” | grep “vulnerabilities”
+  fi
+fi
+
+# Check for Python vulnerabilities if using pip
+if [ -f “$CLAUDE_PROJECT_DIR/requirements.txt” ] && command -v pip &> /dev/null; then
+  safety_check=$(pip-audit 2>&1 | grep “vulnerabilities found” || echo “”)
+  if [ -n “$safety_check” ]; then
+    echo “WARNING: $safety_check”
+  fi
+fi
+
+echo “”
+exit 0
+```
+
+Claude starts knowing about security vulnerabilities. You ask Claude to add a feature. Claude sees the vulnerable dependency in context. Claude mentions it proactively: “Before we add the feature, we should update lodash to fix the prototype pollution vulnerability.”
+
+SessionStart hooks load information Claude needs across the entire session. Not environment variables. Not setup commands. Actual project context. Issues. Conventions. Constraints. Problems.
+
+This context persists. Claude references it throughout the conversation. You don’t repeat yourself. Claude works within your project’s reality from message one.
+
+## Knowing when not to use Claude Code Hooks
+
+Hooks add latency. Each hook takes time to execute. PreToolUse hooks delay tool execution. PostToolUse hooks delay Claude’s next action.
+
+Don’t use hooks for:
+
+Operations you run once (use manual commands)
+
+Expensive operations that block workflow
+
+External API calls without rate limiting
+
+Operations that modify files Claude just wrote (use PostToolUse carefully)
+
+Do use hooks for:
+
+Validation that prevents errors
+
+Formatting that maintains consistency
+
+Context injection that improves responses
+
+Security checks that protect sensitive operations
+
+Cleanup that runs automatically
+
+### The Stop Hook Trick
+
+Stop hooks run when Claude finishes responding. You can force Claude to continue:
+
+```
+#!/usr/bin/env python3
+import json
+import sys
+import subprocess
+
+input_data = json.load(sys.stdin)
+
+# Check if tests passed
+try:
+    result = subprocess.run([”npm”, “test”], capture_output=True, text=True)
+    if result.returncode != 0:
+        output = {
+            “decision”: “block”,
+            “reason”: “Tests failed. Please fix the failing tests before stopping.”
+        }
+        print(json.dumps(output))
+        sys.exit(0)
+except Exception:
+    pass
+
+# Tests passed or not applicable, allow stop
+sys.exit(0)
+```
+
+Claude says it’s done. Your hook runs tests. Tests fail. Your hook blocks the stop with exit code 2 or `”decision”: “block”`. Claude sees the reason. Claude fixes the tests. Claude tries to stop again. The cycle continues until tests pass.
+
+Warning: This can create infinite loops. Check the `stop_hook_active` field in the input.
+
+```
+if input_data.get(”stop_hook_active”):
+    # Hook already ran, don’t block again
+    sys.exit(0)
+```
+
+## What Claude Code Hooks unlocks for you
+
+You’ve added a programmable layer between you and Claude. Every action Claude takes can trigger custom logic. Every prompt can carry additional context. Every file operation can validate against standards.
+
+This changes the dynamic. Claude isn’t just executing your requests. Claude is working within a system you’ve designed. The system enforces rules, provides context, maintains consistency.
+
+Remember the promise from the beginning: inject your own commands into the flow. Automatically.
+
+You started thinking hooks were about reformatting files. Now you know they detect test gaming. They prevent security violations. They load project context. They find function call sites. They enforce architecture decisions.
+
+The automation layer was always there. You just didn’t know you could program it.
+
+Start small: Pick one problem. The one that annoys you. Claude keeps forgetting your coding standards? Hook. Claude runs dangerous commands? Hook. You repeat the same context every session? Hook.
+
+Write the script. Add the configuration. Watch it work.
+
+Then add another. Then another. The system grows with your needs.
+
+Every hook you write runs automatically. Every session. Every project. Forever. That’s the point. You’re not building workflows. You’re building infrastructure.
+
+The hooks are there. You know what they do now. The question is what you’ll build with them.
+
+21
+
+4
+
+1
+
+Share
+
+| Michael Jovanovich Self-taught developer writing about advanced Claude Code patterns. I learn by building. I share what I learn. | Subscribe to Michael |
+| --- | --- |
+
+| | A guest post by |
+| --- | --- |
+
+#### Discussion about this post
+
+CommentsRestacks
+
+No posts
+
+### Ready for more?
+
+Subscribe
+
+© 2026 Jeff Morhous · Privacy∙ Terms∙ Collection notice
+
+Start your Substack Get the app
+
+Substack is the home for great culture

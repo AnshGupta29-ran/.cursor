@@ -1,0 +1,16 @@
+---
+pid: 7412
+cwd: "C:\\Users\\anshg\\.cursor"
+command: "try { $r = Invoke-WebRequest -Uri http://127.0.0.1:5173 -TimeoutSec 3 -UseBasicParsing; \"STATUS=$($r.StatusCode) LEN=$($r.Content.Length)\" } catch { \"FAIL: $($_.Exception.Message)\" }; Get-NetTCPConnection -LocalPort 5173 -ErrorAction SilentlyContinue | Select-Object State, OwningProcess"
+title: "Probe port 5173 with timeout"
+status: succeeded
+started_at: 2026-08-10T09:01:28.929Z
+running_for_ms: 70049    
+---
+FAIL: Unable to connect to the remote server
+
+---
+exit_code: 0
+elapsed_ms: 70049
+ended_at: 2026-08-10T09:02:38.978Z
+---

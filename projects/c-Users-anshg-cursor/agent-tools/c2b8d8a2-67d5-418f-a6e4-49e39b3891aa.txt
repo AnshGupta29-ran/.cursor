@@ -1,0 +1,693 @@
+total 77
+
+=== forge (2) ===
+- kind=forged_platform_prompt title='PLATFORM PROMPT � PalletLens: Intake Triage Vision API for Electronics Refurbishment Co-ops'
+  complexity=100.0 band=very_high runtime=5803.4 tools=68
+  session=None linked=87d798e4-4729-48f5-9728-ddf32b56f49d project=None
+  category=ai_ml
+  paths={'out_dir': 'C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\forge_image'}
+  extras={'input_tokens_est': 3925, 'output_tokens_est': 27201, 'total_tokens_est': 31126, 'event_time': '2026-07-31T08:11:28.496966+00:00'}
+- kind=forged_platform_prompt title='PLATFORM PROMPT � Tidewatch: Lantern of the Shattered Coast'
+  complexity=100.0 band=very_high runtime=6029.8 tools=124
+  session=None linked=21f0ed91-5865-41a3-a95b-19a430a35234 project=None
+  category=games
+  paths={'out_dir': 'C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\forge_demo'}
+  extras={'input_tokens_est': 4006, 'output_tokens_est': 91157, 'total_tokens_est': 95163, 'event_time': '2026-07-31T08:11:28.479701+00:00'}
+
+=== chakra_session (13) ===
+- kind=chakra_run title='I want you to think deeply and reason through a complex system design problem. Use your full thinking capabilities to an'
+  complexity=100.0 band=very_high runtime=755.0 tools=12
+  session=4bc2acd8-87da-46f4-8140-3bb0aca4f970 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\4bc2acd8-87da-46f4-8140-3bb0aca4f970.jsonl'}
+  extras={'input_tokens_est': 1598, 'output_tokens_est': 19089, 'total_tokens_est': 20687, 'event_time': '2026-07-28T11:25:32.045000+00:00'}
+- kind=chakra_run title='Create a real-time collaborative whiteboard application using React, TypeScript, Node.js, Express, and Socket.IO. Multip'
+  complexity=91.4 band=very_high runtime=8190.1 tools=119
+  session=937aace6-e372-41ff-8893-fdb7033a6153 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\937aace6-e372-41ff-8893-fdb7033a6153.jsonl'}
+  extras={'input_tokens_est': 110, 'output_tokens_est': 100376, 'total_tokens_est': 100486, 'event_time': '2026-07-28T13:28:43.076000+00:00'}
+- kind=chakra_run title='Generate a simple to-do list application in python with flask. Include: = add/delete/view tasks -sqlite database -html t'
+  complexity=5.2 band=low runtime=69.0 tools=0
+  session=aa1f7eb2-e8b6-4e82-bb70-f2c42815b878 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\aa1f7eb2-e8b6-4e82-bb70-f2c42815b878.jsonl'}
+  extras={'input_tokens_est': 36, 'output_tokens_est': 0, 'total_tokens_est': 36, 'event_time': '2026-07-27T06:05:36.114000+00:00'}
+- kind=chakra_run title='Create a smart home dashboard using React, TypeScript, and FastAPI. The backend should simulate smart devices such as li'
+  complexity=100.0 band=very_high runtime=9982.7 tools=158
+  session=bfc8adb2-6b4a-4677-be67-c2dc9e48f443 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\bfc8adb2-6b4a-4677-be67-c2dc9e48f443.jsonl'}
+  extras={'input_tokens_est': 102, 'output_tokens_est': 134598, 'total_tokens_est': 134700, 'event_time': '2026-07-29T09:29:38.708000+00:00'}
+- kind=chakra_run title='Generate a complete social media platform:'
+  complexity=80.7 band=very_high runtime=4192.2 tools=74
+  session=c8f0696a-2275-4abb-9615-56e49495e915 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\c8f0696a-2275-4abb-9615-56e49495e915.jsonl'}
+  extras={'input_tokens_est': 47, 'output_tokens_est': 27842, 'total_tokens_est': 27889, 'event_time': '2026-07-28T10:14:52.495000+00:00'}
+- kind=chakra_run title='give some questions to ask from this paper https://thinkingmachines.ai/blog/on-policy-distillation/'
+  complexity=4.9 band=low runtime=318.2 tools=1
+  session=d05ce240-fa89-4095-a16b-4ccce3f07f21 linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\d05ce240-fa89-4095-a16b-4ccce3f07f21.jsonl'}
+  extras={'input_tokens_est': 25, 'output_tokens_est': 1027, 'total_tokens_est': 1052, 'event_time': '2026-07-29T09:22:47.518000+00:00'}
+- kind=chakra_run title='Generate a simple to-do list application in Python with Flask.'
+  complexity=6.4 band=low runtime=46.7 tools=0
+  session=ea72d88b-d39c-42a7-9cdc-c6b29d199b0c linked=None project=C:\Users\anshg\.cursor
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\ea72d88b-d39c-42a7-9cdc-c6b29d199b0c.jsonl'}
+  extras={'input_tokens_est': 37, 'output_tokens_est': 0, 'total_tokens_est': 37, 'event_time': '2026-07-27T06:07:34.271000+00:00'}
+- kind=chakra_run title='PLATFORM PROMPT � Tidewatch: Lantern of the Shattered Coast'
+  complexity=100.0 band=very_high runtime=6029.8 tools=124
+  session=21f0ed91-5865-41a3-a95b-19a430a35234 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\21f0ed91-5865-41a3-a95b-19a430a35234.jsonl'}
+  extras={'input_tokens_est': 4006, 'output_tokens_est': 91157, 'total_tokens_est': 95163, 'event_time': '2026-07-30T08:40:25.748000+00:00'}
+- kind=chakra_run title='whole repo is the headless_harness_datagen folder , see if hooks are pulled correctly and traces are been captured corre'
+  complexity=72.8 band=very_high runtime=18746.3 tools=78
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\44341784-376d-4e9d-bee0-6d7ba8d5f4bf.jsonl'}
+  extras={'input_tokens_est': 32, 'output_tokens_est': 12367, 'total_tokens_est': 12399, 'event_time': '2026-07-24T11:43:07.506000+00:00'}
+- kind=chakra_run title='Continue the gaming platform. The previous PowerShell session broke. Proceed with auto-accept: implement a runnable prot'
+  complexity=85.6 band=very_high runtime=7139.5 tools=36
+  session=78fc1099-63d7-43b0-a9d1-36ab762f3e09 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\78fc1099-63d7-43b0-a9d1-36ab762f3e09.jsonl'}
+  extras={'input_tokens_est': 99, 'output_tokens_est': 22290, 'total_tokens_est': 22389, 'event_time': '2026-07-27T09:14:52.025000+00:00'}
+- kind=chakra_run title='Generate a complete blogging platform with Python and Django:'
+  complexity=52.4 band=high runtime=495.7 tools=45
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\85cdfc57-28ba-4e49-bcdb-b24c92324147.jsonl'}
+  extras={'input_tokens_est': 51, 'output_tokens_est': 31464, 'total_tokens_est': 31515, 'event_time': '2026-07-27T06:25:03.601000+00:00'}
+- kind=chakra_run title='PLATFORM PROMPT � PalletLens: Intake Triage Vision API for Electronics Refurbishment Co-ops'
+  complexity=100.0 band=very_high runtime=5803.4 tools=68
+  session=87d798e4-4729-48f5-9728-ddf32b56f49d linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\87d798e4-4729-48f5-9728-ddf32b56f49d.jsonl'}
+  extras={'input_tokens_est': 3925, 'output_tokens_est': 27201, 'total_tokens_est': 31126, 'event_time': '2026-07-30T10:48:46.768000+00:00'}
+- kind=chakra_run title='Generate a complete full-stack web application:'
+  complexity=66.4 band=high runtime=1536.9 tools=75
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  paths={'session': 'C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\c5e9468e-6752-4cf3-bb7b-ecf050e74005.jsonl'}
+  extras={'input_tokens_est': 62, 'output_tokens_est': 19889, 'total_tokens_est': 19951, 'event_time': '2026-07-27T07:03:16.968000+00:00'}
+
+=== chakra_history (24) ===
+- kind=prompt title='check if the blogging platform was completed during last run , if not complete i'
+  complexity=33.9 band=medium runtime=495.7 tools=45
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=85cdfc57-28ba-4e49-bcdb-b24c92324147 project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 51, 'output_tokens_est': 31464, 'total_tokens_est': 31515, 'event_time': '2026-07-27T06:51:42.980000+00:00'}
+- kind=prompt title='Generate a complete single-page website with HTML, CSS, and JavaScript. Include:'
+  complexity=11.1 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 89, 'total_tokens_est': 89, 'event_time': '2026-07-27T06:23:43.110000+00:00'}
+- kind=prompt title='Confirm that you can see this message'
+  complexity=0.3 band=low runtime=None tools=None
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-24T11:29:52.334000+00:00'}
+- kind=prompt title='Run the python codes in this repo , identify the errors and lets fix them'
+  complexity=0.5 band=low runtime=None tools=None
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-24T11:31:44.816000+00:00'}
+- kind=prompt title='whole repo is the headless_harness_datagen folder , see if hooks are pulled corr'
+  complexity=0.8 band=low runtime=None tools=None
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-24T11:43:07.467000+00:00'}
+- kind=prompt title='whole repo is the headless_harness_datagen folder , see if hooks are pulled  cor'
+  complexity=0.8 band=low runtime=None tools=None
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-24T11:47:16.210000+00:00'}
+- kind=prompt title='check if there is any synthetic data in this repo created before ? and can we cr'
+  complexity=0.8 band=low runtime=None tools=None
+  session=44341784-376d-4e9d-bee0-6d7ba8d5f4bf linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-24T11:50:24.726000+00:00'}
+- kind=prompt title='hello'
+  complexity=0.0 band=low runtime=None tools=None
+  session=04be77bd-c2a1-4b4b-b9b9-8df2ff8cf698 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 2, 'total_tokens_est': 2, 'event_time': '2026-07-27T06:14:05.502000+00:00'}
+- kind=prompt title='[Pasted text #1 +5 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:20:57.228000+00:00'}
+- kind=prompt title='[Pasted text #2 +8 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:23:43.110000+00:00'}
+- kind=prompt title='[Pasted text #3 +9 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:25:03.556000+00:00'}
+- kind=prompt title='check if the blogging platform was completed during last run , if not complete i'
+  complexity=33.9 band=medium runtime=495.7 tools=45
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=85cdfc57-28ba-4e49-bcdb-b24c92324147 project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 51, 'output_tokens_est': 31464, 'total_tokens_est': 31515, 'event_time': '2026-07-27T06:51:42.980000+00:00'}
+- kind=prompt title='where are the output / traces.json are being stored to check'
+  complexity=0.4 band=low runtime=None tools=None
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:57:10.523000+00:00'}
+- kind=prompt title='[Pasted text #1 +6 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T07:03:16.916000+00:00'}
+- kind=prompt title='[Pasted text #1 +9 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=78fc1099-63d7-43b0-a9d1-36ab762f3e09 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T07:25:53.798000+00:00'}
+- kind=prompt title='hi'
+  complexity=0.0 band=low runtime=None tools=None
+  session=5d01173a-a41b-443e-8953-c86933133329 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 1, 'total_tokens_est': 1, 'event_time': '2026-07-28T06:33:47.019000+00:00'}
+- kind=prompt title='[Pasted text #2 +131 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=21f0ed91-5865-41a3-a95b-19a430a35234 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-30T08:40:25.166000+00:00'}
+- kind=prompt title='[Pasted text #1 +159 lines]'
+  complexity=0.2 band=low runtime=None tools=None
+  session=87d798e4-4729-48f5-9728-ddf32b56f49d linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-30T10:48:44.215000+00:00'}
+- kind=prompt title='hi'
+  complexity=0.0 band=low runtime=None tools=None
+  session=d08220bb-c36a-4cef-acf8-ec1656c267ec linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 1, 'total_tokens_est': 1, 'event_time': '2026-07-31T07:12:34.022000+00:00'}
+- kind=prompt title='Generate a complete single-page website with HTML, CSS, and JavaScript. Include:'
+  complexity=2.4 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:20:57.228000+00:00'}
+- kind=prompt title='Generate a complete single-page website with HTML, CSS, and JavaScript. Include:'
+  complexity=11.1 band=low runtime=None tools=None
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T06:23:43.110000+00:00'}
+- kind=prompt title='Generate a complete blogging platform with Python and Django: - User authenticat'
+  complexity=33.9 band=medium runtime=495.7 tools=45
+  session=85cdfc57-28ba-4e49-bcdb-b24c92324147 linked=85cdfc57-28ba-4e49-bcdb-b24c92324147 project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 51, 'output_tokens_est': 31464, 'total_tokens_est': 31515, 'event_time': '2026-07-27T06:25:03.556000+00:00'}
+- kind=prompt title='Generate a complete full-stack web application: - Frontend: React with component'
+  complexity=3.7 band=low runtime=None tools=None
+  session=c5e9468e-6752-4cf3-bb7b-ecf050e74005 linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'event_time': '2026-07-27T07:03:16.916000+00:00'}
+- kind=prompt title='Generate a complete gaming platform: - Game engine core - Multiple game modules '
+  complexity=67.2 band=high runtime=7139.5 tools=36
+  session=78fc1099-63d7-43b0-a9d1-36ab762f3e09 linked=78fc1099-63d7-43b0-a9d1-36ab762f3e09 project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 99, 'output_tokens_est': 22290, 'total_tokens_est': 22389, 'event_time': '2026-07-27T07:25:53.798000+00:00'}
+
+=== generated_project_readme (10) ===
+- kind=prompt title='Ecommerce Website - ecom_test2'
+  complexity=49.2 band=high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\experiments\ecom_test2
+  extras={'input_tokens_est': 258, 'total_tokens_est': 258, 'event_time': '2026-07-31T08:11:34.060743+00:00'}
+- kind=prompt title='Tidewatch: Lantern of the Shattered Coast'
+  complexity=100.0 band=very_high runtime=6029.8 tools=124
+  session=None linked=21f0ed91-5865-41a3-a95b-19a430a35234 project=C:\Users\anshg\.cursor\headless_harness_datagen\experiments\tower_defense\Tidewatch
+  extras={'input_tokens_est': 4006, 'output_tokens_est': 91157, 'total_tokens_est': 95163, 'event_time': '2026-07-31T08:11:34.151090+00:00'}
+- kind=prompt title='Full-Stack Web Application'
+  complexity=81.8 band=very_high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  extras={'input_tokens_est': 750, 'total_tokens_est': 750, 'event_time': '2026-07-31T08:11:34.245438+00:00'}
+- kind=prompt title='pytest cache directory #'
+  complexity=4.5 band=low runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\.pytest_cache
+  extras={'event_time': '2026-07-31T07:20:50.613287+00:00'}
+- kind=prompt title='Client'
+  complexity=63.4 band=high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\client
+  extras={'input_tokens_est': 437, 'total_tokens_est': 437, 'event_time': '2026-07-31T08:11:34.350737+00:00'}
+- kind=prompt title='Gaming Platform Prototype'
+  complexity=85.6 band=very_high runtime=7139.5 tools=36
+  session=None linked=78fc1099-63d7-43b0-a9d1-36ab762f3e09 project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\gaming-platform
+  extras={'input_tokens_est': 99, 'output_tokens_est': 22290, 'total_tokens_est': 22389, 'event_time': '2026-07-31T08:11:34.439570+00:00'}
+- kind=prompt title='PalletLens'
+  complexity=100.0 band=very_high runtime=5803.4 tools=68
+  session=None linked=87d798e4-4729-48f5-9728-ddf32b56f49d project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\palletlens
+  extras={'input_tokens_est': 3925, 'output_tokens_est': 27201, 'total_tokens_est': 31126, 'event_time': '2026-07-31T08:11:34.528504+00:00'}
+- kind=prompt title='Chakra Payments Backend'
+  complexity=64.8 band=high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\python
+  extras={'input_tokens_est': 676, 'total_tokens_est': 676, 'event_time': '2026-07-31T08:11:34.617503+00:00'}
+- kind=prompt title='Server'
+  complexity=66.0 band=high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\server
+  extras={'input_tokens_est': 466, 'total_tokens_est': 466, 'event_time': '2026-07-31T08:11:34.722602+00:00'}
+- kind=prompt title='Chakra VS Code Extension'
+  complexity=46.3 band=high runtime=None tools=None
+  session=None linked=None project=C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra\vscode-extension\openclaude-vscode
+  extras={'event_time': '2026-07-31T07:26:31.932615+00:00'}
+
+=== pipeline (1) ===
+- kind=harness_run title='build an ecommerce website with login page and working login form and an ecommer'
+  complexity=1.2 band=low runtime=60.66 tools=None
+  session=None linked=None project=None
+  paths={'summary': None}
+  extras={'completed': True, 'turn_count': 1, 'input_tokens_est': 46, 'event_time': '2026-07-31T09:05:01.054989+00:00'}
+
+=== project_prompts_md (27) ===
+- kind=prompt title='1. Collaborative Whiteboard Application'
+  complexity=91.4 band=very_high runtime=8190.1 tools=119
+  session=None linked=937aace6-e372-41ff-8893-fdb7033a6153 project=None
+  extras={'input_tokens_est': 110, 'output_tokens_est': 100376, 'total_tokens_est': 100486, 'event_time': '2026-07-31T08:11:28.838243+00:00'}
+- kind=prompt title='2. Mini Cloud Storage Platform'
+  complexity=17.9 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 111, 'total_tokens_est': 111, 'event_time': '2026-07-31T08:11:29.281135+00:00'}
+- kind=prompt title='4. AI Resume Analyzer'
+  complexity=17.9 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 110, 'total_tokens_est': 110, 'event_time': '2026-07-31T08:11:29.483139+00:00'}
+- kind=prompt title='5. Digital Library Management System'
+  complexity=17.8 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 111, 'total_tokens_est': 111, 'event_time': '2026-07-31T08:11:29.588658+00:00'}
+- kind=prompt title='6. Secure Password Manager'
+  complexity=2.7 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 109, 'total_tokens_est': 109, 'event_time': '2026-07-31T08:11:29.678540+00:00'}
+- kind=prompt title='7. E-commerce Inventory and Order Management Platform'
+  complexity=29.0 band=medium runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 117, 'total_tokens_est': 117, 'event_time': '2026-07-31T08:11:29.775532+00:00'}
+- kind=prompt title='8. Network Monitoring Dashboard'
+  complexity=17.9 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 114, 'total_tokens_est': 114, 'event_time': '2026-07-31T08:11:29.880587+00:00'}
+- kind=prompt title='9. 2D Tower Defense Game'
+  complexity=100.0 band=very_high runtime=6029.8 tools=124
+  session=None linked=21f0ed91-5865-41a3-a95b-19a430a35234 project=None
+  extras={'input_tokens_est': 4006, 'output_tokens_est': 91157, 'total_tokens_est': 95163, 'event_time': '2026-07-31T08:11:29.978025+00:00'}
+- kind=prompt title='10. Distributed Task Queue System'
+  complexity=6.5 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 123, 'total_tokens_est': 123, 'event_time': '2026-07-31T08:11:30.066803+00:00'}
+- kind=prompt title='11. Image Classification API (AI / Backend)'
+  complexity=100.0 band=very_high runtime=5803.4 tools=68
+  session=None linked=87d798e4-4729-48f5-9728-ddf32b56f49d project=None
+  extras={'input_tokens_est': 3925, 'output_tokens_est': 27201, 'total_tokens_est': 31126, 'event_time': '2026-07-31T08:11:30.171912+00:00'}
+- kind=prompt title='12. Snake AI Simulator (AI / Game)'
+  complexity=2.3 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 89, 'total_tokens_est': 89, 'event_time': '2026-07-31T08:11:30.316968+00:00'}
+- kind=prompt title='1. Personal Finance Manager'
+  complexity=6.5 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 90, 'total_tokens_est': 90, 'event_time': '2026-07-31T08:11:30.494890+00:00'}
+- kind=prompt title='2. Library Management System'
+  complexity=12.4 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 76, 'total_tokens_est': 76, 'event_time': '2026-07-31T08:11:30.584185+00:00'}
+- kind=prompt title='3. Hospital Appointment Management'
+  complexity=4.6 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 71, 'total_tokens_est': 71, 'event_time': '2026-07-31T08:11:30.672778+00:00'}
+- kind=prompt title='4. Employee Leave Management System'
+  complexity=11.4 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 65, 'total_tokens_est': 65, 'event_time': '2026-07-31T08:11:30.753880+00:00'}
+- kind=prompt title='5. Restaurant Ordering System'
+  complexity=14.8 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 62, 'total_tokens_est': 62, 'event_time': '2026-07-31T08:11:30.826555+00:00'}
+- kind=prompt title='6. URL Shortener Service'
+  complexity=7.9 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 63, 'total_tokens_est': 63, 'event_time': '2026-07-31T08:11:30.901079+00:00'}
+- kind=prompt title='7. File Sharing Platform'
+  complexity=7.8 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 62, 'total_tokens_est': 62, 'event_time': '2026-07-31T08:11:30.980572+00:00'}
+- kind=prompt title='8. Notes & Knowledge Base'
+  complexity=4.4 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 62, 'total_tokens_est': 62, 'event_time': '2026-07-31T08:11:31.069896+00:00'}
+- kind=prompt title='9. Task & Project Management Tool'
+  complexity=5.1 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 61, 'total_tokens_est': 61, 'event_time': '2026-07-31T08:11:31.151304+00:00'}
+- kind=prompt title='10. Inventory Management System'
+  complexity=8.3 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 65, 'total_tokens_est': 65, 'event_time': '2026-07-31T08:11:31.227309+00:00'}
+- kind=prompt title='11. University Course Registration Portal'
+  complexity=4.5 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 69, 'total_tokens_est': 69, 'event_time': '2026-07-31T08:11:31.315573+00:00'}
+- kind=prompt title='12. Expense Splitter'
+  complexity=4.3 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 61, 'total_tokens_est': 61, 'event_time': '2026-07-31T08:11:31.385186+00:00'}
+- kind=prompt title='13. AI Document Assistant'
+  complexity=5.3 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 71, 'total_tokens_est': 71, 'event_time': '2026-07-31T08:11:31.474055+00:00'}
+- kind=prompt title='14. Local Code Search Engine'
+  complexity=5.5 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 80, 'total_tokens_est': 80, 'event_time': '2026-07-31T08:11:31.547351+00:00'}
+- kind=prompt title='15. Automated Resume Screening System'
+  complexity=8.8 band=low runtime=None tools=None
+  session=None linked=None project=None
+  extras={'input_tokens_est': 72, 'total_tokens_est': 72, 'event_time': '2026-07-31T08:11:31.620394+00:00'}
+- kind=prompt title='3. Smart Home Automation Dashboard'
+  complexity=100.0 band=very_high runtime=9982.7 tools=158
+  session=None linked=bfc8adb2-6b4a-4677-be67-c2dc9e48f443 project=None
+  extras={'input_tokens_est': 110, 'total_tokens_est': 134700, 'event_time': '2026-07-31T08:11:29.394298+00:00'}
+
+=== CHAKRA_SESSION DETAIL (all keys) ===
+---
+  assistant_messages: 16
+  chars: 6391
+  complexity_band: very_high
+  complexity_effort_bonus: 18.4
+  complexity_score: 100.0
+  complexity_score_prompt_only: 97.7
+  est_tokens: 1598
+  event_time: 2026-07-28T11:25:32.045000+00:00
+  id: 9dc1f8f87c3561c90212
+  input_tokens: null
+  input_tokens_est: 1598
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 19089
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\4bc2acd8-87da-46f4-8140-3bb0aca4f970.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: 6060c4bd45dc176a
+  recorded_at: 2026-07-31T08:11:39.714339+00:00
+  runtime_seconds: 755.0
+  schema_version: 1
+  session_id: 4bc2acd8-87da-46f4-8140-3bb0aca4f970
+  source: chakra_session
+  title: I want you to think deeply and reason through a complex system design problem. Use your full thinking capabilities to an
+  tokens_are_estimated: true
+  tool_calls: 12
+  total_tokens_est: 20687
+---
+  assistant_messages: 158
+  chars: 439
+  complexity_band: very_high
+  complexity_effort_bonus: 85.0
+  complexity_score: 91.4
+  complexity_score_prompt_only: 6.4
+  est_tokens: 110
+  event_time: 2026-07-28T13:28:43.076000+00:00
+  id: c3bf46e93c871a955870
+  input_tokens: null
+  input_tokens_est: 110
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 100376
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\937aace6-e372-41ff-8893-fdb7033a6153.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: 66d9399ec9394621
+  recorded_at: 2026-07-31T08:11:39.810290+00:00
+  runtime_seconds: 8190.1
+  schema_version: 1
+  session_id: 937aace6-e372-41ff-8893-fdb7033a6153
+  source: chakra_session
+  title: Create a real-time collaborative whiteboard application using React, TypeScript, Node.js, Express, and Socket.IO. Multip
+  tokens_are_estimated: true
+  tool_calls: 119
+  total_tokens_est: 100486
+---
+  assistant_messages: 0
+  chars: 144
+  complexity_band: low
+  complexity_effort_bonus: 0.7
+  complexity_score: 5.2
+  complexity_score_prompt_only: 4.5
+  est_tokens: 36
+  event_time: 2026-07-27T06:05:36.114000+00:00
+  id: eb358970629b1d24c1d9
+  input_tokens: null
+  input_tokens_est: 36
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 0
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\aa1f7eb2-e8b6-4e82-bb70-f2c42815b878.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: f11d0163b991bc77
+  recorded_at: 2026-07-31T08:11:39.874247+00:00
+  runtime_seconds: 69.0
+  schema_version: 1
+  session_id: aa1f7eb2-e8b6-4e82-bb70-f2c42815b878
+  source: chakra_session
+  title: Generate a simple to-do list application in python with flask. Include: = add/delete/view tasks -sqlite database -html t
+  tokens_are_estimated: true
+  tool_calls: 0
+  total_tokens_est: 36
+---
+  assistant_messages: 207
+  chars: 407
+  complexity_band: very_high
+  complexity_effort_bonus: 85.0
+  complexity_score: 100.0
+  complexity_score_prompt_only: 17.6
+  est_tokens: 102
+  event_time: 2026-07-29T09:29:38.708000+00:00
+  id: 980dcd5dd51d43786b10
+  input_tokens: 93169
+  input_tokens_est: 102
+  kind: chakra_run
+  output_tokens: 1463
+  output_tokens_est: 134598
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\bfc8adb2-6b4a-4677-be67-c2dc9e48f443.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: b6c07c350eacc458
+  recorded_at: 2026-07-31T08:11:39.987410+00:00
+  runtime_seconds: 9982.7
+  schema_version: 1
+  session_id: bfc8adb2-6b4a-4677-be67-c2dc9e48f443
+  source: chakra_session
+  title: Create a smart home dashboard using React, TypeScript, and FastAPI. The backend should simulate smart devices such as li
+  tokens_are_estimated: false
+  tool_calls: 158
+  total_tokens: 94632
+  total_tokens_est: 134700
+---
+  assistant_messages: 95
+  chars: 186
+  complexity_band: very_high
+  complexity_effort_bonus: 72.8
+  complexity_score: 80.7
+  complexity_score_prompt_only: 7.9
+  est_tokens: 47
+  event_time: 2026-07-28T10:14:52.495000+00:00
+  id: 713b9a335ea704203c70
+  input_tokens: null
+  input_tokens_est: 47
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 27842
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\c8f0696a-2275-4abb-9615-56e49495e915.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: c9e133134e35c53d
+  recorded_at: 2026-07-31T08:11:40.085837+00:00
+  runtime_seconds: 4192.2
+  schema_version: 1
+  session_id: c8f0696a-2275-4abb-9615-56e49495e915
+  source: chakra_session
+  title: Generate a complete social media platform:
+  tokens_are_estimated: true
+  tool_calls: 74
+  total_tokens_est: 27889
+---
+  assistant_messages: 6
+  chars: 99
+  complexity_band: low
+  complexity_effort_bonus: 4.2
+  complexity_score: 4.9
+  complexity_score_prompt_only: 0.7
+  est_tokens: 25
+  event_time: 2026-07-29T09:22:47.518000+00:00
+  id: 0287dc6b6bb06dbb9f03
+  input_tokens: null
+  input_tokens_est: 25
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 1027
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\d05ce240-fa89-4095-a16b-4ccce3f07f21.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: df49b0179ea0f102
+  recorded_at: 2026-07-31T08:11:40.149440+00:00
+  runtime_seconds: 318.2
+  schema_version: 1
+  session_id: d05ce240-fa89-4095-a16b-4ccce3f07f21
+  source: chakra_session
+  title: give some questions to ask from this paper https://thinkingmachines.ai/blog/on-policy-distillation/
+  tokens_are_estimated: true
+  tool_calls: 1
+  total_tokens_est: 1052
+---
+  assistant_messages: 0
+  chars: 147
+  complexity_band: low
+  complexity_effort_bonus: 0.5
+  complexity_score: 6.4
+  complexity_score_prompt_only: 5.9
+  est_tokens: 37
+  event_time: 2026-07-27T06:07:34.271000+00:00
+  id: daaf8784d6c170389bd2
+  input_tokens: null
+  input_tokens_est: 37
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 0
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor\\ea72d88b-d39c-42a7-9cdc-c6b29d199b0c.jsonl"}
+  project: C:\Users\anshg\.cursor
+  prompt_fingerprint: 7fa00db1c5551062
+  recorded_at: 2026-07-31T08:11:40.213862+00:00
+  runtime_seconds: 46.7
+  schema_version: 1
+  session_id: ea72d88b-d39c-42a7-9cdc-c6b29d199b0c
+  source: chakra_session
+  title: Generate a simple to-do list application in Python with Flask.
+  tokens_are_estimated: true
+  tool_calls: 0
+  total_tokens_est: 37
+---
+  assistant_messages: 159
+  chars: 16022
+  complexity_band: very_high
+  complexity_effort_bonus: 85.0
+  complexity_score: 100.0
+  complexity_score_prompt_only: 98.5
+  est_tokens: 4006
+  event_time: 2026-07-30T08:40:25.748000+00:00
+  id: dd665e8a832401d4d4a4
+  input_tokens: null
+  input_tokens_est: 4006
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 91157
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\21f0ed91-5865-41a3-a95b-19a430a35234.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: 479dc344bc3a4e30
+  recorded_at: 2026-07-31T08:11:40.302949+00:00
+  runtime_seconds: 6029.8
+  schema_version: 1
+  session_id: 21f0ed91-5865-41a3-a95b-19a430a35234
+  source: chakra_session
+  title: PLATFORM PROMPT � Tidewatch: Lantern of the Shattered Coast
+  tokens_are_estimated: true
+  tool_calls: 124
+  total_tokens_est: 95163
+---
+  assistant_messages: 129
+  chars: 125
+  complexity_band: very_high
+  complexity_effort_bonus: 72.0
+  complexity_score: 72.8
+  complexity_score_prompt_only: 0.8
+  est_tokens: 32
+  event_time: 2026-07-24T11:43:07.506000+00:00
+  id: 1f121180adef1a04fdd9
+  input_tokens: null
+  input_tokens_est: 32
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 12367
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\44341784-376d-4e9d-bee0-6d7ba8d5f4bf.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: a23b45187f1fa4ae
+  recorded_at: 2026-07-31T08:11:40.391588+00:00
+  runtime_seconds: 18746.3
+  schema_version: 1
+  session_id: 44341784-376d-4e9d-bee0-6d7ba8d5f4bf
+  source: chakra_session
+  title: whole repo is the headless_harness_datagen folder , see if hooks are pulled correctly and traces are been captured corre
+  tokens_are_estimated: true
+  tool_calls: 78
+  total_tokens_est: 12399
+---
+  assistant_messages: 51
+  chars: 395
+  complexity_band: very_high
+  complexity_effort_bonus: 64.5
+  complexity_score: 85.6
+  complexity_score_prompt_only: 21.1
+  est_tokens: 99
+  event_time: 2026-07-27T09:14:52.025000+00:00
+  id: 1d762fd131d6bf58aab0
+  input_tokens: null
+  input_tokens_est: 99
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 22290
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\78fc1099-63d7-43b0-a9d1-36ab762f3e09.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: 3e92081d8079811e
+  recorded_at: 2026-07-31T08:11:40.464656+00:00
+  runtime_seconds: 7139.5
+  schema_version: 1
+  session_id: 78fc1099-63d7-43b0-a9d1-36ab762f3e09
+  source: chakra_session
+  title: Continue the gaming platform. The previous PowerShell session broke. Proceed with auto-accept: implement a runnable prot
+  tokens_are_estimated: true
+  tool_calls: 36
+  total_tokens_est: 22389
+---
+  assistant_messages: 56
+  chars: 202
+  complexity_band: high
+  complexity_effort_bonus: 29.4
+  complexity_score: 52.4
+  complexity_score_prompt_only: 23.0
+  est_tokens: 51
+  event_time: 2026-07-27T06:25:03.601000+00:00
+  id: f354d6153c11edb308f5
+  input_tokens: null
+  input_tokens_est: 51
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 31464
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\85cdfc57-28ba-4e49-bcdb-b24c92324147.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: c3b2b83a65f8d15c
+  recorded_at: 2026-07-31T08:11:40.545565+00:00
+  runtime_seconds: 495.7
+  schema_version: 1
+  session_id: 85cdfc57-28ba-4e49-bcdb-b24c92324147
+  source: chakra_session
+  title: Generate a complete blogging platform with Python and Django:
+  tokens_are_estimated: true
+  tool_calls: 45
+  total_tokens_est: 31515
+---
+  assistant_messages: 85
+  chars: 15700
+  complexity_band: very_high
+  complexity_effort_bonus: 74.9
+  complexity_score: 100.0
+  complexity_score_prompt_only: 100.0
+  est_tokens: 3925
+  event_time: 2026-07-30T10:48:46.768000+00:00
+  id: 3455385a8276e52e73a9
+  input_tokens: null
+  input_tokens_est: 3925
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 27201
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\87d798e4-4729-48f5-9728-ddf32b56f49d.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: 765bc1c936d73ce3
+  recorded_at: 2026-07-31T08:11:40.634250+00:00
+  runtime_seconds: 5803.4
+  schema_version: 1
+  session_id: 87d798e4-4729-48f5-9728-ddf32b56f49d
+  source: chakra_session
+  title: PLATFORM PROMPT � PalletLens: Intake Triage Vision API for Electronics Refurbishment Co-ops
+  tokens_are_estimated: true
+  tool_calls: 68
+  total_tokens_est: 31126
+---
+  assistant_messages: 97
+  chars: 245
+  complexity_band: high
+  complexity_effort_bonus: 44.2
+  complexity_score: 66.4
+  complexity_score_prompt_only: 22.2
+  est_tokens: 62
+  event_time: 2026-07-27T07:03:16.968000+00:00
+  id: 4af6127e2592ed4575ca
+  input_tokens: null
+  input_tokens_est: 62
+  kind: chakra_run
+  output_tokens: null
+  output_tokens_est: 19889
+  paths: {"session": "C:\\Users\\anshg\\.chakra\\projects\\C--Users-anshg--cursor-headless-harness-datagen-harness-chakra\\c5e9468e-6752-4cf3-bb7b-ecf050e74005.jsonl"}
+  project: C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra
+  prompt_fingerprint: ac02b036f9bfd94c
+  recorded_at: 2026-07-31T08:11:40.755155+00:00
+  runtime_seconds: 1536.9
+  schema_version: 1
+  session_id: c5e9468e-6752-4cf3-bb7b-ecf050e74005
+  source: chakra_session
+  title: Generate a complete full-stack web application:
+  tokens_are_estimated: true
+  tool_calls: 75
+  total_tokens_est: 19951

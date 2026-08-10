@@ -1,0 +1,15 @@
+---
+pid: 21940
+cwd: "c:\\Users\\anshg\\.cursor"
+command: "Test-NetConnection api.tensorstudio.ai -Port 443 | Format-List ComputerName,RemoteAddress,RemotePort,TcpTestSucceeded; try { $r = Invoke-WebRequest -Uri \"https://api.tensorstudio.ai/\" -UseBasicParsing -TimeoutSec 15; \"http_root=$($r.StatusCode)\" } catch { \"http_root_fail=$($_.Exception.Message)\" }; try { $r2 = Invoke-WebRequest -Uri \"https://api.tensorstudio.ai/v1/models\" -UseBasicParsing -TimeoutSec 15; \"models_noauth=$($r2.StatusCode)\" } catch { \"models_noauth=$($_.Exception.Message)\" }; nslookup api.tensorstudio.ai 2>&1 | Select-Object -First 8"
+title: "TCP/DNS check TensorStudio without auth header"
+status: failed   
+started_at: 2026-08-10T07:26:17.271Z
+running_for_ms: 224023   
+---
+
+---
+exit_code: 4294967295
+elapsed_ms: 223891
+ended_at: 2026-08-10T07:30:01.162Z
+---

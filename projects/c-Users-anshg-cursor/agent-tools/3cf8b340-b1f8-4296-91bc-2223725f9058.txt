@@ -1,0 +1,1113 @@
+LangfuseClient | Langfuse JS/TS SDKs
+
+# Class LangfuseClient
+
+Main client for interacting with the Langfuse API.
+
+The LangfuseClient provides access to all Langfuse functionality including:
+
+- Prompt management and retrieval
+- Dataset operations
+- Score creation and management
+- Media upload and handling
+- Direct API access for advanced use cases
+
+#### Example
+
+```
+// Initialize with explicit credentialsconst langfuse = new LangfuseClient({  publicKey: "pk_...",  secretKey: "sk_...",  baseUrl: "https://cloud.langfuse.com"});// Or use environment variablesconst langfuse = new LangfuseClient();// Use the clientconst prompt = await langfuse.prompt.get("my-prompt");const compiledPrompt = prompt.compile({ variable: "value" });
+Copy
+```
+
+##### Index
+
+### Constructors
+
+constructor
+
+### Properties
+
+api createDataset createDatasetItem createPrompt dataset experiment fetchMedia fetchObservation fetchObservations fetchSessions fetchTrace fetchTraces getDataset getDatasetItem getDatasetRun getDatasetRuns getPrompt media prompt resolveMediaReferences score updatePrompt
+
+### Methods
+
+flush getTraceUrl shutdown
+
+## Constructors
+
+### constructor
+
+new LangfuseClient(params?: LangfuseClientParams): LangfuseClient
+
+Creates a new LangfuseClient instance.
+
+#### Parameters
+
+Configuration parameters. If not provided, will use environment variables.
+
+#### Returns LangfuseClient
+
+#### Throws
+
+Will log warnings if required credentials are not provided
+
+#### Example
+
+```
+// With explicit configurationconst client = new LangfuseClient({  publicKey: "pk_...",  secretKey: "sk_...",  baseUrl: "https://your-instance.langfuse.com"});// Using environment variablesconst client = new LangfuseClient();
+Copy
+```
+
+- - Defined in client/src/LangfuseClient.ts:254
+
+## Properties
+
+### api
+
+api: LangfuseAPIClient
+
+Direct access to the underlying Langfuse API client. Use this for advanced API operations not covered by the high-level managers.
+
+### createDataset
+
+createDataset: ( request: CreateDatasetRequest, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Create a dataset
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.datasets.create({        name: "name",        description: undefined,        metadata: undefined,        inputSchema: undefined,        expectedOutputSchema: undefined    })
+Copy
+```
+
+- - ( request: CreateDatasetRequest, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - request: CreateDatasetRequest
+
+#### Deprecated
+
+Use api.datasets.create instead
+
+### createDatasetItem
+
+createDatasetItem: ( request: CreateDatasetItemRequest, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Create a dataset item
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.datasetItems.create({        datasetName: "datasetName",        input: undefined,        expectedOutput: undefined,        metadata: undefined,        sourceTraceId: undefined,        sourceObservationId: undefined,        id: undefined,        status: undefined    })
+Copy
+```
+
+- - ( request: CreateDatasetItemRequest, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - request: CreateDatasetItemRequest
+
+#### Deprecated
+
+Use api.datasetItems.create instead
+
+### createPrompt
+
+createPrompt: { (body: CreateChatPromptBodyWithPlaceholders): Promise< ChatPromptClient>; ( body: Omit<CreateTextPromptRequest, "type"> & { type?: "text" }, ): Promise< TextPromptClient>; (body: CreateChatPromptRequest): Promise< ChatPromptClient>;}
+
+#### Type declaration
+
+Creates a new prompt in Langfuse.
+
+#### Parameters
+
+The prompt data to create (chat prompt)
+
+#### Returns Promise 
+
+Promise that resolves to a ChatPromptClient
+
+Creates a new prompt in Langfuse.
+
+#### Parameters
+
+body: Omit<CreateTextPromptRequest, "type"> & { type?: "text" }
+
+The prompt data to create (text prompt)
+
+#### Returns Promise 
+
+Promise that resolves to a TextPromptClient
+
+Creates a new prompt in Langfuse.
+
+#### Parameters
+
+body: CreateChatPromptRequest
+
+The prompt data to create (chat prompt)
+
+#### Returns Promise 
+
+Promise that resolves to a ChatPromptClient
+
+- - (body: CreateChatPromptBodyWithPlaceholders): Promise< ChatPromptClient>
+- ( body: Omit<CreateTextPromptRequest, "type"> & { type?: "text" },): Promise< TextPromptClient>
+- (body: CreateChatPromptRequest): Promise< ChatPromptClient>
+
+#### Deprecated
+
+Use prompt.create instead
+
+### dataset
+
+Manager for dataset operations including retrieval and item linking.
+
+### experiment
+
+Manager for running experiments on datasets and data items.
+
+The experiment manager provides comprehensive functionality for:
+
+- Running tasks on datasets or custom data arrays
+- Evaluating outputs with custom or pre-built evaluators
+- Tracking experiment runs with automatic tracing
+- Generating formatted result summaries
+- Integrating with AutoEvals library evaluators
+
+#### Example: Basic experiment execution
+
+```
+const langfuse = new LangfuseClient();const result = await langfuse.experiment.run({  name: "Model Evaluation",  description: "Testing model performance on Q&A tasks",  data: [    { input: "What is 2+2?", expectedOutput: "4" },    { input: "What is the capital of France?", expectedOutput: "Paris" }  ],  task: async ({ input }) => {    // Your model/task implementation    const response = await myModel.generate(input);    return response;  },  evaluators: [    async ({ output, expectedOutput }) => ({      name: "exact_match",      value: output.trim().toLowerCase() === expectedOutput.toLowerCase() ? 1 : 0    })  ]});console.log(await result.format());
+Copy
+```
+
+#### Example: Using with datasets
+
+```
+const dataset = await langfuse.dataset.get("my-test-dataset");const result = await dataset.runExperiment({  name: "Production Readiness Test",  task: myTask,  evaluators: [accuracyEvaluator, latencyEvaluator],  runEvaluators: [overallQualityEvaluator]});
+Copy
+```
+
+#### See
+
+- ExperimentManager for detailed API documentation
+- ExperimentParams for configuration options
+- ExperimentResult for result structure
+
+#### Since
+
+4.0.0
+
+### fetchMedia
+
+fetchMedia: ( mediaId: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a media record
+
+#### Parameters
+
+mediaId: string
+
+The unique langfuse identifier of a media record
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.media.get("mediaId")
+Copy
+```
+
+- - ( mediaId: string, requestOptions?: RequestOptions,): HttpResponsePromise 
+
+#### Deprecated
+
+Use api.media.get instead
+
+### fetchObservation
+
+fetchObservation: ( observationId: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a observation
+
+#### Parameters
+
+observationId: string
+
+The unique langfuse identifier of an observation, can be an event, span or generation
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.legacy.observationsV1.get("observationId")
+Copy
+```
+
+- - ( observationId: string, requestOptions?: RequestOptions,): HttpResponsePromise 
+
+#### Deprecated
+
+Use api.observations.get instead
+
+### fetchObservations
+
+fetchObservations: ( request?: GetObservationsV2Request, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a list of observations with cursor-based pagination and flexible field selection.
+
+## Cursor-based Pagination
+
+This endpoint uses cursor-based pagination for efficient traversal of large datasets. The cursor is returned in the response metadata and should be passed in subsequent requests to retrieve the next page of results.
+
+## Field Selection
+
+Use the`fields` parameter to control which observation fields are returned:
+
+If not specified,`core` and`basic` field groups are returned.
+
+## Filters
+
+Multiple filtering options are available via query parameters or the structured`filter` parameter. When using the`filter` parameter, it takes precedence over individual query parameter filters.
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.observations.getMany()
+Copy
+```
+
+- - ( request?: GetObservationsV2Request, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - `core`- Always included: id, traceId, startTime, endTime, projectId, parentObservationId, type
+- `basic`- name, level, statusMessage, version, environment, bookmarked, public, userId, sessionId
+- `time`- completionStartTime, createdAt, updatedAt
+- `io`- input, output
+- `metadata`- metadata (truncated to 200 chars by default, use`expandMetadata` to get full values)
+- `model`- providedModelName, internalModelId, modelParameters
+- `usage`- usageDetails, costDetails, totalCost
+- `prompt`- promptId, promptName, promptVersion
+- `metrics`- latency, timeToFirstToken
+- - `Optional` request: GetObservationsV2Request
+
+#### Deprecated
+
+Use api.observations.list instead
+
+### fetchSessions
+
+fetchSessions: ( sessionId: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a session. Please note that`traces` on this endpoint are not paginated, if you plan to fetch large sessions, consider`GET /api/public/traces?sessionId= `
+
+#### Parameters
+
+sessionId: string
+
+The unique id of a session
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.sessions.get("sessionId")
+Copy
+```
+
+- - ( sessionId: string, requestOptions?: RequestOptions,): HttpResponsePromise 
+
+#### Deprecated
+
+Use api.sessions.get instead
+
+### fetchTrace
+
+fetchTrace: ( traceId: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a specific trace
+
+#### Parameters
+
+traceId: string
+
+The unique langfuse identifier of a trace
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.trace.get("traceId")
+Copy
+```
+
+- - ( traceId: string, requestOptions?: RequestOptions,): HttpResponsePromise 
+
+#### Deprecated
+
+Use api.trace.get instead
+
+### fetchTraces
+
+fetchTraces: ( request?: GetTracesRequest, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get list of traces
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.trace.list()
+Copy
+```
+
+- - ( request?: GetTracesRequest, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - `Optional` request: GetTracesRequest
+
+#### Deprecated
+
+Use api.trace.list instead
+
+### getDataset
+
+getDataset: ( name: string, options?: { fetchItemsPageSize?: number; version?: string },) => Promise< FetchedDataset>
+
+#### Type declaration
+
+Retrieves a dataset by name with all its items and experiment functionality.
+
+This method fetches a dataset and all its associated items, with support for automatic pagination to handle large datasets efficiently. The returned dataset object includes enhanced functionality for linking items to traces and running experiments directly on the dataset.
+
+#### Parameters
+
+name: string
+
+The name of the dataset to retrieve
+
+`Optional` options: { fetchItemsPageSize?: number; version?: string }
+
+Optional configuration for data fetching
+
+##### OptionalfetchItemsPageSize?: number
+
+Number of items to fetch per page (default: 50)
+
+##### Optionalversion?: string
+
+ISO 8601 timestamp (RFC 3339, Section 5.6) in UTC (e.g., "2026-01-21T14:35:42Z"). If provided, returns state of dataset at this timestamp. If not provided, returns the latest version.
+
+#### Returns Promise 
+
+Promise resolving to enhanced dataset with items, linking, and experiment capabilities
+
+#### Example: Basic dataset retrieval
+
+```
+const dataset = await langfuse.dataset.get("my-evaluation-dataset");console.log(`Dataset ${dataset.name} has ${dataset.items.length} items`);// Access dataset propertiesconsole.log(dataset.description);console.log(dataset.metadata);
+Copy
+```
+
+#### Example: Working with dataset items
+
+```
+const dataset = await langfuse.dataset.get("qa-dataset");for (const item of dataset.items) {  console.log("Question:", item.input);  console.log("Expected Answer:", item.expectedOutput);  // Each item has a link function for connecting to traces  // await item.link(span, "experiment-name");}
+Copy
+```
+
+#### Example: Running experiments on datasets
+
+```
+const dataset = await langfuse.dataset.get("benchmark-dataset");const result = await dataset.runExperiment({  name: "GPT-4 Benchmark",  runName: "GPT-4 Benchmark v1.2", // optional exact run name  description: "Evaluating GPT-4 on our benchmark tasks",  task: async ({ input }) => {    const response = await openai.chat.completions.create({      model: "gpt-4",      messages: [{ role: "user", content: input }]    });    return response.choices[0].message.content;  },  evaluators: [    async ({ output, expectedOutput }) => ({      name: "exact_match",      value: output === expectedOutput ? 1 : 0    })  ]});console.log(await result.format());
+Copy
+```
+
+#### Example: Handling large datasets
+
+```
+// For very large datasets, use smaller page sizesconst largeDataset = await langfuse.dataset.get(  "large-dataset",  { fetchItemsPageSize: 100 });
+Copy
+```
+
+#### Throws
+
+If the dataset does not exist or cannot be accessed
+
+#### See
+
+#### Since
+
+4.0.0
+
+- - ( name: string, options?: { fetchItemsPageSize?: number; version?: string },): Promise< FetchedDataset>
+- - FetchedDataset for the complete return type specification
+- RunExperimentOnDataset for experiment execution details
+
+#### Deprecated
+
+Use dataset.get instead
+
+### getDatasetItem
+
+getDatasetItem: ( id: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a dataset item
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.datasetItems.get("id")
+Copy
+```
+
+- - (id: string, requestOptions?: RequestOptions): HttpResponsePromise 
+- - id: string
+
+#### Deprecated
+
+Use api.datasetItems.get instead
+
+### getDatasetRun
+
+getDatasetRun: ( datasetName: string, runName: string, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get a dataset run and its items
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.datasets.getRun("datasetName", "runName")
+Copy
+```
+
+- - ( datasetName: string, runName: string, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - datasetName: string
+- runName: string
+
+#### Deprecated
+
+Use api.datasets.getRun instead
+
+### getDatasetRuns
+
+getDatasetRuns: ( datasetName: string, request?: GetDatasetRunsRequest, requestOptions?: RequestOptions,) => HttpResponsePromise 
+
+#### Type declaration
+
+Get dataset runs
+
+#### Parameters
+
+`Optional` requestOptions: RequestOptions
+
+Request-specific configuration.
+
+#### Returns HttpResponsePromise 
+
+#### Throws
+
+LangfuseAPI.Error
+
+#### Throws
+
+LangfuseAPI.UnauthorizedError
+
+#### Throws
+
+LangfuseAPI.AccessDeniedError
+
+#### Throws
+
+LangfuseAPI.MethodNotAllowedError
+
+#### Throws
+
+LangfuseAPI.NotFoundError
+
+#### Example
+
+```
+await client.datasets.getRuns("datasetName")
+Copy
+```
+
+- - ( datasetName: string, request?: GetDatasetRunsRequest, requestOptions?: RequestOptions,): HttpResponsePromise 
+- - datasetName: string
+- `Optional` request: GetDatasetRunsRequest
+
+#### Deprecated
+
+Use api.datasets.getRuns instead
+
+### getPrompt
+
+getPrompt: { ( name: string, options?: { cacheTtlSeconds?: number; fallback?: string; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type?: "text"; version?: number; }, ): Promise< TextPromptClient>; ( name: string, options?: { cacheTtlSeconds?: number; fallback?: ChatMessage[]; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type: "chat"; version?: number; }, ): Promise< ChatPromptClient>;}
+
+#### Type declaration
+
+Retrieves a text prompt by name.
+
+#### Parameters
+
+name: string
+
+Name of the prompt to retrieve
+
+`Optional` options: { cacheTtlSeconds?: number; fallback?: string; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type?: "text"; version?: number;}
+
+Optional retrieval configuration
+
+##### OptionalcacheTtlSeconds?: number
+
+Cache TTL in seconds (0 to disable caching)
+
+##### Optionalfallback?: string
+
+Fallback text content if prompt fetch fails
+
+##### OptionalfetchTimeoutMs?: number
+
+Request timeout in milliseconds
+
+##### Optionallabel?: string
+
+Label to filter by
+
+##### OptionalmaxRetries?: number
+
+Maximum retry attempts for failed requests
+
+##### Optionaltype?: "text"
+
+Specify text prompt type
+
+##### Optionalversion?: number
+
+Specific version to retrieve (defaults to latest)
+
+#### Returns Promise 
+
+Promise that resolves to a TextPromptClient
+
+Retrieves a chat prompt by name.
+
+#### Parameters
+
+name: string
+
+Name of the prompt to retrieve
+
+`Optional` options: { cacheTtlSeconds?: number; fallback?: ChatMessage[]; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type: "chat"; version?: number;}
+
+Optional retrieval configuration
+
+##### OptionalcacheTtlSeconds?: number
+
+Cache TTL in seconds (0 to disable caching)
+
+##### Optionalfallback?: ChatMessage[]
+
+Fallback chat messages if prompt fetch fails
+
+##### OptionalfetchTimeoutMs?: number
+
+Request timeout in milliseconds
+
+##### Optionallabel?: string
+
+Label to filter by
+
+##### OptionalmaxRetries?: number
+
+Maximum retry attempts for failed requests
+
+##### type: "chat"
+
+Specify chat prompt type
+
+##### Optionalversion?: number
+
+Specific version to retrieve (defaults to latest)
+
+#### Returns Promise 
+
+Promise that resolves to a ChatPromptClient
+
+- - ( name: string, options?: { cacheTtlSeconds?: number; fallback?: string; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type?: "text"; version?: number; },): Promise< TextPromptClient>
+- ( name: string, options?: { cacheTtlSeconds?: number; fallback?: ChatMessage[]; fetchTimeoutMs?: number; label?: string; maxRetries?: number; type: "chat"; version?: number; },): Promise< ChatPromptClient>
+
+#### Deprecated
+
+Use prompt.get instead
+
+### media
+
+Manager for media upload and reference resolution.
+
+### prompt
+
+Manager for prompt operations including creation, retrieval, and caching.
+
+### resolveMediaReferences
+
+resolveMediaReferences: ( params: LangfuseMediaResolveMediaReferencesParams,) => Promise 
+
+#### Type declaration
+
+Replaces media reference strings in an object with base64 data URIs.
+
+This method recursively traverses an object looking for media reference strings in the format "@@@langfuseMedia:...@@@". When found, it fetches the actual media content from Langfuse and replaces the reference string with a base64 data URI.
+
+If fetching media content fails for a reference string, a warning is logged and the reference string is left unchanged.
+
+#### Type Parameters
+
+#### Parameters
+
+Configuration object
+
+#### Returns Promise 
+
+A deep copy of the input object with media references resolved
+
+#### Example
+
+```
+const obj = {  image: "@@@langfuseMedia:type=image/jpeg|id=123|source=bytes@@@",  nested: {    pdf: "@@@langfuseMedia:type=application/pdf|id=456|source=bytes@@@"  }};const result = await langfuse.media.resolveReferences({  obj,  resolveWith: "base64DataUri"});// Result:// {//   image: "data:image/jpeg;base64,/9j/4AAQSkZJRg...",//   nested: {//     pdf: "data:application/pdf;base64,JVBERi0xLjcK..."//   }// }
+Copy
+```
+
+- - (params: LangfuseMediaResolveMediaReferencesParams): Promise 
+- - T
+
+#### Deprecated
+
+Use media.resolveReferences instead
+
+### score
+
+Manager for score creation and batch processing.
+
+### updatePrompt
+
+updatePrompt: ( params: { name: string; newLabels: string[]; version: number },) => Promise 
+
+#### Type declaration
+
+Updates the labels of an existing prompt version.
+
+#### Parameters
+
+params: { name: string; newLabels: string[]; version: number }
+
+Update parameters
+
+##### name: string
+
+Name of the prompt to update
+
+##### newLabels: string[]
+
+New labels to apply to the prompt version
+
+##### version: number
+
+Version number of the prompt to update
+
+#### Returns Promise 
+
+Promise that resolves to the updated prompt
+
+#### Example
+
+```
+const updatedPrompt = await langfuse.prompt.update({  name: "my-prompt",  version: 1,  newLabels: ["production", "v2"]});
+Copy
+```
+
+- - ( params: { name: string; newLabels: string[]; version: number },): Promise 
+
+#### Deprecated
+
+Use prompt.update instead
+
+## Methods
+
+### flush
+
+flush(): Promise 
+
+Flushes any pending score events to the Langfuse API.
+
+This method ensures all queued scores are sent immediately rather than waiting for the automatic flush interval or batch size threshold.
+
+#### Returns Promise 
+
+Promise that resolves when all pending scores have been sent
+
+#### Example
+
+```
+langfuse.score.create({ name: "quality", value: 0.8 });await langfuse.flush(); // Ensures the score is sent immediately
+Copy
+```
+
+- - Defined in client/src/LangfuseClient.ts:334
+
+### getTraceUrl
+
+getTraceUrl(traceId: string): Promise 
+
+Generates a URL to view a specific trace in the Langfuse UI.
+
+#### Parameters
+
+traceId: string
+
+The ID of the trace to generate a URL for
+
+#### Returns Promise 
+
+Promise that resolves to the trace URL
+
+#### Example
+
+```
+const traceId = "trace-123";const url = await langfuse.getTraceUrl(traceId);console.log(`View trace at: ${url}`);
+Copy
+```
+
+- - Defined in client/src/LangfuseClient.ts:369
+
+### shutdown
+
+shutdown(): Promise 
+
+Gracefully shuts down the client by flushing all pending data.
+
+This method should be called before your application exits to ensure all data is sent to Langfuse.
+
+#### Returns Promise 
+
+Promise that resolves when shutdown is complete
+
+#### Example
+
+```
+// Before application exitawait langfuse.shutdown();
+Copy
+```
+
+- - Defined in client/src/LangfuseClient.ts:352
+
+### Settings
+
+Member Visibility
+
+- Protected
+- Inherited
+- External
+
+ThemeOSLightDark
+
+### On This Page
+
+Constructors
+
+constructor
+
+Properties
+
+apicreateDatasetcreateDatasetItemcreatePromptdatasetexperimentfetchMediafetchObservationfetchObservations
+
+- - Cursor-based Pagination
+- Field Selection
+- Filters
+
+fetchSessionsfetchTracefetchTracesgetDatasetgetDatasetItemgetDatasetRungetDatasetRunsgetPromptmediapromptresolveMediaReferencesscoreupdatePrompt
+
+Methods
+
+flushgetTraceUrlshutdown
