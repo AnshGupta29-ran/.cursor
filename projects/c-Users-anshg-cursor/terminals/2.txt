@@ -5,6 +5,8 @@ cwd: |
 last_command: chakra
 last_exit_code: 1
 ---
+       7   return resp.json();
+       8 }
        9
       10 export async function listExperiments() {
      … +10 lines (ctrl+o to expand)
@@ -163,7 +165,7 @@ code 0)
   ⎿  Stop hook error: CONTINUE 39/120 (not an error): you          
   stopped before DONE task_N. Call tools now; finish a               working interactive demo; print DONE task_N: <title> —             path + how to run; then open the next platform_prompt.md.           Forbidden: ask user, plan-only, stub HTML DONE, hung              npm/servers.                                                     
                                                                    
-● Ran 1 stop hook (ctrl+o to expand)                             
+● Ran 1 stop hook (ctrl+o to expand)    
   ⎿  Stop hook error: CONTINUE 40/120 (not an error): you
   stopped before DONE task_N. Call tools now; finish a               working interactive demo; print DONE task_N: <title> —             path + how to run; then open the next platform_prompt.md.           Forbidden: ask user, plan-only, stub HTML DONE, hung              npm/servers.                                                     
                                                                    
@@ -194,7 +196,7 @@ FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaS
  5: 00007FF76ADB116C v8::internal::StrongRootAllocatorBase::deallocate_impl+16604
  6: 00007FF76ADB09AB v8::internal::StrongRootAllocatorBase::deallocate_impl+14619
  7: 00007FF76C6824AD node::AsyncResource::CallbackScope::CallbackScope+2184429
- 8: 00007FF76AD9BFC0 uv_udp_get_send_queue_count+44896
+ 8: 00007FF76AD9BFC0 uv_udp_get_send_queue_count+44896       
  9: 00007FF76ADB681A X509_STORE_set_cleanup+5098
 10: 00007FF76ADC2678 uv_timer_set_repeat+19096
 11: 00007FF76ADDA397 uv_timer_set_repeat+116663
@@ -212,4 +214,4 @@ FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaS
 23: 00007FF76AB40CB8 v8::RegExp::GetFlags+631912
 24: 00007FF76AF52016 RSA_get0_q+260294
 25: 0000017227E7753A
-PS C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra>[I[O[I[ 
+PS C:\Users\anshg\.cursor\headless_harness_datagen\harness\chakra>[I[O[I[O[I[

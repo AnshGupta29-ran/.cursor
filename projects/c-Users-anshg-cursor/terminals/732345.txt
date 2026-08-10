@@ -1,0 +1,38 @@
+---
+pid: 21028
+cwd: "C:\\Users\\anshg\\.cursor\\headless_harness_datagen"
+command: "cd \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\"; git status -sb | Select-Object -First 5; git remote -v; gh auth status 2>&1; gh repo list AnshGupta29-ran --limit 20 2>&1"
+title: "Check datagen remote and gh auth"
+status: succeeded
+started_at: 2026-08-10T11:27:47.993Z
+running_for_ms: 39973    
+---
+## main...origin/main
+ M .example.env
+ M README.md
+ M controller/conversation_config.py
+ M controller/session_health.py
+origin	https://github.com/soketlabs/headless_harness_datagen.git (fetch)
+origin	https://github.com/soketlabs/headless_harness_datagen.git (push)
+gh : The term 'gh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\anshg\AppData\Local\Temp\ps-script-a4926602-0861-4f51-875f-cff8bb420918.ps1:104 char:111
++ ... "; git status -sb | Select-Object -First 5; git remote -v; gh auth st ...
++                                                                ~~
+    + CategoryInfo          : ObjectNotFound: (gh:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+gh : The term 'gh' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At C:\Users\anshg\AppData\Local\Temp\ps-script-a4926602-0861-4f51-875f-cff8bb420918.ps1:104 char:132
++ ... elect-Object -First 5; git remote -v; gh auth status 2>&1; gh repo li ...
++                                                                ~~
+    + CategoryInfo          : ObjectNotFound: (gh:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+---
+exit_code: 0
+elapsed_ms: 39973
+ended_at: 2026-08-10T11:28:27.966Z
+---

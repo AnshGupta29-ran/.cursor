@@ -1,0 +1,120 @@
+---
+pid: 22200
+cwd: "c:\\Users\\anshg\\.cursor"
+command: "if (Test-Path \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\.git\") { Set-Location \"C:\\Users\\anshg\\.cursor\\headless_harness_datagen\"; git rev-parse --show-toplevel; git status -sb; git remote -v; git branch -vv } else { \"no git in headless_harness_datagen\" }"
+title: "Check headless_harness_datagen git state"
+status: succeeded
+started_at: 2026-08-10T11:25:21.953Z
+running_for_ms: 38745    
+---
+C:/Users/anshg/.cursor/headless_harness_datagen
+## main...origin/main
+ M .example.env
+ M README.md
+ M controller/conversation_config.py
+ M controller/session_health.py
+ M harness/chakra/README.md
+ M harness/chakra/bin/chakra
+ M harness/chakra/src/constants/cyberRiskInstruction.ts
+ M harness/chakra/src/constants/promptIdentity.test.ts
+ M harness/chakra/src/constants/prompts.ts
+ M harness/chakra/src/constants/system.ts
+ M harness/chakra/src/memdir/memdir.ts
+ M harness/chakra/src/memdir/memoryTypes.ts
+ M harness/chakra/src/memdir/teamMemPrompts.ts
+ M harness/chakra/src/services/api/errors.ts
+ M harness/chakra/src/tools/AgentTool/built-in/exploreAgent.ts
+ M harness/chakra/src/tools/AgentTool/built-in/generalPurposeAgent.ts
+ M harness/chakra/src/utils/model/modelOptions.ts
+ M harness/chakra/src/utils/model/openaiContextWindows.ts
+ M harness/chakra/src/utils/model/openaiModelDiscovery.ts
+ M harness/chakra/src/utils/providerProfiles.ts
+ M main.py
+ M pyproject.toml
+ M tests/test_conversation_runner.py
+ M verification/prompts.py
+ M verification/report.py
+?? artifacts/
+?? datagen_dims/
+?? docs/DATAGEN_DIMENSIONS.md
+?? experiments/snake_ai/
+?? experiments/task_games_04/
+?? experiments/tower_defense/
+?? finance-dashboard/
+?? harness/chakra/.chakra-profile.json
+?? harness/chakra/CLAUDE.md
+?? harness/chakra/CONTINUE_MERITLENS.txt
+?? harness/chakra/FrostborneClash/
+?? harness/chakra/_smoke_pygame_main.py
+?? harness/chakra/blog/
+?? harness/chakra/blog_platform/
+?? harness/chakra/client/
+?? harness/chakra/dev.sh
+?? harness/chakra/gaming-platform/
+?? harness/chakra/index.html
+?? harness/chakra/levellens/
+?? harness/chakra/main.py
+?? harness/chakra/manage.py
+?? harness/chakra/meritlens/
+?? harness/chakra/palletlens/
+?? harness/chakra/pytest.ini
+?? harness/chakra/requirements.txt
+?? harness/chakra/run_all_games_smoke.ps1
+?? harness/chakra/script.js
+?? harness/chakra/server.pid
+?? harness/chakra/server/
+?? harness/chakra/server8004.pid
+?? harness/chakra/server8006.pid
+?? harness/chakra/src/__init__.py
+?? harness/chakra/src/api.py
+?? harness/chakra/src/db.py
+?? harness/chakra/src/epochledger/
+?? harness/chakra/src/ingest.py
+?? harness/chakra/src/scoring.py
+?? harness/chakra/src/skills.json
+?? harness/chakra/static/
+?? harness/chakra/styles.css
+?? harness/chakra/task_ai_ml_01/
+?? harness/chakra/task_ai_ml_02/
+?? harness/chakra/task_ai_ml_03/
+?? harness/chakra/task_ai_ml_04/
+?? harness/chakra/task_ai_ml_05/
+?? harness/chakra/task_ai_ml_06/
+?? harness/chakra/task_ai_ml_07/
+?? harness/chakra/task_ai_ml_08/
+?? harness/chakra/task_ai_ml_09/
+?? harness/chakra/task_ai_ml_10/
+?? harness/chakra/task_games_01/
+?? harness/chakra/task_games_02/
+?? harness/chakra/task_games_03/
+?? harness/chakra/task_games_04/
+?? harness/chakra/task_games_05/
+?? harness/chakra/task_games_06/
+?? harness/chakra/task_games_07/
+?? harness/chakra/task_games_08/
+?? harness/chakra/task_games_09/
+?? harness/chakra/task_games_10/
+?? harness/chakra/test_python_system.py
+?? harness/chakra/tests/
+?? harness/chakra/viper_trace/
+?? harness/chakra/viper_trace_web/
+?? prompt_forge/
+?? prompt_stats/
+?? scripts/assemble_forged_paste.py
+?? scripts/diversify_task_bank.py
+?? scripts/forge_all_categories.py
+?? scripts/forge_category_batch.py
+?? scripts/gen_category_paste_batches.py
+?? scripts/gen_datagen_task_bank.py
+?? scripts/run_task_bank_category.py
+?? scripts/upgrade_category_forges.py
+?? tests/test_prompt_forge.py
+origin	https://github.com/soketlabs/headless_harness_datagen.git (fetch)
+origin	https://github.com/soketlabs/headless_harness_datagen.git (push)
+* main 0f8a520 [origin/main] cleaned repo and updated readme (handover) - pipeline broken
+
+---
+exit_code: 0
+elapsed_ms: 37130
+ended_at: 2026-08-10T11:25:59.083Z
+---

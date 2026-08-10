@@ -1,0 +1,25 @@
+---
+pid: 15648
+cwd: "c:\\Users\\anshg\\.cursor"
+command: "git rev-parse --show-toplevel 2>$null; git status -sb; git remote -v; git branch -vv"
+title: "Check repo root, status, remotes"
+status: succeeded
+started_at: 2026-08-10T11:25:21.623Z
+running_for_ms: 39075    
+---
+C:/Users/anshg/.cursor
+## main...origin/main
+ ? plugins/cache/cursor-public/langfuse/8e6c2d02accefc0dad3b7d3be3751f7fcc210885
+ M projects/c-Users-anshg-cursor/agent-transcripts/7869d00e-3579-4784-a4b1-fe4549ce85d7/7869d00e-3579-4784-a4b1-fe4549ce85d7.jsonl
+M  projects/c-Users-anshg-cursor/terminals/2.txt
+AM projects/c-Users-anshg-cursor/terminals/9.txt
+M  skills-cursor/.sync-manifest.json
+origin	https://github.com/AnshGupta29-ran/.cursor.git (fetch)
+origin	https://github.com/AnshGupta29-ran/.cursor.git (push)
+* main e740e9f [origin/main] Initial commit
+
+---
+exit_code: 0
+elapsed_ms: 37460
+ended_at: 2026-08-10T11:25:59.083Z
+---

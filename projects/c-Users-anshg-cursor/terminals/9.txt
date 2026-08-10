@@ -1,0 +1,27 @@
+---
+pid: 13668
+cwd: |
+  C:\Users\anshg\.cursor
+last_command: git add .
+last_exit_code: 0
+---
+PS C:\Users\anshg\.cursor> git add .
+warning: in the working copy of 'projects/c-Users-anshg-cursor/terminals/2.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/.sync-manifest.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/callout-tone-icons.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/canvas-tokens.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/chart-primitives.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/collapsible-section.d.ts', LF will be replaced by CRLF the nexttime Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/dag-layout.d.ts', LF will be replaced by CRLF the next time Gittouches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/diff-view.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/form-primitives.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/hooks.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/index.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/swatch.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/theme.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/todo-list.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/ui-primitives.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/ui-primitives.test.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'skills-cursor/canvas/sdk/usage-bar.d.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'projects/c-Users-anshg-cursor/terminals/9.txt', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\anshg\.cursor> 
