@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:06__v24_go_security-auditor_dark-ops-console",
+  "parent_key": "monitoring_ops:06",
+  "category": "monitoring_ops",
+  "index": 6,
+  "title": "SSL/HTTP probe farm [v24_go_security-auditor_dark-ops-console]",
+  "seed_id": "monitoring_ops_06_ssl-http-probe-farm",
+  "workdir": "task_monitoring_ops_06__v24_go_security-auditor_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_go_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\06_monitoring_ops_06_ssl-http-probe-farm\\platform_prompt.md"
+}

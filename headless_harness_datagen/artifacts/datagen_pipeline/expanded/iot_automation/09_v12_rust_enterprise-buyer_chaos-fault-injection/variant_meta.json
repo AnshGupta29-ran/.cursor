@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:09__v12_rust_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "iot_automation:09",
+  "category": "iot_automation",
+  "index": 9,
+  "title": "Home energy meter dashboard [v12_rust_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "iot_automation_09_home-energy-meter-dashboard",
+  "workdir": "task_iot_automation_09__v12_rust_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_rust_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\09_iot_automation_09_home-energy-meter-dashboard\\platform_prompt.md"
+}

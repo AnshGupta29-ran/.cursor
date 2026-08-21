@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:06__v39_javascript_security-auditor_chaos-fault-injection",
+  "parent_key": "storage_files:06",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox [v39_javascript_security-auditor_chaos-fault-injection]",
+  "seed_id": "storage_files_06_encrypted-file-dropbox",
+  "workdir": "task_storage_files_06__v39_javascript_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_javascript_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\06_storage_files_06_encrypted-file-dropbox\\platform_prompt.md"
+}

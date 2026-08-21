@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:06__v09_rust_security-auditor_feature-flag-gates",
+  "parent_key": "storage_files:06",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox [v09_rust_security-auditor_feature-flag-gates]",
+  "seed_id": "storage_files_06_encrypted-file-dropbox",
+  "workdir": "task_storage_files_06__v09_rust_security-auditor_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "static_html",
+  "persistence": "localstorage",
+  "variant": "v09_rust_security-auditor_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "static_html",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\06_storage_files_06_encrypted-file-dropbox\\platform_prompt.md"
+}

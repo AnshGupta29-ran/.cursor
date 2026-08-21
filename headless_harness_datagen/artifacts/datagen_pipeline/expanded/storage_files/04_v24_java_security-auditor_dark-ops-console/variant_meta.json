@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:04__v24_java_security-auditor_dark-ops-console",
+  "parent_key": "storage_files:04",
+  "category": "storage_files",
+  "index": 4,
+  "title": "Media library with tags [v24_java_security-auditor_dark-ops-console]",
+  "seed_id": "storage_files_04_media-library-with-tags",
+  "workdir": "task_storage_files_04__v24_java_security-auditor_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_java_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\04_storage_files_04_media-library-with-tags\\platform_prompt.md"
+}

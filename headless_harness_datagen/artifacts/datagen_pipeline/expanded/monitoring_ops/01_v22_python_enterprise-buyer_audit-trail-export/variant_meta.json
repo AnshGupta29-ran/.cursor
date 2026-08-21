@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:01__v22_python_enterprise-buyer_audit-trail-export",
+  "parent_key": "monitoring_ops:01",
+  "category": "monitoring_ops",
+  "index": 1,
+  "title": "Network monitoring dashboard [v22_python_enterprise-buyer_audit-trail-export]",
+  "seed_id": "monitoring_ops_01_network-monitoring-dashboard",
+  "workdir": "task_monitoring_ops_01__v22_python_enterprise-buyer_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "mobile_web",
+  "persistence": "json_file",
+  "variant": "v22_python_enterprise-buyer_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "mobile_web",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\01_monitoring_ops_01_network-monitoring-dashboard\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:06__v08_go_open-source-maintainer_idempotent-retries",
+  "parent_key": "generic_fullstack:06",
+  "category": "generic_fullstack",
+  "index": 6,
+  "title": "Helpdesk ticket system [v08_go_open-source-maintainer_idempotent-retries]",
+  "seed_id": "generic_fullstack_06_helpdesk-ticket-system",
+  "workdir": "task_generic_fullstack_06__v08_go_open-source-maintainer_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "dashboard_charts",
+  "persistence": "csv_files",
+  "variant": "v08_go_open-source-maintainer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "dashboard_charts",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\06_generic_fullstack_06_helpdesk-ticket-system\\platform_prompt.md"
+}

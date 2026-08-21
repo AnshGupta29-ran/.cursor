@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:10__v17_python_enterprise-buyer_idempotent-retries",
+  "parent_key": "generic_fullstack:10",
+  "category": "generic_fullstack",
+  "index": 10,
+  "title": "Personal CRM lite [v17_python_enterprise-buyer_idempotent-retries]",
+  "seed_id": "generic_fullstack_10_personal-crm-lite",
+  "workdir": "task_generic_fullstack_10__v17_python_enterprise-buyer_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "json_file",
+  "variant": "v17_python_enterprise-buyer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "static_html",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\10_generic_fullstack_10_personal-crm-lite\\platform_prompt.md"
+}

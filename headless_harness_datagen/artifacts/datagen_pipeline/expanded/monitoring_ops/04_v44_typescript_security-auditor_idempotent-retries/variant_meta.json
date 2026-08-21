@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:04__v44_typescript_security-auditor_idempotent-retries",
+  "parent_key": "monitoring_ops:04",
+  "category": "monitoring_ops",
+  "index": 4,
+  "title": "Cron job watchdog [v44_typescript_security-auditor_idempotent-retries]",
+  "seed_id": "monitoring_ops_04_cron-job-watchdog",
+  "workdir": "task_monitoring_ops_04__v44_typescript_security-auditor_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v44_typescript_security-auditor_idempotent-retries",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\04_monitoring_ops_04_cron-job-watchdog\\platform_prompt.md"
+}

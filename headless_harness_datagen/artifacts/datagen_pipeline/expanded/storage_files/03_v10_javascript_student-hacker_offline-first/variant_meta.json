@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:03__v10_javascript_student-hacker_offline-first",
+  "parent_key": "storage_files:03",
+  "category": "storage_files",
+  "index": 3,
+  "title": "Team document vault with preview [v10_javascript_student-hacker_offline-first]",
+  "seed_id": "storage_files_03_team-document-vault-with-preview",
+  "workdir": "task_storage_files_03__v10_javascript_student-hacker_offline-first",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_javascript_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\03_storage_files_03_team-document-vault-with-preview\\platform_prompt.md"
+}

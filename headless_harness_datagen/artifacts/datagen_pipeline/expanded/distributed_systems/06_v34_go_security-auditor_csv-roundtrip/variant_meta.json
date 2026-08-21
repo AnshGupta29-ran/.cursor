@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:06__v34_go_security-auditor_csv-roundtrip",
+  "parent_key": "distributed_systems:06",
+  "category": "distributed_systems",
+  "index": 6,
+  "title": "Distributed lock service [v34_go_security-auditor_csv-roundtrip]",
+  "seed_id": "distributed_systems_06_distributed-lock-service",
+  "workdir": "task_distributed_systems_06__v34_go_security-auditor_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "react_spa",
+  "persistence": "localstorage",
+  "variant": "v34_go_security-auditor_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "react_spa",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\06_distributed_systems_06_distributed-lock-service\\platform_prompt.md"
+}

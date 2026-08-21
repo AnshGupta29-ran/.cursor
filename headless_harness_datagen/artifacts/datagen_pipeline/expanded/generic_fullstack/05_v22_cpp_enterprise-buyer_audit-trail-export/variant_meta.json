@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:05__v22_cpp_enterprise-buyer_audit-trail-export",
+  "parent_key": "generic_fullstack:05",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board [v22_cpp_enterprise-buyer_audit-trail-export]",
+  "seed_id": "generic_fullstack_05_job-board",
+  "workdir": "task_generic_fullstack_05__v22_cpp_enterprise-buyer_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "mobile_web",
+  "persistence": "json_file",
+  "variant": "v22_cpp_enterprise-buyer_audit-trail-export",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "mobile_web",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\05_generic_fullstack_05_job-board\\platform_prompt.md"
+}

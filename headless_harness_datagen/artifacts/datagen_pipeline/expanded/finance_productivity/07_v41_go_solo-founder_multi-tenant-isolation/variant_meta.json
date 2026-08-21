@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:07__v41_go_solo-founder_multi-tenant-isolation",
+  "parent_key": "finance_productivity:07",
+  "category": "finance_productivity",
+  "index": 7,
+  "title": "Habit streak tracker API [v41_go_solo-founder_multi-tenant-isolation]",
+  "seed_id": "finance_productivity_07_habit-streak-tracker-api",
+  "workdir": "task_finance_productivity_07__v41_go_solo-founder_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v41_go_solo-founder_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "solo_founder",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\07_finance_productivity_07_habit-streak-tracker-api\\platform_prompt.md"
+}

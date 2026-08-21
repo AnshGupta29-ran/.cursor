@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:10__v03_rust_open-source-maintainer_chaos-fault-injection",
+  "parent_key": "distributed_systems:10",
+  "category": "distributed_systems",
+  "index": 10,
+  "title": "Clock skew demo + NTP stub [v03_rust_open-source-maintainer_chaos-fault-injection]",
+  "seed_id": "distributed_systems_10_clock-skew-demo-ntp-stub",
+  "workdir": "task_distributed_systems_10__v03_rust_open-source-maintainer_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "cli_tui",
+  "persistence": "csv_files",
+  "variant": "v03_rust_open-source-maintainer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "cli_tui",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\10_distributed_systems_10_clock-skew-demo-ntp-stub\\platform_prompt.md"
+}

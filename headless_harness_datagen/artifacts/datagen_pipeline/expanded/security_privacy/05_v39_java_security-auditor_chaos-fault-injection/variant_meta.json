@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:05__v39_java_security-auditor_chaos-fault-injection",
+  "parent_key": "security_privacy:05",
+  "category": "security_privacy",
+  "index": 5,
+  "title": "Permission policy tester [v39_java_security-auditor_chaos-fault-injection]",
+  "seed_id": "security_privacy_05_permission-policy-tester",
+  "workdir": "task_security_privacy_05__v39_java_security-auditor_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_java_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\05_security_privacy_05_permission-policy-tester\\platform_prompt.md"
+}

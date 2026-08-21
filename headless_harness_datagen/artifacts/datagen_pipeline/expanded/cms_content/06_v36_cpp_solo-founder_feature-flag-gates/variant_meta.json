@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:06__v36_cpp_solo-founder_feature-flag-gates",
+  "parent_key": "cms_content:06",
+  "category": "cms_content",
+  "index": 6,
+  "title": "Internal wiki with approvals [v36_cpp_solo-founder_feature-flag-gates]",
+  "seed_id": "cms_content_06_internal-wiki-with-approvals",
+  "workdir": "task_cms_content_06__v36_cpp_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_cpp_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\06_cms_content_06_internal-wiki-with-approvals\\platform_prompt.md"
+}

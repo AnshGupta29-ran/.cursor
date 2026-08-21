@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:05__v15_java_student-hacker_dark-ops-console",
+  "parent_key": "cms_content:05",
+  "category": "cms_content",
+  "index": 5,
+  "title": "Podcast episode CMS [v15_java_student-hacker_dark-ops-console]",
+  "seed_id": "cms_content_05_podcast-episode-cms",
+  "workdir": "task_cms_content_05__v15_java_student-hacker_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_java_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\05_cms_content_05_podcast-episode-cms\\platform_prompt.md"
+}

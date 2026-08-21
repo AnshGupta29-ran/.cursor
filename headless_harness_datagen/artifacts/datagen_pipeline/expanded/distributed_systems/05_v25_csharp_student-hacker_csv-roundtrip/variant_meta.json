@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:05__v25_csharp_student-hacker_csv-roundtrip",
+  "parent_key": "distributed_systems:05",
+  "category": "distributed_systems",
+  "index": 5,
+  "title": "MapReduce wordcount lab [v25_csharp_student-hacker_csv-roundtrip]",
+  "seed_id": "distributed_systems_05_mapreduce-wordcount-lab",
+  "workdir": "task_distributed_systems_05__v25_csharp_student-hacker_csv-roundtrip",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "static_html",
+  "persistence": "memory_only",
+  "variant": "v25_csharp_student-hacker_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\05_distributed_systems_05_mapreduce-wordcount-lab\\platform_prompt.md"
+}

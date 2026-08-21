@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:03__v29_csharp_security-auditor_accessibility-keyboard",
+  "parent_key": "ecommerce:03",
+  "category": "ecommerce",
+  "index": 3,
+  "title": "Inventory management system [v29_csharp_security-auditor_accessibility-keyboard]",
+  "seed_id": "ecommerce_03_inventory-management-system",
+  "workdir": "task_ecommerce_03__v29_csharp_security-auditor_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "desktop_window",
+  "persistence": "localstorage",
+  "variant": "v29_csharp_security-auditor_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\03_ecommerce_03_inventory-management-system\\platform_prompt.md"
+}

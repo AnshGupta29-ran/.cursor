@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:09__v21_java_solo-founder_chaos-fault-injection",
+  "parent_key": "security_privacy:09",
+  "category": "security_privacy",
+  "index": 9,
+  "title": "API abuse rate-limit gateway [v21_java_solo-founder_chaos-fault-injection]",
+  "seed_id": "security_privacy_09_api-abuse-rate-limit-gateway",
+  "workdir": "task_security_privacy_09__v21_java_solo-founder_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_java_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\09_security_privacy_09_api-abuse-rate-limit-gateway\\platform_prompt.md"
+}

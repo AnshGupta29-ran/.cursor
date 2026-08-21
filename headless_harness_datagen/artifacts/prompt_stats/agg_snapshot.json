@@ -1,0 +1,130 @@
+{
+  "forged_prompts": 130,
+  "categories": [
+    "ai_ml",
+    "cms_content",
+    "collaborative_realtime",
+    "devops_infra",
+    "distributed_systems",
+    "ecommerce",
+    "finance_productivity",
+    "games",
+    "generic_fullstack",
+    "iot_automation",
+    "monitoring_ops",
+    "security_privacy",
+    "storage_files"
+  ],
+  "task_folders": 21,
+  "by_status": {
+    "empty": 1,
+    "substantial": 8,
+    "stub": 8,
+    "partial": 4
+  },
+  "named_dirs": [
+    {
+      "name": "blog",
+      "files": 21,
+      "code": 21,
+      "readme": false
+    },
+    {
+      "name": "blog_platform",
+      "files": 4,
+      "code": 4,
+      "readme": false
+    },
+    {
+      "name": "client",
+      "files": 18,
+      "code": 16,
+      "readme": true
+    },
+    {
+      "name": "gaming-platform",
+      "files": 16,
+      "code": 11,
+      "readme": true
+    },
+    {
+      "name": "hivepulse",
+      "files": 7,
+      "code": 5,
+      "readme": true
+    },
+    {
+      "name": "levellens",
+      "files": 11,
+      "code": 3,
+      "readme": true
+    },
+    {
+      "name": "meritlens",
+      "files": 27,
+      "code": 13,
+      "readme": true
+    },
+    {
+      "name": "palletlens",
+      "files": 33,
+      "code": 19,
+      "readme": true
+    },
+    {
+      "name": "python",
+      "files": 15,
+      "code": 14,
+      "readme": true
+    },
+    {
+      "name": "scripts",
+      "files": 15,
+      "code": 14,
+      "readme": false
+    },
+    {
+      "name": "server",
+      "files": 20,
+      "code": 15,
+      "readme": true
+    },
+    {
+      "name": "src",
+      "files": 2058,
+      "code": 2052,
+      "readme": false
+    },
+    {
+      "name": "viper_trace",
+      "files": 23,
+      "code": 21,
+      "readme": true
+    },
+    {
+      "name": "viper_trace_web",
+      "files": 5,
+      "code": 4,
+      "readme": false
+    },
+    {
+      "name": "vscode-extension",
+      "files": 11,
+      "code": 6,
+      "readme": true
+    }
+  ],
+  "sessions": 61,
+  "real_tokens": 770307,
+  "est_tokens": 98996728,
+  "combined_tokens": 99767035,
+  "models": {
+    "kimi3": 13,
+    "unknown": 3,
+    "deepseek-v4-flash": 4,
+    "gpt-oss-120b": 32,
+    "qwen3-30b": 12,
+    "gpt": 1,
+    "gpt-5.4": 1
+  }
+}

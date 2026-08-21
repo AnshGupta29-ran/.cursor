@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:09__v18_javascript_open-source-maintainer_feature-flag-gates",
+  "parent_key": "cms_content:09",
+  "category": "cms_content",
+  "index": 9,
+  "title": "Newsroom editorial desk [v18_javascript_open-source-maintainer_feature-flag-gates]",
+  "seed_id": "cms_content_09_newsroom-editorial-desk",
+  "workdir": "task_cms_content_09__v18_javascript_open-source-maintainer_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "react_spa",
+  "persistence": "csv_files",
+  "variant": "v18_javascript_open-source-maintainer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "react_spa",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\09_cms_content_09_newsroom-editorial-desk\\platform_prompt.md"
+}

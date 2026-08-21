@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:04__v27_python_enterprise-buyer_feature-flag-gates",
+  "parent_key": "security_privacy:04",
+  "category": "security_privacy",
+  "index": 4,
+  "title": "PII redaction CLI [v27_python_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "security_privacy_04_pii-redaction-cli",
+  "workdir": "task_security_privacy_04__v27_python_enterprise-buyer_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_python_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\04_security_privacy_04_pii-redaction-cli\\platform_prompt.md"
+}

@@ -1,0 +1,21 @@
+{
+  "task_key": "demo:01",
+  "workdir": "does_not_exist_xyz",
+  "resolved_root": null,
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "ok": false,
+  "smoke_ran": false,
+  "http_checked": false,
+  "started_at": "2026-08-13T11:02:32.359511+00:00",
+  "finished_at": "2026-08-13T11:02:32.365096+00:00",
+  "error": "workdir_missing",
+  "checks": [
+    {
+      "name": "resolve_root",
+      "ok": false,
+      "detail": "no demo found for workdir=does_not_exist_xyz under experiments/ or harness/chakra/",
+      "evidence": {}
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:02__v15_csharp_student-hacker_dark-ops-console",
+  "parent_key": "ecommerce:02",
+  "category": "ecommerce",
+  "index": 2,
+  "title": "Restaurant ordering system [v15_csharp_student-hacker_dark-ops-console]",
+  "seed_id": "ecommerce_02_restaurant-ordering-system",
+  "workdir": "task_ecommerce_02__v15_csharp_student-hacker_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_csharp_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\02_ecommerce_02_restaurant-ordering-system\\platform_prompt.md"
+}

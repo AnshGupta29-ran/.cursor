@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:05__v29_go_security-auditor_accessibility-keyboard",
+  "parent_key": "generic_fullstack:05",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board [v29_go_security-auditor_accessibility-keyboard]",
+  "seed_id": "generic_fullstack_05_job-board",
+  "workdir": "task_generic_fullstack_05__v29_go_security-auditor_accessibility-keyboard",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "desktop_window",
+  "persistence": "localstorage",
+  "variant": "v29_go_security-auditor_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\05_generic_fullstack_05_job-board\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:09__v08_python_open-source-maintainer_idempotent-retries",
+  "parent_key": "monitoring_ops:09",
+  "category": "monitoring_ops",
+  "index": 9,
+  "title": "Uptime Excel weekly report [v08_python_open-source-maintainer_idempotent-retries]",
+  "seed_id": "monitoring_ops_09_uptime-excel-weekly-report",
+  "workdir": "task_monitoring_ops_09__v08_python_open-source-maintainer_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "dashboard_charts",
+  "persistence": "csv_files",
+  "variant": "v08_python_open-source-maintainer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "dashboard_charts",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\09_monitoring_ops_09_uptime-excel-weekly-report\\platform_prompt.md"
+}

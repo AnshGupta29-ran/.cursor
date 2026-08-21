@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:10__v18_typescript_open-source-maintainer_feature-flag-gates",
+  "parent_key": "storage_files:10",
+  "category": "storage_files",
+  "index": 10,
+  "title": "Excel workbook drop zone [v18_typescript_open-source-maintainer_feature-flag-gates]",
+  "seed_id": "storage_files_10_excel-workbook-drop-zone",
+  "workdir": "task_storage_files_10__v18_typescript_open-source-maintainer_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "csv_files",
+  "variant": "v18_typescript_open-source-maintainer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "react_spa",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\10_storage_files_10_excel-workbook-drop-zone\\platform_prompt.md"
+}

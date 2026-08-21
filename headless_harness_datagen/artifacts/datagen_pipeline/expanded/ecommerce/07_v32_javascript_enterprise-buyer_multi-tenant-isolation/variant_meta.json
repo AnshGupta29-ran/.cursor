@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:07__v32_javascript_enterprise-buyer_multi-tenant-isolation",
+  "parent_key": "ecommerce:07",
+  "category": "ecommerce",
+  "index": 7,
+  "title": "Coupon and promo engine [v32_javascript_enterprise-buyer_multi-tenant-isolation]",
+  "seed_id": "ecommerce_07_coupon-and-promo-engine",
+  "workdir": "task_ecommerce_07__v32_javascript_enterprise-buyer_multi-tenant-isolation",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "dashboard_charts",
+  "persistence": "json_file",
+  "variant": "v32_javascript_enterprise-buyer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "dashboard_charts",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\07_ecommerce_07_coupon-and-promo-engine\\platform_prompt.md"
+}

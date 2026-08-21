@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:03__v11_javascript_solo-founder_accessibility-keyboard",
+  "parent_key": "distributed_systems:03",
+  "category": "distributed_systems",
+  "index": 3,
+  "title": "Leader election toy cluster [v11_javascript_solo-founder_accessibility-keyboard]",
+  "seed_id": "distributed_systems_03_leader-election-toy-cluster",
+  "workdir": "task_distributed_systems_03__v11_javascript_solo-founder_accessibility-keyboard",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "cli_tui",
+  "persistence": "sqlite",
+  "variant": "v11_javascript_solo-founder_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "cli_tui",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\03_distributed_systems_03_leader-election-toy-cluster\\platform_prompt.md"
+}

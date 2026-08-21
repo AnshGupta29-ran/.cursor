@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:02__v39_cpp_security-auditor_chaos-fault-injection",
+  "parent_key": "collaborative_realtime:02",
+  "category": "collaborative_realtime",
+  "index": 2,
+  "title": "Multiplayer kanban board live sync [v39_cpp_security-auditor_chaos-fault-injection]",
+  "seed_id": "collaborative_realtime_02_multiplayer-kanban-board-live-sync",
+  "workdir": "task_collaborative_realtime_02__v39_cpp_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "cpp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_cpp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\02_collaborative_realtime_02_multiplayer-kanban-board-live-sync\\platform_prompt.md"
+}

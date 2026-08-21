@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:09__v39_cpp_security-auditor_chaos-fault-injection",
+  "parent_key": "security_privacy:09",
+  "category": "security_privacy",
+  "index": 9,
+  "title": "API abuse rate-limit gateway [v39_cpp_security-auditor_chaos-fault-injection]",
+  "seed_id": "security_privacy_09_api-abuse-rate-limit-gateway",
+  "workdir": "task_security_privacy_09__v39_cpp_security-auditor_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_cpp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\09_security_privacy_09_api-abuse-rate-limit-gateway\\platform_prompt.md"
+}

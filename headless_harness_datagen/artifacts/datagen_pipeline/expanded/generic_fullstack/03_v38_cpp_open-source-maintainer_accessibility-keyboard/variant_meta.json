@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:03__v38_cpp_open-source-maintainer_accessibility-keyboard",
+  "parent_key": "generic_fullstack:03",
+  "category": "generic_fullstack",
+  "index": 3,
+  "title": "Local code search engine [v38_cpp_open-source-maintainer_accessibility-keyboard]",
+  "seed_id": "generic_fullstack_03_local-code-search-engine",
+  "workdir": "task_generic_fullstack_03__v38_cpp_open-source-maintainer_accessibility-keyboard",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "mobile_web",
+  "persistence": "csv_files",
+  "variant": "v38_cpp_open-source-maintainer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "mobile_web",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\03_generic_fullstack_03_local-code-search-engine\\platform_prompt.md"
+}

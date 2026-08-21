@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:07__v19_go_security-auditor_offline-first",
+  "parent_key": "iot_automation:07",
+  "category": "iot_automation",
+  "index": 7,
+  "title": "Smart irrigation planner [v19_go_security-auditor_offline-first]",
+  "seed_id": "iot_automation_07_smart-irrigation-planner",
+  "workdir": "task_iot_automation_07__v19_go_security-auditor_offline-first",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_go_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\07_iot_automation_07_smart-irrigation-planner\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:10__v36_go_solo-founder_feature-flag-gates",
+  "parent_key": "monitoring_ops:10",
+  "category": "monitoring_ops",
+  "index": 10,
+  "title": "Synthetic transaction checker [v36_go_solo-founder_feature-flag-gates]",
+  "seed_id": "monitoring_ops_10_synthetic-transaction-checker",
+  "workdir": "task_monitoring_ops_10__v36_go_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "go",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_go_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\10_monitoring_ops_10_synthetic-transaction-checker\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:08__v31_java_solo-founder_audit-trail-export",
+  "parent_key": "storage_files:08",
+  "category": "storage_files",
+  "index": 8,
+  "title": "Receipt image archive [v31_java_solo-founder_audit-trail-export]",
+  "seed_id": "storage_files_08_receipt-image-archive",
+  "workdir": "task_storage_files_08__v31_java_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_java_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\08_storage_files_08_receipt-image-archive\\platform_prompt.md"
+}

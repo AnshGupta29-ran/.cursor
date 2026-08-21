@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:10__v19_python_security-auditor_offline-first",
+  "parent_key": "ai_ml:10",
+  "category": "ai_ml",
+  "index": 10,
+  "title": "Time-series anomaly flagger [v19_python_security-auditor_offline-first]",
+  "seed_id": "ai_ml_10_time-series-anomaly-flagger",
+  "workdir": "task_ai_ml_10__v19_python_security-auditor_offline-first",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_python_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\10_ai_ml_10_time-series-anomaly-flagger\\platform_prompt.md"
+}

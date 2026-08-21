@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:05__v27_typescript_enterprise-buyer_feature-flag-gates",
+  "parent_key": "storage_files:05",
+  "category": "storage_files",
+  "index": 5,
+  "title": "S3-like local object store CLI [v27_typescript_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "storage_files_05_s3-like-local-object-store-cli",
+  "workdir": "task_storage_files_05__v27_typescript_enterprise-buyer_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_typescript_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\05_storage_files_05_s3-like-local-object-store-cli\\platform_prompt.md"
+}

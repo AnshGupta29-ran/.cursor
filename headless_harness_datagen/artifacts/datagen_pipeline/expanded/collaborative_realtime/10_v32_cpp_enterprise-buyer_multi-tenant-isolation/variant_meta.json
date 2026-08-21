@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:10__v32_cpp_enterprise-buyer_multi-tenant-isolation",
+  "parent_key": "collaborative_realtime:10",
+  "category": "collaborative_realtime",
+  "index": 10,
+  "title": "Remote design critique board [v32_cpp_enterprise-buyer_multi-tenant-isolation]",
+  "seed_id": "collaborative_realtime_10_remote-design-critique-board",
+  "workdir": "task_collaborative_realtime_10__v32_cpp_enterprise-buyer_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "json_file",
+  "variant": "v32_cpp_enterprise-buyer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "dashboard_charts",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\10_collaborative_realtime_10_remote-design-critique-board\\platform_prompt.md"
+}

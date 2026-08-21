@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:03__v42_go_enterprise-buyer_dark-ops-console",
+  "parent_key": "ecommerce:03",
+  "category": "ecommerce",
+  "index": 3,
+  "title": "Inventory management system [v42_go_enterprise-buyer_dark-ops-console]",
+  "seed_id": "ecommerce_03_inventory-management-system",
+  "workdir": "task_ecommerce_03__v42_go_enterprise-buyer_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "go",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_go_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\03_ecommerce_03_inventory-management-system\\platform_prompt.md"
+}

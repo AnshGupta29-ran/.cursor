@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:04__v08_rust_open-source-maintainer_idempotent-retries",
+  "parent_key": "distributed_systems:04",
+  "category": "distributed_systems",
+  "index": 4,
+  "title": "Pub/sub message broker lite [v08_rust_open-source-maintainer_idempotent-retries]",
+  "seed_id": "distributed_systems_04_pub-sub-message-broker-lite",
+  "workdir": "task_distributed_systems_04__v08_rust_open-source-maintainer_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "dashboard_charts",
+  "persistence": "csv_files",
+  "variant": "v08_rust_open-source-maintainer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "dashboard_charts",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\04_distributed_systems_04_pub-sub-message-broker-lite\\platform_prompt.md"
+}

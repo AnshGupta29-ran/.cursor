@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:05__v02_cpp_enterprise-buyer_accessibility-keyboard",
+  "parent_key": "distributed_systems:05",
+  "category": "distributed_systems",
+  "index": 5,
+  "title": "MapReduce wordcount lab [v02_cpp_enterprise-buyer_accessibility-keyboard]",
+  "seed_id": "distributed_systems_05_mapreduce-wordcount-lab",
+  "workdir": "task_distributed_systems_05__v02_cpp_enterprise-buyer_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v02_cpp_enterprise-buyer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\05_distributed_systems_05_mapreduce-wordcount-lab\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v44_python_security-auditor_idempotent-retries",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v44_python_security-auditor_idempotent-retries]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v44_python_security-auditor_idempotent-retries",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v44_python_security-auditor_idempotent-retries",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

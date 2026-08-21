@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:09__v10_typescript_student-hacker_offline-first",
+  "parent_key": "security_privacy:09",
+  "category": "security_privacy",
+  "index": 9,
+  "title": "API abuse rate-limit gateway [v10_typescript_student-hacker_offline-first]",
+  "seed_id": "security_privacy_09_api-abuse-rate-limit-gateway",
+  "workdir": "task_security_privacy_09__v10_typescript_student-hacker_offline-first",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_typescript_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\09_security_privacy_09_api-abuse-rate-limit-gateway\\platform_prompt.md"
+}

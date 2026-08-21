@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:01__v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "parent_key": "monitoring_ops:01",
+  "category": "monitoring_ops",
+  "index": 1,
+  "title": "Network monitoring dashboard [v02_typescript_enterprise-buyer_accessibility-keyboard]",
+  "seed_id": "monitoring_ops_01_network-monitoring-dashboard",
+  "workdir": "task_monitoring_ops_01__v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\01_monitoring_ops_01_network-monitoring-dashboard\\platform_prompt.md"
+}

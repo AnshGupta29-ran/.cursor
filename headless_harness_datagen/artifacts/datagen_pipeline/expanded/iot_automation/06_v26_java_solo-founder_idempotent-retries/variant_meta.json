@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:06__v26_java_solo-founder_idempotent-retries",
+  "parent_key": "iot_automation:06",
+  "category": "iot_automation",
+  "index": 6,
+  "title": "MQTT device playground [v26_java_solo-founder_idempotent-retries]",
+  "seed_id": "iot_automation_06_mqtt-device-playground",
+  "workdir": "task_iot_automation_06__v26_java_solo-founder_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "react_spa",
+  "persistence": "sqlite",
+  "variant": "v26_java_solo-founder_idempotent-retries",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "react_spa",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\06_iot_automation_06_mqtt-device-playground\\platform_prompt.md"
+}

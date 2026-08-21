@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:08__v26_typescript_solo-founder_idempotent-retries",
+  "parent_key": "distributed_systems:08",
+  "category": "distributed_systems",
+  "index": 8,
+  "title": "Workflow saga orchestrator [v26_typescript_solo-founder_idempotent-retries]",
+  "seed_id": "distributed_systems_08_workflow-saga-orchestrator",
+  "workdir": "task_distributed_systems_08__v26_typescript_solo-founder_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "sqlite",
+  "variant": "v26_typescript_solo-founder_idempotent-retries",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "react_spa",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\08_distributed_systems_08_workflow-saga-orchestrator\\platform_prompt.md"
+}

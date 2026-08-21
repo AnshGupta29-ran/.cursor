@@ -1,0 +1,83 @@
+{
+  "task_key": "cms_content:04",
+  "workdir": "task_cms_content_04",
+  "resolved_root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_04",
+  "language_runtime": "csharp",
+  "ui_surface": "excel_workbook",
+  "ok": true,
+  "smoke_ran": true,
+  "http_checked": true,
+  "started_at": "2026-08-13T11:57:18.699111+00:00",
+  "finished_at": "2026-08-13T11:57:22.780958+00:00",
+  "error": null,
+  "checks": [
+    {
+      "name": "resolve_root",
+      "ok": true,
+      "detail": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_04",
+      "evidence": {
+        "root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_04"
+      }
+    },
+    {
+      "name": "structure",
+      "ok": true,
+      "detail": "readme=README.md files=81",
+      "evidence": {
+        "readme": "README.md",
+        "file_count": 81
+      }
+    },
+    {
+      "name": "not_stub",
+      "ok": true,
+      "detail": "files=17 bytes=181997 todoish=0",
+      "evidence": {
+        "files": 17,
+        "bytes": 181997,
+        "todoish": 0
+      }
+    },
+    {
+      "name": "language_lock",
+      "ok": true,
+      "detail": "lang=csharp markers=none sources=7",
+      "evidence": {
+        "language": "csharp",
+        "markers": [],
+        "source_count": 7
+      }
+    },
+    {
+      "name": "synthetic_seed",
+      "ok": true,
+      "detail": "seed_files=2",
+      "evidence": {
+        "files": [
+          "data\\log.jsonl",
+          "data\\store.json"
+        ]
+      }
+    },
+    {
+      "name": "smoke",
+      "ok": true,
+      "detail": "powershell tests\\smoke.ps1 rc=0",
+      "evidence": {
+        "cmd": "powershell -File C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_04\\tests\\smoke.ps1",
+        "output_tail": "server up at http://localhost:8080\nok: GET /health 200\nok: GET /api/issues shows 2 seeded issues\nok: POST /api/articles creates draft\nok: submit-review -> review\nok: publish -> published with word count\nok: POST /api/issues/2/publish\nok: GET /api/public shows published issues\nok: GET /workbook 200 + SpreadsheetML\nok: GET /api/metrics requests_total > 0\nok: restart: issue count unchanged (2, no reseed)\nok: restart: article state persisted\nSMOKE PASSED"
+      }
+    },
+    {
+      "name": "http_health",
+      "ok": true,
+      "detail": "no live server (skipped; ok for cli/static)",
+      "evidence": {
+        "ports_checked": [
+          8080
+        ],
+        "listening": []
+      }
+    }
+  ]
+}

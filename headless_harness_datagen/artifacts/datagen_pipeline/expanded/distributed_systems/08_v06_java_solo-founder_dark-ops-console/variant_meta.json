@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:08__v06_java_solo-founder_dark-ops-console",
+  "parent_key": "distributed_systems:08",
+  "category": "distributed_systems",
+  "index": 8,
+  "title": "Workflow saga orchestrator [v06_java_solo-founder_dark-ops-console]",
+  "seed_id": "distributed_systems_08_workflow-saga-orchestrator",
+  "workdir": "task_distributed_systems_08__v06_java_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_java_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\08_distributed_systems_08_workflow-saga-orchestrator\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:08__v01_java_solo-founder_offline-first",
+  "parent_key": "collaborative_realtime:08",
+  "category": "collaborative_realtime",
+  "index": 8,
+  "title": "Shared music listening room [v01_java_solo-founder_offline-first]",
+  "seed_id": "collaborative_realtime_08_shared-music-listening-room",
+  "workdir": "task_collaborative_realtime_08__v01_java_solo-founder_offline-first",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v01_java_solo-founder_offline-first",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "offline_first",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\08_collaborative_realtime_08_shared-music-listening-room\\platform_prompt.md"
+}

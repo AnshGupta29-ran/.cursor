@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:09__v17_python_enterprise-buyer_idempotent-retries",
+  "parent_key": "ecommerce:09",
+  "category": "ecommerce",
+  "index": 9,
+  "title": "Wholesale price list Excel sync [v17_python_enterprise-buyer_idempotent-retries]",
+  "seed_id": "ecommerce_09_wholesale-price-list-excel-sync",
+  "workdir": "task_ecommerce_09__v17_python_enterprise-buyer_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "json_file",
+  "variant": "v17_python_enterprise-buyer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "static_html",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\09_ecommerce_09_wholesale-price-list-excel-sync\\platform_prompt.md"
+}

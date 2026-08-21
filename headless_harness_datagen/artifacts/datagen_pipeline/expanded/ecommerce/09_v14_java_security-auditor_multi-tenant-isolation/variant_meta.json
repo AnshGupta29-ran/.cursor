@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:09__v14_java_security-auditor_multi-tenant-isolation",
+  "parent_key": "ecommerce:09",
+  "category": "ecommerce",
+  "index": 9,
+  "title": "Wholesale price list Excel sync [v14_java_security-auditor_multi-tenant-isolation]",
+  "seed_id": "ecommerce_09_wholesale-price-list-excel-sync",
+  "workdir": "task_ecommerce_09__v14_java_security-auditor_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "mobile_web",
+  "persistence": "localstorage",
+  "variant": "v14_java_security-auditor_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "mobile_web",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\09_ecommerce_09_wholesale-price-list-excel-sync\\platform_prompt.md"
+}

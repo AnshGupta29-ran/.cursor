@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:01__v20_csharp_student-hacker_accessibility-keyboard",
+  "parent_key": "distributed_systems:01",
+  "category": "distributed_systems",
+  "index": 1,
+  "title": "Distributed task queue (Go) [v20_csharp_student-hacker_accessibility-keyboard]",
+  "seed_id": "distributed_systems_01_distributed-task-queue-go",
+  "workdir": "task_distributed_systems_01__v20_csharp_student-hacker_accessibility-keyboard",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "api_only",
+  "persistence": "memory_only",
+  "variant": "v20_csharp_student-hacker_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "api_only",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\01_distributed_systems_01_distributed-task-queue-go\\platform_prompt.md"
+}

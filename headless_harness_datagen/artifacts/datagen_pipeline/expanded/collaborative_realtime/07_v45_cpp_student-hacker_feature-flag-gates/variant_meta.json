@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:07__v45_cpp_student-hacker_feature-flag-gates",
+  "parent_key": "collaborative_realtime:07",
+  "category": "collaborative_realtime",
+  "index": 7,
+  "title": "Ops war-room incident chat [v45_cpp_student-hacker_feature-flag-gates]",
+  "seed_id": "collaborative_realtime_07_ops-war-room-incident-chat",
+  "workdir": "task_collaborative_realtime_07__v45_cpp_student-hacker_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v45_cpp_student-hacker_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\07_collaborative_realtime_07_ops-war-room-incident-chat\\platform_prompt.md"
+}

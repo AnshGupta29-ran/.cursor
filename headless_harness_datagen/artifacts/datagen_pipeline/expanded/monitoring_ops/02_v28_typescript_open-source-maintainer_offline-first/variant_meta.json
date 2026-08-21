@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:02__v28_typescript_open-source-maintainer_offline-first",
+  "parent_key": "monitoring_ops:02",
+  "category": "monitoring_ops",
+  "index": 2,
+  "title": "Service health board [v28_typescript_open-source-maintainer_offline-first]",
+  "seed_id": "monitoring_ops_02_service-health-board",
+  "workdir": "task_monitoring_ops_02__v28_typescript_open-source-maintainer_offline-first",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "api_only",
+  "persistence": "csv_files",
+  "variant": "v28_typescript_open-source-maintainer_offline-first",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "api_only",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\02_monitoring_ops_02_service-health-board\\platform_prompt.md"
+}

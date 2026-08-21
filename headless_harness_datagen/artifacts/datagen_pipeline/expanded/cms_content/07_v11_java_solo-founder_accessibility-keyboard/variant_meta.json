@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:07__v11_java_solo-founder_accessibility-keyboard",
+  "parent_key": "cms_content:07",
+  "category": "cms_content",
+  "index": 7,
+  "title": "Event listing & RSVP site [v11_java_solo-founder_accessibility-keyboard]",
+  "seed_id": "cms_content_07_event-listing-rsvp-site",
+  "workdir": "task_cms_content_07__v11_java_solo-founder_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "cli_tui",
+  "persistence": "sqlite",
+  "variant": "v11_java_solo-founder_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "cli_tui",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\07_cms_content_07_event-listing-rsvp-site\\platform_prompt.md"
+}

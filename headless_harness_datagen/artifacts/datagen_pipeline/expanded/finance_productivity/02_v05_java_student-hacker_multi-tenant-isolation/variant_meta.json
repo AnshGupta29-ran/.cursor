@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:02__v05_java_student-hacker_multi-tenant-isolation",
+  "parent_key": "finance_productivity:02",
+  "category": "finance_productivity",
+  "index": 2,
+  "title": "Personal finance manager [v05_java_student-hacker_multi-tenant-isolation]",
+  "seed_id": "finance_productivity_02_personal-finance-manager",
+  "workdir": "task_finance_productivity_02__v05_java_student-hacker_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v05_java_student-hacker_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "student_hacker",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\02_finance_productivity_02_personal-finance-manager\\platform_prompt.md"
+}

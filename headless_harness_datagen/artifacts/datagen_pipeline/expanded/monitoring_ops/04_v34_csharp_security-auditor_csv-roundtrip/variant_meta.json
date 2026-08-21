@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:04__v34_csharp_security-auditor_csv-roundtrip",
+  "parent_key": "monitoring_ops:04",
+  "category": "monitoring_ops",
+  "index": 4,
+  "title": "Cron job watchdog [v34_csharp_security-auditor_csv-roundtrip]",
+  "seed_id": "monitoring_ops_04_cron-job-watchdog",
+  "workdir": "task_monitoring_ops_04__v34_csharp_security-auditor_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "react_spa",
+  "persistence": "localstorage",
+  "variant": "v34_csharp_security-auditor_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "react_spa",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\04_monitoring_ops_04_cron-job-watchdog\\platform_prompt.md"
+}

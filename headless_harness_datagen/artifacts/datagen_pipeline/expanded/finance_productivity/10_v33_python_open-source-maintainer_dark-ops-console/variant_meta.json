@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:10__v33_python_open-source-maintainer_dark-ops-console",
+  "parent_key": "finance_productivity:10",
+  "category": "finance_productivity",
+  "index": 10,
+  "title": "OKR tracker [v33_python_open-source-maintainer_dark-ops-console]",
+  "seed_id": "finance_productivity_10_okr-tracker",
+  "workdir": "task_finance_productivity_10__v33_python_open-source-maintainer_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "csv_files",
+  "variant": "v33_python_open-source-maintainer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\10_finance_productivity_10_okr-tracker\\platform_prompt.md"
+}

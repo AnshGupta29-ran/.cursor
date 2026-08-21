@@ -1,0 +1,16 @@
+Prompt stats analytics -> http://127.0.0.1:8787/
+Serving ledger now; Chakra + Pi session sync runs in background / on refresh.
+Ledger: C:\Users\anshg\.cursor\headless_harness_datagen\artifacts\prompt_stats\ledger.jsonl
+  chakra scan 1/50 4bc2acd8-87da-46f4-8140-3bb0aca4f970.jsonl
+  chakra scan 6/50 c8f0696a-2275-4abb-9615-56e49495e915.jsonl
+  chakra scan 11/50 00af346f-ab5a-493b-b588-01206991530d.jsonl
+  chakra scan 16/50 086aa98c-18fc-4bd9-8a3b-17c86639230a.jsonl
+  chakra scan 21/50 44341784-376d-4e9d-bee0-6d7ba8d5f4bf.jsonl
+  chakra scan 26/50 59855b98-aaae-4a98-9561-e302e59f9f95.jsonl
+  chakra scan 31/50 7118548c-0656-4b5a-9bb3-0e89936f4987.jsonl
+  chakra scan 36/50 7f5e0689-0dca-47fc-af1f-ebe19eb37988.jsonl
+  chakra scan 41/50 93544def-39de-4ba1-a1fb-b523d727e770.jsonl
+  chakra scan 46/50 bb333cff-99e3-4e5d-b38c-f2a45f92f0ec.jsonl
+  chakra writing 45 sessions (88 rows)
+session enrich skipped: [WinError 5] Access is denied: 'C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\ledger.jsonl.tmp' -> 'C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\prompt_stats\\ledger.jsonl'
+Background session sync finished.

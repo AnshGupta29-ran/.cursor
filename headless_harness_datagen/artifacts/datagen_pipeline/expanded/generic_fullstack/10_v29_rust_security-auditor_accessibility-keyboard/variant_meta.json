@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:10__v29_rust_security-auditor_accessibility-keyboard",
+  "parent_key": "generic_fullstack:10",
+  "category": "generic_fullstack",
+  "index": 10,
+  "title": "Personal CRM lite [v29_rust_security-auditor_accessibility-keyboard]",
+  "seed_id": "generic_fullstack_10_personal-crm-lite",
+  "workdir": "task_generic_fullstack_10__v29_rust_security-auditor_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "desktop_window",
+  "persistence": "localstorage",
+  "variant": "v29_rust_security-auditor_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\10_generic_fullstack_10_personal-crm-lite\\platform_prompt.md"
+}

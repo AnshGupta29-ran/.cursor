@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v12_python_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v12_python_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v12_python_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_python_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

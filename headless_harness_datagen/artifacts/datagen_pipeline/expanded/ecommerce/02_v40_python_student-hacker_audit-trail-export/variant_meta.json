@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:02__v40_python_student-hacker_audit-trail-export",
+  "parent_key": "ecommerce:02",
+  "category": "ecommerce",
+  "index": 2,
+  "title": "Restaurant ordering system [v40_python_student-hacker_audit-trail-export]",
+  "seed_id": "ecommerce_02_restaurant-ordering-system",
+  "workdir": "task_ecommerce_02__v40_python_student-hacker_audit-trail-export",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "dashboard_charts",
+  "persistence": "memory_only",
+  "variant": "v40_python_student-hacker_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "dashboard_charts",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\02_ecommerce_02_restaurant-ordering-system\\platform_prompt.md"
+}

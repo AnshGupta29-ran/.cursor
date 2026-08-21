@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:08__v05_typescript_student-hacker_multi-tenant-isolation",
+  "parent_key": "cms_content:08",
+  "category": "cms_content",
+  "index": 8,
+  "title": "Recipe publisher [v05_typescript_student-hacker_multi-tenant-isolation]",
+  "seed_id": "cms_content_08_recipe-publisher",
+  "workdir": "task_cms_content_08__v05_typescript_student-hacker_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "typescript",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v05_typescript_student-hacker_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\08_cms_content_08_recipe-publisher\\platform_prompt.md"
+}

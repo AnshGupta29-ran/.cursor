@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:10__v24_cpp_security-auditor_dark-ops-console",
+  "parent_key": "iot_automation:10",
+  "category": "iot_automation",
+  "index": 10,
+  "title": "Parking lot occupancy sensors [v24_cpp_security-auditor_dark-ops-console]",
+  "seed_id": "iot_automation_10_parking-lot-occupancy-sensors",
+  "workdir": "task_iot_automation_10__v24_cpp_security-auditor_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_cpp_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\10_iot_automation_10_parking-lot-occupancy-sensors\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:06__v14_python_security-auditor_multi-tenant-isolation",
+  "parent_key": "distributed_systems:06",
+  "category": "distributed_systems",
+  "index": 6,
+  "title": "Distributed lock service [v14_python_security-auditor_multi-tenant-isolation]",
+  "seed_id": "distributed_systems_06_distributed-lock-service",
+  "workdir": "task_distributed_systems_06__v14_python_security-auditor_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "mobile_web",
+  "persistence": "localstorage",
+  "variant": "v14_python_security-auditor_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "mobile_web",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\06_distributed_systems_06_distributed-lock-service\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:05__v11_typescript_solo-founder_accessibility-keyboard",
+  "parent_key": "monitoring_ops:05",
+  "category": "monitoring_ops",
+  "index": 5,
+  "title": "Disk and memory host agent [v11_typescript_solo-founder_accessibility-keyboard]",
+  "seed_id": "monitoring_ops_05_disk-and-memory-host-agent",
+  "workdir": "task_monitoring_ops_05__v11_typescript_solo-founder_accessibility-keyboard",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "sqlite",
+  "variant": "v11_typescript_solo-founder_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "cli_tui",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\05_monitoring_ops_05_disk-and-memory-host-agent\\platform_prompt.md"
+}

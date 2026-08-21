@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:02__v39_csharp_security-auditor_chaos-fault-injection",
+  "parent_key": "ecommerce:02",
+  "category": "ecommerce",
+  "index": 2,
+  "title": "Restaurant ordering system [v39_csharp_security-auditor_chaos-fault-injection]",
+  "seed_id": "ecommerce_02_restaurant-ordering-system",
+  "workdir": "task_ecommerce_02__v39_csharp_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_csharp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\02_ecommerce_02_restaurant-ordering-system\\platform_prompt.md"
+}

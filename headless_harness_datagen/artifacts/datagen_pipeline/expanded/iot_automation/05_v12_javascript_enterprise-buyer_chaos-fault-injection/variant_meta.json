@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:05__v12_javascript_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "iot_automation:05",
+  "category": "iot_automation",
+  "index": 5,
+  "title": "Building HVAC zone manager [v12_javascript_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "iot_automation_05_building-hvac-zone-manager",
+  "workdir": "task_iot_automation_05__v12_javascript_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_javascript_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\05_iot_automation_05_building-hvac-zone-manager\\platform_prompt.md"
+}

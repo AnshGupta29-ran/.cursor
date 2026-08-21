@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:05__v42_python_enterprise-buyer_dark-ops-console",
+  "parent_key": "finance_productivity:05",
+  "category": "finance_productivity",
+  "index": 5,
+  "title": "Task and project management tool [v42_python_enterprise-buyer_dark-ops-console]",
+  "seed_id": "finance_productivity_05_task-and-project-management-tool",
+  "workdir": "task_finance_productivity_05__v42_python_enterprise-buyer_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_python_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\05_finance_productivity_05_task-and-project-management-tool\\platform_prompt.md"
+}

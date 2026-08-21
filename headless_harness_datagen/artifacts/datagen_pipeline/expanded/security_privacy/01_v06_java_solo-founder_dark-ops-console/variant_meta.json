@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:01__v06_java_solo-founder_dark-ops-console",
+  "parent_key": "security_privacy:01",
+  "category": "security_privacy",
+  "index": 1,
+  "title": "Secure password manager [v06_java_solo-founder_dark-ops-console]",
+  "seed_id": "security_privacy_01_secure-password-manager",
+  "workdir": "task_security_privacy_01__v06_java_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_java_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\01_security_privacy_01_secure-password-manager\\platform_prompt.md"
+}

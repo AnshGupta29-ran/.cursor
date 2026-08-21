@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:03__v22_javascript_enterprise-buyer_audit-trail-export",
+  "parent_key": "iot_automation:03",
+  "category": "iot_automation",
+  "index": 3,
+  "title": "Fleet GPS tracker simulator [v22_javascript_enterprise-buyer_audit-trail-export]",
+  "seed_id": "iot_automation_03_fleet-gps-tracker-simulator",
+  "workdir": "task_iot_automation_03__v22_javascript_enterprise-buyer_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "mobile_web",
+  "persistence": "json_file",
+  "variant": "v22_javascript_enterprise-buyer_audit-trail-export",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "mobile_web",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\03_iot_automation_03_fleet-gps-tracker-simulator\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:08__v31_java_solo-founder_audit-trail-export",
+  "parent_key": "iot_automation:08",
+  "category": "iot_automation",
+  "index": 8,
+  "title": "Lab instrument rack monitor [v31_java_solo-founder_audit-trail-export]",
+  "seed_id": "iot_automation_08_lab-instrument-rack-monitor",
+  "workdir": "task_iot_automation_08__v31_java_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_java_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\08_iot_automation_08_lab-instrument-rack-monitor\\platform_prompt.md"
+}

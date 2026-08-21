@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:09__v13_typescript_open-source-maintainer_audit-trail-export",
+  "parent_key": "monitoring_ops:09",
+  "category": "monitoring_ops",
+  "index": 9,
+  "title": "Uptime Excel weekly report [v13_typescript_open-source-maintainer_audit-trail-export]",
+  "seed_id": "monitoring_ops_09_uptime-excel-weekly-report",
+  "workdir": "task_monitoring_ops_09__v13_typescript_open-source-maintainer_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "typescript",
+  "ui_surface": "desktop_window",
+  "persistence": "csv_files",
+  "variant": "v13_typescript_open-source-maintainer_audit-trail-export",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "desktop_window",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\09_monitoring_ops_09_uptime-excel-weekly-report\\platform_prompt.md"
+}

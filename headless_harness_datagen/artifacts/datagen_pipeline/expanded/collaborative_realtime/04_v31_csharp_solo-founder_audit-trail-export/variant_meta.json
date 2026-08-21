@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:04__v31_csharp_solo-founder_audit-trail-export",
+  "parent_key": "collaborative_realtime:04",
+  "category": "collaborative_realtime",
+  "index": 4,
+  "title": "Live auction room [v31_csharp_solo-founder_audit-trail-export]",
+  "seed_id": "collaborative_realtime_04_live-auction-room",
+  "workdir": "task_collaborative_realtime_04__v31_csharp_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_csharp_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\04_collaborative_realtime_04_live-auction-room\\platform_prompt.md"
+}

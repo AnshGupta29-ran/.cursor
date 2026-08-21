@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:03__v24_cpp_security-auditor_dark-ops-console",
+  "parent_key": "distributed_systems:03",
+  "category": "distributed_systems",
+  "index": 3,
+  "title": "Leader election toy cluster [v24_cpp_security-auditor_dark-ops-console]",
+  "seed_id": "distributed_systems_03_leader-election-toy-cluster",
+  "workdir": "task_distributed_systems_03__v24_cpp_security-auditor_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_cpp_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\03_distributed_systems_03_leader-election-toy-cluster\\platform_prompt.md"
+}

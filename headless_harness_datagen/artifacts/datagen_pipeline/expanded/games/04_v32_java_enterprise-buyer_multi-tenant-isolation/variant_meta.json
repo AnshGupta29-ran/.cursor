@@ -1,0 +1,25 @@
+{
+  "task_key": "games:04__v32_java_enterprise-buyer_multi-tenant-isolation",
+  "parent_key": "games:04",
+  "category": "games",
+  "index": 4,
+  "title": "Minesweeper with solver hint [v32_java_enterprise-buyer_multi-tenant-isolation]",
+  "seed_id": "games_04_minesweeper-with-solver-hint",
+  "workdir": "task_games_04__v32_java_enterprise-buyer_multi-tenant-isolation",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "dashboard_charts",
+  "persistence": "json_file",
+  "variant": "v32_java_enterprise-buyer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "dashboard_charts",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\games\\forged\\04_games_04_minesweeper-with-solver-hint\\platform_prompt.md"
+}

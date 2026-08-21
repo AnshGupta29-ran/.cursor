@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:01__v21_cpp_solo-founder_chaos-fault-injection",
+  "parent_key": "distributed_systems:01",
+  "category": "distributed_systems",
+  "index": 1,
+  "title": "Distributed task queue (Go) [v21_cpp_solo-founder_chaos-fault-injection]",
+  "seed_id": "distributed_systems_01_distributed-task-queue-go",
+  "workdir": "task_distributed_systems_01__v21_cpp_solo-founder_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "cpp",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_cpp_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\01_distributed_systems_01_distributed-task-queue-go\\platform_prompt.md"
+}

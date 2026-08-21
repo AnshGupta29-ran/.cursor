@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:08__v31_python_solo-founder_audit-trail-export",
+  "parent_key": "ecommerce:08",
+  "category": "ecommerce",
+  "index": 8,
+  "title": "Returns and RMA portal [v31_python_solo-founder_audit-trail-export]",
+  "seed_id": "ecommerce_08_returns-and-rma-portal",
+  "workdir": "task_ecommerce_08__v31_python_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_python_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\08_ecommerce_08_returns-and-rma-portal\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:05__v19_cpp_security-auditor_offline-first",
+  "parent_key": "generic_fullstack:05",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board [v19_cpp_security-auditor_offline-first]",
+  "seed_id": "generic_fullstack_05_job-board",
+  "workdir": "task_generic_fullstack_05__v19_cpp_security-auditor_offline-first",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_cpp_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\05_generic_fullstack_05_job-board\\platform_prompt.md"
+}

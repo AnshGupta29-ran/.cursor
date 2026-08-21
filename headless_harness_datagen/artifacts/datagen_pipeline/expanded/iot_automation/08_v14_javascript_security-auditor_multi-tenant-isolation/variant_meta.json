@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:08__v14_javascript_security-auditor_multi-tenant-isolation",
+  "parent_key": "iot_automation:08",
+  "category": "iot_automation",
+  "index": 8,
+  "title": "Lab instrument rack monitor [v14_javascript_security-auditor_multi-tenant-isolation]",
+  "seed_id": "iot_automation_08_lab-instrument-rack-monitor",
+  "workdir": "task_iot_automation_08__v14_javascript_security-auditor_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "mobile_web",
+  "persistence": "localstorage",
+  "variant": "v14_javascript_security-auditor_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "mobile_web",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\08_iot_automation_08_lab-instrument-rack-monitor\\platform_prompt.md"
+}

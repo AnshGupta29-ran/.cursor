@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:08__v06_javascript_solo-founder_dark-ops-console",
+  "parent_key": "iot_automation:08",
+  "category": "iot_automation",
+  "index": 8,
+  "title": "Lab instrument rack monitor [v06_javascript_solo-founder_dark-ops-console]",
+  "seed_id": "iot_automation_08_lab-instrument-rack-monitor",
+  "workdir": "task_iot_automation_08__v06_javascript_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_javascript_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\08_iot_automation_08_lab-instrument-rack-monitor\\platform_prompt.md"
+}

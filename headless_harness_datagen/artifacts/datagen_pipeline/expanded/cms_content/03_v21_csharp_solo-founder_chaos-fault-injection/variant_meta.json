@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:03__v21_csharp_solo-founder_chaos-fault-injection",
+  "parent_key": "cms_content:03",
+  "category": "cms_content",
+  "index": 3,
+  "title": "University course registration portal [v21_csharp_solo-founder_chaos-fault-injection]",
+  "seed_id": "cms_content_03_university-course-registration-portal",
+  "workdir": "task_cms_content_03__v21_csharp_solo-founder_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_csharp_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\03_cms_content_03_university-course-registration-portal\\platform_prompt.md"
+}

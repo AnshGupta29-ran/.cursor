@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:06__v04_rust_security-auditor_audit-trail-export",
+  "parent_key": "monitoring_ops:06",
+  "category": "monitoring_ops",
+  "index": 6,
+  "title": "SSL/HTTP probe farm [v04_rust_security-auditor_audit-trail-export]",
+  "seed_id": "monitoring_ops_06_ssl-http-probe-farm",
+  "workdir": "task_monitoring_ops_06__v04_rust_security-auditor_audit-trail-export",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v04_rust_security-auditor_audit-trail-export",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\06_monitoring_ops_06_ssl-http-probe-farm\\platform_prompt.md"
+}

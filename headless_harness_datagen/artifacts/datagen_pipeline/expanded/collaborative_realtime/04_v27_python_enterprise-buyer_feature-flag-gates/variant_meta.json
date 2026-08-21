@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:04__v27_python_enterprise-buyer_feature-flag-gates",
+  "parent_key": "collaborative_realtime:04",
+  "category": "collaborative_realtime",
+  "index": 4,
+  "title": "Live auction room [v27_python_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "collaborative_realtime_04_live-auction-room",
+  "workdir": "task_collaborative_realtime_04__v27_python_enterprise-buyer_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_python_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\04_collaborative_realtime_04_live-auction-room\\platform_prompt.md"
+}

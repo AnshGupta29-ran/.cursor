@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:04__v39_rust_security-auditor_chaos-fault-injection",
+  "parent_key": "security_privacy:04",
+  "category": "security_privacy",
+  "index": 4,
+  "title": "PII redaction CLI [v39_rust_security-auditor_chaos-fault-injection]",
+  "seed_id": "security_privacy_04_pii-redaction-cli",
+  "workdir": "task_security_privacy_04__v39_rust_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_rust_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\04_security_privacy_04_pii-redaction-cli\\platform_prompt.md"
+}

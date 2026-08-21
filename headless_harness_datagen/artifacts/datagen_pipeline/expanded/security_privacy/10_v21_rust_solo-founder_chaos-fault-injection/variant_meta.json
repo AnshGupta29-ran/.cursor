@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:10__v21_rust_solo-founder_chaos-fault-injection",
+  "parent_key": "security_privacy:10",
+  "category": "security_privacy",
+  "index": 10,
+  "title": "Certificate expiry monitor [v21_rust_solo-founder_chaos-fault-injection]",
+  "seed_id": "security_privacy_10_certificate-expiry-monitor",
+  "workdir": "task_security_privacy_10__v21_rust_solo-founder_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_rust_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\10_security_privacy_10_certificate-expiry-monitor\\platform_prompt.md"
+}

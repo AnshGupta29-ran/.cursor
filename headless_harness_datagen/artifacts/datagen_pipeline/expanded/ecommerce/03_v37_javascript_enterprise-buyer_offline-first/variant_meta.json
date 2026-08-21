@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:03__v37_javascript_enterprise-buyer_offline-first",
+  "parent_key": "ecommerce:03",
+  "category": "ecommerce",
+  "index": 3,
+  "title": "Inventory management system [v37_javascript_enterprise-buyer_offline-first]",
+  "seed_id": "ecommerce_03_inventory-management-system",
+  "workdir": "task_ecommerce_03__v37_javascript_enterprise-buyer_offline-first",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "desktop_window",
+  "persistence": "json_file",
+  "variant": "v37_javascript_enterprise-buyer_offline-first",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\03_ecommerce_03_inventory-management-system\\platform_prompt.md"
+}

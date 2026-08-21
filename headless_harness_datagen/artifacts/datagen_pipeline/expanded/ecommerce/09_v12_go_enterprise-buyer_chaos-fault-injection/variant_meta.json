@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:09__v12_go_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "ecommerce:09",
+  "category": "ecommerce",
+  "index": 9,
+  "title": "Wholesale price list Excel sync [v12_go_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "ecommerce_09_wholesale-price-list-excel-sync",
+  "workdir": "task_ecommerce_09__v12_go_enterprise-buyer_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_go_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\09_ecommerce_09_wholesale-price-list-excel-sync\\platform_prompt.md"
+}

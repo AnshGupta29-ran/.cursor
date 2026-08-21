@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:01__v42_typescript_enterprise-buyer_dark-ops-console",
+  "parent_key": "finance_productivity:01",
+  "category": "finance_productivity",
+  "index": 1,
+  "title": "Personal finance tracker PRD [v42_typescript_enterprise-buyer_dark-ops-console]",
+  "seed_id": "finance_productivity_01_personal-finance-tracker-prd",
+  "workdir": "task_finance_productivity_01__v42_typescript_enterprise-buyer_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_typescript_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\01_finance_productivity_01_personal-finance-tracker-prd\\platform_prompt.md"
+}

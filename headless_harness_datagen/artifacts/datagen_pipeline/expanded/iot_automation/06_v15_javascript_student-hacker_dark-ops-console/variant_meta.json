@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:06__v15_javascript_student-hacker_dark-ops-console",
+  "parent_key": "iot_automation:06",
+  "category": "iot_automation",
+  "index": 6,
+  "title": "MQTT device playground [v15_javascript_student-hacker_dark-ops-console]",
+  "seed_id": "iot_automation_06_mqtt-device-playground",
+  "workdir": "task_iot_automation_06__v15_javascript_student-hacker_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_javascript_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\06_iot_automation_06_mqtt-device-playground\\platform_prompt.md"
+}

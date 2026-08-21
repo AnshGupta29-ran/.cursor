@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:02__v38_typescript_open-source-maintainer_accessibility-keyboard",
+  "parent_key": "distributed_systems:02",
+  "category": "distributed_systems",
+  "index": 2,
+  "title": "Priority job scheduler [v38_typescript_open-source-maintainer_accessibility-keyboard]",
+  "seed_id": "distributed_systems_02_priority-job-scheduler",
+  "workdir": "task_distributed_systems_02__v38_typescript_open-source-maintainer_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "csv_files",
+  "variant": "v38_typescript_open-source-maintainer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "mobile_web",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\02_distributed_systems_02_priority-job-scheduler\\platform_prompt.md"
+}

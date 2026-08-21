@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:06__v06_typescript_solo-founder_dark-ops-console",
+  "parent_key": "storage_files:06",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox [v06_typescript_solo-founder_dark-ops-console]",
+  "seed_id": "storage_files_06_encrypted-file-dropbox",
+  "workdir": "task_storage_files_06__v06_typescript_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_typescript_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\06_storage_files_06_encrypted-file-dropbox\\platform_prompt.md"
+}

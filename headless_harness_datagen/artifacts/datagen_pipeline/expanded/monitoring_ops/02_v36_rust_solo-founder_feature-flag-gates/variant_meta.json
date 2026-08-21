@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:02__v36_rust_solo-founder_feature-flag-gates",
+  "parent_key": "monitoring_ops:02",
+  "category": "monitoring_ops",
+  "index": 2,
+  "title": "Service health board [v36_rust_solo-founder_feature-flag-gates]",
+  "seed_id": "monitoring_ops_02_service-health-board",
+  "workdir": "task_monitoring_ops_02__v36_rust_solo-founder_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_rust_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\02_monitoring_ops_02_service-health-board\\platform_prompt.md"
+}

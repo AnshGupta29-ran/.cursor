@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:05__v20_javascript_student-hacker_accessibility-keyboard",
+  "parent_key": "monitoring_ops:05",
+  "category": "monitoring_ops",
+  "index": 5,
+  "title": "Disk and memory host agent [v20_javascript_student-hacker_accessibility-keyboard]",
+  "seed_id": "monitoring_ops_05_disk-and-memory-host-agent",
+  "workdir": "task_monitoring_ops_05__v20_javascript_student-hacker_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "api_only",
+  "persistence": "memory_only",
+  "variant": "v20_javascript_student-hacker_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "api_only",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\05_monitoring_ops_05_disk-and-memory-host-agent\\platform_prompt.md"
+}

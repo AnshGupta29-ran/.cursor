@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:07__v15_cpp_student-hacker_dark-ops-console",
+  "parent_key": "distributed_systems:07",
+  "category": "distributed_systems",
+  "index": 7,
+  "title": "Sharded key-value store [v15_cpp_student-hacker_dark-ops-console]",
+  "seed_id": "distributed_systems_07_sharded-key-value-store",
+  "workdir": "task_distributed_systems_07__v15_cpp_student-hacker_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_cpp_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\07_distributed_systems_07_sharded-key-value-store\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:07__v31_typescript_solo-founder_audit-trail-export",
+  "parent_key": "distributed_systems:07",
+  "category": "distributed_systems",
+  "index": 7,
+  "title": "Sharded key-value store [v31_typescript_solo-founder_audit-trail-export]",
+  "seed_id": "distributed_systems_07_sharded-key-value-store",
+  "workdir": "task_distributed_systems_07__v31_typescript_solo-founder_audit-trail-export",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_typescript_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\07_distributed_systems_07_sharded-key-value-store\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:06__v03_java_open-source-maintainer_chaos-fault-injection",
+  "parent_key": "distributed_systems:06",
+  "category": "distributed_systems",
+  "index": 6,
+  "title": "Distributed lock service [v03_java_open-source-maintainer_chaos-fault-injection]",
+  "seed_id": "distributed_systems_06_distributed-lock-service",
+  "workdir": "task_distributed_systems_06__v03_java_open-source-maintainer_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "cli_tui",
+  "persistence": "csv_files",
+  "variant": "v03_java_open-source-maintainer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "cli_tui",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\06_distributed_systems_06_distributed-lock-service\\platform_prompt.md"
+}

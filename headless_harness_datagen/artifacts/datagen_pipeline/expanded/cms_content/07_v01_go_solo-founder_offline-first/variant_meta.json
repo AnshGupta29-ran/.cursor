@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:07__v01_go_solo-founder_offline-first",
+  "parent_key": "cms_content:07",
+  "category": "cms_content",
+  "index": 7,
+  "title": "Event listing & RSVP site [v01_go_solo-founder_offline-first]",
+  "seed_id": "cms_content_07_event-listing-rsvp-site",
+  "workdir": "task_cms_content_07__v01_go_solo-founder_offline-first",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v01_go_solo-founder_offline-first",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "solo_founder",
+    "novelty_hook": "offline_first",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\07_cms_content_07_event-listing-rsvp-site\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:06__v42_java_enterprise-buyer_dark-ops-console",
+  "parent_key": "monitoring_ops:06",
+  "category": "monitoring_ops",
+  "index": 6,
+  "title": "SSL/HTTP probe farm [v42_java_enterprise-buyer_dark-ops-console]",
+  "seed_id": "monitoring_ops_06_ssl-http-probe-farm",
+  "workdir": "task_monitoring_ops_06__v42_java_enterprise-buyer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_java_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\06_monitoring_ops_06_ssl-http-probe-farm\\platform_prompt.md"
+}

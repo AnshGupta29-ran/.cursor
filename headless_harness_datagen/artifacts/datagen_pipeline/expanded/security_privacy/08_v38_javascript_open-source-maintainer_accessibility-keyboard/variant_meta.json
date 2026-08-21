@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:08__v38_javascript_open-source-maintainer_accessibility-keyboard",
+  "parent_key": "security_privacy:08",
+  "category": "security_privacy",
+  "index": 8,
+  "title": "Consent and cookie preference center [v38_javascript_open-source-maintainer_accessibility-keyboard]",
+  "seed_id": "security_privacy_08_consent-and-cookie-preference-center",
+  "workdir": "task_security_privacy_08__v38_javascript_open-source-maintainer_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "mobile_web",
+  "persistence": "csv_files",
+  "variant": "v38_javascript_open-source-maintainer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "mobile_web",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\08_security_privacy_08_consent-and-cookie-preference-center\\platform_prompt.md"
+}

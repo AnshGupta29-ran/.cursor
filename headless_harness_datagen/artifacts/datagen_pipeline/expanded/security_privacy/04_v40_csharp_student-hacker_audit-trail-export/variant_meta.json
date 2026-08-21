@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:04__v40_csharp_student-hacker_audit-trail-export",
+  "parent_key": "security_privacy:04",
+  "category": "security_privacy",
+  "index": 4,
+  "title": "PII redaction CLI [v40_csharp_student-hacker_audit-trail-export]",
+  "seed_id": "security_privacy_04_pii-redaction-cli",
+  "workdir": "task_security_privacy_04__v40_csharp_student-hacker_audit-trail-export",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "memory_only",
+  "variant": "v40_csharp_student-hacker_audit-trail-export",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "dashboard_charts",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\04_security_privacy_04_pii-redaction-cli\\platform_prompt.md"
+}

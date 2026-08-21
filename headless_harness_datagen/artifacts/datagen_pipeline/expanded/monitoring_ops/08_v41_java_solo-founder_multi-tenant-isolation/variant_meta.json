@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:08__v41_java_solo-founder_multi-tenant-isolation",
+  "parent_key": "monitoring_ops:08",
+  "category": "monitoring_ops",
+  "index": 8,
+  "title": "Queue depth observatory [v41_java_solo-founder_multi-tenant-isolation]",
+  "seed_id": "monitoring_ops_08_queue-depth-observatory",
+  "workdir": "task_monitoring_ops_08__v41_java_solo-founder_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v41_java_solo-founder_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\08_monitoring_ops_08_queue-depth-observatory\\platform_prompt.md"
+}

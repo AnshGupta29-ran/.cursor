@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:10__v27_javascript_enterprise-buyer_feature-flag-gates",
+  "parent_key": "generic_fullstack:10",
+  "category": "generic_fullstack",
+  "index": 10,
+  "title": "Personal CRM lite [v27_javascript_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "generic_fullstack_10_personal-crm-lite",
+  "workdir": "task_generic_fullstack_10__v27_javascript_enterprise-buyer_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_javascript_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\10_generic_fullstack_10_personal-crm-lite\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:05__v06_rust_solo-founder_dark-ops-console",
+  "parent_key": "collaborative_realtime:05",
+  "category": "collaborative_realtime",
+  "index": 5,
+  "title": "Classroom quiz live leaderboard [v06_rust_solo-founder_dark-ops-console]",
+  "seed_id": "collaborative_realtime_05_classroom-quiz-live-leaderboard",
+  "workdir": "task_collaborative_realtime_05__v06_rust_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_rust_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\05_collaborative_realtime_05_classroom-quiz-live-leaderboard\\platform_prompt.md"
+}

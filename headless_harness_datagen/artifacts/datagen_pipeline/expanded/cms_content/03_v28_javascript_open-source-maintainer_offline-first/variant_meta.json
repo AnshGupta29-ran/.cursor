@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:03__v28_javascript_open-source-maintainer_offline-first",
+  "parent_key": "cms_content:03",
+  "category": "cms_content",
+  "index": 3,
+  "title": "University course registration portal [v28_javascript_open-source-maintainer_offline-first]",
+  "seed_id": "cms_content_03_university-course-registration-portal",
+  "workdir": "task_cms_content_03__v28_javascript_open-source-maintainer_offline-first",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "api_only",
+  "persistence": "csv_files",
+  "variant": "v28_javascript_open-source-maintainer_offline-first",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "api_only",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\03_cms_content_03_university-course-registration-portal\\platform_prompt.md"
+}

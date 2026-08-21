@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:04__v32_java_enterprise-buyer_multi-tenant-isolation",
+  "parent_key": "monitoring_ops:04",
+  "category": "monitoring_ops",
+  "index": 4,
+  "title": "Cron job watchdog [v32_java_enterprise-buyer_multi-tenant-isolation]",
+  "seed_id": "monitoring_ops_04_cron-job-watchdog",
+  "workdir": "task_monitoring_ops_04__v32_java_enterprise-buyer_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "dashboard_charts",
+  "persistence": "json_file",
+  "variant": "v32_java_enterprise-buyer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "dashboard_charts",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\04_monitoring_ops_04_cron-job-watchdog\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:05__v30_rust_student-hacker_chaos-fault-injection",
+  "parent_key": "generic_fullstack:05",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board [v30_rust_student-hacker_chaos-fault-injection]",
+  "seed_id": "generic_fullstack_05_job-board",
+  "workdir": "task_generic_fullstack_05__v30_rust_student-hacker_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "mobile_web",
+  "persistence": "memory_only",
+  "variant": "v30_rust_student-hacker_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "student_hacker",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "mobile_web",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\05_generic_fullstack_05_job-board\\platform_prompt.md"
+}

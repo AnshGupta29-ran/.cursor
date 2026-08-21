@@ -1,0 +1,84 @@
+{
+  "task_key": "cms_content:05",
+  "workdir": "task_cms_content_05",
+  "resolved_root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_05",
+  "language_runtime": "cpp",
+  "ui_surface": "mobile_web",
+  "ok": false,
+  "smoke_ran": true,
+  "http_checked": true,
+  "started_at": "2026-08-14T09:57:19.618449+00:00",
+  "finished_at": "2026-08-14T09:57:22.804184+00:00",
+  "error": "validate_failed:structure,smoke",
+  "checks": [
+    {
+      "name": "resolve_root",
+      "ok": true,
+      "detail": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_05",
+      "evidence": {
+        "root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_05"
+      }
+    },
+    {
+      "name": "structure",
+      "ok": false,
+      "detail": "readme=MISSING files=58",
+      "evidence": {
+        "readme": null,
+        "file_count": 58
+      }
+    },
+    {
+      "name": "not_stub",
+      "ok": true,
+      "detail": "files=14 bytes=67464 todoish=0",
+      "evidence": {
+        "files": 14,
+        "bytes": 67464,
+        "todoish": 0
+      }
+    },
+    {
+      "name": "language_lock",
+      "ok": true,
+      "detail": "lang=cpp markers=['CMakeLists.txt'] sources=7",
+      "evidence": {
+        "language": "cpp",
+        "markers": [
+          "CMakeLists.txt"
+        ],
+        "source_count": 7
+      }
+    },
+    {
+      "name": "synthetic_seed",
+      "ok": true,
+      "detail": "seed_files=1",
+      "evidence": {
+        "files": [
+          "server\\data\\seed.json"
+        ]
+      }
+    },
+    {
+      "name": "smoke",
+      "ok": false,
+      "detail": "no smoke.py / scripts/smoke / npm smoke / tests found",
+      "evidence": {}
+    },
+    {
+      "name": "http_health",
+      "ok": true,
+      "detail": "listening=[8000] probed_ok=True",
+      "evidence": {
+        "listening": [
+          8000
+        ],
+        "probes": {
+          "http://127.0.0.1:8000/health": "HTTP Error 404: Not Found",
+          "http://127.0.0.1:8000/api/health": 200
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:09__v32_python_enterprise-buyer_multi-tenant-isolation",
+  "parent_key": "storage_files:09",
+  "category": "storage_files",
+  "index": 9,
+  "title": "CAD drawing document locker [v32_python_enterprise-buyer_multi-tenant-isolation]",
+  "seed_id": "storage_files_09_cad-drawing-document-locker",
+  "workdir": "task_storage_files_09__v32_python_enterprise-buyer_multi-tenant-isolation",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "dashboard_charts",
+  "persistence": "json_file",
+  "variant": "v32_python_enterprise-buyer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "dashboard_charts",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\09_storage_files_09_cad-drawing-document-locker\\platform_prompt.md"
+}

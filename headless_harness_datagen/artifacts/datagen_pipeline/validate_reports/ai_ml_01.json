@@ -1,0 +1,92 @@
+{
+  "task_key": "ai_ml:01",
+  "workdir": "levellens",
+  "resolved_root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\levellens",
+  "language_runtime": "python",
+  "ui_surface": "html_canvas",
+  "ok": true,
+  "smoke_ran": true,
+  "http_checked": true,
+  "started_at": "2026-08-13T11:01:53.878916+00:00",
+  "finished_at": "2026-08-13T11:02:01.657020+00:00",
+  "error": null,
+  "checks": [
+    {
+      "name": "resolve_root",
+      "ok": true,
+      "detail": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\levellens",
+      "evidence": {
+        "root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\harness\\chakra\\levellens"
+      }
+    },
+    {
+      "name": "structure",
+      "ok": true,
+      "detail": "readme=README.md files=11",
+      "evidence": {
+        "readme": "README.md",
+        "file_count": 11
+      }
+    },
+    {
+      "name": "not_stub",
+      "ok": true,
+      "detail": "files=11 bytes=102059 todoish=0",
+      "evidence": {
+        "files": 11,
+        "bytes": 102059,
+        "todoish": 0
+      }
+    },
+    {
+      "name": "language_lock",
+      "ok": true,
+      "detail": "lang=python markers=['requirements.txt'] sources=1",
+      "evidence": {
+        "language": "python",
+        "markers": [
+          "requirements.txt"
+        ],
+        "source_count": 1
+      }
+    },
+    {
+      "name": "synthetic_seed",
+      "ok": true,
+      "detail": "seed_files=6",
+      "evidence": {
+        "files": [
+          "data\\levellens.db",
+          "fixtures\\career-changer.txt",
+          "fixtures\\jd-frontend-lead.txt",
+          "fixtures\\jd-staff-backend.txt",
+          "fixtures\\junior-mismatch.txt",
+          "fixtures\\strong-senior.txt"
+        ]
+      }
+    },
+    {
+      "name": "smoke",
+      "ok": true,
+      "detail": "fallback import app.py rc=0",
+      "evidence": {
+        "cmd": "python -c import app",
+        "output_tail": "IMPORT_OK"
+      }
+    },
+    {
+      "name": "http_health",
+      "ok": true,
+      "detail": "listening=[8000] probed_ok=True",
+      "evidence": {
+        "listening": [
+          8000
+        ],
+        "probes": {
+          "http://127.0.0.1:8000/health": "HTTP Error 404: Not Found",
+          "http://127.0.0.1:8000/api/health": 200
+        }
+      }
+    }
+  ]
+}

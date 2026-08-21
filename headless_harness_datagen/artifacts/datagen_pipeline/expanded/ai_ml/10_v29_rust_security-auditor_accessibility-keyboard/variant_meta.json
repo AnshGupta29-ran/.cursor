@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:10__v29_rust_security-auditor_accessibility-keyboard",
+  "parent_key": "ai_ml:10",
+  "category": "ai_ml",
+  "index": 10,
+  "title": "Time-series anomaly flagger [v29_rust_security-auditor_accessibility-keyboard]",
+  "seed_id": "ai_ml_10_time-series-anomaly-flagger",
+  "workdir": "task_ai_ml_10__v29_rust_security-auditor_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "desktop_window",
+  "persistence": "localstorage",
+  "variant": "v29_rust_security-auditor_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "desktop_window",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\10_ai_ml_10_time-series-anomaly-flagger\\platform_prompt.md"
+}

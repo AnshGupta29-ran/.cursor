@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:03__v25_javascript_student-hacker_csv-roundtrip",
+  "parent_key": "cms_content:03",
+  "category": "cms_content",
+  "index": 3,
+  "title": "University course registration portal [v25_javascript_student-hacker_csv-roundtrip]",
+  "seed_id": "cms_content_03_university-course-registration-portal",
+  "workdir": "task_cms_content_03__v25_javascript_student-hacker_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "static_html",
+  "persistence": "memory_only",
+  "variant": "v25_javascript_student-hacker_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\03_cms_content_03_university-course-registration-portal\\platform_prompt.md"
+}

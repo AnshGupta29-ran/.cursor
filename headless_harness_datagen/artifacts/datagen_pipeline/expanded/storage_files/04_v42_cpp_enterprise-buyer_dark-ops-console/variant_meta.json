@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:04__v42_cpp_enterprise-buyer_dark-ops-console",
+  "parent_key": "storage_files:04",
+  "category": "storage_files",
+  "index": 4,
+  "title": "Media library with tags [v42_cpp_enterprise-buyer_dark-ops-console]",
+  "seed_id": "storage_files_04_media-library-with-tags",
+  "workdir": "task_storage_files_04__v42_cpp_enterprise-buyer_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_cpp_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\04_storage_files_04_media-library-with-tags\\platform_prompt.md"
+}

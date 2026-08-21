@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:10__v18_typescript_open-source-maintainer_feature-flag-gates",
+  "parent_key": "monitoring_ops:10",
+  "category": "monitoring_ops",
+  "index": 10,
+  "title": "Synthetic transaction checker [v18_typescript_open-source-maintainer_feature-flag-gates]",
+  "seed_id": "monitoring_ops_10_synthetic-transaction-checker",
+  "workdir": "task_monitoring_ops_10__v18_typescript_open-source-maintainer_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "csv_files",
+  "variant": "v18_typescript_open-source-maintainer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "react_spa",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\10_monitoring_ops_10_synthetic-transaction-checker\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:07__v33_go_open-source-maintainer_dark-ops-console",
+  "parent_key": "iot_automation:07",
+  "category": "iot_automation",
+  "index": 7,
+  "title": "Smart irrigation planner [v33_go_open-source-maintainer_dark-ops-console]",
+  "seed_id": "iot_automation_07_smart-irrigation-planner",
+  "workdir": "task_iot_automation_07__v33_go_open-source-maintainer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "csv_files",
+  "variant": "v33_go_open-source-maintainer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\07_iot_automation_07_smart-irrigation-planner\\platform_prompt.md"
+}

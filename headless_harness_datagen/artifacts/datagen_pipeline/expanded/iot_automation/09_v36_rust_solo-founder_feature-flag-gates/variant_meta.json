@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:09__v36_rust_solo-founder_feature-flag-gates",
+  "parent_key": "iot_automation:09",
+  "category": "iot_automation",
+  "index": 9,
+  "title": "Home energy meter dashboard [v36_rust_solo-founder_feature-flag-gates]",
+  "seed_id": "iot_automation_09_home-energy-meter-dashboard",
+  "workdir": "task_iot_automation_09__v36_rust_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_rust_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\09_iot_automation_09_home-energy-meter-dashboard\\platform_prompt.md"
+}

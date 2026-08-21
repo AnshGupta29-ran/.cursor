@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:04__v19_java_security-auditor_offline-first",
+  "parent_key": "distributed_systems:04",
+  "category": "distributed_systems",
+  "index": 4,
+  "title": "Pub/sub message broker lite [v19_java_security-auditor_offline-first]",
+  "seed_id": "distributed_systems_04_pub-sub-message-broker-lite",
+  "workdir": "task_distributed_systems_04__v19_java_security-auditor_offline-first",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_java_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\04_distributed_systems_04_pub-sub-message-broker-lite\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:07__v23_python_open-source-maintainer_multi-tenant-isolation",
+  "parent_key": "devops_infra:07",
+  "category": "devops_infra",
+  "index": 7,
+  "title": "Env var & secrets sync tool [v23_python_open-source-maintainer_multi-tenant-isolation]",
+  "seed_id": "devops_infra_07_env-var-secrets-sync-tool",
+  "workdir": "task_devops_infra_07__v23_python_open-source-maintainer_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "html_canvas",
+  "persistence": "csv_files",
+  "variant": "v23_python_open-source-maintainer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "html_canvas",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\07_devops_infra_07_env-var-secrets-sync-tool\\platform_prompt.md"
+}

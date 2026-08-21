@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:06__v35_csharp_student-hacker_idempotent-retries",
+  "parent_key": "cms_content:06",
+  "category": "cms_content",
+  "index": 6,
+  "title": "Internal wiki with approvals [v35_csharp_student-hacker_idempotent-retries]",
+  "seed_id": "cms_content_06_internal-wiki-with-approvals",
+  "workdir": "task_cms_content_06__v35_csharp_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_csharp_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\06_cms_content_06_internal-wiki-with-approvals\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:06__v17_rust_enterprise-buyer_idempotent-retries",
+  "parent_key": "finance_productivity:06",
+  "category": "finance_productivity",
+  "index": 6,
+  "title": "Invoice generator [v17_rust_enterprise-buyer_idempotent-retries]",
+  "seed_id": "finance_productivity_06_invoice-generator",
+  "workdir": "task_finance_productivity_06__v17_rust_enterprise-buyer_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "static_html",
+  "persistence": "json_file",
+  "variant": "v17_rust_enterprise-buyer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "static_html",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\06_finance_productivity_06_invoice-generator\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:01__v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "parent_key": "collaborative_realtime:01",
+  "category": "collaborative_realtime",
+  "index": 1,
+  "title": "Slack-style team chat [v02_typescript_enterprise-buyer_accessibility-keyboard]",
+  "seed_id": "collaborative_realtime_01_slack-style-team-chat",
+  "workdir": "task_collaborative_realtime_01__v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v02_typescript_enterprise-buyer_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\01_collaborative_realtime_01_slack-style-team-chat\\platform_prompt.md"
+}

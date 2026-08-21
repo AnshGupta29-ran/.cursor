@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:10__v09_python_security-auditor_feature-flag-gates",
+  "parent_key": "security_privacy:10",
+  "category": "security_privacy",
+  "index": 10,
+  "title": "Certificate expiry monitor [v09_python_security-auditor_feature-flag-gates]",
+  "seed_id": "security_privacy_10_certificate-expiry-monitor",
+  "workdir": "task_security_privacy_10__v09_python_security-auditor_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "localstorage",
+  "variant": "v09_python_security-auditor_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "static_html",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\10_security_privacy_10_certificate-expiry-monitor\\platform_prompt.md"
+}

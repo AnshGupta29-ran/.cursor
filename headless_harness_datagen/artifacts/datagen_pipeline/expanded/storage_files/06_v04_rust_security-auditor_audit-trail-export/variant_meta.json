@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:06__v04_rust_security-auditor_audit-trail-export",
+  "parent_key": "storage_files:06",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox [v04_rust_security-auditor_audit-trail-export]",
+  "seed_id": "storage_files_06_encrypted-file-dropbox",
+  "workdir": "task_storage_files_06__v04_rust_security-auditor_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v04_rust_security-auditor_audit-trail-export",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\06_storage_files_06_encrypted-file-dropbox\\platform_prompt.md"
+}

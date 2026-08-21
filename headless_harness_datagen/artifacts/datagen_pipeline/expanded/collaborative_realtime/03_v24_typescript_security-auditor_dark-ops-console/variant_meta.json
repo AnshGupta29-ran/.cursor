@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:03__v24_typescript_security-auditor_dark-ops-console",
+  "parent_key": "collaborative_realtime:03",
+  "category": "collaborative_realtime",
+  "index": 3,
+  "title": "Pair programming shared editor [v24_typescript_security-auditor_dark-ops-console]",
+  "seed_id": "collaborative_realtime_03_pair-programming-shared-editor",
+  "workdir": "task_collaborative_realtime_03__v24_typescript_security-auditor_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_typescript_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\03_collaborative_realtime_03_pair-programming-shared-editor\\platform_prompt.md"
+}

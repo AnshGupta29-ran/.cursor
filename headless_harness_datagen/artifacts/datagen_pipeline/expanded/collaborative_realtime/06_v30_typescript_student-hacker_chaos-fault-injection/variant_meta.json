@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:06__v30_typescript_student-hacker_chaos-fault-injection",
+  "parent_key": "collaborative_realtime:06",
+  "category": "collaborative_realtime",
+  "index": 6,
+  "title": "Collaborative markdown notes [v30_typescript_student-hacker_chaos-fault-injection]",
+  "seed_id": "collaborative_realtime_06_collaborative-markdown-notes",
+  "workdir": "task_collaborative_realtime_06__v30_typescript_student-hacker_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "memory_only",
+  "variant": "v30_typescript_student-hacker_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "mobile_web",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\06_collaborative_realtime_06_collaborative-markdown-notes\\platform_prompt.md"
+}

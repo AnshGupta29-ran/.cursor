@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:02__v33_rust_open-source-maintainer_dark-ops-console",
+  "parent_key": "distributed_systems:02",
+  "category": "distributed_systems",
+  "index": 2,
+  "title": "Priority job scheduler [v33_rust_open-source-maintainer_dark-ops-console]",
+  "seed_id": "distributed_systems_02_priority-job-scheduler",
+  "workdir": "task_distributed_systems_02__v33_rust_open-source-maintainer_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "static_html",
+  "persistence": "csv_files",
+  "variant": "v33_rust_open-source-maintainer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\02_distributed_systems_02_priority-job-scheduler\\platform_prompt.md"
+}

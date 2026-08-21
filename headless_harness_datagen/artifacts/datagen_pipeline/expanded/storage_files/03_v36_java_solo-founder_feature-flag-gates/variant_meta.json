@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:03__v36_java_solo-founder_feature-flag-gates",
+  "parent_key": "storage_files:03",
+  "category": "storage_files",
+  "index": 3,
+  "title": "Team document vault with preview [v36_java_solo-founder_feature-flag-gates]",
+  "seed_id": "storage_files_03_team-document-vault-with-preview",
+  "workdir": "task_storage_files_03__v36_java_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_java_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\03_storage_files_03_team-document-vault-with-preview\\platform_prompt.md"
+}

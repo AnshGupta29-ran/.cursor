@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:03__v17_javascript_enterprise-buyer_idempotent-retries",
+  "parent_key": "generic_fullstack:03",
+  "category": "generic_fullstack",
+  "index": 3,
+  "title": "Local code search engine [v17_javascript_enterprise-buyer_idempotent-retries]",
+  "seed_id": "generic_fullstack_03_local-code-search-engine",
+  "workdir": "task_generic_fullstack_03__v17_javascript_enterprise-buyer_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "static_html",
+  "persistence": "json_file",
+  "variant": "v17_javascript_enterprise-buyer_idempotent-retries",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "static_html",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\03_generic_fullstack_03_local-code-search-engine\\platform_prompt.md"
+}

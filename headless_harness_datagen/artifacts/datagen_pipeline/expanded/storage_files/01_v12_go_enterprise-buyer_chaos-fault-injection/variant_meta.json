@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:01__v12_go_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "storage_files:01",
+  "category": "storage_files",
+  "index": 1,
+  "title": "Mini cloud storage platform [v12_go_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "storage_files_01_mini-cloud-storage-platform",
+  "workdir": "task_storage_files_01__v12_go_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "go",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_go_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\01_storage_files_01_mini-cloud-storage-platform\\platform_prompt.md"
+}

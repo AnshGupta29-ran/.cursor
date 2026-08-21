@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v16_java_solo-founder_csv-roundtrip",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v16_java_solo-founder_csv-roundtrip]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v16_java_solo-founder_csv-roundtrip",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "dashboard_charts",
+  "persistence": "sqlite",
+  "variant": "v16_java_solo-founder_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "dashboard_charts",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

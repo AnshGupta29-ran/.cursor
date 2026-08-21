@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:04__v35_python_student-hacker_idempotent-retries",
+  "parent_key": "generic_fullstack:04",
+  "category": "generic_fullstack",
+  "index": 4,
+  "title": "Community forum [v35_python_student-hacker_idempotent-retries]",
+  "seed_id": "generic_fullstack_04_community-forum",
+  "workdir": "task_generic_fullstack_04__v35_python_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_python_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\04_generic_fullstack_04_community-forum\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:05__v27_typescript_enterprise-buyer_feature-flag-gates",
+  "parent_key": "monitoring_ops:05",
+  "category": "monitoring_ops",
+  "index": 5,
+  "title": "Disk and memory host agent [v27_typescript_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "monitoring_ops_05_disk-and-memory-host-agent",
+  "workdir": "task_monitoring_ops_05__v27_typescript_enterprise-buyer_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_typescript_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\05_monitoring_ops_05_disk-and-memory-host-agent\\platform_prompt.md"
+}

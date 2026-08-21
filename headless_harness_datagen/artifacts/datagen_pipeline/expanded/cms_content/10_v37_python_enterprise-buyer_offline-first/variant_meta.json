@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:10__v37_python_enterprise-buyer_offline-first",
+  "parent_key": "cms_content:10",
+  "category": "cms_content",
+  "index": 10,
+  "title": "Documentation portal versioned [v37_python_enterprise-buyer_offline-first]",
+  "seed_id": "cms_content_10_documentation-portal-versioned",
+  "workdir": "task_cms_content_10__v37_python_enterprise-buyer_offline-first",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "desktop_window",
+  "persistence": "json_file",
+  "variant": "v37_python_enterprise-buyer_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\10_cms_content_10_documentation-portal-versioned\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:08__v19_python_security-auditor_offline-first",
+  "parent_key": "ai_ml:08",
+  "category": "ai_ml",
+  "index": 8,
+  "title": "OCR receipt field extractor [v19_python_security-auditor_offline-first]",
+  "seed_id": "ai_ml_08_ocr-receipt-field-extractor",
+  "workdir": "task_ai_ml_08__v19_python_security-auditor_offline-first",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_python_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\08_ai_ml_08_ocr-receipt-field-extractor\\platform_prompt.md"
+}

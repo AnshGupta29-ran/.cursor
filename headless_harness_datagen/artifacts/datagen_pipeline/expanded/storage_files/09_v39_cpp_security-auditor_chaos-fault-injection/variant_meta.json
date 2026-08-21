@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:09__v39_cpp_security-auditor_chaos-fault-injection",
+  "parent_key": "storage_files:09",
+  "category": "storage_files",
+  "index": 9,
+  "title": "CAD drawing document locker [v39_cpp_security-auditor_chaos-fault-injection]",
+  "seed_id": "storage_files_09_cad-drawing-document-locker",
+  "workdir": "task_storage_files_09__v39_cpp_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "cpp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_cpp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\09_storage_files_09_cad-drawing-document-locker\\platform_prompt.md"
+}

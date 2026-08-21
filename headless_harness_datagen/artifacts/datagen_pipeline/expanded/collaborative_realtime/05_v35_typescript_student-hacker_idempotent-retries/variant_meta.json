@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:05__v35_typescript_student-hacker_idempotent-retries",
+  "parent_key": "collaborative_realtime:05",
+  "category": "collaborative_realtime",
+  "index": 5,
+  "title": "Classroom quiz live leaderboard [v35_typescript_student-hacker_idempotent-retries]",
+  "seed_id": "collaborative_realtime_05_classroom-quiz-live-leaderboard",
+  "workdir": "task_collaborative_realtime_05__v35_typescript_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_typescript_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\05_collaborative_realtime_05_classroom-quiz-live-leaderboard\\platform_prompt.md"
+}

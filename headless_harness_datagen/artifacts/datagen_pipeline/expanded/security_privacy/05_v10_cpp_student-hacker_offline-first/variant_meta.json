@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:05__v10_cpp_student-hacker_offline-first",
+  "parent_key": "security_privacy:05",
+  "category": "security_privacy",
+  "index": 5,
+  "title": "Permission policy tester [v10_cpp_student-hacker_offline-first]",
+  "seed_id": "security_privacy_05_permission-policy-tester",
+  "workdir": "task_security_privacy_05__v10_cpp_student-hacker_offline-first",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_cpp_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\05_security_privacy_05_permission-policy-tester\\platform_prompt.md"
+}

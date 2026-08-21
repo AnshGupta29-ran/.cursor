@@ -1,0 +1,25 @@
+{
+  "task_key": "games:06__v06_typescript_solo-founder_dark-ops-console",
+  "parent_key": "games:06",
+  "category": "games",
+  "index": 6,
+  "title": "Physics sandbox balls [v06_typescript_solo-founder_dark-ops-console]",
+  "seed_id": "games_06_physics-sandbox-balls",
+  "workdir": "task_games_06__v06_typescript_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_typescript_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\games\\forged\\06_games_06_physics-sandbox-balls\\platform_prompt.md"
+}

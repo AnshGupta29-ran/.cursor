@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:09__v06_csharp_solo-founder_dark-ops-console",
+  "parent_key": "storage_files:09",
+  "category": "storage_files",
+  "index": 9,
+  "title": "CAD drawing document locker [v06_csharp_solo-founder_dark-ops-console]",
+  "seed_id": "storage_files_09_cad-drawing-document-locker",
+  "workdir": "task_storage_files_09__v06_csharp_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "csharp",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_csharp_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\09_storage_files_09_cad-drawing-document-locker\\platform_prompt.md"
+}

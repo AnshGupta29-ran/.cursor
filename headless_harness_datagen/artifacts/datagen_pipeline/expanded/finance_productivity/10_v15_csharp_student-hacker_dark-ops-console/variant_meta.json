@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:10__v15_csharp_student-hacker_dark-ops-console",
+  "parent_key": "finance_productivity:10",
+  "category": "finance_productivity",
+  "index": 10,
+  "title": "OKR tracker [v15_csharp_student-hacker_dark-ops-console]",
+  "seed_id": "finance_productivity_10_okr-tracker",
+  "workdir": "task_finance_productivity_10__v15_csharp_student-hacker_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_csharp_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\10_finance_productivity_10_okr-tracker\\platform_prompt.md"
+}

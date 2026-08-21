@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:05__v06_rust_solo-founder_dark-ops-console",
+  "parent_key": "security_privacy:05",
+  "category": "security_privacy",
+  "index": 5,
+  "title": "Permission policy tester [v06_rust_solo-founder_dark-ops-console]",
+  "seed_id": "security_privacy_05_permission-policy-tester",
+  "workdir": "task_security_privacy_05__v06_rust_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_rust_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\05_security_privacy_05_permission-policy-tester\\platform_prompt.md"
+}

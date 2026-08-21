@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:03__v39_python_security-auditor_chaos-fault-injection",
+  "parent_key": "security_privacy:03",
+  "category": "security_privacy",
+  "index": 3,
+  "title": "2FA login playground [v39_python_security-auditor_chaos-fault-injection]",
+  "seed_id": "security_privacy_03_2fa-login-playground",
+  "workdir": "task_security_privacy_03__v39_python_security-auditor_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_python_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\03_security_privacy_03_2fa-login-playground\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:07__v09_go_security-auditor_feature-flag-gates",
+  "parent_key": "security_privacy:07",
+  "category": "security_privacy",
+  "index": 7,
+  "title": "Secure file shredder utility [v09_go_security-auditor_feature-flag-gates]",
+  "seed_id": "security_privacy_07_secure-file-shredder-utility",
+  "workdir": "task_security_privacy_07__v09_go_security-auditor_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "localstorage",
+  "variant": "v09_go_security-auditor_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "static_html",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\07_security_privacy_07_secure-file-shredder-utility\\platform_prompt.md"
+}

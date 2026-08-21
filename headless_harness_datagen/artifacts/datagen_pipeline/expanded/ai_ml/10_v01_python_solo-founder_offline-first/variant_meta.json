@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:10__v01_python_solo-founder_offline-first",
+  "parent_key": "ai_ml:10",
+  "category": "ai_ml",
+  "index": 10,
+  "title": "Time-series anomaly flagger [v01_python_solo-founder_offline-first]",
+  "seed_id": "ai_ml_10_time-series-anomaly-flagger",
+  "workdir": "task_ai_ml_10__v01_python_solo-founder_offline-first",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v01_python_solo-founder_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "offline_first",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\10_ai_ml_10_time-series-anomaly-flagger\\platform_prompt.md"
+}

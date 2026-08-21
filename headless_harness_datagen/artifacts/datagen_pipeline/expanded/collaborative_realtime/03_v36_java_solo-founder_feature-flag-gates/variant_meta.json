@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:03__v36_java_solo-founder_feature-flag-gates",
+  "parent_key": "collaborative_realtime:03",
+  "category": "collaborative_realtime",
+  "index": 3,
+  "title": "Pair programming shared editor [v36_java_solo-founder_feature-flag-gates]",
+  "seed_id": "collaborative_realtime_03_pair-programming-shared-editor",
+  "workdir": "task_collaborative_realtime_03__v36_java_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_java_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\03_collaborative_realtime_03_pair-programming-shared-editor\\platform_prompt.md"
+}

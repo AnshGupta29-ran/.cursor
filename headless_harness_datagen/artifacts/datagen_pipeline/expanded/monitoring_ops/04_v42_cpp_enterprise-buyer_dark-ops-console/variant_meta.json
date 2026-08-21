@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:04__v42_cpp_enterprise-buyer_dark-ops-console",
+  "parent_key": "monitoring_ops:04",
+  "category": "monitoring_ops",
+  "index": 4,
+  "title": "Cron job watchdog [v42_cpp_enterprise-buyer_dark-ops-console]",
+  "seed_id": "monitoring_ops_04_cron-job-watchdog",
+  "workdir": "task_monitoring_ops_04__v42_cpp_enterprise-buyer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_cpp_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\04_monitoring_ops_04_cron-job-watchdog\\platform_prompt.md"
+}

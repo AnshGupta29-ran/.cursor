@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:03__v41_javascript_solo-founder_multi-tenant-isolation",
+  "parent_key": "cms_content:03",
+  "category": "cms_content",
+  "index": 3,
+  "title": "University course registration portal [v41_javascript_solo-founder_multi-tenant-isolation]",
+  "seed_id": "cms_content_03_university-course-registration-portal",
+  "workdir": "task_cms_content_03__v41_javascript_solo-founder_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v41_javascript_solo-founder_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\03_cms_content_03_university-course-registration-portal\\platform_prompt.md"
+}

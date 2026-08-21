@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:09__v43_typescript_open-source-maintainer_csv-roundtrip",
+  "parent_key": "collaborative_realtime:09",
+  "category": "collaborative_realtime",
+  "index": 9,
+  "title": "Live CSV co-editing sheet [v43_typescript_open-source-maintainer_csv-roundtrip]",
+  "seed_id": "collaborative_realtime_09_live-csv-co-editing-sheet",
+  "workdir": "task_collaborative_realtime_09__v43_typescript_open-source-maintainer_csv-roundtrip",
+  "complexity": "medium",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "csv_files",
+  "variant": "v43_typescript_open-source-maintainer_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "cli_tui",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\09_collaborative_realtime_09_live-csv-co-editing-sheet\\platform_prompt.md"
+}

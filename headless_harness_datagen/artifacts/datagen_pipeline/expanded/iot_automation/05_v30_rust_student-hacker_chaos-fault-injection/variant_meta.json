@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:05__v30_rust_student-hacker_chaos-fault-injection",
+  "parent_key": "iot_automation:05",
+  "category": "iot_automation",
+  "index": 5,
+  "title": "Building HVAC zone manager [v30_rust_student-hacker_chaos-fault-injection]",
+  "seed_id": "iot_automation_05_building-hvac-zone-manager",
+  "workdir": "task_iot_automation_05__v30_rust_student-hacker_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "mobile_web",
+  "persistence": "memory_only",
+  "variant": "v30_rust_student-hacker_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "student_hacker",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "mobile_web",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\05_iot_automation_05_building-hvac-zone-manager\\platform_prompt.md"
+}

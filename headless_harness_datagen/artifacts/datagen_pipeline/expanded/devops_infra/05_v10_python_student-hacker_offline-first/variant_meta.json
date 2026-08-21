@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:05__v10_python_student-hacker_offline-first",
+  "parent_key": "devops_infra:05",
+  "category": "devops_infra",
+  "index": 5,
+  "title": "Terraform state explorer [v10_python_student-hacker_offline-first]",
+  "seed_id": "devops_infra_05_terraform-state-explorer",
+  "workdir": "task_devops_infra_05__v10_python_student-hacker_offline-first",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_python_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\05_devops_infra_05_terraform-state-explorer\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:05__v05_go_student-hacker_multi-tenant-isolation",
+  "parent_key": "finance_productivity:05",
+  "category": "finance_productivity",
+  "index": 5,
+  "title": "Task and project management tool [v05_go_student-hacker_multi-tenant-isolation]",
+  "seed_id": "finance_productivity_05_task-and-project-management-tool",
+  "workdir": "task_finance_productivity_05__v05_go_student-hacker_multi-tenant-isolation",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v05_go_student-hacker_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "student_hacker",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\05_finance_productivity_05_task-and-project-management-tool\\platform_prompt.md"
+}

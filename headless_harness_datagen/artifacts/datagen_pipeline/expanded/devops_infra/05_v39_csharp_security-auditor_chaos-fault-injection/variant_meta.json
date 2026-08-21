@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:05__v39_csharp_security-auditor_chaos-fault-injection",
+  "parent_key": "devops_infra:05",
+  "category": "devops_infra",
+  "index": 5,
+  "title": "Terraform state explorer [v39_csharp_security-auditor_chaos-fault-injection]",
+  "seed_id": "devops_infra_05_terraform-state-explorer",
+  "workdir": "task_devops_infra_05__v39_csharp_security-auditor_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_csharp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\05_devops_infra_05_terraform-state-explorer\\platform_prompt.md"
+}

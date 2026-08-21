@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:01__v19_typescript_security-auditor_offline-first",
+  "parent_key": "ecommerce:01",
+  "category": "ecommerce",
+  "index": 1,
+  "title": "E-commerce inventory and orders [v19_typescript_security-auditor_offline-first]",
+  "seed_id": "ecommerce_01_e-commerce-inventory-and-orders",
+  "workdir": "task_ecommerce_01__v19_typescript_security-auditor_offline-first",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "cli_tui",
+  "persistence": "localstorage",
+  "variant": "v19_typescript_security-auditor_offline-first",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "offline_first",
+    "ui_surface": "cli_tui",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\01_ecommerce_01_e-commerce-inventory-and-orders\\platform_prompt.md"
+}

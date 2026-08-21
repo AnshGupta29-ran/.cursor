@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:02__v45_rust_student-hacker_feature-flag-gates",
+  "parent_key": "ecommerce:02",
+  "category": "ecommerce",
+  "index": 2,
+  "title": "Restaurant ordering system [v45_rust_student-hacker_feature-flag-gates]",
+  "seed_id": "ecommerce_02_restaurant-ordering-system",
+  "workdir": "task_ecommerce_02__v45_rust_student-hacker_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v45_rust_student-hacker_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "student_hacker",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\02_ecommerce_02_restaurant-ordering-system\\platform_prompt.md"
+}

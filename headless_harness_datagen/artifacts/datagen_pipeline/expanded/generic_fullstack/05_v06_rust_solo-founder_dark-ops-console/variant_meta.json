@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:05__v06_rust_solo-founder_dark-ops-console",
+  "parent_key": "generic_fullstack:05",
+  "category": "generic_fullstack",
+  "index": 5,
+  "title": "Job board [v06_rust_solo-founder_dark-ops-console]",
+  "seed_id": "generic_fullstack_05_job-board",
+  "workdir": "task_generic_fullstack_05__v06_rust_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_rust_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\05_generic_fullstack_05_job-board\\platform_prompt.md"
+}

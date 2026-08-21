@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:10__v36_rust_solo-founder_feature-flag-gates",
+  "parent_key": "devops_infra:10",
+  "category": "devops_infra",
+  "index": 10,
+  "title": "Feature flag admin console [v36_rust_solo-founder_feature-flag-gates]",
+  "seed_id": "devops_infra_10_feature-flag-admin-console",
+  "workdir": "task_devops_infra_10__v36_rust_solo-founder_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_rust_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\10_devops_infra_10_feature-flag-admin-console\\platform_prompt.md"
+}

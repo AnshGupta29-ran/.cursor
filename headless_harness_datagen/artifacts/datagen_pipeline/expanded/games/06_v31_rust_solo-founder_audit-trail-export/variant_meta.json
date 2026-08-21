@@ -1,0 +1,25 @@
+{
+  "task_key": "games:06__v31_rust_solo-founder_audit-trail-export",
+  "parent_key": "games:06",
+  "category": "games",
+  "index": 6,
+  "title": "Physics sandbox balls [v31_rust_solo-founder_audit-trail-export]",
+  "seed_id": "games_06_physics-sandbox-balls",
+  "workdir": "task_games_06__v31_rust_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_rust_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\games\\forged\\06_games_06_physics-sandbox-balls\\platform_prompt.md"
+}

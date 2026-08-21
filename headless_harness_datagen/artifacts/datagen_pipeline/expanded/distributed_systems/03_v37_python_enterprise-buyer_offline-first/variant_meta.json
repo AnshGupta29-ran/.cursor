@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:03__v37_python_enterprise-buyer_offline-first",
+  "parent_key": "distributed_systems:03",
+  "category": "distributed_systems",
+  "index": 3,
+  "title": "Leader election toy cluster [v37_python_enterprise-buyer_offline-first]",
+  "seed_id": "distributed_systems_03_leader-election-toy-cluster",
+  "workdir": "task_distributed_systems_03__v37_python_enterprise-buyer_offline-first",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "desktop_window",
+  "persistence": "json_file",
+  "variant": "v37_python_enterprise-buyer_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\03_distributed_systems_03_leader-election-toy-cluster\\platform_prompt.md"
+}

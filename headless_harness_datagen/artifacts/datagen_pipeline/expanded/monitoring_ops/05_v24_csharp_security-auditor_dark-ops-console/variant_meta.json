@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:05__v24_csharp_security-auditor_dark-ops-console",
+  "parent_key": "monitoring_ops:05",
+  "category": "monitoring_ops",
+  "index": 5,
+  "title": "Disk and memory host agent [v24_csharp_security-auditor_dark-ops-console]",
+  "seed_id": "monitoring_ops_05_disk-and-memory-host-agent",
+  "workdir": "task_monitoring_ops_05__v24_csharp_security-auditor_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "csharp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_csharp_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\05_monitoring_ops_05_disk-and-memory-host-agent\\platform_prompt.md"
+}

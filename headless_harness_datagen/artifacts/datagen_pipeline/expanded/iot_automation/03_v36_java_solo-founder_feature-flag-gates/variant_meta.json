@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:03__v36_java_solo-founder_feature-flag-gates",
+  "parent_key": "iot_automation:03",
+  "category": "iot_automation",
+  "index": 3,
+  "title": "Fleet GPS tracker simulator [v36_java_solo-founder_feature-flag-gates]",
+  "seed_id": "iot_automation_03_fleet-gps-tracker-simulator",
+  "workdir": "task_iot_automation_03__v36_java_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_java_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\03_iot_automation_03_fleet-gps-tracker-simulator\\platform_prompt.md"
+}

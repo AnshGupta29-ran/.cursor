@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:01__v39_csharp_security-auditor_chaos-fault-injection",
+  "parent_key": "collaborative_realtime:01",
+  "category": "collaborative_realtime",
+  "index": 1,
+  "title": "Slack-style team chat [v39_csharp_security-auditor_chaos-fault-injection]",
+  "seed_id": "collaborative_realtime_01_slack-style-team-chat",
+  "workdir": "task_collaborative_realtime_01__v39_csharp_security-auditor_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_csharp_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\01_collaborative_realtime_01_slack-style-team-chat\\platform_prompt.md"
+}

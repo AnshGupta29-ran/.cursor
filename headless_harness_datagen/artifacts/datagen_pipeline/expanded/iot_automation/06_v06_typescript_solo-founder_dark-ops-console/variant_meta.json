@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:06__v06_typescript_solo-founder_dark-ops-console",
+  "parent_key": "iot_automation:06",
+  "category": "iot_automation",
+  "index": 6,
+  "title": "MQTT device playground [v06_typescript_solo-founder_dark-ops-console]",
+  "seed_id": "iot_automation_06_mqtt-device-playground",
+  "workdir": "task_iot_automation_06__v06_typescript_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_typescript_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\06_iot_automation_06_mqtt-device-playground\\platform_prompt.md"
+}

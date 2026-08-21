@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:07__v28_typescript_open-source-maintainer_offline-first",
+  "parent_key": "distributed_systems:07",
+  "category": "distributed_systems",
+  "index": 7,
+  "title": "Sharded key-value store [v28_typescript_open-source-maintainer_offline-first]",
+  "seed_id": "distributed_systems_07_sharded-key-value-store",
+  "workdir": "task_distributed_systems_07__v28_typescript_open-source-maintainer_offline-first",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "api_only",
+  "persistence": "csv_files",
+  "variant": "v28_typescript_open-source-maintainer_offline-first",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "api_only",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\07_distributed_systems_07_sharded-key-value-store\\platform_prompt.md"
+}

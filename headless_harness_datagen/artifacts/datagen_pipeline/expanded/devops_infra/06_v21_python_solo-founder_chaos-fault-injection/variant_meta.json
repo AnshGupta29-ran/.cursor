@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:06__v21_python_solo-founder_chaos-fault-injection",
+  "parent_key": "devops_infra:06",
+  "category": "devops_infra",
+  "index": 6,
+  "title": "Local registry + image GC [v21_python_solo-founder_chaos-fault-injection]",
+  "seed_id": "devops_infra_06_local-registry-image-gc",
+  "workdir": "task_devops_infra_06__v21_python_solo-founder_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_python_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\06_devops_infra_06_local-registry-image-gc\\platform_prompt.md"
+}

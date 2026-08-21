@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:03__v09_javascript_security-auditor_feature-flag-gates",
+  "parent_key": "security_privacy:03",
+  "category": "security_privacy",
+  "index": 3,
+  "title": "2FA login playground [v09_javascript_security-auditor_feature-flag-gates]",
+  "seed_id": "security_privacy_03_2fa-login-playground",
+  "workdir": "task_security_privacy_03__v09_javascript_security-auditor_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "static_html",
+  "persistence": "localstorage",
+  "variant": "v09_javascript_security-auditor_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "static_html",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\03_security_privacy_03_2fa-login-playground\\platform_prompt.md"
+}

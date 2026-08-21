@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v34_java_security-auditor_csv-roundtrip",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v34_java_security-auditor_csv-roundtrip]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v34_java_security-auditor_csv-roundtrip",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "react_spa",
+  "persistence": "localstorage",
+  "variant": "v34_java_security-auditor_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "react_spa",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

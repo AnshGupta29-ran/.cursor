@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:10__v35_javascript_student-hacker_idempotent-retries",
+  "parent_key": "security_privacy:10",
+  "category": "security_privacy",
+  "index": 10,
+  "title": "Certificate expiry monitor [v35_javascript_student-hacker_idempotent-retries]",
+  "seed_id": "security_privacy_10_certificate-expiry-monitor",
+  "workdir": "task_security_privacy_10__v35_javascript_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_javascript_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\10_security_privacy_10_certificate-expiry-monitor\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:07__v37_go_enterprise-buyer_offline-first",
+  "parent_key": "monitoring_ops:07",
+  "category": "monitoring_ops",
+  "index": 7,
+  "title": "On-call rotation calendar [v37_go_enterprise-buyer_offline-first]",
+  "seed_id": "monitoring_ops_07_on-call-rotation-calendar",
+  "workdir": "task_monitoring_ops_07__v37_go_enterprise-buyer_offline-first",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "desktop_window",
+  "persistence": "json_file",
+  "variant": "v37_go_enterprise-buyer_offline-first",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\07_monitoring_ops_07_on-call-rotation-calendar\\platform_prompt.md"
+}

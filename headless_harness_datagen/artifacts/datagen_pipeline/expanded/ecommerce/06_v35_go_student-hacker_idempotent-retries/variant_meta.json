@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:06__v35_go_student-hacker_idempotent-retries",
+  "parent_key": "ecommerce:06",
+  "category": "ecommerce",
+  "index": 6,
+  "title": "Marketplace listings for crafts [v35_go_student-hacker_idempotent-retries]",
+  "seed_id": "ecommerce_06_marketplace-listings-for-crafts",
+  "workdir": "task_ecommerce_06__v35_go_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_go_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\06_ecommerce_06_marketplace-listings-for-crafts\\platform_prompt.md"
+}

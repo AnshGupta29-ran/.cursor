@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v30_javascript_student-hacker_chaos-fault-injection",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v30_javascript_student-hacker_chaos-fault-injection]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v30_javascript_student-hacker_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "mobile_web",
+  "persistence": "memory_only",
+  "variant": "v30_javascript_student-hacker_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "mobile_web",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

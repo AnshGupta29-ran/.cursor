@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:09__v33_typescript_open-source-maintainer_dark-ops-console",
+  "parent_key": "finance_productivity:09",
+  "category": "finance_productivity",
+  "index": 9,
+  "title": "Budget workbook assistant [v33_typescript_open-source-maintainer_dark-ops-console]",
+  "seed_id": "finance_productivity_09_budget-workbook-assistant",
+  "workdir": "task_finance_productivity_09__v33_typescript_open-source-maintainer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "static_html",
+  "persistence": "csv_files",
+  "variant": "v33_typescript_open-source-maintainer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\09_finance_productivity_09_budget-workbook-assistant\\platform_prompt.md"
+}

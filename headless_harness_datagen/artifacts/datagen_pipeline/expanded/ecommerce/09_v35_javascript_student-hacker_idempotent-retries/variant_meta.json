@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:09__v35_javascript_student-hacker_idempotent-retries",
+  "parent_key": "ecommerce:09",
+  "category": "ecommerce",
+  "index": 9,
+  "title": "Wholesale price list Excel sync [v35_javascript_student-hacker_idempotent-retries]",
+  "seed_id": "ecommerce_09_wholesale-price-list-excel-sync",
+  "workdir": "task_ecommerce_09__v35_javascript_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_javascript_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\09_ecommerce_09_wholesale-price-list-excel-sync\\platform_prompt.md"
+}

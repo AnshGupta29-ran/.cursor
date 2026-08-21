@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:03__v07_javascript_enterprise-buyer_csv-roundtrip",
+  "parent_key": "collaborative_realtime:03",
+  "category": "collaborative_realtime",
+  "index": 3,
+  "title": "Pair programming shared editor [v07_javascript_enterprise-buyer_csv-roundtrip]",
+  "seed_id": "collaborative_realtime_03_pair-programming-shared-editor",
+  "workdir": "task_collaborative_realtime_03__v07_javascript_enterprise-buyer_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "javascript",
+  "ui_surface": "html_canvas",
+  "persistence": "json_file",
+  "variant": "v07_javascript_enterprise-buyer_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "html_canvas",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\03_collaborative_realtime_03_pair-programming-shared-editor\\platform_prompt.md"
+}

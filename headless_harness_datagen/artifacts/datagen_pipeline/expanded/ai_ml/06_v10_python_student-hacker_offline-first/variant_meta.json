@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:06__v10_python_student-hacker_offline-first",
+  "parent_key": "ai_ml:06",
+  "category": "ai_ml",
+  "index": 6,
+  "title": "Tabular churn predictor demo [v10_python_student-hacker_offline-first]",
+  "seed_id": "ai_ml_06_tabular-churn-predictor-demo",
+  "workdir": "task_ai_ml_06__v10_python_student-hacker_offline-first",
+  "complexity": "low",
+  "language_runtime": "python",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_python_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\06_ai_ml_06_tabular-churn-predictor-demo\\platform_prompt.md"
+}

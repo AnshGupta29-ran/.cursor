@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:08__v39_go_security-auditor_chaos-fault-injection",
+  "parent_key": "monitoring_ops:08",
+  "category": "monitoring_ops",
+  "index": 8,
+  "title": "Queue depth observatory [v39_go_security-auditor_chaos-fault-injection]",
+  "seed_id": "monitoring_ops_08_queue-depth-observatory",
+  "workdir": "task_monitoring_ops_08__v39_go_security-auditor_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "html_canvas",
+  "persistence": "localstorage",
+  "variant": "v39_go_security-auditor_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "security_auditor",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "html_canvas",
+    "persistence": "localstorage",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\08_monitoring_ops_08_queue-depth-observatory\\platform_prompt.md"
+}

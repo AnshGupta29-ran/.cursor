@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:03__v06_cpp_solo-founder_dark-ops-console",
+  "parent_key": "storage_files:03",
+  "category": "storage_files",
+  "index": 3,
+  "title": "Team document vault with preview [v06_cpp_solo-founder_dark-ops-console]",
+  "seed_id": "storage_files_03_team-document-vault-with-preview",
+  "workdir": "task_storage_files_03__v06_cpp_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_cpp_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\03_storage_files_03_team-document-vault-with-preview\\platform_prompt.md"
+}

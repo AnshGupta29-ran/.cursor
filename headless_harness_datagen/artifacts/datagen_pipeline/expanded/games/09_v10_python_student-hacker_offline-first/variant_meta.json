@@ -1,0 +1,25 @@
+{
+  "task_key": "games:09__v10_python_student-hacker_offline-first",
+  "parent_key": "games:09",
+  "category": "games",
+  "index": 9,
+  "title": "Puzzle match-3 lite [v10_python_student-hacker_offline-first]",
+  "seed_id": "games_09_puzzle-match-3-lite",
+  "workdir": "task_games_09__v10_python_student-hacker_offline-first",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_python_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\games\\forged\\09_games_09_puzzle-match-3-lite\\platform_prompt.md"
+}

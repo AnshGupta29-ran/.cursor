@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:05__v24_csharp_security-auditor_dark-ops-console",
+  "parent_key": "collaborative_realtime:05",
+  "category": "collaborative_realtime",
+  "index": 5,
+  "title": "Classroom quiz live leaderboard [v24_csharp_security-auditor_dark-ops-console]",
+  "seed_id": "collaborative_realtime_05_classroom-quiz-live-leaderboard",
+  "workdir": "task_collaborative_realtime_05__v24_csharp_security-auditor_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "dashboard_charts",
+  "persistence": "localstorage",
+  "variant": "v24_csharp_security-auditor_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "dashboard_charts",
+    "persistence": "localstorage",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\05_collaborative_realtime_05_classroom-quiz-live-leaderboard\\platform_prompt.md"
+}

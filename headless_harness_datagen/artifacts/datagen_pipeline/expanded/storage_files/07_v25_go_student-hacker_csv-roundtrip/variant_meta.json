@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:07__v25_go_student-hacker_csv-roundtrip",
+  "parent_key": "storage_files:07",
+  "category": "storage_files",
+  "index": 7,
+  "title": "Lab dataset repository [v25_go_student-hacker_csv-roundtrip]",
+  "seed_id": "storage_files_07_lab-dataset-repository",
+  "workdir": "task_storage_files_07__v25_go_student-hacker_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "memory_only",
+  "variant": "v25_go_student-hacker_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "student_hacker",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\07_storage_files_07_lab-dataset-repository\\platform_prompt.md"
+}

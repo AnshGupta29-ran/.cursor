@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:07__v44_rust_security-auditor_idempotent-retries",
+  "parent_key": "distributed_systems:07",
+  "category": "distributed_systems",
+  "index": 7,
+  "title": "Sharded key-value store [v44_rust_security-auditor_idempotent-retries]",
+  "seed_id": "distributed_systems_07_sharded-key-value-store",
+  "workdir": "task_distributed_systems_07__v44_rust_security-auditor_idempotent-retries",
+  "complexity": "hard",
+  "language_runtime": "rust",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v44_rust_security-auditor_idempotent-retries",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "security_auditor",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\07_distributed_systems_07_sharded-key-value-store\\platform_prompt.md"
+}

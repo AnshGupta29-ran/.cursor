@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:09__v33_typescript_open-source-maintainer_dark-ops-console",
+  "parent_key": "iot_automation:09",
+  "category": "iot_automation",
+  "index": 9,
+  "title": "Home energy meter dashboard [v33_typescript_open-source-maintainer_dark-ops-console]",
+  "seed_id": "iot_automation_09_home-energy-meter-dashboard",
+  "workdir": "task_iot_automation_09__v33_typescript_open-source-maintainer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "static_html",
+  "persistence": "csv_files",
+  "variant": "v33_typescript_open-source-maintainer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "static_html",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\09_iot_automation_09_home-energy-meter-dashboard\\platform_prompt.md"
+}

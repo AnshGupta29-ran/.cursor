@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:02__v37_go_enterprise-buyer_offline-first",
+  "parent_key": "devops_infra:02",
+  "category": "devops_infra",
+  "index": 2,
+  "title": "Kubernetes cluster visualization [v37_go_enterprise-buyer_offline-first]",
+  "seed_id": "devops_infra_02_kubernetes-cluster-visualization",
+  "workdir": "task_devops_infra_02__v37_go_enterprise-buyer_offline-first",
+  "complexity": "medium",
+  "language_runtime": "go",
+  "ui_surface": "desktop_window",
+  "persistence": "json_file",
+  "variant": "v37_go_enterprise-buyer_offline-first",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "desktop_window",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\02_devops_infra_02_kubernetes-cluster-visualization\\platform_prompt.md"
+}

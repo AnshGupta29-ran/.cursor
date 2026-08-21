@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:01__v30_csharp_student-hacker_chaos-fault-injection",
+  "parent_key": "ecommerce:01",
+  "category": "ecommerce",
+  "index": 1,
+  "title": "E-commerce inventory and orders [v30_csharp_student-hacker_chaos-fault-injection]",
+  "seed_id": "ecommerce_01_e-commerce-inventory-and-orders",
+  "workdir": "task_ecommerce_01__v30_csharp_student-hacker_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "csharp",
+  "ui_surface": "mobile_web",
+  "persistence": "memory_only",
+  "variant": "v30_csharp_student-hacker_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "student_hacker",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "mobile_web",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\01_ecommerce_01_e-commerce-inventory-and-orders\\platform_prompt.md"
+}

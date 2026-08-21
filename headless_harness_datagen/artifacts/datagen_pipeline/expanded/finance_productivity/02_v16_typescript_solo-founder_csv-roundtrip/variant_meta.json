@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:02__v16_typescript_solo-founder_csv-roundtrip",
+  "parent_key": "finance_productivity:02",
+  "category": "finance_productivity",
+  "index": 2,
+  "title": "Personal finance manager [v16_typescript_solo-founder_csv-roundtrip]",
+  "seed_id": "finance_productivity_02_personal-finance-manager",
+  "workdir": "task_finance_productivity_02__v16_typescript_solo-founder_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "dashboard_charts",
+  "persistence": "sqlite",
+  "variant": "v16_typescript_solo-founder_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "dashboard_charts",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\02_finance_productivity_02_personal-finance-manager\\platform_prompt.md"
+}

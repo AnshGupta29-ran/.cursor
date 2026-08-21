@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:06__v26_java_solo-founder_idempotent-retries",
+  "parent_key": "storage_files:06",
+  "category": "storage_files",
+  "index": 6,
+  "title": "Encrypted file dropbox [v26_java_solo-founder_idempotent-retries]",
+  "seed_id": "storage_files_06_encrypted-file-dropbox",
+  "workdir": "task_storage_files_06__v26_java_solo-founder_idempotent-retries",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "react_spa",
+  "persistence": "sqlite",
+  "variant": "v26_java_solo-founder_idempotent-retries",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "react_spa",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\06_storage_files_06_encrypted-file-dropbox\\platform_prompt.md"
+}

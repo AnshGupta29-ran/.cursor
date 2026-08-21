@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:09__v06_java_solo-founder_dark-ops-console",
+  "parent_key": "ecommerce:09",
+  "category": "ecommerce",
+  "index": 9,
+  "title": "Wholesale price list Excel sync [v06_java_solo-founder_dark-ops-console]",
+  "seed_id": "ecommerce_09_wholesale-price-list-excel-sync",
+  "workdir": "task_ecommerce_09__v06_java_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_java_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\09_ecommerce_09_wholesale-price-list-excel-sync\\platform_prompt.md"
+}

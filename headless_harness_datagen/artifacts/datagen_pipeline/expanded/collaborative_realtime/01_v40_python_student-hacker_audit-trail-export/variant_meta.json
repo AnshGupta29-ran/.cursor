@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:01__v40_python_student-hacker_audit-trail-export",
+  "parent_key": "collaborative_realtime:01",
+  "category": "collaborative_realtime",
+  "index": 1,
+  "title": "Slack-style team chat [v40_python_student-hacker_audit-trail-export]",
+  "seed_id": "collaborative_realtime_01_slack-style-team-chat",
+  "workdir": "task_collaborative_realtime_01__v40_python_student-hacker_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "dashboard_charts",
+  "persistence": "memory_only",
+  "variant": "v40_python_student-hacker_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "dashboard_charts",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\01_collaborative_realtime_01_slack-style-team-chat\\platform_prompt.md"
+}

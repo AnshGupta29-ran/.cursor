@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:08__v36_python_solo-founder_feature-flag-gates",
+  "parent_key": "cms_content:08",
+  "category": "cms_content",
+  "index": 8,
+  "title": "Recipe publisher [v36_python_solo-founder_feature-flag-gates]",
+  "seed_id": "cms_content_08_recipe-publisher",
+  "workdir": "task_cms_content_08__v36_python_solo-founder_feature-flag-gates",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "api_only",
+  "persistence": "sqlite",
+  "variant": "v36_python_solo-founder_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "api_only",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\08_cms_content_08_recipe-publisher\\platform_prompt.md"
+}

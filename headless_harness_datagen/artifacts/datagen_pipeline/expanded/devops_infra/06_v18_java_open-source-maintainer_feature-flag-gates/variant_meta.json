@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:06__v18_java_open-source-maintainer_feature-flag-gates",
+  "parent_key": "devops_infra:06",
+  "category": "devops_infra",
+  "index": 6,
+  "title": "Local registry + image GC [v18_java_open-source-maintainer_feature-flag-gates]",
+  "seed_id": "devops_infra_06_local-registry-image-gc",
+  "workdir": "task_devops_infra_06__v18_java_open-source-maintainer_feature-flag-gates",
+  "complexity": "low",
+  "language_runtime": "java",
+  "ui_surface": "react_spa",
+  "persistence": "csv_files",
+  "variant": "v18_java_open-source-maintainer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "react_spa",
+    "persistence": "csv_files",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\06_devops_infra_06_local-registry-image-gc\\platform_prompt.md"
+}

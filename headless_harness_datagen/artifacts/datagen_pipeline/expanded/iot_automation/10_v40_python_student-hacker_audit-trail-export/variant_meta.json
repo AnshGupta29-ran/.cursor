@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:10__v40_python_student-hacker_audit-trail-export",
+  "parent_key": "iot_automation:10",
+  "category": "iot_automation",
+  "index": 10,
+  "title": "Parking lot occupancy sensors [v40_python_student-hacker_audit-trail-export]",
+  "seed_id": "iot_automation_10_parking-lot-occupancy-sensors",
+  "workdir": "task_iot_automation_10__v40_python_student-hacker_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "python",
+  "ui_surface": "dashboard_charts",
+  "persistence": "memory_only",
+  "variant": "v40_python_student-hacker_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "student_hacker",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "dashboard_charts",
+    "persistence": "memory_only",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\10_iot_automation_10_parking-lot-occupancy-sensors\\platform_prompt.md"
+}

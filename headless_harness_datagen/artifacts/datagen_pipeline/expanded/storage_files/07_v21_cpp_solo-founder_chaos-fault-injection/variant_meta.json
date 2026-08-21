@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:07__v21_cpp_solo-founder_chaos-fault-injection",
+  "parent_key": "storage_files:07",
+  "category": "storage_files",
+  "index": 7,
+  "title": "Lab dataset repository [v21_cpp_solo-founder_chaos-fault-injection]",
+  "seed_id": "storage_files_07_lab-dataset-repository",
+  "workdir": "task_storage_files_07__v21_cpp_solo-founder_chaos-fault-injection",
+  "complexity": "low",
+  "language_runtime": "cpp",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_cpp_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\07_storage_files_07_lab-dataset-repository\\platform_prompt.md"
+}

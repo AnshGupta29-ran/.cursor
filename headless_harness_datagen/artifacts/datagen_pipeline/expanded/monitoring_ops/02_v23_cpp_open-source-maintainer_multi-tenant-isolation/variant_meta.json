@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:02__v23_cpp_open-source-maintainer_multi-tenant-isolation",
+  "parent_key": "monitoring_ops:02",
+  "category": "monitoring_ops",
+  "index": 2,
+  "title": "Service health board [v23_cpp_open-source-maintainer_multi-tenant-isolation]",
+  "seed_id": "monitoring_ops_02_service-health-board",
+  "workdir": "task_monitoring_ops_02__v23_cpp_open-source-maintainer_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "cpp",
+  "ui_surface": "html_canvas",
+  "persistence": "csv_files",
+  "variant": "v23_cpp_open-source-maintainer_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "html_canvas",
+    "persistence": "csv_files",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\02_monitoring_ops_02_service-health-board\\platform_prompt.md"
+}

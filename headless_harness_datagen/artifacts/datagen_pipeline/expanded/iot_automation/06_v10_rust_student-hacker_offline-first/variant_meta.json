@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:06__v10_rust_student-hacker_offline-first",
+  "parent_key": "iot_automation:06",
+  "category": "iot_automation",
+  "index": 6,
+  "title": "MQTT device playground [v10_rust_student-hacker_offline-first]",
+  "seed_id": "iot_automation_06_mqtt-device-playground",
+  "workdir": "task_iot_automation_06__v10_rust_student-hacker_offline-first",
+  "complexity": "low",
+  "language_runtime": "rust",
+  "ui_surface": "react_spa",
+  "persistence": "memory_only",
+  "variant": "v10_rust_student-hacker_offline-first",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "student_hacker",
+    "novelty_hook": "offline_first",
+    "ui_surface": "react_spa",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\06_iot_automation_06_mqtt-device-playground\\platform_prompt.md"
+}

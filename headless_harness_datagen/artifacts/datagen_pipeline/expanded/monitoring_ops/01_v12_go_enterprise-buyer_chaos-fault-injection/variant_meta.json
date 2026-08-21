@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:01__v12_go_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "monitoring_ops:01",
+  "category": "monitoring_ops",
+  "index": 1,
+  "title": "Network monitoring dashboard [v12_go_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "monitoring_ops_01_network-monitoring-dashboard",
+  "workdir": "task_monitoring_ops_01__v12_go_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "go",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_go_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\01_monitoring_ops_01_network-monitoring-dashboard\\platform_prompt.md"
+}

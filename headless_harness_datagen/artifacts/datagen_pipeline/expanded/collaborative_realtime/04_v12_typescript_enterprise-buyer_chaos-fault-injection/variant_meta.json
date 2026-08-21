@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:04__v12_typescript_enterprise-buyer_chaos-fault-injection",
+  "parent_key": "collaborative_realtime:04",
+  "category": "collaborative_realtime",
+  "index": 4,
+  "title": "Live auction room [v12_typescript_enterprise-buyer_chaos-fault-injection]",
+  "seed_id": "collaborative_realtime_04_live-auction-room",
+  "workdir": "task_collaborative_realtime_04__v12_typescript_enterprise-buyer_chaos-fault-injection",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "api_only",
+  "persistence": "json_file",
+  "variant": "v12_typescript_enterprise-buyer_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "api_only",
+    "persistence": "json_file",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\04_collaborative_realtime_04_live-auction-room\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:10__v41_python_solo-founder_multi-tenant-isolation",
+  "parent_key": "generic_fullstack:10",
+  "category": "generic_fullstack",
+  "index": 10,
+  "title": "Personal CRM lite [v41_python_solo-founder_multi-tenant-isolation]",
+  "seed_id": "generic_fullstack_10_personal-crm-lite",
+  "workdir": "task_generic_fullstack_10__v41_python_solo-founder_multi-tenant-isolation",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "static_html",
+  "persistence": "sqlite",
+  "variant": "v41_python_solo-founder_multi-tenant-isolation",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "multi_tenant_isolation",
+    "ui_surface": "static_html",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\10_generic_fullstack_10_personal-crm-lite\\platform_prompt.md"
+}

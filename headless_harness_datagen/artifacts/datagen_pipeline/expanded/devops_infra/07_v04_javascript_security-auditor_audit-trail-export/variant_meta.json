@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:07__v04_javascript_security-auditor_audit-trail-export",
+  "parent_key": "devops_infra:07",
+  "category": "devops_infra",
+  "index": 7,
+  "title": "Env var & secrets sync tool [v04_javascript_security-auditor_audit-trail-export]",
+  "seed_id": "devops_infra_07_env-var-secrets-sync-tool",
+  "workdir": "task_devops_infra_07__v04_javascript_security-auditor_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "javascript",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v04_javascript_security-auditor_audit-trail-export",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "security_auditor",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\07_devops_infra_07_env-var-secrets-sync-tool\\platform_prompt.md"
+}

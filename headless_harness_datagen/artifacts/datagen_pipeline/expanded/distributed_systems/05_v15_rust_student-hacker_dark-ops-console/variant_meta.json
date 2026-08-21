@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:05__v15_rust_student-hacker_dark-ops-console",
+  "parent_key": "distributed_systems:05",
+  "category": "distributed_systems",
+  "index": 5,
+  "title": "MapReduce wordcount lab [v15_rust_student-hacker_dark-ops-console]",
+  "seed_id": "distributed_systems_05_mapreduce-wordcount-lab",
+  "workdir": "task_distributed_systems_05__v15_rust_student-hacker_dark-ops-console",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "html_canvas",
+  "persistence": "memory_only",
+  "variant": "v15_rust_student-hacker_dark-ops-console",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "student_hacker",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "html_canvas",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\05_distributed_systems_05_mapreduce-wordcount-lab\\platform_prompt.md"
+}

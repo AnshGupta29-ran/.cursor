@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:01__v31_python_solo-founder_audit-trail-export",
+  "parent_key": "finance_productivity:01",
+  "category": "finance_productivity",
+  "index": 1,
+  "title": "Personal finance tracker PRD [v31_python_solo-founder_audit-trail-export]",
+  "seed_id": "finance_productivity_01_personal-finance-tracker-prd",
+  "workdir": "task_finance_productivity_01__v31_python_solo-founder_audit-trail-export",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "html_canvas",
+  "persistence": "sqlite",
+  "variant": "v31_python_solo-founder_audit-trail-export",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "html_canvas",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\01_finance_productivity_01_personal-finance-tracker-prd\\platform_prompt.md"
+}

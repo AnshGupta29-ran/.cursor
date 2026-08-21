@@ -1,0 +1,25 @@
+{
+  "task_key": "storage_files:10__v21_rust_solo-founder_chaos-fault-injection",
+  "parent_key": "storage_files:10",
+  "category": "storage_files",
+  "index": 10,
+  "title": "Excel workbook drop zone [v21_rust_solo-founder_chaos-fault-injection]",
+  "seed_id": "storage_files_10_excel-workbook-drop-zone",
+  "workdir": "task_storage_files_10__v21_rust_solo-founder_chaos-fault-injection",
+  "complexity": "medium",
+  "language_runtime": "rust",
+  "ui_surface": "desktop_window",
+  "persistence": "sqlite",
+  "variant": "v21_rust_solo-founder_chaos-fault-injection",
+  "mutations": {
+    "language_runtime": "rust",
+    "user_persona": "solo_founder",
+    "novelty_hook": "chaos_fault_injection",
+    "ui_surface": "desktop_window",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\storage_files\\forged\\10_storage_files_10_excel-workbook-drop-zone\\platform_prompt.md"
+}

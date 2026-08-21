@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:05__v28_java_open-source-maintainer_offline-first",
+  "parent_key": "ecommerce:05",
+  "category": "ecommerce",
+  "index": 5,
+  "title": "Subscription box admin [v28_java_open-source-maintainer_offline-first]",
+  "seed_id": "ecommerce_05_subscription-box-admin",
+  "workdir": "task_ecommerce_05__v28_java_open-source-maintainer_offline-first",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "api_only",
+  "persistence": "csv_files",
+  "variant": "v28_java_open-source-maintainer_offline-first",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "open_source_maintainer",
+    "novelty_hook": "offline_first",
+    "ui_surface": "api_only",
+    "persistence": "csv_files",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\05_ecommerce_05_subscription-box-admin\\platform_prompt.md"
+}

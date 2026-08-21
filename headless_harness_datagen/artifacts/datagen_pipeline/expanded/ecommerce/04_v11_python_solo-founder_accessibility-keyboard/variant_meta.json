@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:04__v11_python_solo-founder_accessibility-keyboard",
+  "parent_key": "ecommerce:04",
+  "category": "ecommerce",
+  "index": 4,
+  "title": "Bike shop merchant catalog [v11_python_solo-founder_accessibility-keyboard]",
+  "seed_id": "ecommerce_04_bike-shop-merchant-catalog",
+  "workdir": "task_ecommerce_04__v11_python_solo-founder_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "python",
+  "ui_surface": "cli_tui",
+  "persistence": "sqlite",
+  "variant": "v11_python_solo-founder_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "python",
+    "user_persona": "solo_founder",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "cli_tui",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\04_ecommerce_04_bike-shop-merchant-catalog\\platform_prompt.md"
+}

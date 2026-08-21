@@ -1,0 +1,25 @@
+{
+  "task_key": "cms_content:05__v04_cpp_security-auditor_audit-trail-export",
+  "parent_key": "cms_content:05",
+  "category": "cms_content",
+  "index": 5,
+  "title": "Podcast episode CMS [v04_cpp_security-auditor_audit-trail-export]",
+  "seed_id": "cms_content_05_podcast-episode-cms",
+  "workdir": "task_cms_content_05__v04_cpp_security-auditor_audit-trail-export",
+  "complexity": "hard",
+  "language_runtime": "cpp",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v04_cpp_security-auditor_audit-trail-export",
+  "mutations": {
+    "language_runtime": "cpp",
+    "user_persona": "security_auditor",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\cms_content\\forged\\05_cms_content_05_podcast-episode-cms\\platform_prompt.md"
+}

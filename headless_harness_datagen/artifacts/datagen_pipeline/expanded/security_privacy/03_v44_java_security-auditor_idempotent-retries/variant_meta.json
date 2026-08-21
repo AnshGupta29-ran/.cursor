@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:03__v44_java_security-auditor_idempotent-retries",
+  "parent_key": "security_privacy:03",
+  "category": "security_privacy",
+  "index": 3,
+  "title": "2FA login playground [v44_java_security-auditor_idempotent-retries]",
+  "seed_id": "security_privacy_03_2fa-login-playground",
+  "workdir": "task_security_privacy_03__v44_java_security-auditor_idempotent-retries",
+  "complexity": "hard",
+  "language_runtime": "java",
+  "ui_surface": "api_only",
+  "persistence": "localstorage",
+  "variant": "v44_java_security-auditor_idempotent-retries",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "security_auditor",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "api_only",
+    "persistence": "localstorage",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\03_security_privacy_03_2fa-login-playground\\platform_prompt.md"
+}

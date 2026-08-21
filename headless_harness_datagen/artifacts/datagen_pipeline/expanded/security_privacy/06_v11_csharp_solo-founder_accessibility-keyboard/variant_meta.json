@@ -1,0 +1,25 @@
+{
+  "task_key": "security_privacy:06__v11_csharp_solo-founder_accessibility-keyboard",
+  "parent_key": "security_privacy:06",
+  "category": "security_privacy",
+  "index": 6,
+  "title": "JWT key rotation lab [v11_csharp_solo-founder_accessibility-keyboard]",
+  "seed_id": "security_privacy_06_jwt-key-rotation-lab",
+  "workdir": "task_security_privacy_06__v11_csharp_solo-founder_accessibility-keyboard",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "cli_tui",
+  "persistence": "sqlite",
+  "variant": "v11_csharp_solo-founder_accessibility-keyboard",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "accessibility_keyboard",
+    "ui_surface": "cli_tui",
+    "persistence": "sqlite",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\security_privacy\\forged\\06_security_privacy_06_jwt-key-rotation-lab\\platform_prompt.md"
+}

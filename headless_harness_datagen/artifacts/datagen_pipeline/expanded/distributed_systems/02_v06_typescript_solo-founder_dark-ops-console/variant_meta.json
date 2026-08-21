@@ -1,0 +1,25 @@
+{
+  "task_key": "distributed_systems:02__v06_typescript_solo-founder_dark-ops-console",
+  "parent_key": "distributed_systems:02",
+  "category": "distributed_systems",
+  "index": 2,
+  "title": "Priority job scheduler [v06_typescript_solo-founder_dark-ops-console]",
+  "seed_id": "distributed_systems_02_priority-job-scheduler",
+  "workdir": "task_distributed_systems_02__v06_typescript_solo-founder_dark-ops-console",
+  "complexity": "hard",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_typescript_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "hard",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\distributed_systems\\forged\\02_distributed_systems_02_priority-job-scheduler\\platform_prompt.md"
+}

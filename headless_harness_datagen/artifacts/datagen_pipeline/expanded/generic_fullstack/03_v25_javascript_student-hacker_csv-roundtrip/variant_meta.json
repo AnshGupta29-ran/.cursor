@@ -1,0 +1,25 @@
+{
+  "task_key": "generic_fullstack:03__v25_javascript_student-hacker_csv-roundtrip",
+  "parent_key": "generic_fullstack:03",
+  "category": "generic_fullstack",
+  "index": 3,
+  "title": "Local code search engine [v25_javascript_student-hacker_csv-roundtrip]",
+  "seed_id": "generic_fullstack_03_local-code-search-engine",
+  "workdir": "task_generic_fullstack_03__v25_javascript_student-hacker_csv-roundtrip",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "static_html",
+  "persistence": "memory_only",
+  "variant": "v25_javascript_student-hacker_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\generic_fullstack\\forged\\03_generic_fullstack_03_local-code-search-engine\\platform_prompt.md"
+}

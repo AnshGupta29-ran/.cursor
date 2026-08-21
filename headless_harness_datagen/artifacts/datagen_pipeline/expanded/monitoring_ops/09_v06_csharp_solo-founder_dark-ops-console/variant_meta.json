@@ -1,0 +1,25 @@
+{
+  "task_key": "monitoring_ops:09__v06_csharp_solo-founder_dark-ops-console",
+  "parent_key": "monitoring_ops:09",
+  "category": "monitoring_ops",
+  "index": 9,
+  "title": "Uptime Excel weekly report [v06_csharp_solo-founder_dark-ops-console]",
+  "seed_id": "monitoring_ops_09_uptime-excel-weekly-report",
+  "workdir": "task_monitoring_ops_09__v06_csharp_solo-founder_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "csharp",
+  "ui_surface": "mobile_web",
+  "persistence": "sqlite",
+  "variant": "v06_csharp_solo-founder_dark-ops-console",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "solo_founder",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "mobile_web",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\monitoring_ops\\forged\\09_monitoring_ops_09_uptime-excel-weekly-report\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:06__v27_csharp_enterprise-buyer_feature-flag-gates",
+  "parent_key": "collaborative_realtime:06",
+  "category": "collaborative_realtime",
+  "index": 6,
+  "title": "Collaborative markdown notes [v27_csharp_enterprise-buyer_feature-flag-gates]",
+  "seed_id": "collaborative_realtime_06_collaborative-markdown-notes",
+  "workdir": "task_collaborative_realtime_06__v27_csharp_enterprise-buyer_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "csharp",
+  "ui_surface": "cli_tui",
+  "persistence": "json_file",
+  "variant": "v27_csharp_enterprise-buyer_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "csharp",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "cli_tui",
+    "persistence": "json_file",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\06_collaborative_realtime_06_collaborative-markdown-notes\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "finance_productivity:10__v42_typescript_enterprise-buyer_dark-ops-console",
+  "parent_key": "finance_productivity:10",
+  "category": "finance_productivity",
+  "index": 10,
+  "title": "OKR tracker [v42_typescript_enterprise-buyer_dark-ops-console]",
+  "seed_id": "finance_productivity_10_okr-tracker",
+  "workdir": "task_finance_productivity_10__v42_typescript_enterprise-buyer_dark-ops-console",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "json_file",
+  "variant": "v42_typescript_enterprise-buyer_dark-ops-console",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "dark_ops_console",
+    "ui_surface": "react_spa",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\finance_productivity\\forged\\10_finance_productivity_10_okr-tracker\\platform_prompt.md"
+}

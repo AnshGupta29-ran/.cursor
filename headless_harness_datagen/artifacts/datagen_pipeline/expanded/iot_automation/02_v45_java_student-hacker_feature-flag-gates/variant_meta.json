@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:02__v45_java_student-hacker_feature-flag-gates",
+  "parent_key": "iot_automation:02",
+  "category": "iot_automation",
+  "index": 2,
+  "title": "Factory machine status board [v45_java_student-hacker_feature-flag-gates]",
+  "seed_id": "iot_automation_02_factory-machine-status-board",
+  "workdir": "task_iot_automation_02__v45_java_student-hacker_feature-flag-gates",
+  "complexity": "medium",
+  "language_runtime": "java",
+  "ui_surface": "desktop_window",
+  "persistence": "memory_only",
+  "variant": "v45_java_student-hacker_feature-flag-gates",
+  "mutations": {
+    "language_runtime": "java",
+    "user_persona": "student_hacker",
+    "novelty_hook": "feature_flag_gates",
+    "ui_surface": "desktop_window",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\02_iot_automation_02_factory-machine-status-board\\platform_prompt.md"
+}

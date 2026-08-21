@@ -1,0 +1,25 @@
+{
+  "task_key": "collaborative_realtime:10__v26_typescript_solo-founder_idempotent-retries",
+  "parent_key": "collaborative_realtime:10",
+  "category": "collaborative_realtime",
+  "index": 10,
+  "title": "Remote design critique board [v26_typescript_solo-founder_idempotent-retries]",
+  "seed_id": "collaborative_realtime_10_remote-design-critique-board",
+  "workdir": "task_collaborative_realtime_10__v26_typescript_solo-founder_idempotent-retries",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "react_spa",
+  "persistence": "sqlite",
+  "variant": "v26_typescript_solo-founder_idempotent-retries",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "solo_founder",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "react_spa",
+    "persistence": "sqlite",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\collaborative_realtime\\forged\\10_collaborative_realtime_10_remote-design-critique-board\\platform_prompt.md"
+}

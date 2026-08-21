@@ -1,0 +1,25 @@
+{
+  "task_key": "devops_infra:09__v07_go_enterprise-buyer_csv-roundtrip",
+  "parent_key": "devops_infra:09",
+  "category": "devops_infra",
+  "index": 9,
+  "title": "Backup job orchestrator [v07_go_enterprise-buyer_csv-roundtrip]",
+  "seed_id": "devops_infra_09_backup-job-orchestrator",
+  "workdir": "task_devops_infra_09__v07_go_enterprise-buyer_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "html_canvas",
+  "persistence": "json_file",
+  "variant": "v07_go_enterprise-buyer_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "html_canvas",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\devops_infra\\forged\\09_devops_infra_09_backup-job-orchestrator\\platform_prompt.md"
+}

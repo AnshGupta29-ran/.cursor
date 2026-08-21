@@ -1,0 +1,25 @@
+{
+  "task_key": "ai_ml:08__v35_javascript_student-hacker_idempotent-retries",
+  "parent_key": "ai_ml:08",
+  "category": "ai_ml",
+  "index": 8,
+  "title": "OCR receipt field extractor [v35_javascript_student-hacker_idempotent-retries]",
+  "seed_id": "ai_ml_08_ocr-receipt-field-extractor",
+  "workdir": "task_ai_ml_08__v35_javascript_student-hacker_idempotent-retries",
+  "complexity": "medium",
+  "language_runtime": "javascript",
+  "ui_surface": "cli_tui",
+  "persistence": "memory_only",
+  "variant": "v35_javascript_student-hacker_idempotent-retries",
+  "mutations": {
+    "language_runtime": "javascript",
+    "user_persona": "student_hacker",
+    "novelty_hook": "idempotent_retries",
+    "ui_surface": "cli_tui",
+    "persistence": "memory_only",
+    "complexity": "medium",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ai_ml\\forged\\08_ai_ml_08_ocr-receipt-field-extractor\\platform_prompt.md"
+}

@@ -1,0 +1,25 @@
+{
+  "task_key": "ecommerce:06__v22_typescript_enterprise-buyer_audit-trail-export",
+  "parent_key": "ecommerce:06",
+  "category": "ecommerce",
+  "index": 6,
+  "title": "Marketplace listings for crafts [v22_typescript_enterprise-buyer_audit-trail-export]",
+  "seed_id": "ecommerce_06_marketplace-listings-for-crafts",
+  "workdir": "task_ecommerce_06__v22_typescript_enterprise-buyer_audit-trail-export",
+  "complexity": "low",
+  "language_runtime": "typescript",
+  "ui_surface": "mobile_web",
+  "persistence": "json_file",
+  "variant": "v22_typescript_enterprise-buyer_audit-trail-export",
+  "mutations": {
+    "language_runtime": "typescript",
+    "user_persona": "enterprise_buyer",
+    "novelty_hook": "audit_trail_export",
+    "ui_surface": "mobile_web",
+    "persistence": "json_file",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\ecommerce\\forged\\06_ecommerce_06_marketplace-listings-for-crafts\\platform_prompt.md"
+}

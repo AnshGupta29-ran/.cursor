@@ -1,0 +1,12 @@
+{
+  "task_key": "cms_content:04",
+  "root": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\experiments\\task_cms_content_04",
+  "language": "csharp",
+  "ui_surface": "excel_workbook",
+  "validated_at": "2026-08-13T11:57:22.780958+00:00",
+  "seed_files": [
+    "data\\log.jsonl",
+    "data\\store.json"
+  ],
+  "smoke_ran": true
+}

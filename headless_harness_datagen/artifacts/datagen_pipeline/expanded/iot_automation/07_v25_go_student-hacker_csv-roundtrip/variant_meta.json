@@ -1,0 +1,25 @@
+{
+  "task_key": "iot_automation:07__v25_go_student-hacker_csv-roundtrip",
+  "parent_key": "iot_automation:07",
+  "category": "iot_automation",
+  "index": 7,
+  "title": "Smart irrigation planner [v25_go_student-hacker_csv-roundtrip]",
+  "seed_id": "iot_automation_07_smart-irrigation-planner",
+  "workdir": "task_iot_automation_07__v25_go_student-hacker_csv-roundtrip",
+  "complexity": "low",
+  "language_runtime": "go",
+  "ui_surface": "static_html",
+  "persistence": "memory_only",
+  "variant": "v25_go_student-hacker_csv-roundtrip",
+  "mutations": {
+    "language_runtime": "go",
+    "user_persona": "student_hacker",
+    "novelty_hook": "csv_roundtrip",
+    "ui_surface": "static_html",
+    "persistence": "memory_only",
+    "complexity": "low",
+    "session_shape": "multi_turn_repair",
+    "delivery": "cli_entry_plus_ui"
+  },
+  "base_platform_prompt": "C:\\Users\\anshg\\.cursor\\headless_harness_datagen\\artifacts\\datagen_task_bank\\by_category\\iot_automation\\forged\\07_iot_automation_07_smart-irrigation-planner\\platform_prompt.md"
+}
