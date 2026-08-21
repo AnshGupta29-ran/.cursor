@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EpochLedger Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    button { margin: 0.5rem 0; }
+    pre { background:#f0f0f0; padding:1rem; }
+  </style>
+</head>
+<body>
+  <h1>EpochLedger Demo</h1>
+  <button id="seedBtn">Seed Demo Data</button>
+  <h2>Experiments</h2>
+  <ul id="expList"></ul>
+  <script>
+    async function loadExperiments() {
+      const resp = await fetch('/api/experiment');
+      const exps = await resp.json();
+      const list = document.getElementById('expList');
+      list.innerHTML = '';
+      exps.forEach(exp => {
+        const li = document.createElement('li');
+        li.textContent = `${exp.name} (id: ${exp.id}) runs: ${exp.runs.length}`;
+        list.appendChild(li);
+      });
+    }
+    document.getElementById('seedBtn').addEventListener('click', async () => {
+      await fetch('/api/demo/seed', {method: 'POST'});
+      await loadExperiments();
+    });
+    // initial load
+    loadExperiments();
+  </script>
+</body>
+</html>

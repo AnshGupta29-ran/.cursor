@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import shutil
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
@@ -12,6 +13,47 @@ logger = logging.getLogger(__name__)
 _GIT_USER_EMAIL = "harness@local"
 _GIT_USER_NAME = "Headless Harness"
 _INITIAL_COMMIT_MESSAGE = "Initial commit"
+
+# Chakra injects `git status` into every LLM request. Untracked build dirs
+# (Rust target/, node_modules) make later turns time out with 0 tokens.
+_GITIGNORE_LINES = (
+    "target/",
+    "**/target/",
+    "node_modules/",
+    ".venv/",
+    "venv/",
+    "dist/",
+    "build/",
+    "__pycache__/",
+    "*.pyc",
+    ".pytest_cache/",
+    "*.egg-info/",
+    ".env",
+)
+
+
+_SCRUB_DIR_NAMES = ("target", "node_modules")
+
+
+def _scrub_build_trees(path: Path) -> None:
+    """Drop cargo/node build trees so `ls -R` cannot poison the next ChatRequest."""
+    for name in _SCRUB_DIR_NAMES:
+        victim = path / name
+        if victim.is_dir():
+            shutil.rmtree(victim, ignore_errors=True)
+            logger.info("Removed build tree %s", victim)
+
+
+def _ensure_gitignore(path: Path) -> None:
+    gi = path / ".gitignore"
+    existing = gi.read_text(encoding="utf-8") if gi.is_file() else ""
+    missing = [line for line in _GITIGNORE_LINES if line not in existing]
+    if not missing:
+        return
+    prefix = existing if existing.endswith("\n") or not existing else existing + "\n"
+    if prefix and not prefix.endswith("\n"):
+        prefix += "\n"
+    gi.write_text(prefix + "\n".join(missing) + "\n", encoding="utf-8")
 
 
 @dataclass(frozen=True)
@@ -77,6 +119,9 @@ def ensure_project_git_repo(repo_path: Path | str) -> GitBootstrapResult:
             repo_path=str(path),
             error=f"Failed to create repository directory: {exc}",
         )
+
+    _ensure_gitignore(path)
+    _scrub_build_trees(path)
 
     git_dir = path / ".git"
     if git_dir.exists() and _has_head(path):

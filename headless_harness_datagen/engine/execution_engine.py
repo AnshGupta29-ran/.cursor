@@ -161,6 +161,9 @@ class ExecutionEngine:
         except InterventionRequiredError:
             self._abort_active_turn(state)
             raise
+        except Exception:
+            self._abort_active_turn(state)
+            raise
         finally:
             self._active_streams.pop(conversation_id, None)
 
@@ -250,7 +253,9 @@ class ExecutionEngine:
                         event=event,
                         detail={"code": event.code, "message": event.message},
                     )
-                    raise ConversationStateError(f"{event.code}: {event.message}")
+                    # Recoverable proxy timeouts must not abort execute_turn;
+                    # stream.result() returns a TurnResult so the runner can resume.
+                    return
                 self._notify(
                     EngineNotificationKind.TURN_COMPLETED,
                     state,

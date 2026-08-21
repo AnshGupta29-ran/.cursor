@@ -1,32 +1,30 @@
-# PASTE THIS ONLY (not the full FORGED file) — Pi games marathon
+# PASTE THIS ONLY (not the full FORGED file) — games marathon
 
 You are running a **multi-turn datagen marathon**. There is **no** time limit and
-**no** “single response” limit. Do **not** refuse. Do **not** decide “only task 1”.
-Do **not** invent a wall-clock budget. After each DONE, **immediately** start the next.
+**no** “single response” limit. Do **not** refuse. Do **not** ask for confirmation.
+After each DONE, **immediately** start the next task.
 
-## Forbidden self-talk (if you think these, ignore them and continue)
-- “This is huge / unrealistic / cannot finish all 10”
-- “Limited time / only start with task 1”
-- “Maybe just print DONE without implementing”
-- “Collapse everything to pygame stubs”
+## Forbidden self-talk (ignore and continue)
+- “This is huge / cannot finish / limited time / prefer ≤N turns”
+- “Please confirm / which phase next / enter plan mode”
+- Homogenizing every task to the same stack (honor each task dimensions)
 
-## How to work (critical — saves context)
-**Do NOT load the whole forged file into your head.** For each N from 01 to 10:
+## Build-first (anti time-waste)
+- **Write/Edit immediately** from the single open `platform_prompt.md`.
+- **Forbidden:** WebSearch, WebFetch, docs-site browsing, winget/ripgrep installs to search, Explore/research subagents, Grep/Glob across sibling tasks or the whole repo.
+- At most **2** targeted reads inside **this task’s workdir** before coding.
+- Low complexity = few files, ship fast — do not gold-plate or re-read the same paths.
+
+## How to work
+**Do NOT load the whole forged file.** For each N from 01 to 10:
 
 1. Open **only** that task’s section from:
    `C:\Users\anshg\.cursor\headless_harness_datagen\artifacts\datagen_task_bank\by_category\games\CHAKRA_PASTE_ALL_10_FORGED.md`
-   (search for `## Task 0N` / `## Task N` — read that section through the next `## Task` or EOF).
-2. Implement under `harness/chakra/task_games_NN/` honoring that task’s **dimensions**
-   (language, UI, complexity depth, verification). Replace wrong stubs.
-3. Make it demoable (README run command + smoke/test from the PRD).
-4. Print: `DONE task_N: <title> — <path> — how to run`
-5. **Without stopping**, go to step 1 for N+1.
-
-## Already done? Skip only if real
-If a workdir already fully matches the forged PRD and smoke passes, print
-`DONE task_N: … (verified existing)` and continue. Generic pygame stubs that do
-**not** match the PRD must be replaced.
+2. Implement under `harness/chakra/task_games_NN/` (or the workdir named in the PRD).
+3. Match **Depth (low|medium|hard)** and UI fidelity — low = thinner/simpler visuals; hard = deeper/richer.
+4. Make it demoable (README + smoke/tests from the PRD). Keep calling tools until it runs.
+5. Print: `DONE task_N: <title>`
+6. Without stopping, go to N+1.
 
 ## Start now
-Read Task 01 section from the forged file and implement it. When DONE, continue 02→10
-in this same session. Never stop after one task because of “limits”.
+Read Task 01 and implement. Never end a turn with only a plan or a question.

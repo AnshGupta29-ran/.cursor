@@ -1,5 +1,23 @@
 # RegRun — Compliance Courier Ops
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `javascript`
+- **ui_surface:** `react_spa`
+- **persistence:** `sqlite`
+- **complexity:** `medium`
+- Do **not** rewrite this project in a different language.
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **medium**
+- UI fidelity: MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required
+- Effort cue: deeper than low; still ship demoable without endless polish
+- Anti-stub: FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
+
 ## 1. Project Request / Product Identity
 
 Build **RegRun**, an endless-runner micro-game an enterprise L&D or compliance lead can drop onto an intranet to make security-awareness training measurable and repeatable. The player is a **Compliance Courier** sprinting across a procedurally generated **risk landscape**, vaulting **Audit Findings**, ducking under **Policy Gaps**, and grabbing **Control Badges** for score multipliers. Distance survived = "coverage meters"; difficulty escalates through named **Risk Tiers**. One twist: a **Daily Audit Seed** — everyone in the org runs the identical course each day, feeding a department leaderboard. One extension point: a **plugin hook** for custom obstacle/training packs, shipped with one working stub plugin.

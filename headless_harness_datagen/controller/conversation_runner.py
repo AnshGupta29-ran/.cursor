@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import uuid
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -33,6 +34,7 @@ from controller.completion import CompletionMode
 from controller.supervisor_policy import SupervisorPolicy
 from controller.tool_approver import StatelessAutoApprover, ToolApproval
 from controller.trace import ConversationTrace, new_run_id
+from engine.exceptions import ConversationStateError
 from engine.execution_engine import ExecutionEngine, StartConversationRequest
 from engine.state import ConversationState
 from engine.types import EngineNotification, EngineNotificationKind, EngineObserver
@@ -41,6 +43,7 @@ from interface.events import (
     ToolCompletedEvent,
     ToolStartedEvent,
 )
+from interface.exceptions import HarnessTurnError
 from interface.models.requests import InterventionResponse
 
 logger = logging.getLogger(__name__)
@@ -258,11 +261,14 @@ class ConversationRunner:
             # Capture Chakra events that do not map to harness events (STREAM_END, etc.).
             def _raw_sink(payload: dict[str, Any], _session=state.harness_session) -> None:
                 assert self._trace is not None
-                self._trace.log_chakra_raw_event(
-                    payload,
-                    session_id=_session.session_id,
-                    dropped=True,
-                )
+                try:
+                    self._trace.log_chakra_raw_event(
+                        payload,
+                        session_id=_session.session_id,
+                        dropped=True,
+                    )
+                except Exception:
+                    logger.exception("raw Chakra event trace write failed")
 
             state.harness_session.metadata["raw_event_sink"] = _raw_sink
         actions: list[ControllerAction] = []
@@ -400,41 +406,6 @@ class ConversationRunner:
                     if self._trace:
                         from dataclasses import asdict
 
-                        # #region agent log
-                        try:
-                            import json as _json
-                            import time as _time
-                            _effects = asdict(recovery.effects)
-                            _types = {k: type(v).__name__ for k, v in _effects.items()}
-                            with open(
-                                "/Users/anuragupperwal/Documents/Coding/Internship_Soket/temp_harness_h/.cursor/debug-ec07a5.log",
-                                "a",
-                                encoding="utf-8",
-                            ) as _df:
-                                _df.write(
-                                    _json.dumps(
-                                        {
-                                            "sessionId": "ec07a5",
-                                            "runId": "post-fix",
-                                            "hypothesisId": "A",
-                                            "location": "conversation_runner.py:recover_log",
-                                            "message": "effects field types before trace.log",
-                                            "data": {
-                                                "kind": recovery.kind,
-                                                "effect_types": _types,
-                                                "deny_subagent_types_repr": repr(
-                                                    _effects.get("deny_subagent_types")
-                                                ),
-                                            },
-                                            "timestamp": int(_time.time() * 1000),
-                                        }
-                                    )
-                                    + "\n"
-                                )
-                        except Exception:
-                            pass
-                        # #endregion
-
                         self._trace.log(
                             "controller_decision",
                             decision="recover",
@@ -445,33 +416,6 @@ class ConversationRunner:
                             effects=asdict(recovery.effects),
                             execution_policy=self._policy.snapshot(),
                         )
-                        # #region agent log
-                        try:
-                            import json as _json
-                            import time as _time
-
-                            with open(
-                                "/Users/anuragupperwal/Documents/Coding/Internship_Soket/temp_harness_h/.cursor/debug-ec07a5.log",
-                                "a",
-                                encoding="utf-8",
-                            ) as _df:
-                                _df.write(
-                                    _json.dumps(
-                                        {
-                                            "sessionId": "ec07a5",
-                                            "runId": "post-fix",
-                                            "hypothesisId": "A",
-                                            "location": "conversation_runner.py:recover_log_ok",
-                                            "message": "recover controller_decision logged successfully",
-                                            "data": {"kind": recovery.kind},
-                                            "timestamp": int(_time.time() * 1000),
-                                        }
-                                    )
-                                    + "\n"
-                                )
-                        except Exception:
-                            pass
-                        # #endregion
 
                 else:
                     resume_nudge = self._orch.resume_nudge(
@@ -564,27 +508,118 @@ class ConversationRunner:
         turn_options: dict[str, Any] = {}
         if self._config.turn_timeout_seconds is not None:
             turn_options["timeout_seconds"] = self._config.turn_timeout_seconds
+        tools_before = int(getattr(self._progress, "useful_tool_calls", 0) or 0)
         if self._trace:
             self._trace.log(
                 "stream_turn_started",
                 message_preview=message[:200],
                 orchestration=self._orch.snapshot(),
             )
-        self._engine.execute_turn(
-            conversation_id,
-            message,
-            intervention_handler=self._make_intervention_handler(
-                objective,
+        try:
+            self._engine.execute_turn(
                 conversation_id,
-            ),
-            model=self._config.model,
-            options=turn_options or None,
+                message,
+                intervention_handler=self._make_intervention_handler(
+                    objective,
+                    conversation_id,
+                ),
+                model=self._config.model,
+                options=turn_options or None,
+            )
+        except SessionHealthTerminated:
+            raise
+        except (HarnessTurnError, ConversationStateError, TimeoutError) as exc:
+            blob = str(exc)
+            logger.warning("Turn stream failed (will resume/retry): %s", blob)
+            low = blob.lower()
+            if (
+                "timed out" in low
+                or "api_timeout" in low
+                or "waiting for server events" in low
+            ):
+                self._health.record_failure("model_upstream_timeout")
+            elif (
+                "503" in blob
+                or "unavailable" in low
+                or "unable to connect" in low
+                or "typo in the url" in low
+                or "socket connection was closed" in low
+                or "econnrefused" in low
+                or "fetch failed" in low
+            ):
+                self._health.record_failure("model_upstream_503")
+            else:
+                self._health.record_failure(f"turn_stream:{blob[:160]}")
+            if self._trace:
+                self._trace.log("turn_stream_error", error=blob[:500])
+            self._rotate_session_after_proxy_failure(
+                conversation_id,
+                force=True,
+                tools_this_turn=int(getattr(self._progress, "useful_tool_calls", 0) or 0)
+                - tools_before,
+            )
+            return
+        self._rotate_session_after_proxy_failure(
+            conversation_id,
+            force=False,
+            tools_this_turn=int(getattr(self._progress, "useful_tool_calls", 0) or 0)
+            - tools_before,
         )
         if self._trace:
             self._trace.log(
                 "stream_turn_finished",
                 orchestration=self._orch.snapshot(),
                 health=self._health.snapshot(),
+            )
+
+    def _rotate_session_after_proxy_failure(
+        self,
+        conversation_id: str,
+        *,
+        force: bool,
+        tools_this_turn: int = 0,
+    ) -> None:
+        """Drop Chakra session only on a cold first-token timeout (no tools).
+
+        Mid-turn timeouts after Read/Bash already have useful context; rotating
+        forces the model to `ls -R` the cargo target/ tree again and re-timeout.
+        """
+        blob = (self._orch.turn_failed_message or "").lower()
+        proxy = any(
+            token in blob
+            for token in ("timed out", "api_timeout", "503", "unavailable")
+        )
+        if not force:
+            if not self._orch.turn_failed or not proxy:
+                return
+        if tools_this_turn > 0:
+            logger.info(
+                "Keeping Chakra session after proxy timeout (%d tools this turn)",
+                tools_this_turn,
+            )
+            if self._trace:
+                self._trace.log(
+                    "chakra_session_kept",
+                    reason="tools_this_turn",
+                    tools_this_turn=tools_this_turn,
+                )
+            return
+        try:
+            live = self._engine.get_conversation(conversation_id)
+        except Exception:
+            return
+        old = live.harness_session.session_id
+        live.harness_session.session_id = str(uuid.uuid4())
+        logger.warning(
+            "Rotated Chakra session %s -> %s after proxy timeout",
+            old,
+            live.harness_session.session_id,
+        )
+        if self._trace:
+            self._trace.log(
+                "chakra_session_rotated",
+                old_session_id=old,
+                new_session_id=live.harness_session.session_id,
             )
 
     def _finish(
@@ -804,7 +839,10 @@ class ConversationRunner:
             self._observe_progress(notification)
             self._health.observe(notification)
             if self._trace is not None:
-                self._trace.log_engine_notification(notification)
+                try:
+                    self._trace.log_engine_notification(notification)
+                except Exception:
+                    logger.exception("trace write failed; continuing conversation")
             if self._shutting_down:
                 return
             verdict = self._health.evaluate()

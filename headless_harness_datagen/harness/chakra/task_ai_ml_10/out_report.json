@@ -1,9 +1,9 @@
 {
-  "run_id": "19747953-7ac1-4625-8bef-5345fcd577db",
+  "run_id": "ac5d047f-fc19-449a-a5f2-3c43f9af78f4",
   "input_file": "examples/hive_weight_may.csv",
   "detector": "zscore",
   "threshold": 2.0,
   "preset": "default",
-  "timestamp": "2026-08-07T21:14:06.017749",
+  "timestamp": "2026-08-11T14:55:26.428238",
   "windows": []
 }

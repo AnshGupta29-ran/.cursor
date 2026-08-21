@@ -9,6 +9,12 @@ After each DONE, **immediately** start the next task.
 - “Please confirm / which phase next / enter plan mode”
 - Homogenizing every task to the same stack (honor each task dimensions)
 
+## Build-first (anti time-waste)
+- **Write/Edit immediately** from the single open `platform_prompt.md`.
+- **Forbidden:** WebSearch, WebFetch, docs-site browsing, winget/ripgrep installs to search, Explore/research subagents, Grep/Glob across sibling tasks or the whole repo.
+- At most **2** targeted reads inside **this task’s workdir** before coding.
+- Low complexity = few files, ship fast — do not gold-plate or re-read the same paths.
+
 ## How to work
 **Do NOT load the whole forged file.** For each N from 01 to 10:
 

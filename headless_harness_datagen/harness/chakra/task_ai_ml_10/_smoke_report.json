@@ -1,0 +1,28 @@
+{
+  "run_id": "fcfd5804-fed0-430d-977a-01bcd2481786",
+  "input_file": "examples/hive_weight_may.csv",
+  "detector": "zscore",
+  "threshold": 1.0,
+  "preset": "default",
+  "timestamp": "2026-08-11T17:54:06.107318",
+  "windows": [
+    {
+      "start": "2024-05-01T08:00:00",
+      "end": "2024-05-02T08:00:00",
+      "detector": "zscore",
+      "peak_score": 1.8333333333333357,
+      "direction": "spike",
+      "sample_count": 4,
+      "reason": "ZSCORE anomaly (spike)"
+    },
+    {
+      "start": "2024-05-04T16:00:00",
+      "end": "2024-05-04T16:00:00",
+      "detector": "zscore",
+      "peak_score": 1.466666666666665,
+      "direction": "drop",
+      "sample_count": 1,
+      "reason": "ZSCORE anomaly (drop)"
+    }
+  ]
+}

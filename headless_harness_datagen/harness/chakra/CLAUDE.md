@@ -1,29 +1,46 @@
-# Datagen autonomy (overrides default “confirm first / pausing is cheap”)
+# Datagen autonomy (overrides default "confirm first / pausing is cheap")
 
 You are instructed to work **fully autonomously** for harness datagen tasks.
 
 ## Hard rules
-- **Never** ask for confirmation, approval, go-ahead, or “which phase next?”
-- **Never** refuse for size, time, or “too big for one response”
-- **No** wall-clock or turn budgets — ignore any Time budget language in prompts
+- **Never** ask for confirmation, approval, go-ahead, or "which phase next?"
+- **Never** refuse for size, time, or "too big for one response"
 - Keep calling tools until acceptance criteria pass; then print `DONE …`
-- Do **not** stop after scaffolding, a phase plan, or “please confirm”
+- Do **not** stop after scaffolding, a phase plan, or "please confirm"
 - Local file/shell/test work needs no confirmation
 - If a tool/package is missing, work around it and keep going (stdlib / alternate stack)
 
-## Demo quality (mandatory — not optional polish)
-- A task is **not DONE** if the browser/API only shows a dead page, empty shell, or “upload that does nothing.”
-- Ship a **working interactive demo**: forms that submit, lists that refresh, API actions that mutate visible state, seeded sample data on first load.
-- Match Depth/UI fidelity: **low** = fewer screens but still working; **medium/hard** = multi-panel / richer interactions as locked.
-- Forbidden as DONE: placeholder lorem, single unstyled form with no success path, README-only, preview HTML that isn’t wired to real behavior.
-- `api_only` still needs a usable operator surface (static console or preview that calls the live API) unless the PRD explicitly forbids any UI.
+## Dimension lock (synthetic variety — mandatory)
+- Honor `language_runtime` from the PRD / CHAKRA_NEXT_TASK (java, rust, go, csharp, cpp, typescript, python, …).
+- Do **not** homogenize every task to Python/React unless locked.
+- Honor `ui_surface`, `persistence`, and complexity band exactly.
+
+## Pace (stop burning hours on low tasks)
+- **low**: few files, complete happy path fast (~15–25 tool calls). No gold-plate.
+- **medium**: solid MVP, keep building; no research tours.
+- **hard**: full acceptance, still build-first. One failed toolchain install → faithful alternate that keeps UI + API behavior; document swap in README.
+- Never spend 2–3 hours searching, reinstalling toolchains, or re-reading the same files.
+
+## Build-first (anti time-waste) — mandatory
+- **Write/Edit first.** Implement from the open `platform_prompt.md`.
+- **Forbidden:** WebSearch, WebFetch, docs tours, winget/ripgrep scavenger hunts, Explore/research subagents.
+- **At most 2** targeted Glob/Grep reads inside **this task’s workdir** before coding.
+- Do not Grep sibling tasks or the whole repo.
+
+## Demo quality (not stubs / not tiny demos)
+- **Not DONE** if: dead page, hello-world SPA, Cargo.toml-only, README-only, API with no exercise path, upload that does nothing.
+- Ship seeded data + one-command run in README + primary workflows that mutate visible state.
+- `api_only` still needs an operator console that calls the live API unless PRD forbids UI.
+
+## Pipeline mode (when `CHAKRA_NEXT_TASK.md` is the instruction)
+- Implement **only** the single task named there.
+- After printing `DONE <task_key>: …`, **STOP**. Do not open the next PRD yourself.
+- The outer `datagen_pipeline` checkpoints and feeds the next thin prompt.
+
+## Marathon mode (only if explicitly told to continue through N→N+1)
+- After DONE, immediately open the **next** task’s single `platform_prompt.md` (never the whole forged paste file).
 
 ## Shells / servers
-- Do **not** leave `npm install`, servers, or long jobs hung in the background across stops.
-- Prefer foreground commands; if you background a server, verify `/health` then keep implementing in the same turn.
-- Before printing DONE, kill orphaned duplicate servers on the same port.
-
-## When you would normally stop
-Instead of ending the turn with prose: make the next tool call immediately.
-Only end a turn after printing an explicit `DONE task_…` (or equivalent) line.
-After DONE, immediately open the **next** task’s single `platform_prompt.md` (never the whole forged paste file).
+- Do not leave hung `npm install` / servers across stops.
+- Prefer foreground commands; verify health then keep implementing.
+- Before DONE, kill orphaned duplicate servers on the same port.

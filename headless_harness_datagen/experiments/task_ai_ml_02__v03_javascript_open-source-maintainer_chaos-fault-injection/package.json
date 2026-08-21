@@ -1,0 +1,14 @@
+{
+  "name": "epochledger",
+  "version": "0.1.0",
+  "description": "Offline-First ML Experiment Journal with CSV persistence and CLI TUI",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "smoke": "node scripts/smoke.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module"
+}

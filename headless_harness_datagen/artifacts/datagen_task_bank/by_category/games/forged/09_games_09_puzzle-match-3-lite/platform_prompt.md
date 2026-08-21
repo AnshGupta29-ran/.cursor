@@ -1,5 +1,23 @@
 # Project Request — DockSort: Shift Quota
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `python`
+- **ui_surface:** `desktop_window`
+- **persistence:** `json_file`
+- **complexity:** `low`
+- Do **not** rewrite this project in a different language.
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **low**
+- UI fidelity: LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form
+- Effort cue: typically thinner than medium/hard (fewer files & screens), but never stop early
+- Anti-stub: FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
+
 Build **DockSort: Shift Quota**, a Python 3.10+ desktop match-3 puzzle lite for
 warehouse operations training demos. The player is a dock supervisor clearing a
 grid of freight SKUs (crates, pallets, drums, coils, sacks) by swapping adjacent

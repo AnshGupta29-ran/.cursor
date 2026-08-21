@@ -63,6 +63,16 @@ def main() -> int:
             HarnessEventType.TURN_COMPLETED,
         ),
         (
+            ServerEvent(
+                type=EventType.DONE,
+                full_text="API Error: The operation timed out.",
+                prompt_tokens=0,
+                completion_tokens=0,
+            ),
+            TurnFailedEvent,
+            HarnessEventType.TURN_FAILED,
+        ),
+        (
             ServerEvent(type=EventType.ERROR, error_message="boom", error_code="INTERNAL"),
             TurnFailedEvent,
             HarnessEventType.TURN_FAILED,

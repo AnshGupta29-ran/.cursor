@@ -1,5 +1,12 @@
 # FactoryMachineStatus — Factory machine status board
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `typescript`
+- **ui_surface:** `cli_tui`
+- **persistence:** `json_file`
+- **complexity:** `low`
+- Do **not** rewrite this project in a different language.
+
 ## Complexity & fidelity lock (datagen)
 - Complexity band: **low**
 - UI fidelity: LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form
@@ -9,6 +16,7 @@
 - Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
 - **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
 - If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 
 ## 1. Product identity

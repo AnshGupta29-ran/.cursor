@@ -94,6 +94,10 @@ class ConversationConfig:
         if turn_raw is not None and str(turn_raw).strip():
             values["turn_timeout_seconds"] = float(turn_raw)
         values.update(overrides)
+        if values.get("model") is None:
+            env_model = os.environ.get("OPENAI_MODEL", "").strip()
+            if env_model:
+                values["model"] = env_model
         return cls(**values)
 
     @classmethod

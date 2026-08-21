@@ -1,0 +1,14 @@
+[
+  {
+    "id": "exp1",
+    "name": "Baseline Model",
+    "createdAt": "2023-01-01T00:00:00.000Z",
+    "metadata": { "type": "baseline", "accuracy": 0.78 }
+  },
+  {
+    "id": "exp2",
+    "name": "Champion Model",
+    "createdAt": "2023-02-15T12:30:00.000Z",
+    "metadata": { "type": "champion", "accuracy": 0.85 }
+  }
+]

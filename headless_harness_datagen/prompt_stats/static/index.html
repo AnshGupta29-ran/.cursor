@@ -230,13 +230,31 @@
     .agent-pill.chakra { background: #1a3a48; color: var(--blue); }
     .agent-pill.pi { background: #3a2a18; color: var(--amber); }
     .agent-pill.other { background: #243038; color: var(--muted); }
+
+    .nav-tabs { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 28px 0; border-bottom: 1px solid var(--line); }
+    .nav-tabs button {
+      border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: none;
+      padding: 10px 16px; background: transparent; color: var(--muted); cursor: pointer; font: inherit;
+    }
+    .nav-tabs button.active { background: var(--card); border-color: var(--line); color: var(--accent); border-bottom: 2px solid var(--accent); }
+    .page { display: none; } .page.active { display: block; }
+    .band.exact, .band.done { background: #1c3a2e; color: var(--good); }
+    .band.est { background: #3a3218; color: var(--amber); }
+    .band.failed { background: #3a1818; color: var(--rose); }
+    .band.not_started { background: #243038; color: var(--muted); }
+    .kpi.warn .value { color: var(--amber); }
+    .kpi.good .value { color: var(--good); }
+    .callout {
+      border: 1px solid #3a3218; background: #1a1810; color: var(--amber);
+      border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <div>
       <h1>Agent Prompt Analytics</h1>
-      <div class="sub">Chakra · Pi — complexity, tokens, runtime, models, tasks — live from the ledger</div>
+      <div class="sub">Ledger (Chakra · Pi) + charged/est · kimi3 · dimensions — one integrated site</div>
     </div>
     <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
       <span class="live"><span class="dot"></span> <span id="syncStatus">syncing…</span></span>
@@ -244,7 +262,16 @@
       <button id="btnSync">Sync now</button>
     </div>
   </header>
+
+  <nav class="nav-tabs" id="navTabs">
+    <button type="button" data-page="ledger" class="active">Ledger</button>
+    <button type="button" data-page="usage">Usage (charged)</button>
+    <button type="button" data-page="tasks">By task</button>
+    <button type="button" data-page="kimi3">Kimi3</button>
+    <button type="button" data-page="dimensions">Dimensions</button>
+  </nav>
   <main>
+    <div id="page-ledger" class="page active">
     <section class="kpis" id="kpis"></section>
     <section class="filters">
       <label>Agent
@@ -334,8 +361,9 @@
               <th>Category</th>
               <th>Band</th>
               <th>Score</th>
-              <th>In tok</th>
-              <th>Out tok</th>
+              <th>Charged Σ</th>
+              <th>Est in</th>
+              <th>Est out</th>
               <th>Time</th>
               <th>Tools</th>
               <th>Title</th>
@@ -345,7 +373,130 @@
         </table>
       </div>
     </section>
+
+    </div><!-- /page-ledger -->
+
+    <div id="page-usage" class="page">
+      <div class="callout" id="usageNote">Charged tokens = provider/Langfuse only. Estimates are NOT your bill. Ledger tab still has full agent/task/token/time history.</div>
+      <section class="filters">
+        <label>Since <input id="usageSince" type="date" value="2026-08-13" /></label>
+        <label>Agent
+          <select id="usageAgent"><option value="">All</option><option value="chakra">chakra</option><option value="pi">pi</option></select>
+        </label>
+        <label>Model <select id="usageModel"><option value="">All</option></select></label>
+        <button class="primary" id="btnUsageReload">Reload usage</button>
+      </section>
+      <section class="kpis" id="usageKpis"></section>
+      <section class="charts">
+        <div class="panel"><h2>Daily charged vs estimate</h2><div class="chart-wrap"><canvas id="chartUsageDay"></canvas></div></div>
+        <div class="panel"><h2>Time by day</h2><div class="chart-wrap"><canvas id="chartUsageTime"></canvas></div></div>
+      </section>
+      <section class="panel" style="min-height:auto;margin-bottom:16px">
+        <h2>By agent (usage pool)</h2>
+        <div id="usageAgentCards" class="model-grid"></div>
+      </section>
+      <section class="panel" style="min-height:auto;margin-bottom:16px">
+        <h2>By model (usage pool)</h2>
+        <div id="usageModelCards" class="model-grid"></div>
+      </section>
+      <section class="panel" style="min-height:auto">
+        <h2>Session / run detail (usage sources)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>When</th><th>Agent</th><th>Model</th><th>Task</th><th>Source</th>
+                <th>Charged in</th><th>Charged out</th><th>Charged Σ</th>
+                <th>Est Σ</th><th>Time</th><th>Title</th>
+              </tr>
+            </thead>
+            <tbody id="usageTbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="page-tasks" class="page">
+      <section class="kpis" id="taskKpis"></section>
+      <section class="panel" style="min-height:auto">
+        <h2>Per-task input / output / time</h2>
+        <p class="sub" style="margin:0 0 12px">From session workdirs + autopilot. Charged stays 0 until provider/Langfuse returns usage.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Last</th><th>Task</th><th>Status</th><th>Model</th>
+                <th>Charged in</th><th>Charged out</th><th>Charged Σ</th>
+                <th>Est in</th><th>Est out</th><th>Time</th><th>Runs</th><th>Title</th>
+              </tr>
+            </thead>
+            <tbody id="taskTbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="page-kimi3" class="page">
+      <section class="kpis" id="kimiKpis"></section>
+      <section class="filters">
+        <label>Since <input id="kimiSince" type="date" value="2026-08-13" /></label>
+        <button class="primary" id="btnKimiReload">Reload kimi3</button>
+        <span class="sub" id="kimiMeta"></span>
+      </section>
+      <section class="charts">
+        <div class="panel"><h2>Kimi3 daily charged vs estimate</h2><div class="chart-wrap"><canvas id="chartKimiDay"></canvas></div></div>
+        <div class="panel"><h2>Kimi3 by task (est Σ)</h2><div class="chart-wrap"><canvas id="chartKimiTasks"></canvas></div></div>
+      </section>
+      <section class="panel" style="min-height:auto">
+        <h2>Kimi3 tasks</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Last</th><th>Task</th><th>Model</th>
+                <th>Charged Σ</th><th>Est in</th><th>Est out</th><th>Est Σ</th><th>Time</th><th>Title</th>
+              </tr>
+            </thead>
+            <tbody id="kimiTbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <div id="page-dimensions" class="page">
+      <section class="kpis" id="dimKpis"></section>
+      <section class="filters">
+        <label>Category <select id="dimCategory"><option value="">All</option></select></label>
+        <label>Language <select id="dimLang"><option value="">All</option></select></label>
+        <label>UI <select id="dimUi"><option value="">All</option></select></label>
+        <label>Complexity <select id="dimCx"><option value="">All</option></select></label>
+        <label>Status <select id="dimStatus"><option value="">All</option></select></label>
+        <label>Search <input id="dimQ" placeholder="task key / title…" /></label>
+        <button id="btnDimReload">Reload</button>
+      </section>
+      <section class="charts">
+        <div class="panel"><h2>Language</h2><div class="chart-wrap"><canvas id="chartDimLang"></canvas></div></div>
+        <div class="panel"><h2>Complexity</h2><div class="chart-wrap"><canvas id="chartDimCx"></canvas></div></div>
+        <div class="panel"><h2>UI</h2><div class="chart-wrap"><canvas id="chartDimUi"></canvas></div></div>
+        <div class="panel"><h2>Status</h2><div class="chart-wrap"><canvas id="chartDimStatus"></canvas></div></div>
+      </section>
+      <section class="panel" style="min-height:auto">
+        <h2>Task dimensions</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th><th>Status</th><th>Language</th><th>UI</th><th>Persist</th>
+                <th>Complexity</th><th>Persona</th><th>Other</th><th>Title</th>
+              </tr>
+            </thead>
+            <tbody id="dimTbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
   </main>
-  <script src="app.js?v=tokfix5"></script>
+  <script src="app.js?v=integrated1"></script>
 </body>
 </html>

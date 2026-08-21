@@ -206,7 +206,8 @@ def save_pipeline_artifacts(
 
     summary: dict[str, Any] = {
         "run_id": run_id,
-        "objective": objective,
+        "objective": objective[:2000] + ("…" if len(objective) > 2000 else ""),
+        "objective_chars": len(objective),
         "repository_path": repository_path,
         "architecture": "single_chakra_conversation",
         "lifecycle_owner": "chakra",

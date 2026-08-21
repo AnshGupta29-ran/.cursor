@@ -34,6 +34,9 @@ class DenialTracker:
         if approved:
             return
         reason_l = (reason or "").strip()
+        if "further listing" in reason_l.lower() or "listing in datagen" in reason_l.lower():
+            # Pipeline listing denials are steering, not a denial loop.
+            return
         response_hint = reason_l.lower()
         if not (
             response_hint.startswith("deny")

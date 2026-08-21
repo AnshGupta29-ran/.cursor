@@ -24,41 +24,23 @@ def new_run_id() -> str:
 
 
 def _json_default(value: Any) -> Any:
+    """Never raise — a trace write must not kill the pipeline conversation."""
     if isinstance(value, datetime):
         return value.isoformat()
     if isinstance(value, Enum):
         return value.value
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, bytes):
+        return value.decode("utf-8", errors="replace")
     if isinstance(value, (set, frozenset)):
-        return sorted(value)
+        try:
+            return sorted(value)
+        except TypeError:
+            return [repr(v) for v in value]
     if is_dataclass(value):
         return asdict(value)
-    # #region agent log
-    try:
-        import time as _time
-
-        with open(
-            "/Users/anuragupperwal/Documents/Coding/Internship_Soket/temp_harness_h/.cursor/debug-ec07a5.log",
-            "a",
-            encoding="utf-8",
-        ) as _df:
-            _df.write(
-                json.dumps(
-                    {
-                        "sessionId": "ec07a5",
-                        "runId": "post-fix",
-                        "hypothesisId": "B",
-                        "location": "trace.py:_json_default",
-                        "message": "unhandled type in _json_default",
-                        "data": {"type_name": type(value).__name__, "repr": repr(value)[:200]},
-                        "timestamp": int(_time.time() * 1000),
-                    }
-                )
-                + "\n"
-            )
-    except Exception:
-        pass
-    # #endregion
-    raise TypeError(f"Object of type {type(value)!r} is not JSON serializable")
+    return repr(value)
 
 
 class ConversationTrace:
@@ -105,8 +87,28 @@ class ConversationTrace:
             "type": record_type,
             **fields,
         }
-        with path.open("a", encoding="utf-8") as handle:
-            handle.write(json.dumps(record, default=_json_default, ensure_ascii=False) + "\n")
+        try:
+            line = json.dumps(record, default=_json_default, ensure_ascii=False)
+        except Exception as exc:  # noqa: BLE001
+            line = json.dumps(
+                {
+                    "seq": self._sequence,
+                    "ts": datetime.now(timezone.utc).isoformat(),
+                    "run_id": self.run_id,
+                    "channel": channel,
+                    "type": "trace_serialize_error",
+                    "original_type": record_type,
+                    "error": str(exc),
+                },
+                ensure_ascii=False,
+            )
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("a", encoding="utf-8") as handle:
+                handle.write(line + "\n")
+        except OSError:
+            # Disk / permission issues must not abort the agent conversation.
+            return
 
     def log_controller_llm_request(
         self,

@@ -1,0 +1,16 @@
+{
+  "name": "enterprise-buyer-accessibility-keyboard",
+  "version": "0.1.0",
+  "description": "ML experiment tracking with keyboard accessible UI",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "cli": "node src/cli.js",
+    "smoke": "node scripts/smoke.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

@@ -82,9 +82,17 @@ def select_resume_nudge(
         if life.main_agent_write_count > 0:
             extra = (
                 f"\nNote: {life.main_agent_write_count} main-agent Write/Edit(s) were "
-                "observed without IMPLEMENTATION_STATUS: COMPLETE. Spawn general-purpose "
-                "to finish env + markers (do not spawn verification yet).\n"
+                "observed without IMPLEMENTATION_STATUS: COMPLETE. Finish the demo "
+                "yourself with Write/Edit (do not spawn Agent).\n"
             )
+        try:
+            from controller.ship_gate import evaluate_ship_gate
+
+            status = evaluate_ship_gate(repo)
+            if not status.ready:
+                extra += f"\n{status.nudge()}\n"
+        except Exception:
+            pass
         if rejected:
             extra += (
                 f"\nA VERDICT: PASS was rejected ({life.last_pass_rejection}). "
@@ -223,26 +231,10 @@ the next resume will steer repair.
 
 
 def _build_implement_message(*, repo_path: str, extra: str = "") -> str:
-    spawn = agent_spawn_instructions(
-        repo_path=repo_path,
-        subagent_type="general-purpose",
-        extra_prompt_bullets=[
-            f"repository root: {repo_path}",
-            "create/activate project-local environment",
-            "implement per plan.md",
-            f"emit ENV_STATUS: READY then {IMPLEMENTATION_COMPLETE_MARKER}",
-        ],
+    extra_line = f"\n{extra.strip()}\n" if extra.strip() else ""
+    return (
+        f"Call Write or Edit now. Do not ls. Do not cargo. Do NOT spawn Agent.\n"
+        f"{extra_line}"
+        f"Ship README.md, scripts/smoke.py (or npm run smoke), and fixtures/ or data/ seeds.\n"
+        f"Then print {IMPLEMENTATION_COMPLETE_MARKER} as plain text (not Bash).\n"
     )
-    return f"""HARNESS PHASE NUDGE — ENVIRONMENT + IMPLEMENT
-
-Repository Root: {repo_path}
-plan.md exists (or files were written) but implementation markers are not yet complete.
-{extra}
-Steps:
-1. {spawn}
-2. Create and activate a project-local environment (.venv / node_modules / etc.).
-3. Implement per plan.md. All commands must use that environment.
-4. End the general-purpose agent output with ENV_STATUS: READY and
-   {IMPLEMENTATION_COMPLETE_MARKER} on their own lines.
-5. Do not spawn verification until implementation is complete.
-"""

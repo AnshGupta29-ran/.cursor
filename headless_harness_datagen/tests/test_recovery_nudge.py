@@ -155,7 +155,7 @@ def test_implement_first_recovery_when_plan_done_without_complete() -> None:
             max_recovery_attempts=3,
         )
         assert action.kind == "implement_first"
-        assert "general-purpose" in action.message
+        assert "Do NOT spawn" in action.message
         assert "IMPLEMENTATION_STATUS" in action.message or "COMPLETE" in action.message
 
 
@@ -210,6 +210,121 @@ def test_workspace_reset_recovery() -> None:
     assert action.kind == "workspace_reset"
     assert action.effects.lock_workspace is True
     assert "WORKSPACE RESET" in action.message
+
+
+def test_pipeline_mode_skips_implement_first_while_writing(monkeypatch, tmp_path: Path) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    progress = ProgressTracker(stall_cycles=8)
+    denials = DenialTracker()
+    phases = PhaseBudgetTracker()
+    life = LifecycleObserver(repo_path=str(tmp_path))
+    life.main_agent_write_count = 4
+    action = select_recovery(
+        progress=progress,
+        denials=denials,
+        phases=phases,
+        lifecycle=life,
+        repo_path=str(tmp_path),
+        recovery_attempts_used=0,
+        max_recovery_attempts=40,
+    )
+    assert action.kind == "noop"
+    assert action.message == ""
+
+
+def test_pipeline_mode_terminates_write_starvation_after_recovery(
+    monkeypatch, tmp_path: Path
+) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    progress = ProgressTracker(stall_cycles=2)
+    progress.on_resume_cycle()
+    progress.on_resume_cycle()
+    denials = DenialTracker()
+    phases = PhaseBudgetTracker()
+    phases.note_spawn("Explore")
+    life = LifecycleObserver(repo_path=str(tmp_path))
+    life.main_agent_write_count = 0
+    action = select_recovery(
+        progress=progress,
+        denials=denials,
+        phases=phases,
+        lifecycle=life,
+        repo_path=str(tmp_path),
+        recovery_attempts_used=3,
+        max_recovery_attempts=1,
+    )
+    assert action.kind == "terminate"
+    assert action.termination_reason == "write_starvation"
+
+
+def test_pipeline_write_starvation_beats_workspace_confusion(
+    monkeypatch, tmp_path: Path
+) -> None:
+    """Confusion resets must not block write_starvation terminate."""
+    from controller.workspace_confusion import WorkspaceConfusionTracker
+
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    progress = ProgressTracker(stall_cycles=20)
+    for _ in range(10):
+        progress.on_resume_cycle()
+    denials = DenialTracker()
+    phases = PhaseBudgetTracker()
+    life = LifecycleObserver(repo_path=str(tmp_path))
+    life.main_agent_write_count = 0
+    ws = WorkspaceConfusionTracker(threshold=3, repo_path=str(tmp_path))
+    for _ in range(5):
+        ws.record_denial(
+            tool_name="Read",
+            reason="deny Read outside repository boundary",
+            target="/Users/x/headless_harness/foo",
+        )
+    action = select_recovery(
+        progress=progress,
+        denials=denials,
+        phases=phases,
+        lifecycle=life,
+        repo_path=str(tmp_path),
+        recovery_attempts_used=0,
+        max_recovery_attempts=40,
+        workspace=ws,
+    )
+    assert action.kind == "terminate"
+    assert action.termination_reason == "write_starvation"
+
+
+def test_pipeline_mode_nudges_then_terminates_on_resume_starvation(
+    monkeypatch, tmp_path: Path
+) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    progress = ProgressTracker(stall_cycles=20)
+    for _ in range(3):
+        progress.on_resume_cycle()
+    denials = DenialTracker()
+    phases = PhaseBudgetTracker()
+    life = LifecycleObserver(repo_path=str(tmp_path))
+    nudge = select_recovery(
+        progress=progress,
+        denials=denials,
+        phases=phases,
+        lifecycle=life,
+        repo_path=str(tmp_path),
+        recovery_attempts_used=0,
+        max_recovery_attempts=40,
+    )
+    assert nudge.kind == "implement_first"
+    for _ in range(8):
+        progress.on_resume_cycle()
+    kill = select_recovery(
+        progress=progress,
+        denials=denials,
+        phases=phases,
+        lifecycle=life,
+        repo_path=str(tmp_path),
+        recovery_attempts_used=0,
+        max_recovery_attempts=40,
+    )
+    assert kill.kind == "terminate"
+    assert kill.termination_reason == "write_starvation"
 
 
 def main() -> int:

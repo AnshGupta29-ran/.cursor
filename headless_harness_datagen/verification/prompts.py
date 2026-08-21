@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 
 SANDBOX_ENVIRONMENT_INSTRUCTIONS = """=== REPOSITORY EXECUTION POLICY (MANDATORY) ===
 The following rules govern repository execution. These rules are mandatory.
@@ -87,12 +89,13 @@ Every generated execution environment belongs only to this repository.
 Environment directories should not be committed unless explicitly required.
 ==================================================
 F. DEPENDENCY MANIFESTS (MANDATORY)
-When writing dependency files, list package/crate/module names only.
-Never pin versions, ranges, or hashes.
-Examples of files: requirements.txt, pyproject.toml dependencies,
-package.json, Cargo.toml, go.mod, Gemfile, pom.xml / build.gradle, etc.
-Correct: fastapi
-Wrong: fastapi==0.115.0 / "fastapi": "^0.115.0" / fastapi = "0.115"
+List package/crate/module names; do not pin exact versions or hashes.
+For ecosystems that require a version field, use a wildcard / latest:
+• Python requirements.txt: `fastapi` (name only, no versions)
+• Cargo.toml: `tiny_http = "*"`  (never `tiny_http = "tiny_http"`)
+• package.json: `"express": "*"`
+Wrong: fastapi==0.115.0 / "express": "^4.18.0" / tiny_http = "0.12"
+Never pin versions to concrete releases.
 ==================================================
 G. FAILURE RECOVERY
 If any engineering step fails:
@@ -110,6 +113,8 @@ Prefer setting cwd to the absolute Repository Root on every Agent spawn.
 isolation="worktree" is allowed when the worktree is of this Repository Root
 (prefer cwd="{repo}" so the worktree anchors correctly). Never use
 isolation="remote". Never place project files outside the Repository Root.
+On Agent tool calls: OMIT the model field (or set model="inherit").
+Never pass model="sonnet"/"opus"/"haiku" — those break OpenAI-compatible proxies.
 """
 
 
@@ -128,11 +133,29 @@ of agent wall time.
 5. Never winget/choco install IDEs, Unity, or system runtimes mid-run.
    If the toolchain is missing, implement source + docs + the closest runnable
    fallback (e.g. browser prototype for Unity) and stop after smoke green.
-6. Stop when smoke tests / server boot succeed. Extra polish after RUNTIME_CHECK
-   PASS or IMPLEMENTATION_STATUS COMPLETE is forbidden.
+6. Do not print IMPLEMENTATION_STATUS COMPLETE until README.md, a smoke script,
+   and fixtures/ or data/ seed files exist. Extra polish after a shippable demo is optional.
 7. Keep plans short (plan.md ≤ ~80 lines). Prefer shipping over exhaustive PRDs.
+8. If cargo/link/dlltool fails once on Windows, do not loop the compiler — keep
+   source plus a best-effort smoke that proves the demo as far as the toolchain allows.
 ==================================================
 """
+
+
+def write_harness_policy_file(repo_dir: str | Path) -> Path:
+    """Write full execution policy to the repo. Do not inline it in LLM requests."""
+    repo = Path(repo_dir)
+    path = repo / "HARNESS_POLICY.md"
+    sandbox = SANDBOX_ENVIRONMENT_INSTRUCTIONS.replace("{repo}", str(repo))
+    path.write_text(
+        "# Harness execution policy\n\n"
+        "This file is staged on disk because inlining it in ChatRequest "
+        "times out the OpenAI-compatible proxy (0 tokens).\n"
+        "Read it once if you need repo/env rules.\n\n"
+        f"{SPEED_BUDGET_INSTRUCTIONS}\n{sandbox}\n",
+        encoding="utf-8",
+    )
+    return path
 
 
 def build_unified_pipeline_objective(
@@ -145,105 +168,66 @@ def build_unified_pipeline_objective(
     """
     Bootstrap objective for a single persistent Chakra conversation.
 
-    Chakra owns plan → implement → verify → repair → re-verify.
-    The Python supervisor only keeps the conversation alive.
+    Keep this short. TensorStudio times out (~5 min, 0 tokens) on the old
+    8k-char SANDBOX dump. Full policy lives in HARNESS_POLICY.md in the repo.
     """
     plan_file = f"{repo_path}/plan.md"
     repair_plan_file = f"{repo_path}/repair_plan.md"
-    sandbox = SANDBOX_ENVIRONMENT_INSTRUCTIONS.replace("{repo}", repo_path)
     if include_verification:
-        lifecycle = f"""You own the COMPLETE repository generation lifecycle in THIS single conversation.
+        return f"""You are the primary Chakra coding agent for an autonomous repository pipeline.
+You own the COMPLETE repository generation lifecycle in THIS single conversation.
 Python will not start a second session for verification or repair.
 Python may send phase-specific resume instructions when verification fails or PASS is rejected. Follow those immediately.
 
 Recommended lifecycle (follow this narrative; you decide when to spawn):
-  Plan → general-purpose (env + implement) → verification
+  Write plan.md → implement yourself (Write/Edit/Bash; do NOT spawn Agent) → verification
        ↑                                           │
        │                                     VERDICT: PASS → done
        │                                     VERDICT: FAIL or PARTIAL
-       └──── Plan (repair_plan.md) → general-purpose repair
+       └──── Write repair_plan.md → repair yourself
              then verification again
   Repeat verify↔repair at most {max_repair_iterations} times.
 
 Required steps:
-1. Plan — spawn Plan (prefer cwd="{repo_path}"); write the full plan to {plan_file}
-2. Environment + Implement — spawn general-purpose (prefer cwd="{repo_path}"):
-   a. Create a project-local isolated environment (.venv / node_modules / Cargo / etc.)
-      — reuse an existing env if already present; do not recreate
-   b. Activate it, install ONLY missing light dependencies, implement per plan.md
-      (dependency manifests: names only, no versions)
-   c. All compile / test / run commands MUST use that environment
-   d. Prefer parallel file writes; stop after a green smoke test
-   e. Emit ENV_STATUS: READY then IMPLEMENTATION_STATUS: COMPLETE
-3. Verify — spawn verification (prefer cwd="{repo_path}") with the original objective,
-   files changed, approach, and plan path. Verification MUST:
-   • inspect the generated repository (structure, key modules, config)
-   • activate the project-local environment
-   • run ONE fast build or smoke run and record **Command run** lines + exit codes
-   • emit RUNTIME_CHECK: PASS only when that build/run succeeds with exit code 0
-   • VERDICT: PASS is **illegal** without RUNTIME_CHECK: PASS
-   • Do **not** PASS on static file review alone — FAIL or PARTIAL if runtime checks fail
-   • emit VERDICT: PASS only with RUNTIME_CHECK: PASS; otherwise FAIL or PARTIAL
-4. On VERDICT: FAIL or PARTIAL:
-   a. Spawn Plan to analyze verification failures and write a repair plan to
-      {repair_plan_file} (do not wipe {plan_file})
-   b. Spawn general-purpose to apply that repair plan inside the project env
-   c. Emit REPAIR_STATUS: COMPLETE from general-purpose, then spawn verification again
-5. Stop on VERDICT: PASS with RUNTIME_CHECK: PASS
-   (or after {max_repair_iterations} failed verification rounds — do not keep polishing)
+1. Plan — Write {plan_file} yourself (Plan subagent is READ-ONLY). Keep it <=80 lines.
+2. Environment + Implement — YOU implement (do NOT spawn Agent/general-purpose):
+   a. Create/activate a project-local env (.venv / node_modules / Cargo); reuse if present
+   b. DEPENDENCY MANIFESTS: names only / "*" wildcards, Never pin versions, tiny_http = "*"
+   c. Batch writes; stop after a green smoke test
+   d. Emit ENV_STATUS: READY then IMPLEMENTATION_STATUS: COMPLETE
+3. Verify — spawn verification (prefer cwd="{repo_path}") with the original objective.
+   Verification MUST activate the project env, run ONE fast smoke, record Command run
+   + exit codes, emit RUNTIME_CHECK: PASS only on exit 0. VERDICT: PASS is illegal
+   without RUNTIME_CHECK: PASS. Do not PASS on static file review alone.
+4. On VERDICT: FAIL or PARTIAL: Write {repair_plan_file} yourself, repair in-repo,
+   emit REPAIR_STATUS: COMPLETE, then spawn verification again.
+5. Stop on VERDICT: PASS with RUNTIME_CHECK: PASS (or after {max_repair_iterations} rounds).
 
-Do not spawn verification before IMPLEMENTATION_STATUS: COMPLETE from general-purpose.
-
-Available subagents: Plan, general-purpose, verification, Explore.
+Do not spawn verification before IMPLEMENTATION_STATUS: COMPLETE.
+Available subagents: general-purpose, verification, Explore.
 Only the verification subagent may issue VERDICT: PASS, FAIL, or PARTIAL.
 Do not self-assign a verdict.
 Do not ask the harness to start a second conversation.
 Treat repair and re-verification as ordinary work in this same conversation.
-# Topology note: prefer cwd-anchored Agent spawns (subagent_spawns). Do not assume
-# a separate parallel multi-agent swarm unless the objective explicitly requires it.
-isolation="worktree" is allowed when the worktree is of Repository Root
-{repo_path}; never use isolation="remote"."""
-        completion = (
-            "The conversation is complete only when the verification subagent "
-            "returns VERDICT: PASS together with RUNTIME_CHECK: PASS."
-        )
-    else:
-        lifecycle = f"""You own repository generation in THIS conversation.
-Python does not force which subagent to spawn — you choose.
+On Agent calls omit model (or model="inherit"). Never model=sonnet/opus/haiku.
+isolation="worktree" is allowed when the worktree is of Repository Root {repo_path}; never isolation="remote".
 
-1. Plan — spawn Plan (prefer cwd="{repo_path}"); write the full plan to {plan_file}
-2. Environment + Implement — spawn general-purpose (prefer cwd="{repo_path}"):
-   create project-local env, implement per plan.md, run builds inside that env
-   (dependency manifests: names only, no versions)
-3. Emit ENV_STATUS: READY then IMPLEMENTATION_STATUS: COMPLETE
-   on their own lines (from general-purpose)
+Repository Root: {repo_path}
+Read HARNESS_POLICY.md once for repo/env rules. Read platform_prompt.md once, then implement.
 
-Available subagents: Plan, general-purpose, Explore.
-Do not run verification in this run (--skip-verification).
-Do not ask the harness to start a second conversation.
-isolation="worktree" is allowed when anchored to {repo_path}."""
-        completion = (
-            "The conversation is complete when general-purpose emits "
-            "IMPLEMENTATION_STATUS: COMPLETE."
-        )
-
-    return f"""You are the primary Chakra coding agent for an autonomous repository pipeline.
-{lifecycle}
-
-For broad repository inspection, prefer Explore (subagent_type="Explore") over
-reading files one-by-one.
-Prefer Agent cwd="{repo_path}". isolation="worktree" is allowed for this repo.
-
-==================================================
-WORKING DIRECTORY
-Repository Root
-{repo_path}
-==================================================
-{SPEED_BUDGET_INSTRUCTIONS}
-{sandbox}
-==================================================
 PROJECT OBJECTIVE
 {objective}
-==================================================
-{completion}
+
+The conversation is complete only when the verification subagent returns VERDICT: PASS together with RUNTIME_CHECK: PASS.
 """
+    return (
+        f"Repo: {repo_path}\n"
+        f"Read platform_prompt.md once, then Write/Edit until the demo works.\n"
+        f"Do not run verification. Do not spawn Agent/Plan/Explore.\n"
+        f"Do not loop ls or cargo. Names-only deps. Never pin versions. No package installs.\n"
+        f"On Agent omit model (or model=\"inherit\").\n"
+        f"Do not print IMPLEMENTATION_STATUS: COMPLETE until README.md, "
+        f"scripts/smoke.py (or npm run smoke), fixtures/ or data/ seeds, and a working demo exist.\n"
+        f"If cargo/dlltool fails once, keep writing source + smoke; do not retry the compiler.\n"
+        f"\nOBJECTIVE\n{objective}\n"
+    )

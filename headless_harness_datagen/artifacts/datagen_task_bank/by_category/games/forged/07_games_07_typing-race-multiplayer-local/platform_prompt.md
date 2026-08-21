@@ -1,5 +1,23 @@
 # PLATFORM PROMPT — STATICLINE: Intercept Desk
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `javascript`
+- **ui_surface:** `react_spa`
+- **persistence:** `localstorage`
+- **complexity:** `medium`
+- Do **not** rewrite this project in a different language.
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **medium**
+- UI fidelity: MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required
+- Effort cue: deeper than low; still ship demoable without endless polish
+- Anti-stub: FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
+
 ## 1. Project Request / Product identity
 Build **STATICLINE**, a local-multiplayer typing race set in a 1970s numbers-station listening post. 2–4 players are rival intercept operators transcribing the same burst transmission. The twist: races are **asynchronous ghost relays** — players run one at a time on the shared keyboard while previously recorded opponents replay as live "ghost" progress lanes, so everyone still races head-to-head on one machine. A built-in **Demo Desk** mode plays a full match between two recorded operators (sample data) with zero input.
 

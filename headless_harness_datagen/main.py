@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Production entry point — single Chakra conversation (Phase 7).
+"""Production entry point - single Chakra conversation (Phase 7).
 
-Chakra owns plan → implement → verify → repair → re-verify.
+Chakra owns plan -> implement -> verify -> repair -> re-verify.
 Python only supervises: keep alive, approve tools, trace, detect completion.
 """
 
 from __future__ import annotations
 
 import argparse
+import os
+import shutil
+import sys
 from pathlib import Path
 
 from adapter.chakra import ChakraHarness
@@ -24,7 +27,10 @@ from scripts.real_backend import (
     working_directory,
 )
 from verification import Verdict, parse_verdict
-from verification.prompts import build_unified_pipeline_objective
+from verification.prompts import (
+    build_unified_pipeline_objective,
+    write_harness_policy_file,
+)
 from verification.report import save_pipeline_artifacts, stage_working_run_id
 
 ROOT = Path(__file__).resolve().parent
@@ -44,6 +50,7 @@ def _run_pipeline(
     max_repair_iterations: int,
     enable_trace: bool,
     completion_mode: CompletionMode,
+    model: str | None = None,
 ) -> object:
     """Run one ConversationRunner / one conversation until completion or limit."""
     engine = ExecutionEngine(harness)
@@ -61,6 +68,7 @@ def _run_pipeline(
         run_id=stage_working_run_id("pipeline"),
         log_root=run_log_root,
         enable_trace=enable_trace,
+        model=(model or os.environ.get("OPENAI_MODEL") or None),
     )
     runner = ConversationRunner(engine, policy=policy, config=config)
     result = runner.run(bootstrap)
@@ -78,9 +86,16 @@ def _run_pipeline(
 
 
 def main() -> int:
+    # Windows consoles often use cp1252 - avoid crash on arrows/dashes in prints.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+        except Exception:
+            pass
+
     parser = argparse.ArgumentParser(
         description=(
-            "Autonomous harness — one Chakra conversation owns "
+            "Autonomous harness - one Chakra conversation owns "
             "plan/implement/verify/repair (Phase 7)"
         )
     )
@@ -124,10 +139,15 @@ def main() -> int:
         help="Generation only; complete on IMPLEMENTATION_STATUS: COMPLETE",
     )
     parser.add_argument(
+        "--model",
+        default=None,
+        help="Model id for Chakra gRPC ChatRequest (default: OPENAI_MODEL env)",
+    )
+    parser.add_argument(
         "--forge-prompt",
         action="store_true",
         help=(
-            "Run prompt-forge mid-layer first: classify seed → expand category "
+            "Run prompt-forge mid-layer first: classify seed -> expand category "
             "template via LLM into a unique PLATFORM ADD-ON, then compose onto "
             "the normal harness bootstrap"
         ),
@@ -147,6 +167,14 @@ def main() -> int:
         type=float,
         default=1.0,
         help="Sampling temperature for unique platform prompt expansion (kimi3 requires 1)",
+    )
+    parser.add_argument(
+        "--platform-prompt-file",
+        default=None,
+        help=(
+            "Use an existing forged/expanded platform_prompt.md (skip live forge). "
+            "Preferred for checkpointed datagen_pipeline runs."
+        ),
     )
     args = parser.parse_args()
 
@@ -168,12 +196,43 @@ def main() -> int:
         return 1
     if bootstrap.initialized:
         print(f"Initialized git repository at {repo_dir}")
+    # Full SANDBOX dump in ChatRequest times out the proxy (0 tokens). Stage on disk.
+    policy_path = write_harness_policy_file(repo_dir)
+    print(f"Harness policy: {policy_path}")
 
     harness = ChakraHarness(default_timeout_seconds=turn_timeout())
     harness.connect(connection_config())
     llm = OpenAICompatibleClient.from_env()
 
-    if args.forge_prompt:
+    if args.platform_prompt_file:
+        prd_path = Path(args.platform_prompt_file)
+        if not prd_path.is_file():
+            print(f"Error: --platform-prompt-file not found: {prd_path}")
+            return 1
+        platform_body = prd_path.read_text(encoding="utf-8")
+        # Copy PRD inside the repo. Chakra Read/Bash on artifacts/ is sandboxed
+        # (empty is_error) so the agent otherwise loops on a file it cannot open.
+        local_prd = repo_dir / "platform_prompt.md"
+        try:
+            if prd_path.resolve() != local_prd.resolve():
+                shutil.copy2(prd_path, local_prd)
+        except OSError:
+            local_prd.write_text(platform_body, encoding="utf-8")
+        # Thin bootstrap: do NOT inline the full PRD (was 10k+ tokens every turn).
+        # Agent must Read the in-repo copy once, then implement.
+        objective = build_unified_pipeline_objective(
+            repo_path=str(repo_dir),
+            objective=(
+                f"{args.objective}\n\n"
+                f"PRD is {local_prd} — Read it ONCE, then Write code. "
+                f"Do not Read artifacts/datagen_task_bank.\n"
+            ),
+            max_repair_iterations=args.max_repair_iterations,
+            include_verification=include_verification,
+        )
+        print(f"=== Existing platform prompt ===\n{prd_path}")
+        print(f"=== Copied into repo ===\n{local_prd}")
+    elif args.forge_prompt:
         from prompt_forge.composer import compose_harness_objective, save_forge_artifacts
 
         print("=== Prompt forge (mid-layer) ===")
@@ -204,10 +263,12 @@ def main() -> int:
     print(f"Run: {run_id}")
     print(f"Objective: {args.objective}")
     print(f"Repository: {repo_dir}")
+    resolved_model = args.model or os.environ.get("OPENAI_MODEL") or "(chakra default)"
+    print(f"Model: {resolved_model}")
     print(f"Logs: {run_log_root}")
     print(
         "Architecture: one Chakra conversation "
-        "(plan→implement→verify→repair; Phase 7)"
+        "(plan->implement->verify->repair; Phase 7)"
     )
     print("\n=== Pipeline ===\n")
 
@@ -224,6 +285,7 @@ def main() -> int:
             max_repair_iterations=args.max_repair_iterations,
             enable_trace=enable_trace,
             completion_mode=completion_mode,
+            model=args.model,
         )
     finally:
         harness.disconnect()
@@ -279,7 +341,7 @@ def main() -> int:
 
     print(f"Verdict: {verdict.value if verdict else 'NONE'}")
     if authoritative and verdict == Verdict.PASS:
-        print("\nPipeline complete — verified by verification subagent.")
+        print("\nPipeline complete - verified by verification subagent.")
         return 0
     if verdict == Verdict.FAIL or verdict == Verdict.PARTIAL:
         print(f"\nVerification ended with {verdict.value}.")

@@ -1,12 +1,13 @@
-"""Live forward-progress tracker — workflow milestones only reset stalls.
+"""Live forward-progress tracker.
 
-Activity (Reads, Edits, Bash, agent churn) is counted for metrics/budgets but
-does NOT reset the stall counter. Only phase transitions and completed
-milestones count as workflow progress.
+Reads/Explore/listing Bash do not reset stall. Write/Edit and build/test Bash
+do — gpt finishes a turn after a few tools, so counting only IMPLEMENTATION_STATUS
+killed working runs in ~2 minutes (oss hid this because each timeout took ~5 min).
 """
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -158,10 +159,22 @@ class ProgressTracker:
                 self.unique_in_repo_reads += 1
 
     def note_edit(self, path: str | None = None) -> None:
-        """Activity: Edit/Write — does not reset stall."""
+        """Write/Edit is implementation progress — resets stall (gpt ends turns early)."""
         self.useful_tool_calls += 1
         self._record_activity("file_edit")
+        self._cycle_had_progress = True
+        self.pending_progress_since_resume = True
         del path
+
+    def note_bash(self, command: str = "") -> None:
+        """Non-listing Bash (build/test/run) resets stall; ls/pwd does not."""
+        self.useful_tool_calls += 1
+        self._record_activity("bash")
+        low = (command or "").strip().lower()
+        if not low or re.match(r"^(ls|dir|pwd|tree|echo|printf|head|tail|cat)\b", low):
+            return
+        self._cycle_had_progress = True
+        self.pending_progress_since_resume = True
 
     def note_useful_tool(self, tool_name: str) -> None:
         name = (tool_name or "").strip()
@@ -187,6 +200,9 @@ class ProgressTracker:
             return
         if name in {"Edit", "Write", "MultiEdit", "NotebookEdit"}:
             self.note_edit(str(args.get("file_path") or args.get("path") or ""))
+            return
+        if name == "Bash":
+            self.note_bash(str(args.get("command") or ""))
             return
         if name:
             self.note_useful_tool(name)

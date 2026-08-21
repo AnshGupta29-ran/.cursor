@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -18,7 +19,7 @@ from engine import ExecutionEngine
 from engine.state import ConversationState, ConversationStatus
 from engine.types import EngineNotification, EngineNotificationKind
 from interface import ConnectionConfig
-from interface.events import ToolCompletedEvent, ToolStartedEvent
+from interface.events import ToolCompletedEvent, ToolStartedEvent, TurnCompletedEvent
 from interface.models.session import HarnessSession
 from interface.reference.in_memory_harness import InMemoryHarness
 
@@ -60,6 +61,12 @@ def test_config_from_env_defaults(monkeypatch_env=None) -> None:
     assert cfg.inactivity_timeout_minutes == 60.0 or cfg.inactivity_timeout_minutes > 0
     assert cfg.max_turns == 5
     assert cfg.inactivity_timeout_seconds == cfg.inactivity_timeout_minutes * 60
+
+
+def test_config_from_env_reads_openai_model(monkeypatch) -> None:
+    monkeypatch.setenv("OPENAI_MODEL", "gpt-oss-120b")
+    cfg = ConversationConfig.from_env()
+    assert cfg.model == "gpt-oss-120b"
 
 
 def test_activity_resets_inactivity_but_not_progress() -> None:
@@ -142,6 +149,38 @@ def test_repeated_failures_terminate() -> None:
     assert verdict.reason == "repeated_failure_threshold"
 
 
+def test_missing_cargo_toml_ls_does_not_trip_repeated_failure() -> None:
+    monitor = SessionHealthMonitor(_config(repeated_failure_threshold=3))
+    cmd = "ls -la; ls src; ls Cargo.toml package.json"
+    out = "Exit code 2\ntotal 43\nls: cannot access 'Cargo.toml': No such file"
+    for i in range(8):
+        inv = f"ls-{i}"
+        monitor.observe(
+            _notification(
+                EngineNotificationKind.EVENT_RECEIVED,
+                ToolStartedEvent(
+                    tool_name="Bash",
+                    arguments={"command": cmd},
+                    invocation_id=inv,
+                ),
+            )
+        )
+        monitor.observe(
+            _notification(
+                EngineNotificationKind.EVENT_RECEIVED,
+                ToolCompletedEvent(
+                    tool_name="Bash",
+                    invocation_id=inv,
+                    output=out,
+                    is_error=True,
+                ),
+            )
+        )
+    verdict = monitor.evaluate()
+    assert not verdict.should_terminate
+    assert not monitor.snapshot()["failure_counts"]
+
+
 def test_write_tool_counts_as_progress() -> None:
     monitor = SessionHealthMonitor(
         _config(inactivity_timeout_minutes=100, progress_timeout_minutes=1)
@@ -160,6 +199,50 @@ def test_write_tool_counts_as_progress() -> None:
     )
     verdict = monitor.evaluate(now=t0 + 90)
     assert verdict.stage == HealthStage.HEALTHY
+
+
+def test_listing_bash_does_not_reset_progress_timeout(monkeypatch) -> None:
+    """ls loops must not defeat progress_timeout (terminal hang root cause)."""
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    monitor = SessionHealthMonitor(
+        _config(
+            inactivity_timeout_minutes=100,
+            progress_timeout_minutes=1,
+            stagnation_grace_cycles=1,
+        )
+    )
+    t0 = 0.0
+    monitor.record_progress(kind="start", now=t0)
+    inv = "ls1"
+    monitor.observe(
+        _notification(
+            EngineNotificationKind.EVENT_RECEIVED,
+            ToolStartedEvent(
+                tool_name="Bash",
+                invocation_id=inv,
+                arguments={"command": "ls -la"},
+            ),
+        ),
+        now=t0 + 10,
+    )
+    monitor.observe(
+        _notification(
+            EngineNotificationKind.EVENT_RECEIVED,
+            ToolCompletedEvent(
+                tool_name="Bash",
+                invocation_id=inv,
+                output="ok",
+                is_error=False,
+            ),
+        ),
+        now=t0 + 10,
+    )
+    v1 = monitor.evaluate(now=t0 + 70)
+    assert not v1.should_terminate
+    assert v1.reason == "progress_timeout_warning"
+    v2 = monitor.evaluate(now=t0 + 130)
+    assert v2.should_terminate
+    assert v2.reason == "progress_timeout"
 
 
 def test_error_tool_counts_as_failure_not_progress() -> None:
@@ -312,6 +395,132 @@ def test_identical_bash_exec_failures_still_terminate() -> None:
     verdict = monitor.evaluate()
     assert verdict.should_terminate
     assert verdict.reason == "repeated_failure_threshold"
+
+
+def test_single_api_timeout_does_not_terminate() -> None:
+    os.environ.pop("HARNESS_MODEL_503_THRESHOLD", None)
+    os.environ.pop("HARNESS_MODEL_TIMEOUT_THRESHOLD", None)
+    monitor = SessionHealthMonitor(_config(repeated_failure_threshold=8))
+    monitor.observe(
+        _notification(
+            EngineNotificationKind.EVENT_RECEIVED,
+            TurnCompletedEvent(final_text="API Error: The operation timed out."),
+        )
+    )
+    verdict = monitor.evaluate()
+    assert not verdict.should_terminate
+    assert monitor.snapshot()["failure_counts"].get("model_upstream_timeout") == 1
+    assert "model_upstream_503" not in monitor.snapshot()["failure_counts"]
+
+
+def test_repeated_timeouts_terminate_with_timeout_reason() -> None:
+    os.environ["HARNESS_MODEL_TIMEOUT_THRESHOLD"] = "2"
+    try:
+        monitor = SessionHealthMonitor(_config(repeated_failure_threshold=8))
+        ev = TurnCompletedEvent(final_text="API Error: The operation timed out.")
+        monitor.observe(
+            _notification(EngineNotificationKind.EVENT_RECEIVED, ev)
+        )
+        assert not monitor.evaluate().should_terminate
+        monitor.observe(
+            _notification(EngineNotificationKind.EVENT_RECEIVED, ev)
+        )
+        verdict = monitor.evaluate()
+        assert verdict.should_terminate
+        assert verdict.reason == "model_upstream_timeout"
+    finally:
+        os.environ.pop("HARNESS_MODEL_TIMEOUT_THRESHOLD", None)
+
+
+def test_api_timeout_done_is_turn_failed_not_completed() -> None:
+    from adapter.chakra.translator import translate_server_event
+    from client.chakra_client import EventType, ServerEvent
+    from interface.events import TurnFailedEvent
+
+    ev = translate_server_event(
+        ServerEvent(
+            type=EventType.DONE,
+            full_text="API Error: The operation timed out.",
+            prompt_tokens=0,
+            completion_tokens=0,
+        )
+    )
+    assert isinstance(ev, TurnFailedEvent)
+    assert ev.code == "api_timeout"
+
+
+def test_turn_failed_timeout_counts_once_across_notifications() -> None:
+    from interface.events import TurnFailedEvent
+
+    os.environ.pop("HARNESS_MODEL_TIMEOUT_THRESHOLD", None)
+    monitor = SessionHealthMonitor(_config(repeated_failure_threshold=8))
+    ev = TurnFailedEvent(
+        message="API Error: The operation timed out.",
+        code="api_timeout",
+    )
+    monitor.observe(_notification(EngineNotificationKind.EVENT_RECEIVED, ev))
+    monitor.observe(
+        EngineNotification(
+            kind=EngineNotificationKind.TURN_FAILED,
+            conversation_id="c1",
+            state=_state(),
+            event=ev,
+            detail={"code": "api_timeout", "message": ev.message},
+        )
+    )
+    assert monitor.snapshot()["failure_counts"].get("model_upstream_timeout") == 1
+    assert not monitor.evaluate().should_terminate
+
+
+def test_api_timeout_failed_turn_keeps_conversation_active() -> None:
+    from engine.dispatcher import EventDispatcher
+    from engine.state import TurnState, new_turn_id
+    from interface.events import TurnFailedEvent
+
+    dispatcher = EventDispatcher()
+    state = _state()
+    turn = TurnState(turn_id=new_turn_id(), user_message="hi")
+    state.active_turn = turn
+    state.status = ConversationStatus.TURN_IN_PROGRESS
+    dispatcher.dispatch(
+        state,
+        TurnFailedEvent(
+            message="API Error: The operation timed out.",
+            code="api_timeout",
+        ),
+    )
+    assert state.status == ConversationStatus.ACTIVE
+    assert state.active_turn is None
+
+
+def test_single_503_does_not_terminate_at_default_threshold() -> None:
+    os.environ.pop("HARNESS_MODEL_503_THRESHOLD", None)
+    monitor = SessionHealthMonitor(_config(repeated_failure_threshold=8))
+    monitor.observe(
+        _notification(
+            EngineNotificationKind.EVENT_RECEIVED,
+            TurnCompletedEvent(final_text="upstream unavailable 503 Bad Gateway"),
+        )
+    )
+    verdict = monitor.evaluate()
+    assert not verdict.should_terminate
+
+
+def test_threshold_1_still_fail_fast_on_503() -> None:
+    os.environ["HARNESS_MODEL_503_THRESHOLD"] = "1"
+    try:
+        monitor = SessionHealthMonitor(_config(repeated_failure_threshold=8))
+        monitor.observe(
+            _notification(
+                EngineNotificationKind.EVENT_RECEIVED,
+                TurnCompletedEvent(final_text="upstream unavailable 503"),
+            )
+        )
+        verdict = monitor.evaluate()
+        assert verdict.should_terminate
+        assert verdict.reason == "model_upstream_503"
+    finally:
+        os.environ.pop("HARNESS_MODEL_503_THRESHOLD", None)
 
 
 def test_orchestration_state_completes_from_verification_agent() -> None:
@@ -516,17 +725,27 @@ def test_runner_is_single_entry_exports() -> None:
 if __name__ == "__main__":
     tests = [
         test_config_from_env_defaults,
+        test_config_from_env_reads_openai_model,
         test_activity_resets_inactivity_but_not_progress,
         test_inactivity_terminates,
         test_progress_timeout_warns_then_terminates,
         test_repeated_failures_terminate,
+        test_missing_cargo_toml_ls_does_not_trip_repeated_failure,
         test_write_tool_counts_as_progress,
+        test_listing_bash_does_not_reset_progress_timeout,
         test_error_tool_counts_as_failure_not_progress,
         test_empty_bash_errors_with_different_commands_do_not_coalesce,
         test_denied_empty_bash_does_not_count_toward_threshold,
         test_empty_bash_without_hint_is_ignored,
         test_progress_clears_failure_streak,
         test_identical_bash_exec_failures_still_terminate,
+        test_single_api_timeout_does_not_terminate,
+        test_repeated_timeouts_terminate_with_timeout_reason,
+        test_api_timeout_done_is_turn_failed_not_completed,
+        test_turn_failed_timeout_counts_once_across_notifications,
+        test_api_timeout_failed_turn_keeps_conversation_active,
+        test_single_503_does_not_terminate_at_default_threshold,
+        test_threshold_1_still_fail_fast_on_503,
         test_orchestration_state_completes_from_verification_agent,
         test_runner_rejects_echoed_self_pass,
         test_runner_completes_on_implementation_mode,

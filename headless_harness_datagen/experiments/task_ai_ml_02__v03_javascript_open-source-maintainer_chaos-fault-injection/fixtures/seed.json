@@ -1,0 +1,18 @@
+[
+  {
+    "run_id": "seed-run-1",
+    "experiment_name": "baseline",
+    "status": "FINISHED",
+    "metric_name": "accuracy",
+    "metric_value": "0.85",
+    "timestamp": "1700000000000"
+  },
+  {
+    "run_id": "seed-run-2",
+    "experiment_name": "augmented",
+    "status": "FINISHED",
+    "metric_name": "accuracy",
+    "metric_value": "0.88",
+    "timestamp": "1700000100000"
+  }
+]

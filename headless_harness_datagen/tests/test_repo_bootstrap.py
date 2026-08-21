@@ -34,7 +34,10 @@ def test_fresh_dir_initializes_git_with_head() -> None:
         assert (repo / ".git").exists()
         head = _git(repo, "rev-parse", "HEAD")
         assert head
-        assert _git(repo, "rev-parse", "--show-toplevel") == str(repo.resolve())
+        assert Path(_git(repo, "rev-parse", "--show-toplevel")).resolve() == repo.resolve()
+        gi = (repo / ".gitignore").read_text(encoding="utf-8")
+        assert "target/" in gi
+        assert "node_modules/" in gi
 
 
 def test_second_call_is_idempotent() -> None:
@@ -63,6 +66,18 @@ def test_existing_git_with_head_skips_init() -> None:
         assert result.error is None
         assert result.already_ready is True
         assert result.initialized is False
+        assert "target/" in (repo / ".gitignore").read_text(encoding="utf-8")
+
+
+def test_scrubs_cargo_target_tree() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp) / "project"
+        dumped = repo / "target" / "debug" / "deps"
+        dumped.mkdir(parents=True)
+        (dumped / "junk.rlib").write_text("x", encoding="utf-8")
+        result = ensure_project_git_repo(repo)
+        assert result.error is None
+        assert not (repo / "target").exists()
 
 
 def test_git_dir_without_head_gets_empty_commit() -> None:
@@ -82,6 +97,7 @@ def main() -> int:
         test_fresh_dir_initializes_git_with_head,
         test_second_call_is_idempotent,
         test_existing_git_with_head_skips_init,
+        test_scrubs_cargo_target_tree,
         test_git_dir_without_head_gets_empty_commit,
     ]
     failed = 0

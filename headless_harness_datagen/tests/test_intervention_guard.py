@@ -15,6 +15,8 @@ from controller.intervention_guard import (
     evaluate_intervention_guard,
     extract_pending_tool,
     is_echo_only_bash,
+    is_recursive_tree_dump,
+    is_system_package_install_bash,
 )
 from controller.policies import DecisionPolicy
 
@@ -96,6 +98,82 @@ def test_auto_approve_safe_bash() -> None:
         assert result.response == "yes"
 
 
+def test_auto_approve_relative_script_bash() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": "./smoke_test.sh"},
+            )
+        )
+        assert result is not None
+        assert result.response == "yes"
+
+
+def test_auto_approve_cargo_bash() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": "cargo build --release"},
+            )
+        )
+        assert result is not None
+        assert result.response == "yes"
+
+
+def test_approve_ls_r_bash_rewritten_by_grpc() -> None:
+    assert is_recursive_tree_dump("ls -R") is True
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": "ls -R"},
+            )
+        )
+        assert result is not None
+        assert result.response == "yes"
+        assert "rewrite" in result.reasoning.lower() or "chakra" in result.reasoning.lower()
+
+
+def test_deny_system_package_install_bash() -> None:
+    assert is_system_package_install_bash("choco install ripgrep") is True
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": "choco install ripgrep -y"},
+            )
+        )
+        assert result is not None
+        assert result.response == "no"
+        assert "package manager" in result.reasoning.lower()
+
+
+def test_approve_ls_with_dev_null_redirect() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={
+                    "command": "ls -la; ls src 2>/dev/null; ls Cargo.toml 2>/dev/null"
+                },
+            )
+        )
+        assert result is not None
+        assert result.response == "yes"
+
+
 def test_auto_deny_echo_completion_bash() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         repo = Path(tmp)
@@ -109,6 +187,34 @@ def test_auto_deny_echo_completion_bash() -> None:
 
 
 def test_auto_deny_repeated_identical_bash() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        # Non-listing command still denied on repeats
+        cmd = f"cd {repo} && python -c \"print(1)\""
+        tool_events = [
+            {
+                "event_type": "tool_started",
+                "payload": {"tool_name": "Bash", "arguments": {"command": cmd}},
+            },
+            {
+                "event_type": "tool_started",
+                "payload": {"tool_name": "Bash", "arguments": {"command": cmd}},
+            },
+        ]
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": cmd},
+                tool_events=tool_events,
+            )
+        )
+        assert result is not None
+        assert result.response == "no"
+        assert "repeated" in result.reasoning.lower()
+
+
+def test_allow_repeated_listing_bash() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         repo = Path(tmp)
         cmd = f"cd {repo} && ls -la"
@@ -131,7 +237,101 @@ def test_auto_deny_repeated_identical_bash() -> None:
             )
         )
         assert result is not None
+        assert result.response == "yes"
+        assert "repeated" not in result.reasoning.lower()
+
+
+def test_pipeline_denies_repeated_listing(monkeypatch) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        cmd = "ls -la"
+        tool_events = [
+            {
+                "event_type": "tool_started",
+                "payload": {"tool_name": "Bash", "arguments": {"command": cmd}},
+            },
+            {
+                "event_type": "tool_started",
+                "payload": {"tool_name": "Bash", "arguments": {"command": cmd}},
+            },
+        ]
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Bash",
+                arguments={"command": cmd},
+                tool_events=tool_events,
+            )
+        )
+        assert result is not None
         assert result.response == "no"
+        assert "listing" in result.reasoning.lower()
+
+
+def test_pipeline_allows_first_platform_prompt_read(monkeypatch) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        prompt = repo / "platform_prompt.md"
+        prompt.write_text("# prompt", encoding="utf-8")
+        file_path = str(prompt)
+        # Pending Read is already in tool_events (count=1) — must still allow.
+        tool_events = [
+            {
+                "event_type": "tool_started",
+                "payload": {
+                    "tool_name": "Read",
+                    "arguments": {"file_path": file_path, "limit": 200},
+                },
+            },
+        ]
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Read",
+                arguments={"file_path": file_path, "limit": 200},
+                tool_events=tool_events,
+            )
+        )
+        assert result is not None
+        assert result.response == "yes"
+
+
+def test_pipeline_denies_repeated_platform_prompt_read(monkeypatch) -> None:
+    monkeypatch.setenv("DATAGEN_PIPELINE_MODE", "1")
+    with tempfile.TemporaryDirectory() as tmp:
+        repo = Path(tmp)
+        prompt = repo / "platform_prompt.md"
+        prompt.write_text("# prompt", encoding="utf-8")
+        file_path = str(prompt)
+        tool_events = [
+            {
+                "event_type": "tool_started",
+                "payload": {
+                    "tool_name": "Read",
+                    "arguments": {"file_path": file_path, "limit": 200},
+                },
+            },
+            {
+                "event_type": "tool_started",
+                "payload": {
+                    "tool_name": "Read",
+                    "arguments": {"file_path": file_path, "limit": 200},
+                },
+            },
+        ]
+        result = evaluate_intervention_guard(
+            _context(
+                repo=str(repo),
+                tool_name="Read",
+                arguments={"file_path": file_path, "limit": 200},
+                tool_events=tool_events,
+            )
+        )
+        assert result is not None
+        assert result.response == "no"
+        assert "platform_prompt" in result.reasoning.lower()
 
 
 def test_auto_approve_agent_subagent() -> None:
@@ -254,9 +454,18 @@ def test_stall_tracker_cancels_after_echo_denials() -> None:
 
 def test_stall_tracker_cancels_after_many_interventions_without_writes() -> None:
     tracker = StallTracker()
-    for _ in range(15):
-        tracker.record(tool_name="Read", response="yes", is_echo_bash=False)
+    # Read/Glob no longer count toward stall — use Bash approvals instead.
+    for _ in range(tracker.intervention_without_write_threshold):
+        tracker.record(tool_name="Bash", response="yes", is_echo_bash=False)
     assert tracker.should_cancel_turn() is True
+
+
+def test_stall_tracker_ignores_approved_reads() -> None:
+    tracker = StallTracker()
+    for _ in range(40):
+        tracker.record(tool_name="Read", response="yes", is_echo_bash=False)
+    assert tracker.intervention_count == 0
+    assert tracker.should_cancel_turn() is False
 
 
 def test_stall_tracker_resets_per_turn() -> None:
@@ -273,8 +482,17 @@ def main() -> int:
         test_auto_approve_in_repo_read,
         test_auto_deny_out_of_repo_read,
         test_auto_approve_safe_bash,
+        test_auto_approve_relative_script_bash,
+        test_auto_approve_cargo_bash,
+        test_approve_ls_r_bash_rewritten_by_grpc,
+        test_deny_system_package_install_bash,
+        test_approve_ls_with_dev_null_redirect,
         test_auto_deny_echo_completion_bash,
         test_auto_deny_repeated_identical_bash,
+        test_allow_repeated_listing_bash,
+        test_pipeline_denies_repeated_listing,
+        test_pipeline_allows_first_platform_prompt_read,
+        test_pipeline_denies_repeated_platform_prompt_read,
         test_auto_approve_agent_subagent,
         test_auto_approve_agent_missing_cwd,
         test_auto_approve_agent_worktree_isolation,
@@ -283,6 +501,7 @@ def main() -> int:
         test_guard_skips_llm_for_safe_read,
         test_stall_tracker_cancels_after_echo_denials,
         test_stall_tracker_cancels_after_many_interventions_without_writes,
+        test_stall_tracker_ignores_approved_reads,
         test_stall_tracker_resets_per_turn,
     ]
     for test in tests:

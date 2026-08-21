@@ -10,8 +10,8 @@ from controller.completion import (
     CompletionHit,
     CompletionMode,
     TerminalEventKind,
+    TerminalMarker,
 )
-from controller.completion import TerminalMarker
 from controller.lifecycle import LifecycleObserver
 from controller.resume_nudges import ResumeNudge, select_resume_nudge
 from controller.workflow_common import summarize_preserving_markers
@@ -293,6 +293,25 @@ class OrchestrationState:
         hit = self._detector.inspect(text, event_kind=event_kind, source=source)
         if hit is None:
             return
+        from controller.ship_gate import evaluate_ship_gate, pipeline_mode
+
+        if (
+            pipeline_mode()
+            and self.completion_mode == CompletionMode.IMPLEMENTATION_COMPLETE
+            and hit.marker == TerminalMarker.IMPLEMENTATION_COMPLETE
+        ):
+            repo = (self.repo_path or "").strip()
+            status = evaluate_ship_gate(repo) if repo else None
+            if status is not None and not status.ready:
+                self._record(
+                    "completion_rejected_thin_workdir",
+                    {
+                        "missing": list(status.missing),
+                        "source_files": status.source_files,
+                        "source_bytes": status.source_bytes,
+                    },
+                )
+                return
         self.completion_detected = True
         self.completion_hit = hit
         self.completion_summary = summarize_preserving_markers(text)

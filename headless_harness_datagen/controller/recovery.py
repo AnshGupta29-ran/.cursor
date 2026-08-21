@@ -9,6 +9,7 @@ from controller.explore_exit import ExploreExitStatus, evaluate_explore_exit
 from controller.lifecycle import LifecycleObserver
 from controller.phase_contracts import PhaseBudgetTracker
 from controller.progress_tracker import ProgressTracker
+from controller.ship_gate import evaluate_ship_gate, pipeline_mode
 from controller.workflow_common import (
     IMPLEMENTATION_COMPLETE_MARKER,
     agent_spawn_instructions,
@@ -102,6 +103,27 @@ def select_recovery(
         if only_explore or explore_exit.ready or (
             no_pipeline and "explore" in spawned and not lifecycle.plan_agent_seen
         ):
+            # Never infinite-nudge: 0 Write after recovery budget = fail the attempt.
+            if pipeline_mode() and lifecycle.main_agent_write_count == 0:
+                return RecoveryAction(
+                    kind="terminate",
+                    reason=(
+                        "Write starvation: 0 Write/Edit after recovery budget "
+                        "(Read/Bash loop)"
+                    ),
+                    message="",
+                    termination_reason="write_starvation",
+                )
+            if pipeline_mode():
+                return RecoveryAction(
+                    kind="implement_first",
+                    reason="Build-first: skip Explore/Plan — keep writing the demo",
+                    message=_implement_first_message(
+                        repo=repo,
+                        extra=_ship_missing_extra(repo),
+                    ),
+                    effects=_effects_for_kind("implement_first"),
+                )
             return RecoveryAction(
                 kind="terminate",
                 reason="Stuck in Explore without Plan/implement after recovery",
@@ -134,12 +156,46 @@ def select_recovery(
         )
 
     # Ordered recoveries (before terminate):
-    # 0. workspace_reset when confusion dominates
-    # 1. implement-first if no COMPLETE
-    # 2. denial/cwd strategy
-    # 3. repair after rejected PASS streak / FAIL
-    # 4. explore ready / force plan
-    # 5. phase budget / generic stall
+    # 0. pipeline write-starvation (before workspace_reset — confusion thrash
+    #    was blocking this and burning the full wall clock)
+    # 1. workspace_reset when confusion dominates
+    # 2. implement-first if no COMPLETE
+    # 3. denial/cwd strategy
+    # 4. repair after rejected PASS streak / FAIL
+    # 5. explore ready / force plan
+    # 6. phase budget / generic stall
+
+    # Pipeline write-starvation: gpt plans/lists for hours with 0 Write/Edit.
+    if (
+        pipeline_mode()
+        and not lifecycle.implementation_complete_seen
+        and lifecycle.main_agent_write_count == 0
+        and progress.consecutive_resumes_without_progress >= 2
+    ):
+        # Cap nudge loops (~10–15 min of Read spam) instead of burning wall=155m.
+        if (
+            progress.consecutive_resumes_without_progress >= 10
+            or recovery_attempts_used >= max(3, max_recovery_attempts)
+        ):
+            return RecoveryAction(
+                kind="terminate",
+                reason=(
+                    "Write starvation: 0 Write/Edit after "
+                    f"{progress.consecutive_resumes_without_progress} resume cycles"
+                ),
+                message="",
+                termination_reason="write_starvation",
+            )
+        return RecoveryAction(
+            kind="implement_first",
+            reason="Build-first: 0 Write/Edit calls — force smoke/source writes",
+            message=_implement_first_message(
+                repo=repo,
+                extra=_ship_missing_extra(repo)
+                + "\nYou have made ZERO Write/Edit calls. The next action MUST be Write.\n",
+            ),
+            effects=_effects_for_kind("implement_first"),
+        )
 
     if confused:
         return RecoveryAction(
@@ -162,6 +218,19 @@ def select_recovery(
                 f"\n{lifecycle.main_agent_write_count} Write/Edit(s) without "
                 f"{IMPLEMENTATION_COMPLETE_MARKER}.\n"
             )
+        if pipeline_mode():
+            extra = (extra + "\n" + _ship_missing_extra(repo)).strip()
+            # After the first write, recovering every turn burns the turn budget
+            # on nudges while gpt still does one ls/Read. Soft-continue until stall.
+            if (
+                not stalled
+                and progress.consecutive_resumes_without_progress < 4
+            ):
+                return RecoveryAction(
+                    kind="noop",
+                    reason="pipeline: agent is writing — skip implement_first hijack",
+                    message="",
+                )
         return RecoveryAction(
             kind="implement_first",
             reason="Implementation incomplete — recover via general-purpose",
@@ -203,6 +272,16 @@ def select_recovery(
     if explore_exit.ready or only_explore or no_pipeline or (
         stalled and not lifecycle.plan_agent_seen and not lifecycle.implementation_gp_seen
     ):
+        if pipeline_mode():
+            return RecoveryAction(
+                kind="implement_first",
+                reason="Build-first: Write/Edit instead of Plan/Explore",
+                message=_implement_first_message(
+                    repo=repo,
+                    extra=_ship_missing_extra(repo),
+                ),
+                effects=_effects_for_kind("implement_first"),
+            )
         reason = explore_exit.reason if explore_exit.ready else (
             "Explore/bootstrap without Plan or general-purpose"
         )
@@ -245,26 +324,25 @@ def select_recovery(
     )
 
 
-def _implement_first_message(*, repo: str, extra: str = "") -> str:
-    gp_spawn = agent_spawn_instructions(
-        repo_path=repo,
-        subagent_type="general-purpose",
-        extra_prompt_bullets=[
-            f"repository root: {repo}",
-            "create/activate project-local environment",
-            "implement per plan.md",
-            f"emit ENV_STATUS: READY then {IMPLEMENTATION_COMPLETE_MARKER}",
-        ],
-    )
-    return f"""HARNESS RECOVERY — IMPLEMENT FIRST
+def _ship_missing_extra(repo: str) -> str:
+    status = evaluate_ship_gate(repo)
+    if status.ready:
+        return ""
+    return status.nudge()
 
-Do not spawn verification yet. Finish implementation with markers.
-Repository Root: {repo}
-{extra}
-1. {gp_spawn}
-2. Emit ENV_STATUS: READY and {IMPLEMENTATION_COMPLETE_MARKER}.
-3. Only then spawn verification with real build/run + RUNTIME_CHECK: PASS.
-"""
+
+def _implement_first_message(*, repo: str, extra: str = "") -> str:
+    extra_line = f"\n{extra.strip()}\n" if extra.strip() else ""
+    return (
+        f"HARNESS RECOVERY — IMPLEMENT FIRST\n"
+        f"STOP listing. Do not Read platform_prompt.md again. Do not ls/dir/tree.\n"
+        f"Do NOT spawn Agent/Plan/Explore. Finish in {repo} with Write/Edit only.\n"
+        f"{extra_line}"
+        f"REQUIRED NEXT TOOL CALL: Write (not Read, not Bash).\n"
+        f"Create scripts/smoke.sh (or scripts/smoke.py / scripts/smoke.js) now, "
+        f"plus fixtures/seed.json if missing.\n"
+        f"Print ENV_STATUS: READY then {IMPLEMENTATION_COMPLETE_MARKER} when done.\n"
+    )
 
 
 def _repair_recovery_message(*, repo: str, lifecycle: LifecycleObserver) -> str:

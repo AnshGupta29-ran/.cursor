@@ -146,8 +146,10 @@ class ChakraClient:
         """Open a bidirectional Chat stream."""
         if not self._stub:
             raise RuntimeError("Not connected — call connect() first")
-        if self._request_queue is not None:
-            raise RuntimeError("Stream already open on this client")
+        # After stall-cancel, a half-closed stream must not block the next turn.
+        if self._request_queue is not None or self._reader_thread is not None:
+            logger.warning("Forcing close of previous Chat stream before reopen")
+            self.close_stream()
         self._events.clear()
         self._stream_error = None
         self._stream_closed.clear()
@@ -171,11 +173,23 @@ class ChakraClient:
     def close_stream(self) -> None:
         """End the current Chat stream."""
         if self._request_queue is not None:
-            self._request_queue.put(None)
+            try:
+                self._request_queue.put(None)
+            except Exception:
+                pass
             self._request_queue = None
         if self._reader_thread is not None:
-            self._reader_thread.join(timeout=5.0)
+            try:
+                self._reader_thread.join(timeout=2.0)
+            except KeyboardInterrupt:
+                # Don't hang disconnect on Ctrl+C — abandon the reader thread.
+                pass
             self._reader_thread = None
+        if self._responses is not None:
+            try:
+                self._responses.cancel()
+            except Exception:
+                pass
         self._responses = None
         self._stream_closed.set()
         logger.info("Closed Chat stream")
@@ -206,10 +220,16 @@ class ChakraClient:
         envelope = chakra_pb2.ClientMessage(request=req)
         self._write(envelope)
         logger.info(
-            "Sent ChatRequest session_id=%r message_len=%d",
+            "Sent ChatRequest session_id=%r model=%r message_len=%d",
             session_id or "(new)",
+            model or "(default)",
             len(message),
         )
+        if len(message) > 4000:
+            logger.warning(
+                "ChatRequest is %d chars — oversized user turns time out the proxy",
+                len(message),
+            )
 
     def send_user_input(self, prompt_id: str, reply: str) -> None:
         """Reply to an action_required prompt."""

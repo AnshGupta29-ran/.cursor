@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
+import os
 import threading
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from prompt_stats.collectors import (
     collect_chakra_history,
@@ -15,8 +16,10 @@ from prompt_stats.collectors import (
     collect_pi_sessions,
     refresh_all,
 )
+from prompt_stats.datagen_views import dimensions_catalog
 from prompt_stats.ledger import LEDGER_PATH, ensure_stats_dir, load_records
 from prompt_stats.report import summarize, write_dashboard
+from prompt_stats.usage_views import usage_report
 
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 
@@ -28,11 +31,19 @@ def _live_sync() -> dict[str, Any]:
     n_sess = collect_chakra_sessions()
     n_pi = collect_pi_sessions()
     n_hist = collect_chakra_history()
+    n_lf = 0
+    try:
+        from prompt_stats.langfuse_usage import collect_langfuse_usage
+
+        n_lf = collect_langfuse_usage(since=os.getenv("DATAGEN_KIMI3_SINCE", "2026-08-13"))
+    except Exception as exc:  # noqa: BLE001
+        print(f"langfuse usage sync skipped: {exc}", flush=True)
     write_dashboard()
     payload = summarize(load_records())
     payload["synced_chakra_sessions"] = n_sess
     payload["synced_pi_sessions"] = n_pi
     payload["synced_chakra_history_rows"] = n_hist
+    payload["synced_langfuse_usage"] = n_lf
     return payload
 
 
@@ -101,6 +112,62 @@ class StatsHandler(SimpleHTTPRequestHandler):
             return
         if path == "/api/refresh":
             self._json(_safe_refresh())
+            return
+        if path == "/api/kimi3":
+            qs = parse_qs(urlparse(self.path).query)
+            since = (qs.get("since") or ["2026-08-13"])[0]
+            full = usage_report(since=since)
+
+            def is_kimi_row(r: dict) -> bool:
+                return "kimi" in str(r.get("model") or "").lower()
+
+            rows = [r for r in (full.get("rows") or []) if is_kimi_row(r)]
+            tasks = [t for t in (full.get("by_task") or []) if is_kimi_row(t)]
+            models = [m for m in (full.get("by_model") or []) if "kimi" in str(m.get("key") or "").lower()]
+            # Recompute charged/est from filtered rows to avoid mixing other models
+            charged_in = sum(int(r.get("charged_input") or 0) for r in rows)
+            charged_out = sum(int(r.get("charged_output") or 0) for r in rows)
+            # Prefer model-slice est from by_model kimi entries
+            est_in = sum(int(m.get("est_input") or 0) for m in models)
+            est_out = sum(int(m.get("est_output") or 0) for m in models)
+            runtime = sum(float(m.get("runtime_seconds") or 0) for m in models)
+            if not models:
+                est_in = sum(int(r.get("est_input") or 0) for r in rows)
+                est_out = sum(int(r.get("est_output") or 0) for r in rows)
+                runtime = sum(float(r.get("runtime_seconds") or 0) for r in rows if r.get("source", "").endswith("_session") or r.get("source") == "autopilot_task")
+            payload = {
+                **full,
+                "rows": rows,
+                "by_task": tasks,
+                "by_model": models,
+                "charged_input": charged_in,
+                "charged_output": charged_out,
+                "charged_total": charged_in + charged_out,
+                "est_input": est_in,
+                "est_output": est_out,
+                "est_total": est_in + est_out,
+                "runtime_seconds": runtime,
+                "exact_rows": sum(1 for r in rows if r.get("exact")),
+                "input_tokens": charged_in,
+                "output_tokens": charged_out,
+                "total_tokens": charged_in + charged_out,
+                "provider_note": full.get("note"),
+                "tasks": rows,
+            }
+            self._json(payload)
+            return
+        if path == "/api/usage":
+            qs = parse_qs(urlparse(self.path).query)
+            self._json(
+                usage_report(
+                    since=(qs.get("since") or [None])[0],
+                    agent=(qs.get("agent") or [None])[0] or None,
+                    model=(qs.get("model") or [None])[0] or None,
+                )
+            )
+            return
+        if path == "/api/dimensions":
+            self._json(dimensions_catalog())
             return
         if path.startswith("/api/"):
             self.send_error(404)

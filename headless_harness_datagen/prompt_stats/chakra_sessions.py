@@ -126,17 +126,40 @@ def _usage_pair(usage: dict[str, Any]) -> tuple[int, int]:
 def _usage_trustworthy(
     api_tokens: int, est_tokens: int, hits: int, total_msgs: int
 ) -> bool:
-    """Reject sparse/partial usage that under-counts vs transcript size."""
-    if total_msgs <= 0 or hits <= 0:
-        return False
-    # One stray usage blob on a long session must not win over char estimates
-    if hits < max(2, (total_msgs + 1) // 2):
-        if est_tokens > 0 and api_tokens >= int(est_tokens * 0.5):
-            return True
-        return False
-    if est_tokens > 2000 and api_tokens < int(est_tokens * 0.25):
+    """Whether provider usage is good enough to treat as billed exact.
+
+    Any non-zero provider sum is kept as exact charged tokens. Sparse coverage
+    is labeled provider_partial but still preferred over char estimates for billing.
+    """
+    if api_tokens <= 0 or hits <= 0:
         return False
     return True
+
+
+def _token_fields(
+    *,
+    api_in: int,
+    api_out: int,
+    est_in: int,
+    est_out: int,
+    usage_hits: int,
+) -> dict[str, Any]:
+    """Always keep API + estimate; prefer API for billable fields when present."""
+    has_api = (api_in + api_out) > 0 and usage_hits > 0
+    return {
+        "input_tokens_api": api_in if usage_hits else 0,
+        "output_tokens_api": api_out if usage_hits else 0,
+        "total_tokens_api": (api_in + api_out) if usage_hits else 0,
+        "usage_hits": usage_hits,
+        "input_tokens": api_in if has_api else None,
+        "output_tokens": api_out if has_api else None,
+        "total_tokens": (api_in + api_out) if has_api else None,
+        "input_tokens_est": est_in,
+        "output_tokens_est": est_out,
+        "total_tokens_est": est_in + est_out,
+        "tokens_are_estimated": not has_api,
+        "tokens_source": ("provider" if has_api else "estimate"),
+    }
 
 
 def _tool_result_chars(content: Any) -> int:
@@ -314,11 +337,12 @@ def analyze_session_file(path: Path) -> dict[str, Any] | None:
         chars_to_tokens(len(prompt_text)),
         (transcript_tok * turns) // 2,
     )
-    trust_usage = _usage_trustworthy(
-        output_tokens + input_tokens,
-        out_tok_est + in_tok_est,
-        usage_hits,
-        assistant_messages,
+    tok = _token_fields(
+        api_in=input_tokens,
+        api_out=output_tokens,
+        est_in=in_tok_est,
+        est_out=out_tok_est,
+        usage_hits=usage_hits,
     )
 
     primary_model = None
@@ -342,20 +366,17 @@ def analyze_session_file(path: Path) -> dict[str, Any] | None:
         sl_turns = max(1, sl["assistant_messages"])
         share = sl_turns / max(1, turns)
         sl_in_est = int(in_tok_est * share)
-        saw = _usage_trustworthy(
-            sl["input_tokens"] + sl["output_tokens"],
-            sl_out_est + sl_in_est,
-            int(sl.get("usage_hits") or 0),
-            sl_turns,
+        sl_tok = _token_fields(
+            api_in=int(sl.get("input_tokens") or 0),
+            api_out=int(sl.get("output_tokens") or 0),
+            est_in=sl_in_est,
+            est_out=sl_out_est,
+            usage_hits=int(sl.get("usage_hits") or 0),
         )
         breakdown.append(
             {
                 "model": model,
-                "input_tokens": sl["input_tokens"] if saw else None,
-                "output_tokens": sl["output_tokens"] if saw else None,
-                "input_tokens_est": None if saw else sl_in_est,
-                "output_tokens_est": None if saw else sl_out_est,
-                "tokens_are_estimated": not saw,
+                **sl_tok,
                 "runtime_seconds": round(rt, 1) if rt is not None else None,
                 "tool_calls": sl["tool_calls"],
                 "assistant_messages": sl["assistant_messages"],
@@ -376,12 +397,7 @@ def analyze_session_file(path: Path) -> dict[str, Any] | None:
         "tool_calls": tool_calls,
         "assistant_messages": assistant_messages,
         "output_chars": output_chars,
-        "input_tokens": input_tokens if trust_usage else None,
-        "output_tokens": output_tokens if trust_usage else None,
-        "input_tokens_est": in_tok_est,
-        "output_tokens_est": out_tok_est,
-        "total_tokens_est": in_tok_est + out_tok_est,
-        "tokens_are_estimated": not trust_usage,
+        **tok,
         "metrics": metrics,
         "session_path": str(path),
         "model": primary_model,

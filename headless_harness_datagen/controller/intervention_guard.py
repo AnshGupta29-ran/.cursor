@@ -30,7 +30,7 @@ _DESTRUCTIVE_BASH_PATTERNS = (
     re.compile(r"\bsudo\b", re.I),
     re.compile(r"rm\s+-rf\s+[/~]"),
     re.compile(r"rm\s+-rf\s+\S*\s+[/~]"),
-    re.compile(r">\s*/dev/"),
+    re.compile(r">\s*/dev/(?!null\b)"),
     re.compile(r"\.ssh"),
     re.compile(r"\.aws/credentials"),
 )
@@ -42,6 +42,18 @@ _AMBIGUOUS_BASH_PATTERNS = (
     re.compile(r"\bgit\s+push\b", re.I),
     re.compile(r"\bnc\s", re.I),
     re.compile(r"\bssh\b", re.I),
+)
+
+# PRD forbids OS-level package installs; they burn long turns and fail on sandbox.
+_PACKAGE_INSTALL_BASH_PATTERNS = (
+    re.compile(r"\bchoco\s+(install|upgrade|uninstall)\b", re.I),
+    re.compile(r"\bwinget\s+(install|upgrade|uninstall)\b", re.I),
+    re.compile(r"\bbrew\s+(install|upgrade|uninstall)\b", re.I),
+    re.compile(r"\bapt(-get)?\s+install\b", re.I),
+    re.compile(r"\byum\s+install\b", re.I),
+    re.compile(r"\bdnf\s+install\b", re.I),
+    re.compile(r"\bscoop\s+install\b", re.I),
+    re.compile(r"\bpacman\s+-S\b", re.I),
 )
 
 _SAFE_BASH_PREFIXES = (
@@ -81,6 +93,11 @@ _SAFE_BASH_PREFIXES = (
     "env ",
     "export ",
     "cd ",
+    "cargo ",
+    "rustc ",
+    "bash ",
+    "sh ",
+    "./",
 )
 
 
@@ -93,6 +110,21 @@ class InterventionGuardResult:
     is_echo_bash: bool = False
 
 
+# Successful uses of these tools are normal exploration — do not count toward
+# "interventions without write" stall cancellation.
+_STALL_EXEMPT_TOOLS = frozenset(
+    {
+        "Read",
+        "Glob",
+        "Grep",
+        "LS",
+        "Find",
+        "Tree",
+        "Ripgrep",
+    }
+)
+
+
 @dataclass
 class StallTracker:
     """Per-turn counters for intervention stall detection."""
@@ -102,7 +134,11 @@ class StallTracker:
     saw_write_or_edit: bool = False
 
     echo_denial_threshold: int = 3
-    intervention_without_write_threshold: int = 15
+    # Was 15 — too low: every auto-approved Read/Bash counted, so explore→stall
+    # loops (gRPC cancel spam + denial_loop). Pipeline builds need room to explore.
+    intervention_without_write_threshold: int = int(
+        os.getenv("HARNESS_STALL_INTERVENTION_THRESHOLD", "80")
+    )
 
     def reset(self) -> None:
         self.echo_bash_denials = 0
@@ -116,10 +152,14 @@ class StallTracker:
         response: str,
         is_echo_bash: bool,
     ) -> None:
-        self.intervention_count += 1
+        approved = response.strip().lower().startswith("yes")
         if tool_name in ("Write", "Edit", "MultiEdit"):
             self.saw_write_or_edit = True
-        if response.lower().startswith("no") and is_echo_bash:
+        if approved and tool_name in _STALL_EXEMPT_TOOLS:
+            return
+        # Count denials and non-exempt tools (Bash/Write attempts/etc.)
+        self.intervention_count += 1
+        if (not approved) and is_echo_bash:
             self.echo_bash_denials += 1
 
     def should_cancel_turn(self) -> bool:
@@ -150,18 +190,28 @@ def normalize_bash_command(command: str) -> str:
     return " ".join(command.strip().split())
 
 
+def _strip_cd_prefixes(command: str) -> str:
+    remainder = command.strip()
+    while True:
+        # cd PATH &&  — PATH may be quoted
+        match = re.match(
+            r"""^cd\s+(?:'[^']+'|"[^"]+"|[^\s;&|]+)(?:\s*&&\s*)""",
+            remainder,
+            re.I,
+        )
+        if not match:
+            break
+        remainder = remainder[match.end() :].strip()
+    return remainder
+
+
 def is_echo_only_bash(command: str) -> bool:
     """True when Bash only prints messages (no file/test side effects)."""
     normalized = command.strip()
     if not normalized:
         return False
 
-    remainder = normalized
-    while True:
-        match = re.match(r"^cd\s+[^\s;&|]+(?:\s*&&\s*)", remainder, re.I)
-        if not match:
-            break
-        remainder = remainder[match.end() :].strip()
+    remainder = _strip_cd_prefixes(normalized)
 
     if not re.match(r"^(echo|printf)\b", remainder, re.I):
         return False
@@ -170,6 +220,35 @@ def is_echo_only_bash(command: str) -> bool:
     if re.search(r"[|;&](?!\s*$)", remainder):
         return False
     return True
+
+
+def is_readonly_listing_bash(command: str) -> bool:
+    """True for harmless directory/listing commands (safe to retry on Windows)."""
+    remainder = _strip_cd_prefixes(command)
+    return bool(
+        re.match(
+            r"^(ls|dir|pwd|tree|Get-ChildItem|gci|gi)\b",
+            remainder,
+            re.I,
+        )
+    )
+
+
+def is_system_package_install_bash(command: str) -> bool:
+    """True for choco/winget/brew/apt installs that are forbidden in datagen."""
+    stripped = normalize_bash_command(command).lstrip()
+    return any(pattern.search(stripped) for pattern in _PACKAGE_INSTALL_BASH_PATTERNS)
+
+
+def is_recursive_tree_dump(command: str) -> bool:
+    """True for `ls -R` / unpruned `find . -type f` that dump cargo target/."""
+    stripped = normalize_bash_command(command).lstrip()
+    low = stripped.lower()
+    if re.match(r"^ls\s+-r(?:\s+\.)?$", low):
+        return True
+    if re.match(r"^find\s+\.\s+-type\s+f", low) and "-prune" not in low:
+        return True
+    return False
 
 
 def _repo_root(context: dict[str, Any]) -> Path | None:
@@ -196,8 +275,13 @@ def _path_within_repo(path_str: str, repo: Path) -> bool:
 
 def _extract_paths_from_bash(command: str) -> list[str]:
     paths: list[str] = []
-    for token in re.findall(r"(/[^\s'\";|&]+)", command):
-        paths.append(token.rstrip("'\""))
+    # Only treat `/foo` as absolute when `/` starts a token. `./smoke.sh`
+    # used to match `/smoke.sh` and get denied as outside the repo.
+    for token in re.findall(r"(?:^|[\s;|&])(/[^\s'\";|&]+)", command):
+        path = token.rstrip("'\"")
+        if path in {"/dev/null", "/dev/stdout", "/dev/stderr"}:
+            continue
+        paths.append(path)
     for token in re.findall(r"(~[^\s'\";|&]*)", command):
         paths.append(token)
     return paths
@@ -281,6 +365,52 @@ def _count_matching_bash(tool_events: list[dict[str, Any]], command: str) -> int
     return count
 
 
+def _count_listing_bash(tool_events: list[dict[str, Any]]) -> int:
+    count = 0
+    for event in tool_events:
+        if event.get("event_type") != "tool_started":
+            continue
+        payload = event.get("payload") or {}
+        if payload.get("tool_name") != "Bash":
+            continue
+        args = payload.get("arguments") or {}
+        cmd = str(args.get("command") or "")
+        if is_readonly_listing_bash(cmd) or is_recursive_tree_dump(cmd):
+            count += 1
+    return count
+
+
+def _count_matching_read(tool_events: list[dict[str, Any]], file_path: str) -> int:
+    target = str(file_path or "").strip().lower()
+    if not target:
+        return 0
+    count = 0
+    for event in tool_events:
+        if event.get("event_type") != "tool_started":
+            continue
+        payload = event.get("payload") or {}
+        if payload.get("tool_name") != "Read":
+            continue
+        args = payload.get("arguments") or {}
+        src = str(args.get("file_path") or args.get("path") or "").strip().lower()
+        if src == target:
+            count += 1
+    return count
+
+
+def _count_tool_starts(tool_events: list[dict[str, Any]], names: set[str]) -> int:
+    want = {n.lower() for n in names}
+    count = 0
+    for event in tool_events:
+        if event.get("event_type") != "tool_started":
+            continue
+        payload = event.get("payload") or {}
+        name = str(payload.get("tool_name") or "").strip().lower()
+        if name in want:
+            count += 1
+    return count
+
+
 def _tool_paths_within_repo(tool_name: str, arguments: dict[str, Any], repo: Path) -> bool:
     if tool_name == "Read":
         return _path_within_repo(str(arguments.get("file_path") or ""), repo)
@@ -314,6 +444,37 @@ def evaluate_intervention_guard(context: dict[str, Any]) -> InterventionGuardRes
         return None
 
     if tool_name in _AUTO_APPROVE_TOOLS:
+        pipeline = os.environ.get("DATAGEN_PIPELINE_MODE", "").strip() == "1"
+        tool_events = context.get("tool_events") or []
+        if tool_name == "Read" and pipeline:
+            file_path = str(arguments.get("file_path") or arguments.get("path") or "")
+            low = file_path.replace("\\", "/").lower()
+            if low.endswith("/platform_prompt.md"):
+                # tool_events usually already includes the pending Read, so
+                # threshold 1 wrongly blocked the first PRD read on CONTINUE.
+                seen = _count_matching_read(tool_events, file_path)
+                if seen >= 2:
+                    return InterventionGuardResult(
+                        response="no",
+                        reasoning=(
+                            "deny repeated platform_prompt.md reads in pipeline — "
+                            "start Write/Edit now"
+                        ),
+                    )
+            writes = _count_tool_starts(
+                tool_events, {"Write", "Edit", "MultiEdit"}
+            )
+            reads = _count_tool_starts(tool_events, {"Read"})
+            # After a Read binge with zero writes, block further Read so the
+            # model must Write (or burn turns on empty replies / denials).
+            if writes == 0 and reads >= 8:
+                return InterventionGuardResult(
+                    response="no",
+                    reasoning=(
+                        "deny Read during write starvation — "
+                        "REQUIRED next tool: Write scripts/smoke.py (or source)"
+                    ),
+                )
         if _tool_paths_within_repo(tool_name, arguments, repo):
             return InterventionGuardResult(
                 response="yes",
@@ -325,6 +486,11 @@ def evaluate_intervention_guard(context: dict[str, Any]) -> InterventionGuardRes
         )
 
     if tool_name == "Agent":
+        if os.environ.get("DATAGEN_PIPELINE_MODE", "").strip() == "1":
+            return InterventionGuardResult(
+                response="no",
+                reasoning="deny Agent in datagen pipeline (Write/Edit only; no Plan/Explore)",
+            )
         ok, reason = validate_agent_spawn(arguments, repo_path=repo)
         if ok:
             return InterventionGuardResult(
@@ -351,8 +517,39 @@ def evaluate_intervention_guard(context: dict[str, Any]) -> InterventionGuardRes
                 is_echo_bash=True,
             )
 
+        if is_system_package_install_bash(command):
+            return InterventionGuardResult(
+                response="no",
+                reasoning="deny system package manager install (use Read/ls on src/; no choco/winget/brew)",
+            )
+
+        # ls -R / find dumps are rewritten to safe listings in Chakra gRPC
+        # (slimBashCommand). Approve here so the rewrite can run.
+        if is_recursive_tree_dump(command):
+            if _is_safe_bash(command, repo):
+                return InterventionGuardResult(
+                    response="yes",
+                    reasoning="approve tree listing (Chakra gRPC rewrites ls -R/find to skip target/)",
+                )
+
         repeats = _count_matching_bash(context.get("tool_events") or [], command)
-        if repeats >= 2:
+        listing_n = _count_listing_bash(context.get("tool_events") or [])
+        pipeline = os.environ.get("DATAGEN_PIPELINE_MODE", "").strip() == "1"
+        if pipeline and (
+            is_readonly_listing_bash(command) or is_recursive_tree_dump(command)
+        ):
+            # gpt spends entire max_turns on ls -la / Read loops.
+            if listing_n >= 2:
+                return InterventionGuardResult(
+                    response="no",
+                    reasoning=(
+                        "deny further listing in datagen pipeline — "
+                        "Write fixtures/seed.json and scripts/smoke.py now"
+                    ),
+                )
+        # Listing commands often fail once on Windows (ls vs dir) and get retried;
+        # denying them causes denial_loop termination with zero backend progress.
+        if repeats >= 2 and not is_readonly_listing_bash(command):
             return InterventionGuardResult(
                 response="no",
                 reasoning="deny repeated identical Bash command in this turn",

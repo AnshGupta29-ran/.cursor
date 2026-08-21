@@ -399,7 +399,7 @@ def test_resume_implement_first_after_rejected_pass_without_complete() -> None:
         assert not orch.lifecycle.implementation_complete_seen
         nudge = orch.resume_nudge(repo_path=str(repo), default="Continue.")
         assert nudge.kind == "implement"
-        assert "general-purpose" in nudge.message
+        assert "Do NOT spawn Agent" in nudge.message
         assert "IMPLEMENTATION_STATUS" in nudge.message
 
 

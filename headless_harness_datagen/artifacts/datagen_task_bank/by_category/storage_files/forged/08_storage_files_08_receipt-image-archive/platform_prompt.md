@@ -1,5 +1,12 @@
 # ReceiptImageArchive — Receipt image archive
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `java`
+- **ui_surface:** `react_spa`
+- **persistence:** `memory_only`
+- **complexity:** `hard`
+- Do **not** rewrite this project in a different language.
+
 ## Complexity & fidelity lock (datagen)
 - Complexity band: **hard**
 - UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
@@ -9,6 +16,7 @@
 - Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
 - **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
 - If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 
 ## 1. Product identity

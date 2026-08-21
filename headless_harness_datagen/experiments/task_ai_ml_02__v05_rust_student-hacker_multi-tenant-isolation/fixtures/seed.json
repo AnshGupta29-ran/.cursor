@@ -1,0 +1,27 @@
+{
+  "tenants": [
+    {
+      "id": "alice",
+      "experiments": [
+        {
+          "id": "run-1",
+          "name": "exp-1",
+          "metrics": {"accuracy": 0.85, "loss": 0.30},
+          "champion": true,
+          "verdict": "Initial champion"
+        },
+        {
+          "id": "run-2",
+          "name": "exp-2",
+          "metrics": {"accuracy": 0.87, "loss": 0.28},
+          "champion": false,
+          "verdict": ""
+        }
+      ]
+    },
+    {
+      "id": "bob",
+      "experiments": []
+    }
+  ]
+}

@@ -25,6 +25,8 @@ from interface.models.session import HarnessSession
 
 logger = logging.getLogger(__name__)
 
+_RECOVERABLE_TURN_FAIL_CODES = frozenset({"api_timeout", "model_upstream_503"})
+
 RawEventSink = Callable[[dict[str, Any]], None]
 
 
@@ -113,6 +115,17 @@ class ChakraTurnStream(TurnStream):
                 continue
 
             self._events.append(translated)
+            if isinstance(translated, TurnCompletedEvent):
+                pt = int(translated.usage.get("prompt_tokens") or 0)
+                ct = int(translated.usage.get("completion_tokens") or 0)
+                if pt or ct:
+                    logger.info(
+                        "Chakra turn tokens in=%s out=%s session=%s turn=%s",
+                        pt,
+                        ct,
+                        self._session.session_id,
+                        self._turn_id,
+                    )
             if is_terminal_event(translated):
                 self._close_backend_stream()
             return translated
@@ -137,6 +150,14 @@ class ChakraTurnStream(TurnStream):
             raise HarnessTurnError("Turn has no terminal harness event")
 
         if isinstance(terminal, TurnFailedEvent):
+            if terminal.code in _RECOVERABLE_TURN_FAIL_CODES:
+                return TurnResult(
+                    final_text=terminal.message or terminal.code,
+                    usage=UsageStats(),
+                    turn_id=self._turn_id,
+                    session_id=self._session.session_id,
+                    event_count=len(self._events),
+                )
             raise HarnessTurnError(f"{terminal.code}: {terminal.message}")
 
         final_text = ""

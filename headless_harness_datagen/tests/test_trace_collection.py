@@ -200,6 +200,20 @@ def test_serialize_harness_event_preserves_type() -> None:
     assert payload["payload"]["text"] == "hi"
 
 
+def test_trace_append_survives_unserializable_values() -> None:
+    class Weird:
+        def __repr__(self) -> str:
+            return "Weird()"
+
+    with tempfile.TemporaryDirectory() as tmp:
+        trace = ConversationTrace("safe", Path(tmp))
+        trace.log("probe", extra={"obj": Weird(), "path": Path("/tmp/x")})
+        line = (Path(tmp) / "safe" / "trace.jsonl").read_text(encoding="utf-8").strip()
+        row = json.loads(line)
+        assert row["type"] == "probe"
+        assert "Weird()" in row["extra"]["obj"]
+
+
 if __name__ == "__main__":
     tests = [v for k, v in globals().items() if k.startswith("test_") and callable(v)]
     for test in tests:

@@ -79,3 +79,18 @@ target/
 # Cursor/VS Code extension binaries (claude.exe >100MB — GitHub rejects)
 extensions/
 # <<< USER WORKSPACE TRACKING <<<
+
+# Datagen runtime noise
+headless_harness_datagen/logs/
+**/logs/autopilot/
+*.db
+ide_state.json
+
+
+# Datagen runtime / generated bulk (keep source; regenerate expanded locally)
+headless_harness_datagen/logs/
+headless_harness_datagen/artifacts/datagen_pipeline/expanded/
+headless_harness_datagen/artifacts/datagen_pipeline/checkpoint.json
+headless_harness_datagen/artifacts/prompt_stats/
+*.db
+ide_state.json

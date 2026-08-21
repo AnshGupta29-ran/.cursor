@@ -28,6 +28,9 @@ from engine.state import (
 
 logger = logging.getLogger(__name__)
 
+# Proxy first-token timeout / 503 — conversation must stay resumable.
+_RECOVERABLE_TURN_FAIL_CODES = frozenset({"api_timeout", "model_upstream_503"})
+
 
 @dataclass
 class DispatchResult:
@@ -121,7 +124,12 @@ class EventDispatcher:
     ) -> None:
         turn.status = TurnStatus.FAILED
         turn.ended_at = state.updated_at
-        state.status = ConversationStatus.FAILED
+        # api_timeout / 503 are proxy failures, not a dead conversation.
+        # FAILED here blocked every later resume ("Conversation is in failed state").
+        recoverable = (code or "") in _RECOVERABLE_TURN_FAIL_CODES
+        state.status = (
+            ConversationStatus.ACTIVE if recoverable else ConversationStatus.FAILED
+        )
         state.active_turn = None
         state.history.append(
             HistoryEntry(
@@ -130,7 +138,10 @@ class EventDispatcher:
                 turn_id=turn.turn_id,
             )
         )
-        logger.error("Turn %s failed: %s", turn.turn_id, message)
+        if recoverable:
+            logger.warning("Turn %s failed (recoverable %s): %s", turn.turn_id, code, message)
+        else:
+            logger.error("Turn %s failed: %s", turn.turn_id, message)
 
     def event_count_for_type(self, state: ConversationState, event_type: HarnessEventType) -> int:
         if state.active_turn:

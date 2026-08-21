@@ -1,0 +1,9 @@
+[
+  {
+    "id": "seed1",
+    "name": "Initial Seed Experiment",
+    "description": "Demo experiment loaded from seed data",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "status": "completed"
+  }
+]

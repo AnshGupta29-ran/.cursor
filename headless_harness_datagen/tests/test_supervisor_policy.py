@@ -163,7 +163,7 @@ def test_unified_prompt_skip_verification() -> None:
         include_verification=False,
     )
     assert IMPLEMENTATION_COMPLETE_MARKER in text
-    assert "skip-verification" in text.lower() or "Do not run verification" in text
+    assert "Do not run verification" in text or "skip-verification" in text.lower()
 
 
 if __name__ == "__main__":

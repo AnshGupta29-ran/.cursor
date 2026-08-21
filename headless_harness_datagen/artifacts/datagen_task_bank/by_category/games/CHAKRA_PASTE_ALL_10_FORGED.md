@@ -1,51 +1,37 @@
-# Category batch FORGED: games (10/10) — paste into Pi or Chakra
+# Category batch FORGED: games (10/10) — paste into Chakra
 
-This file is the **source of truth** for a games-category **synthetic datagen marathon**.
-Each task is a unique forged PRD with a **locked dimension mix** (complexity/value,
-language, UI surface, agent topology, verification, persistence, novelty, delivery, …).
-Implementing these under `harness/chakra/task_games_NN/` produces **repo-level synthetic
-agent trajectories** (session traces + prompt_stats ledger rows with dimensions).
+Each task is a forged PRD with a **locked dimension mix**. Implementing these under
+`harness/chakra/task_games_NN/` produces synthetic agent trajectories for stats.
 
-**Playing a finished game is NOT datagen.** Datagen happens when the agent *implements*
-each PRD (edits, shells, tests, smoke). Keep `python -m prompt_stats serve` running and
-hard-refresh http://127.0.0.1:8787/ to see Chakra/Pi sessions, tokens, time, models.
+**Playing/demoing alone is NOT datagen** — datagen is the implement session.
 
-## Dimension coverage (already forged — do not collapse)
+## Dimension coverage
 
-| # | complexity | value | language | UI | topology | verification |
-|---|------------|-------|----------|----|----------|--------------|
-| 01 | medium | low | python | game_loop_window | subagent_spawns | unit_tests |
-| 02 | hard | hard | typescript | html_canvas | plan_then_execute | runtime_pass |
-| 03 | medium | medium | javascript | react_spa | tool_swarm | browser_smoke |
-| 04 | low | medium | csharp | desktop_window | single_agent | static_pass |
-| 05 | hard | hard | cpp | html_canvas | plan_then_execute | runtime_pass |
-| 06 | low | low | rust | game_loop_window | single_agent | smoke_only |
-| 07 | medium | medium | javascript | react_spa | subagent_spawns | unit_tests |
-| 08 | hard | hard | typescript | html_canvas | plan_then_execute | runtime_pass |
-| 09 | low | medium | python | desktop_window | tool_swarm | browser_smoke |
-| 10 | hard | hard | go | static_html | single_agent | visual_diff |
+| # | complexity | value | language | UI | persistence | verification |
+|---|------------|-------|----------|----|-------------|--------------|
+| 01 | medium | low | python | html_canvas | json_file | unit_tests |
+| 02 | hard | hard | typescript | html_canvas | localstorage | runtime_pass |
+| 03 | medium | medium | javascript | react_spa | sqlite | browser_smoke |
+| 04 | low | medium | csharp | desktop_window | memory_only | static_pass |
+| 05 | hard | hard | cpp | html_canvas | json_file | runtime_pass |
+| 06 | low | low | rust | static_html | sqlite | static_pass |
+| 07 | medium | medium | javascript | react_spa | localstorage | unit_tests |
+| 08 | hard | hard | typescript | html_canvas | memory_only | runtime_pass |
+| 09 | low | medium | python | desktop_window | json_file | browser_smoke |
+| 10 | hard | hard | go | static_html | sqlite | visual_diff |
 
-Honor each task’s **dimensions** JSON and PRD stack exactly. Do **not** rewrite every
-task as pygame Python. In-game Easy/Medium/Hard presets are unrelated to datagen
-`complexity`.
+Honor each task’s dimensions. **Do not** rewrite every task to the same stack.
+Depth bands control fidelity/effort: **low** = thin + simple visuals; **medium** = core + light tests;
+**hard** = fuller acceptance + richer UI when applicable. Depth ≠ a time stop.
 
 ## Rules — mandatory
 
-1. **No time limit.** There is **no** wall-clock budget, no turn cap, and no “marathon too
-   large” escape hatch. Never refuse, never say it is impossible to finish all 10, never
-   stop early because of time. Work until each task is demoable, then continue.
-2. Complete tasks **01 → 10 in order**. Separate folder per `workdir` under
-   `harness/chakra/` (e.g. `task_games_01` … `task_games_10`).
-3. Plan mode OFF. Implement immediately — no long planning essays, no approval gates
-   between tasks (even if a task’s `session_shape` mentions approval — for this paste,
-   auto-continue).
-4. After each: print `DONE task_N: <title> — path + how to run`, then start the next
-   **in the same session**.
-5. Replace wrong stubs. If a workdir has a generic pygame placeholder that does not match
-   the forged PRD, delete/overwrite it.
-6. Demoable MVP per PRD depth: `low` = thin runnable demo; `medium` = core features + light
-   tests/smoke; `hard` = fuller acceptance + verification from the PRD. Depth ≠ time limit.
-7. Each task needs a working run command in README and a smoke/test path from the PRD.
+1. **No time limit / no turn cap.** Never refuse for size. Never ask for confirmation.
+2. Complete tasks **01 → N in order**. Separate folder per `workdir`.
+3. Plan mode OFF. Implement immediately; auto-continue between tasks.
+4. After each: `DONE task_N: <title> — path + how to run`, then start the next.
+5. Match Depth + UI fidelity to complexity. Low must look/feel simpler than hard.
+6. README run command + smoke/test path from the PRD.
 
 Stats: `python -m prompt_stats serve` → http://127.0.0.1:8787/ (hard-refresh).
 
@@ -55,12 +41,23 @@ Stats: `python -m prompt_stats serve` → http://127.0.0.1:8787/ (hard-refresh).
 **workdir:** `task_games_01`
 **id:** `games_01_breakout-clone-with-levels`
 **seed (original):** Create a Breakout/Arkanoid clone in Python + Pygame with multiple levels, power-ups, lives, high scores, and pause.
-**dimensions:** {"agent_topology": "subagent_spawns", "verification_mode": "unit_tests", "session_shape": "single_shot", "repo_state": "partial_scaffold", "tool_profile": "shell_heavy", "user_persona": "staff_eng", "complexity": "medium", "value": "low", "language_runtime": "python", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "game_loop_window", "persistence": "json_file", "testing_depth": "unit_light", "novelty_hook": "export/import round-trip as acceptance", "delivery": "static_build_preview", "modality": "text_code"}
-**Depth (medium):** solid MVP — core features + light tests/smoke from the PRD; avoid gold-plating. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**dimensions:** {"agent_topology": "subagent_spawns", "verification_mode": "unit_tests", "session_shape": "single_shot", "repo_state": "partial_scaffold", "tool_profile": "shell_heavy", "user_persona": "staff_eng", "complexity": "medium", "value": "low", "language_runtime": "python", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "html_canvas", "persistence": "json_file", "testing_depth": "unit_light", "novelty_hook": "export/import round-trip as acceptance", "delivery": "static_build_preview", "modality": "text_code"}
+**Depth (medium):** solid MVP — core features + light tests/smoke, avoid gold-plating. **UI fidelity:** MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required. **Effort cue:** deeper than low; still ship demoable without endless polish. FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints Build-first: implement from PRD; forbid WebSearch/WebFetch and repo-wide fishing; code > research **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Core Tap — Abyssal Survey Rig
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **medium**
+- UI fidelity: MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required
+- Effort cue: deeper than low; still ship demoable without endless polish
+- Anti-stub: FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product identity
 Build **Core Tap**, a single-player Breakout/Arkanoid-style arcade game in Python 3.10+ with Pygame. The player pilots a deep-sea **survey rig** (paddle) reflecting a **sonar pulse** (ball) to fracture **rock strata** (bricks) and extract ore across a chain of drill sites (levels). Written for a staff-engineer reader: deterministic rules, stated invariants, no magic numbers. Not a generic reskin — domain terminology, themed brick classes, and a run **snapshot export/import** system are first-class features.
@@ -145,11 +142,22 @@ When done, print `DONE task_1: Breakout clone with levels` and start the next ta
 **id:** `games_02_turn-based-tactics-grid`
 **seed (original):** Build a small turn-based tactics game on a grid: two units sides, move/attack, cover tiles, and win/lose conditions.
 **dimensions:** {"agent_topology": "plan_then_execute", "verification_mode": "runtime_pass", "session_shape": "multi_turn_repair", "repo_state": "empty_scratch", "tool_profile": "browser_heavy", "user_persona": "pm_non_technical", "complexity": "hard", "value": "hard", "language_runtime": "typescript", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "html_canvas", "persistence": "localstorage", "testing_depth": "unit_plus_smoke", "novelty_hook": "observability: structured logs + simple metrics endpoint", "delivery": "worker_plus_api", "modality": "text_code"}
-**Depth (hard):** full PRD depth — richer acceptance criteria and verification; still ship demoable. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (hard):** full PRD depth — richer acceptance criteria and verification. **UI fidelity:** HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable. **Effort cue:** deepest; more entities, edges, and verification — still no wall-clock stop. FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths Build-first still applies: no online research loops; deepen the product with Write/Edit, not Explore agents **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Rustwake: Core Rush — Turn-Based Tactics Skirmish
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **hard**
+- UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
+- Effort cue: deepest; more entities, edges, and verification — still no wall-clock stop
+- Anti-stub: FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product Identity
 
@@ -266,11 +274,22 @@ When done, print `DONE task_2: Turn-based tactics grid` and start the next task 
 **id:** `games_03_endless-runner`
 **seed (original):** Create an endless runner with procedural obstacles, score distance, difficulty ramp, and restart flow (canvas or Pygame).
 **dimensions:** {"agent_topology": "tool_swarm", "verification_mode": "browser_smoke", "session_shape": "resume_mid_task", "repo_state": "legacy_messy", "tool_profile": "mixed", "user_persona": "enterprise_buyer", "complexity": "medium", "value": "medium", "language_runtime": "javascript", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "react_spa", "persistence": "sqlite", "testing_depth": "browser_smoke", "novelty_hook": "plugin/extension hook (one stub plugin)", "delivery": "monorepo_client_server", "modality": "text_code"}
-**Depth (medium):** solid MVP — core features + light tests/smoke from the PRD; avoid gold-plating. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (medium):** solid MVP — core features + light tests/smoke, avoid gold-plating. **UI fidelity:** MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required. **Effort cue:** deeper than low; still ship demoable without endless polish. FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints Build-first: implement from PRD; forbid WebSearch/WebFetch and repo-wide fishing; code > research **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # RegRun — Compliance Courier Ops
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **medium**
+- UI fidelity: MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required
+- Effort cue: deeper than low; still ship demoable without endless polish
+- Anti-stub: FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product Identity
 
@@ -354,11 +373,22 @@ When done, print `DONE task_3: Endless runner` and start the next task immediate
 **id:** `games_04_minesweeper-with-solver-hint`
 **seed (original):** Build Minesweeper with difficulty presets and a hint mode that highlights a safe deduction when possible.
 **dimensions:** {"agent_topology": "single_agent", "verification_mode": "static_pass", "session_shape": "multi_turn_repair", "repo_state": "empty_scratch", "tool_profile": "edit_heavy", "user_persona": "solo_dev", "complexity": "low", "value": "medium", "language_runtime": "csharp", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "desktop_window", "persistence": "memory_only", "testing_depth": "smoke_only", "novelty_hook": "multi-theme or multi-difficulty presets", "delivery": "library_plus_demo_app", "modality": "text_code"}
-**Depth (low):** thin MVP — few files, minimal polish, ship a runnable demo matching the PRD stack. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (low):** thin MVP — few files, minimal polish, but every primary action must work end-to-end. **UI fidelity:** LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form. **Effort cue:** typically thinner than medium/hard (fewer files & screens), but never stop early. FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups Build-first: no WebSearch/WebFetch/docs tours/winget-search installs; ≤2 local Greps then Write — low tasks must ship in few files **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Fathom Fields — Deduction-First Harbor Sweeping (PRD)
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **low**
+- UI fidelity: LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form
+- Effort cue: typically thinner than medium/hard (fewer files & screens), but never stop early
+- Anti-stub: FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product identity
 **Fathom Fields** is a desktop-window, single-player deduction game in **C# (.NET)**: a harbor has been seeded with anchored hazards, and the player charts safe water by sweeping soundings (cells) and marking hazards. Mechanically it is minesweeper-grade, but the identity is its own: nautical terminology, named difficulty presets, runtime color themes, and a signature **Hint Buoy** system that doesn't just point — it *explains the deduction* ("All 2 hazards around (4,2) are marked → (4,3) is safe"). Docs are written in a first-person solo-dev voice.
@@ -437,11 +467,22 @@ When done, print `DONE task_4: Minesweeper with solver hint` and start the next 
 **id:** `games_05_card-battler-prototype`
 **seed (original):** Create a simple collectible card battler: deck, draw, mana, and a basic AI opponent turn.
 **dimensions:** {"agent_topology": "plan_then_execute", "verification_mode": "runtime_pass", "session_shape": "approval_gated", "repo_state": "partial_scaffold", "tool_profile": "mixed", "user_persona": "staff_eng", "complexity": "hard", "value": "hard", "language_runtime": "cpp", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "html_canvas", "persistence": "json_file", "testing_depth": "unit_plus_smoke", "novelty_hook": "chaos toggle: inject one recoverable failure path", "delivery": "one_command_dev_server", "modality": "text_code"}
-**Depth (hard):** full PRD depth — richer acceptance criteria and verification; still ship demoable. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (hard):** full PRD depth — richer acceptance criteria and verification. **UI fidelity:** HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable. **Effort cue:** deepest; more entities, edges, and verification — still no wall-clock stop. FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths Build-first still applies: no online research loops; deepen the product with Write/Edit, not Explore agents **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Brineglass Beacon — Collectible Card Battler (C++17 + HTML Canvas)
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **hard**
+- UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
+- Effort cue: deepest; more entities, edges, and verification — still no wall-clock stop
+- Anti-stub: FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project request / product identity
 Build **Brineglass Beacon**, a single-player collectible card battler. Fantasy: two rival lighthouse keepers duel across a night reef, spending **Lumen** (mana) to summon sea **Allies** and cast **Signals** until one beacon's **Integrity** falls from 20 to 0. A **C++17 backend owns 100% of the rules** and serves a static **HTML Canvas** client; match state persists to **JSON files**. One command (`./run.sh`) builds and serves everything on `localhost:8080`.
@@ -514,12 +555,23 @@ When done, print `DONE task_5: Card battler prototype` and start the next task i
 **workdir:** `task_games_06`
 **id:** `games_06_physics-sandbox-balls`
 **seed (original):** Build a 2D physics sandbox with spawnable balls, gravity toggle, and collision counters (box2d or simple physics).
-**dimensions:** {"agent_topology": "single_agent", "verification_mode": "static_pass", "session_shape": "single_shot", "repo_state": "empty_scratch", "tool_profile": "edit_heavy", "user_persona": "solo_dev", "complexity": "low", "value": "low", "language_runtime": "rust", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "game_loop_window", "persistence": "sqlite", "testing_depth": "smoke_only", "novelty_hook": "domain twist: niche audience + unusual constraint", "delivery": "single_readme_run", "modality": "text_code"}
-**Depth (low):** thin MVP — few files, minimal polish, ship a runnable demo matching the PRD stack. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**dimensions:** {"agent_topology": "single_agent", "verification_mode": "static_pass", "session_shape": "single_shot", "repo_state": "empty_scratch", "tool_profile": "edit_heavy", "user_persona": "solo_dev", "complexity": "low", "value": "low", "language_runtime": "rust", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "static_html", "persistence": "sqlite", "testing_depth": "smoke_only", "novelty_hook": "domain twist: niche audience + unusual constraint", "delivery": "single_readme_run", "modality": "text_code"}
+**Depth (low):** thin MVP — few files, minimal polish, but every primary action must work end-to-end. **UI fidelity:** LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form. **Effort cue:** typically thinner than medium/hard (fewer files & screens), but never stop early. FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups Build-first: no WebSearch/WebFetch/docs tours/winget-search installs; ≤2 local Greps then Write — low tasks must ship in few files **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # PLATFORM PROMPT — Pegfall Lab
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **low**
+- UI fidelity: LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form
+- Effort cue: typically thinner than medium/hard (fewer files & screens), but never stop early
+- Anti-stub: FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product identity
 
@@ -604,11 +656,22 @@ When done, print `DONE task_6: Physics sandbox balls` and start the next task im
 **id:** `games_07_typing-race-multiplayer-local`
 **seed (original):** Create a local multiplayer typing race: shared prompt, per-player progress bars, WPM, and winner screen.
 **dimensions:** {"agent_topology": "subagent_spawns", "verification_mode": "unit_tests", "session_shape": "multi_turn_repair", "repo_state": "empty_scratch", "tool_profile": "shell_heavy", "user_persona": "staff_eng", "complexity": "medium", "value": "medium", "language_runtime": "javascript", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "education", "ui_surface": "react_spa", "persistence": "localstorage", "testing_depth": "unit_light", "novelty_hook": "must include a live demo mode with sample data", "delivery": "docker_compose_optional", "modality": "text_code"}
-**Depth (medium):** solid MVP — core features + light tests/smoke from the PRD; avoid gold-plating. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (medium):** solid MVP — core features + light tests/smoke, avoid gold-plating. **UI fidelity:** MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required. **Effort cue:** deeper than low; still ship demoable without endless polish. FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints Build-first: implement from PRD; forbid WebSearch/WebFetch and repo-wide fishing; code > research **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # PLATFORM PROMPT — STATICLINE: Intercept Desk
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **medium**
+- UI fidelity: MEDIUM — clear multi-panel layout, core interactions that mutate state, seeded demo data, light charts if required
+- Effort cue: deeper than low; still ship demoable without endless polish
+- Anti-stub: FORBIDDEN as DONE: single bare form, API with no operator console, static HTML that does not call live endpoints
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product identity
 Build **STATICLINE**, a local-multiplayer typing race set in a 1970s numbers-station listening post. 2–4 players are rival intercept operators transcribing the same burst transmission. The twist: races are **asynchronous ghost relays** — players run one at a time on the shared keyboard while previously recorded opponents replay as live "ghost" progress lanes, so everyone still races head-to-head on one machine. A built-in **Demo Desk** mode plays a full match between two recorded operators (sample data) with zero input.
@@ -681,7 +744,7 @@ localStorage only, versioned keys: `staticline:v1:profiles`, `staticline:v1:sett
 - Transmissions must be in-fiction (intercepted bursts, coordinates, code phrases), not lorem ipsum or quote-db dumps.
 - Terminology stays diegetic in UI copy: operators, transmissions, signal lock, key rate, fidelity.
 - No "Todo app" energy: any static, non-interactive, or placeholder-only screen is a failure condition.
-- Give final runnable desktop game so that i know it is running and its repo level data is generated
+
 When done, print `DONE task_7: Typing race multiplayer local` and start the next task immediately.
 
 ---
@@ -691,11 +754,22 @@ When done, print `DONE task_7: Typing race multiplayer local` and start the next
 **id:** `games_08_roguelike-ascii-dungeon`
 **seed (original):** Implement a small ASCII roguelike: procedural rooms, fog of war, enemies, inventory of 3 items, and save.
 **dimensions:** {"agent_topology": "plan_then_execute", "verification_mode": "runtime_pass", "session_shape": "resume_mid_task", "repo_state": "partial_scaffold", "tool_profile": "browser_heavy", "user_persona": "pm_non_technical", "complexity": "hard", "value": "hard", "language_runtime": "typescript", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "html_canvas", "persistence": "memory_only", "testing_depth": "unit_plus_smoke", "novelty_hook": "offline-first; no cloud accounts", "delivery": "one_command_dev_server", "modality": "text_code"}
-**Depth (hard):** full PRD depth — richer acceptance criteria and verification; still ship demoable. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (hard):** full PRD depth — richer acceptance criteria and verification. **UI fidelity:** HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable. **Effort cue:** deepest; more entities, edges, and verification — still no wall-clock stop. FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths Build-first still applies: no online research loops; deepen the product with Write/Edit, not Explore agents **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Deepvault Survey — ASCII Salvage Roguelike
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **hard**
+- UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
+- Effort cue: deepest; more entities, edges, and verification — still no wall-clock stop
+- Anti-stub: FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Project Request / Product Identity
 
@@ -790,14 +864,6 @@ Memory only, enforced. All state (run, stasis snapshot, settings such as they ar
 
 This is **not** a generic fantasy dungeon crawler: keep the drowned-vault salvage fiction, machine-husk enemies, surveyor terminology ("expedition", "shaft", "stasis", "salvage"), and the seeded-expedition identity. Forbidden: placeholder-only screens, a text-only "game", unlabeled copied tutorial code, or renaming this into a generic "Rogue clone". Every enemy and item above must exist with the specified behavior — do not silently cut scope; if time presses, reduce floor count scaling polish, never features.
 
-- Implement full directory and run the final game without stopping 
-Speed rules for this low/medium task:
-- Do NOT run create-vite / cargo init / rustup / fresh large scaffolds.
-- Prefer one HTML+JS file or plain Python+pygame already available.
-- If npm is required, run npm install ONCE; never twice.
-- Skip TaskCreate/TaskUpdate busywork; implement files directly.
-- First make it runnable; polish second.
-
 When done, print `DONE task_8: Roguelike ASCII dungeon` and start the next task immediately.
 
 ---
@@ -807,11 +873,22 @@ When done, print `DONE task_8: Roguelike ASCII dungeon` and start the next task 
 **id:** `games_09_puzzle-match-3-lite`
 **seed (original):** Build a match-3 puzzle lite with board swap, cascades, score targets, and limited moves.
 **dimensions:** {"agent_topology": "tool_swarm", "verification_mode": "browser_smoke", "session_shape": "multi_turn_repair", "repo_state": "legacy_messy", "tool_profile": "mixed", "user_persona": "enterprise_buyer", "complexity": "low", "value": "medium", "language_runtime": "python", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "gaming", "ui_surface": "desktop_window", "persistence": "json_file", "testing_depth": "integration_light", "novelty_hook": "accessibility-first keyboard UX", "delivery": "cli_entry_plus_ui", "modality": "text_code"}
-**Depth (low):** thin MVP — few files, minimal polish, ship a runnable demo matching the PRD stack. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (low):** thin MVP — few files, minimal polish, but every primary action must work end-to-end. **UI fidelity:** LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form. **Effort cue:** typically thinner than medium/hard (fewer files & screens), but never stop early. FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups Build-first: no WebSearch/WebFetch/docs tours/winget-search installs; ≤2 local Greps then Write — low tasks must ship in few files **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # Project Request — DockSort: Shift Quota
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **low**
+- UI fidelity: LOW — sparse layout, minimal CSS, few screens; still interactive (submit → visible result), never a dead form
+- Effort cue: typically thinner than medium/hard (fewer files & screens), but never stop early
+- Anti-stub: FORBIDDEN as DONE: blank pages, upload-with-no-effect, README-only, non-clickable mockups
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 Build **DockSort: Shift Quota**, a Python 3.10+ desktop match-3 puzzle lite for
 warehouse operations training demos. The player is a dock supervisor clearing a
@@ -942,11 +1019,6 @@ missing `save.json` (regenerate defaults, never crash).
 - No placeholder rectangles without glyphs, no hardcoded single level, no
   mouse-dependent UI, no "TODO" stubs in shipped paths.
 
-  - If npm is required, run npm install ONCE; never twice.
-- Skip TaskCreate/TaskUpdate busywork; implement files directly.
-- First make it runnable; polish second.
-- Implement all the files and synthetic data and run the final game, dont stop in between . 
-
 When done, print `DONE task_9: Puzzle match-3 lite` and start the next task immediately.
 
 ---
@@ -956,11 +1028,22 @@ When done, print `DONE task_9: Puzzle match-3 lite` and start the next task imme
 **id:** `games_10_simulated-stock-trading-game`
 **seed (original):** Create a stock trading simulation game: fake price series, buy/sell portfolio, leaderboard of profit.
 **dimensions:** {"agent_topology": "single_agent", "verification_mode": "visual_diff", "session_shape": "approval_gated", "repo_state": "empty_scratch", "tool_profile": "edit_heavy", "user_persona": "solo_dev", "complexity": "hard", "value": "hard", "language_runtime": "go", "artifact_type": "game_prototype", "task_family": "coding_implement", "business_domain": "finance_fintech", "ui_surface": "static_html", "persistence": "sqlite", "testing_depth": "smoke_only", "novelty_hook": "deterministic --seed for reproducible runs", "delivery": "notebook_plus_script", "modality": "text_code"}
-**Depth (hard):** full PRD depth — richer acceptance criteria and verification; still ship demoable. **No wall-clock or turn limit** — keep going until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
+**Depth (hard):** full PRD depth — richer acceptance criteria and verification. **UI fidelity:** HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable. **Effort cue:** deepest; more entities, edges, and verification — still no wall-clock stop. FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths Build-first still applies: no online research loops; deepen the product with Write/Edit, not Explore agents **No wall-clock or turn limit** — keep calling tools until demoable, then continue. Honor the dimensions JSON (language/UI/persistence/verification) exactly.
 
 ### Platform prompt (implement this)
 
 # PROJECT OBJECTIVE — SeedStreet Exchange
+
+## Complexity & fidelity lock (datagen)
+- Complexity band: **hard**
+- UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
+- Effort cue: deepest; more entities, edges, and verification — still no wall-clock stop
+- Anti-stub: FORBIDDEN as DONE: skeleton CRUD, unstyled link farms, claims of features without runnable paths
+- **Never** stop for time/turns/“too big”; keep using tools until acceptance criteria pass, then print DONE.
+- Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
+- **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
+- If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 ## 1. Product identity
 **SeedStreet Exchange** is a deterministic, seed-locked paper-trading arena set on the fictional **Meridian Archipelago commodities market**. The fantasy: you are a solo floor trader working one compressed "market day" (240 ticks) across procedurally named island instruments (KELP, BRINE, AMBR, SALTGLASS…). The signature twist: **the entire market is a pure function of a seed** — same seed, same prices, same news shocks, forever. Luck is eliminated; the leaderboard is a fair fight. Tagline: *"Same seed, same storm."*
@@ -1019,8 +1102,6 @@ Not real market data and no real-money language (credits only). No auth/accounts
 ## 12. Uniqueness / anti-clone constraints
 This is **not** a generic number-go-up clicker or a real-ticker clone. Required: fictional archipelago terminology (ticks, dispatches, settlement bell, trading floor), procedurally named instruments, seed-deterministic market as the central mechanic, fee-bearing trades, and tape-inspectable leaderboard. No AAPL/TSLA, no placeholder charts, no lorem-ipsum UI, no "TODO" stubs.
 
-- Dont stop in between, run the final game when all directories, files and requirements are generated. 
-
-When done, print `DONE task_10: Simulated stock trading game`. 
+When done, print `DONE task_10: Simulated stock trading game` and start the next task immediately.
 
 ---

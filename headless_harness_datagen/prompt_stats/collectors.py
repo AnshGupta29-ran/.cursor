@@ -69,6 +69,15 @@ def refresh_all() -> dict[str, int]:
         "pi_sessions": collect_pi_sessions(),
         "experiments_readmes": collect_experiment_readmes(),
     }
+    try:
+        from prompt_stats.langfuse_usage import collect_langfuse_usage
+        import os
+
+        counts["langfuse_usage"] = collect_langfuse_usage(
+            since=os.getenv("DATAGEN_KIMI3_SINCE", "2026-08-13")
+        )
+    except Exception:
+        counts["langfuse_usage"] = 0
     # Re-link session time/tokens after forge/readme upserts may overwrite ests
     from prompt_stats.chakra_sessions import enrich_ledger_from_sessions
 

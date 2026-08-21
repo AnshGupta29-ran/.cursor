@@ -2,7 +2,11 @@
 (() => {
   const state = {
     records: [],
+    usage: null,
+    kimi: null,
+    dims: null,
     charts: {},
+    page: "ledger",
     pollMs: 8000,
   };
 
@@ -41,6 +45,30 @@
     return "other";
   }
 
+
+  function chargedIn(r) {
+    if (r.input_tokens_api != null) return Number(r.input_tokens_api);
+    if (r.tokens_are_estimated === true) return 0;
+    if (r.input_tokens != null) return Number(r.input_tokens);
+    return 0;
+  }
+  function chargedOut(r) {
+    if (r.output_tokens_api != null) return Number(r.output_tokens_api);
+    if (r.tokens_are_estimated === true) return 0;
+    if (r.output_tokens != null) return Number(r.output_tokens);
+    return 0;
+  }
+  function estIn(r) {
+    if (r.input_tokens_est != null) return Number(r.input_tokens_est);
+    if (r.tokens_are_estimated === true && r.input_tokens != null) return Number(r.input_tokens);
+    if (r.est_tokens != null && r.tokens_are_estimated === true) return Number(r.est_tokens);
+    return 0;
+  }
+  function estOut(r) {
+    if (r.output_tokens_est != null) return Number(r.output_tokens_est);
+    if (r.tokens_are_estimated === true && r.output_tokens != null) return Number(r.output_tokens);
+    return 0;
+  }
   function isTokEst(r) {
     if (r.tokens_are_estimated === true) return true;
     if (r.input_tokens != null || r.output_tokens != null) return false;
@@ -153,32 +181,26 @@
       ? `Σ of ${kpiPool.length} ${model} model slices (matches by-model card)`
       : "sessions only — no model-slice double-count";
 
+    const sumCharged = kpiPool.reduce((a, r) => a + chargedIn(r) + chargedOut(r), 0);
+    const sumEst = kpiPool.reduce((a, r) => a + estIn(r) + estOut(r), 0);
     const cards = [
       { label: "Records", value: rows.length, hint: "matching filters (table rows)" },
       { label: "Agents", value: agents.size || "—", hint: [...agents].join(" · ") || "none in view" },
       { label: "Avg complexity", value: avg(scores)?.toFixed(1) ?? "—", hint: "0–100 score" },
+      { label: "Charged Σ", value: fmtTokens(sumCharged || null), hint: "exact only (often 0)", cls: "good" },
+      { label: "Estimate Σ", value: fmtTokens(sumEst || null, true), hint: "NOT a bill", cls: "warn" },
       { label: "Avg output tok", value: fmtTokens(avg(outs), true), hint: model ? "per model slice" : "per session" },
-      {
-        label: "Total output tok Σ",
-        value: fmtTokens(sumOut || null),
-        hint: poolHint,
-      },
       { label: "Avg time", value: fmtTime(avg(times)), hint: "wall clock" },
       {
         label: "Total time Σ",
         value: fmtTime(times.reduce((a, b) => a + b, 0) || null),
         hint: model ? "model-slice active spans" : "session wall clocks",
       },
-      {
-        label: "Max complexity",
-        value: scores.length ? Math.max(...scores).toFixed(0) : "—",
-        hint: "hardest prompt",
-      },
     ];
     $("kpis").innerHTML = cards
       .map(
         (c) =>
-          `<div class="kpi"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`
+          `<div class="kpi ${c.cls || ""}"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`
       )
       .join("");
   }
@@ -187,7 +209,6 @@
     $("tbody").innerHTML = rows
       .map((r) => {
         const band = r.complexity_band || "low";
-        const est = isTokEst(r);
         const agent = agentOf(r);
         return `<tr>
           <td class="mono">${(whenOf(r) || "").slice(0, 19)}</td>
@@ -197,8 +218,9 @@
           <td>${escapeHtml(r.category || "—")}</td>
           <td><span class="band ${band}">${band}</span></td>
           <td class="mono">${r.complexity_score != null ? Number(r.complexity_score).toFixed(1) : "—"}</td>
-          <td class="mono">${fmtTokens(inputTokens(r), est)}</td>
-          <td class="mono">${fmtTokens(outputTokens(r), est)}</td>
+          <td class="mono">${fmtTokens(chargedIn(r) + chargedOut(r))}${chargedIn(r)+chargedOut(r)>0 ? ' <span class="band exact">exact</span>' : ''}</td>
+          <td class="mono">${fmtTokens(estIn(r), true)}</td>
+          <td class="mono">${fmtTokens(estOut(r), true)}</td>
           <td class="mono">${fmtTime(r.runtime_seconds)}</td>
           <td class="mono">${r.tool_calls ?? "—"}</td>
           <td class="title-cell">${escapeHtml((r.title || "").slice(0, 120))}</td>
@@ -613,6 +635,9 @@
       });
       const data = await res.json();
       await loadRecords();
+      if (state.page === "usage" || state.page === "tasks") await loadUsage();
+      if (state.page === "kimi3") await loadKimi();
+      if (state.page === "dimensions") await loadDimensions();
       const n = data.total_records ?? state.records.length;
       const pi = data.synced_pi_sessions != null ? ` · pi ${data.synced_pi_sessions}` : "";
       const ch = data.synced_chakra_sessions != null ? ` · chakra ${data.synced_chakra_sessions}` : "";
@@ -642,4 +667,388 @@
     .finally(() => {
       setInterval(() => sync(false), state.pollMs);
     });
+
+
+  /* ---- Usage / Kimi3 / Dimensions tabs (additive) ---- */
+  function destroyChart(key) {
+    if (state.charts[key]) {
+      state.charts[key].destroy();
+      delete state.charts[key];
+    }
+  }
+
+  function setPage(page) {
+    state.page = page;
+    document.querySelectorAll(".page").forEach((el) => {
+      el.classList.toggle("active", el.id === `page-${page}`);
+    });
+    document.querySelectorAll("#navTabs button").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.page === page);
+    });
+    if (page === "ledger") paint();
+    if (page === "usage" || page === "tasks") loadUsage();
+    if (page === "kimi3") loadKimi();
+    if (page === "dimensions") loadDimensions();
+  }
+
+  function usageQuery() {
+    const since = $("usageSince")?.value || "2026-08-13";
+    const agent = $("usageAgent")?.value || "";
+    const model = $("usageModel")?.value || "";
+    const q = new URLSearchParams({ since });
+    if (agent) q.set("agent", agent);
+    if (model) q.set("model", model);
+    return q.toString();
+  }
+
+  async function loadUsage() {
+    try {
+      const res = await fetch(`/api/usage?${usageQuery()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`usage HTTP ${res.status}`);
+      state.usage = await res.json();
+      fillUsageModelFilter(state.usage.models || []);
+      renderUsage();
+      renderTasks();
+    } catch (err) {
+      console.error(err);
+      if ($("usageKpis")) {
+        $("usageKpis").innerHTML =
+          `<div class="kpi warn"><div class="label">Usage API</div><div class="value">ERR</div><div class="hint">${escapeHtml(String(err.message || err))}</div></div>`;
+      }
+    }
+  }
+
+  async function loadKimi() {
+    const since = $("kimiSince")?.value || "2026-08-13";
+    try {
+      const res = await fetch(`/api/kimi3?since=${encodeURIComponent(since)}`, { cache: "no-store" });
+      state.kimi = await res.json();
+      renderKimi();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function fillUsageModelFilter(models) {
+    const sel = $("usageModel");
+    if (!sel) return;
+    const cur = sel.value;
+    sel.innerHTML =
+      `<option value="">All</option>` +
+      models.map((m) => `<option value="${escapeHtml(m)}">${escapeHtml(m)}</option>`).join("");
+    if (cur && models.includes(cur)) sel.value = cur;
+  }
+
+  function renderUsage() {
+    const d = state.usage;
+    if (!d || !$("usageKpis")) return;
+    if ($("usageNote")) $("usageNote").textContent = d.note || "";
+    const cards = [
+      { label: "Charged total", value: fmtTokens(d.charged_total, false), hint: "exact provider/Langfuse", cls: "good" },
+      { label: "Charged in", value: fmtTokens(d.charged_input, false), hint: "billable input" },
+      { label: "Charged out", value: fmtTokens(d.charged_output, false), hint: "billable output" },
+      { label: "Estimate total", value: fmtTokens(d.est_total, true), hint: "NOT a bill", cls: "warn" },
+      { label: "Wall time Σ", value: fmtTime(d.runtime_seconds), hint: "sessions only" },
+      { label: "Exact rows", value: d.exact_rows ?? 0, hint: `pool=${d.pool_kind || "—"}` },
+    ];
+    $("usageKpis").innerHTML = cards
+      .map((c) => `<div class="kpi ${c.cls || ""}"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`)
+      .join("");
+
+    chartDefaults();
+    try {
+      destroyChart("usageDay");
+      destroyChart("usageTime");
+      const days = d.by_day || [];
+      if ($("chartUsageDay")) {
+        state.charts.usageDay = new Chart($("chartUsageDay"), {
+          type: "bar",
+          data: {
+            labels: days.map((x) => x.day),
+            datasets: [
+              { label: "Charged", data: days.map((x) => x.charged_total || 0), backgroundColor: "#2ec4b6" },
+              { label: "Estimate", data: days.map((x) => x.est_total || 0), backgroundColor: "#7f9aa8" },
+            ],
+          },
+          options: { responsive: true, maintainAspectRatio: false, scales: { y: { ticks: { callback: (v) => fmtTokens(v) } } } },
+        });
+      }
+      if ($("chartUsageTime")) {
+        state.charts.usageTime = new Chart($("chartUsageTime"), {
+          type: "bar",
+          data: {
+            labels: days.map((x) => x.day),
+            datasets: [{ label: "Hours", data: days.map((x) => (x.runtime_seconds || 0) / 3600), backgroundColor: "#f0a202" }],
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } },
+        });
+      }
+    } catch (err) {
+      console.error("usage charts failed", err);
+    }
+
+    if ($("usageAgentCards")) {
+      $("usageAgentCards").innerHTML = (d.by_agent || [])
+        .map((g) => `<div class="model-card">
+          <h3><span class="agent-pill ${escapeHtml(g.key)}">${escapeHtml(g.key)}</span></h3>
+          <div class="stats">
+            <div><span>Sessions</span><br/><b>${g.sessions}</b></div>
+            <div><span>Charged</span><br/><b>${fmtTokens(g.charged_total)}</b></div>
+            <div><span>Estimate</span><br/><b>${fmtTokens(g.est_total, true)}</b></div>
+            <div><span>Time</span><br/><b>${fmtTime(g.runtime_seconds)}</b></div>
+          </div>
+        </div>`)
+        .join("") || `<div class="model-card"><p class="sub">No agent usage rows in range.</p></div>`;
+    }
+    if ($("usageModelCards")) {
+      $("usageModelCards").innerHTML = (d.by_model || [])
+        .map((g) => {
+          const [agent, model] = String(g.key).split("::");
+          return `<div class="model-card">
+            <h3>${escapeHtml(model || g.key)} <span class="agent-pill ${escapeHtml(agent || "other")}">${escapeHtml(agent || "")}</span></h3>
+            <div class="stats">
+              <div><span>Charged in</span><br/><b>${fmtTokens(g.charged_input)}</b></div>
+              <div><span>Charged out</span><br/><b>${fmtTokens(g.charged_output)}</b></div>
+              <div><span>Estimate</span><br/><b>${fmtTokens(g.est_total, true)}</b></div>
+              <div><span>Time</span><br/><b>${fmtTime(g.runtime_seconds)}</b></div>
+            </div>
+          </div>`;
+        })
+        .join("") || `<div class="model-card"><p class="sub">No model usage in range.</p></div>`;
+    }
+    if ($("usageTbody")) {
+      $("usageTbody").innerHTML = (d.rows || [])
+        .map((r) => {
+          const badge = r.exact ? `<span class="band exact">exact</span>` : `<span class="band est">est</span>`;
+          return `<tr>
+            <td class="mono">${escapeHtml(r.when || "")}</td>
+            <td><span class="agent-pill ${escapeHtml(r.agent || "other")}">${escapeHtml(r.agent || "")}</span></td>
+            <td class="mono">${escapeHtml(r.model || "—")}</td>
+            <td class="mono">${escapeHtml(r.task_key || "—")}</td>
+            <td>${escapeHtml(r.source || "")} ${badge}</td>
+            <td class="mono">${fmtTokens(r.charged_input)}</td>
+            <td class="mono">${fmtTokens(r.charged_output)}</td>
+            <td class="mono">${fmtTokens(r.charged_total)}</td>
+            <td class="mono">${fmtTokens(r.est_total, true)}</td>
+            <td class="mono">${fmtTime(r.runtime_seconds)}</td>
+            <td class="title-cell">${escapeHtml((r.title || "").slice(0, 90))}</td>
+          </tr>`;
+        })
+        .join("");
+    }
+  }
+
+  function renderTasks() {
+    const d = state.usage;
+    if (!d || !$("taskTbody")) return;
+    const tasks = d.by_task || [];
+    const withCharge = tasks.filter((t) => (t.charged_total || 0) > 0).length;
+    if ($("taskKpis")) {
+      $("taskKpis").innerHTML = [
+        { label: "Tasks attributed", value: tasks.length, hint: "from workdirs/sessions" },
+        { label: "With charged usage", value: withCharge, hint: "exact > 0" },
+        { label: "Task time Σ", value: fmtTime(tasks.reduce((a, t) => a + (t.runtime_seconds || 0), 0)), hint: "attributed sessions" },
+      ]
+        .map((c) => `<div class="kpi"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`)
+        .join("");
+    }
+    $("taskTbody").innerHTML = tasks
+      .map((t) => {
+        const st = t.status || "—";
+        return `<tr>
+          <td class="mono">${escapeHtml(t.last_when || "")}</td>
+          <td class="mono">${escapeHtml(t.task_key)}</td>
+          <td><span class="band ${escapeHtml(st)}">${escapeHtml(st)}</span></td>
+          <td class="mono">${escapeHtml(t.model || "—")}</td>
+          <td class="mono">${fmtTokens(t.charged_input)}</td>
+          <td class="mono">${fmtTokens(t.charged_output)}</td>
+          <td class="mono">${fmtTokens(t.charged_total)}</td>
+          <td class="mono">${fmtTokens(t.est_input, true)}</td>
+          <td class="mono">${fmtTokens(t.est_output, true)}</td>
+          <td class="mono">${fmtTime(t.runtime_seconds)}</td>
+          <td class="mono">${t.runs ?? "—"}</td>
+          <td class="title-cell">${escapeHtml((t.title || "").slice(0, 90))}</td>
+        </tr>`;
+      })
+      .join("");
+  }
+
+  function renderKimi() {
+    const d = state.kimi;
+    if (!d || !$("kimiKpis")) return;
+    $("kimiKpis").innerHTML = [
+      { label: "Charged total", value: fmtTokens(d.charged_total, false), hint: "exact only", cls: "good" },
+      { label: "Charged in", value: fmtTokens(d.charged_input, false), hint: "billable" },
+      { label: "Charged out", value: fmtTokens(d.charged_output, false), hint: "billable" },
+      { label: "Estimate total", value: fmtTokens(d.est_total, true), hint: "NOT a bill", cls: "warn" },
+      { label: "Wall time", value: fmtTime(d.runtime_seconds), hint: "kimi sessions" },
+      { label: "Exact rows", value: d.exact_rows ?? 0, hint: d.pool_kind || "" },
+    ]
+      .map((c) => `<div class="kpi ${c.cls || ""}"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`)
+      .join("");
+    if ($("kimiMeta")) $("kimiMeta").textContent = d.note || d.provider_note || "";
+    chartDefaults();
+    destroyChart("kimiDay");
+    destroyChart("kimiTasks");
+    const days = d.by_day || [];
+    if ($("chartKimiDay")) {
+      state.charts.kimiDay = new Chart($("chartKimiDay"), {
+        type: "bar",
+        data: {
+          labels: days.map((x) => x.day),
+          datasets: [
+            { label: "Charged", data: days.map((x) => x.charged_total || 0), backgroundColor: "#2ec4b6" },
+            { label: "Estimate", data: days.map((x) => x.est_total || 0), backgroundColor: "#7f9aa8" },
+          ],
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { ticks: { callback: (v) => fmtTokens(v) } } } },
+      });
+    }
+    const tasks = (d.by_task || []).slice(0, 12);
+    if ($("chartKimiTasks")) {
+      state.charts.kimiTasks = new Chart($("chartKimiTasks"), {
+        type: "bar",
+        data: {
+          labels: tasks.map((t) => t.task_key),
+          datasets: [{ label: "Est Σ", data: tasks.map((t) => t.est_total || 0), backgroundColor: "#f0a202" }],
+        },
+        options: { indexAxis: "y", responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } },
+      });
+    }
+    $("kimiTbody").innerHTML = (d.by_task || [])
+      .map((t) => `<tr>
+          <td class="mono">${escapeHtml(t.last_when || "")}</td>
+          <td class="mono">${escapeHtml(t.task_key)}</td>
+          <td class="mono">${escapeHtml(t.model || "—")}</td>
+          <td class="mono">${fmtTokens(t.charged_total)}</td>
+          <td class="mono">${fmtTokens(t.est_input, true)}</td>
+          <td class="mono">${fmtTokens(t.est_output, true)}</td>
+          <td class="mono">${fmtTokens(t.est_total, true)}</td>
+          <td class="mono">${fmtTime(t.runtime_seconds)}</td>
+          <td class="title-cell">${escapeHtml((t.title || "").slice(0, 90))}</td>
+        </tr>`)
+      .join("");
+  }
+
+  async function loadDimensions() {
+    try {
+      const res = await fetch("/api/dimensions", { cache: "no-store" });
+      state.dims = await res.json();
+      fillDimFilters();
+      renderDimensions();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function fillDimFilters() {
+    const items = state.dims?.items || [];
+    const fill = (id, values) => {
+      const sel = $(id);
+      if (!sel) return;
+      const cur = sel.value;
+      const opts = [...new Set(values.filter(Boolean))].sort();
+      sel.innerHTML =
+        `<option value="">All</option>` +
+        opts.map((v) => `<option value="${escapeHtml(v)}">${escapeHtml(v)}</option>`).join("");
+      if (cur && opts.includes(cur)) sel.value = cur;
+    };
+    fill("dimCategory", items.map((x) => x.category));
+    fill("dimLang", items.map((x) => x.dimensions?.language_runtime));
+    fill("dimUi", items.map((x) => x.dimensions?.ui_surface));
+    fill("dimCx", items.map((x) => x.dimensions?.complexity));
+    fill("dimStatus", items.map((x) => x.status));
+  }
+
+  function filteredDims() {
+    const items = state.dims?.items || [];
+    const cat = $("dimCategory")?.value || "";
+    const lang = $("dimLang")?.value || "";
+    const ui = $("dimUi")?.value || "";
+    const cx = $("dimCx")?.value || "";
+    const st = $("dimStatus")?.value || "";
+    const q = ($("dimQ")?.value || "").trim().toLowerCase();
+    return items.filter((it) => {
+      const d = it.dimensions || {};
+      if (cat && it.category !== cat) return false;
+      if (lang && d.language_runtime !== lang) return false;
+      if (ui && d.ui_surface !== ui) return false;
+      if (cx && d.complexity !== cx) return false;
+      if (st && it.status !== st) return false;
+      if (q && !`${it.task_key} ${it.title}`.toLowerCase().includes(q)) return false;
+      return true;
+    });
+  }
+
+  function renderDimensions() {
+    if (!state.dims || !$("dimKpis")) return;
+    const items = filteredDims();
+    const sc = state.dims.status_counts || {};
+    $("dimKpis").innerHTML = [
+      { label: "Tasks", value: items.length, hint: `of ${state.dims.count || 0}` },
+      { label: "Done", value: sc.done || 0, hint: "checkpoint" },
+      { label: "Failed", value: sc.failed || 0, hint: "checkpoint" },
+      { label: "Pending", value: (sc.not_started || 0) + (sc.running || 0), hint: "" },
+    ]
+      .map((c) => `<div class="kpi"><div class="label">${c.label}</div><div class="value">${c.value}</div><div class="hint">${c.hint}</div></div>`)
+      .join("");
+
+    chartDefaults();
+    const mk = (key, canvasId, obj) => {
+      destroyChart(key);
+      if (!$(canvasId)) return;
+      state.charts[key] = new Chart($(canvasId), {
+        type: "doughnut",
+        data: {
+          labels: Object.keys(obj || {}),
+          datasets: [{ data: Object.values(obj || {}), backgroundColor: ["#2ec4b6", "#4ea8de", "#f0a202", "#e4572e", "#7f9aa8", "#ff9f68"] }],
+        },
+        options: { responsive: true, maintainAspectRatio: false },
+      });
+    };
+    mk("dimLang", "chartDimLang", state.dims.language_counts);
+    mk("dimCx", "chartDimCx", state.dims.complexity_counts);
+    mk("dimUi", "chartDimUi", state.dims.ui_counts);
+    mk("dimStatus", "chartDimStatus", state.dims.status_counts);
+
+    const skip = new Set(["language_runtime", "ui_surface", "persistence", "complexity", "user_persona"]);
+    $("dimTbody").innerHTML = items
+      .map((it) => {
+        const d = it.dimensions || {};
+        const chips = Object.entries(d)
+          .filter(([k, v]) => v != null && v !== "" && !skip.has(k))
+          .slice(0, 6)
+          .map(([k, v]) => `${k}=${v}`)
+          .join(", ");
+        const st = it.status || "not_started";
+        return `<tr>
+          <td class="mono">${escapeHtml(it.task_key)}</td>
+          <td><span class="band ${st}">${escapeHtml(st)}</span></td>
+          <td class="mono">${escapeHtml(d.language_runtime || "—")}</td>
+          <td class="mono">${escapeHtml(d.ui_surface || "—")}</td>
+          <td class="mono">${escapeHtml(d.persistence || "—")}</td>
+          <td><span class="band ${escapeHtml(d.complexity || "low")}">${escapeHtml(d.complexity || "—")}</span></td>
+          <td>${escapeHtml(d.user_persona || "—")}</td>
+          <td class="mono">${escapeHtml(chips || "—")}</td>
+          <td class="title-cell">${escapeHtml((it.title || "").slice(0, 90))}</td>
+        </tr>`;
+      })
+      .join("");
+  }
+
+  document.querySelectorAll("#navTabs button").forEach((btn) => {
+    btn.onclick = () => setPage(btn.dataset.page);
+  });
+  $("btnUsageReload") && ($("btnUsageReload").onclick = () => loadUsage());
+  $("usageSince") && ($("usageSince").onchange = () => loadUsage());
+  $("usageAgent") && ($("usageAgent").onchange = () => loadUsage());
+  $("usageModel") && ($("usageModel").onchange = () => loadUsage());
+  $("btnKimiReload") && ($("btnKimiReload").onclick = () => loadKimi());
+  $("kimiSince") && ($("kimiSince").onchange = () => loadKimi());
+  $("btnDimReload") && ($("btnDimReload").onclick = () => loadDimensions());
+  ["dimCategory", "dimLang", "dimUi", "dimCx", "dimStatus"].forEach((id) => {
+    if ($(id)) $(id).onchange = () => renderDimensions();
+  });
+  if ($("dimQ")) $("dimQ").oninput = () => renderDimensions();
+
 })();

@@ -11,6 +11,21 @@ Object.assign(globalThis, {
 })
 
 async function main() {
+  // Keep tool results small so the next LLM call is not a 30k-char cargo dump.
+  if (!process.env.BASH_MAX_OUTPUT_LENGTH) {
+    process.env.BASH_MAX_OUTPUT_LENGTH = '1200'
+  }
+  process.env.CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS ||= '8000'
+  process.env.CLAUDE_CODE_DISABLE_CLAUDE_MDS ||= '1'
+  process.env.CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS ||= '1'
+  process.env.CLAUDE_CODE_DISABLE_THINKING ||= '1'
+  process.env.CLAUDE_CODE_DISABLE_BACKGROUND_TASKS ||= '1'
+  process.env.CLAUDE_CODE_DISABLE_AUTO_MEMORY ||= '1'
+  process.env.CLAUDE_CODE_DISABLE_ATTACHMENTS ||= '1'
+  process.env.CLAUDE_CODE_SIMPLE ||= '1'
+  process.env.CLAUDE_CODE_SIMPLE ||= '1'
+  const { clearToolSchemaCache } = await import('../src/utils/toolSchemaCache.js')
+  clearToolSchemaCache()
   console.log('Starting Chakra gRPC Server...')
   await init()
 
@@ -43,6 +58,9 @@ async function main() {
   console.log(
     `gRPC built-in subagents: ${GRPC_BUILTIN_AGENT_TYPES.join(', ')}`,
   )
+  if (process.env.CHAKRA_GRPC_FULL_TOOLS !== '1') {
+    console.log('gRPC datagen slim tools: Read/Write/Edit/Bash (no Glob/Grep/Agent)')
+  }
 
   const server = new GrpcServer()
 

@@ -19,15 +19,27 @@ def test_denials_do_not_count_as_progress() -> None:
     assert pt.is_stalled is True
 
 
-def test_edit_does_not_reset_stall() -> None:
-    """Activity (edits) must not reset workflow stall counter."""
+def test_edit_resets_stall() -> None:
+    """Write/Edit is implementation progress and must reset stall."""
     pt = ProgressTracker(stall_cycles=3)
     pt.on_resume_cycle()
     pt.on_resume_cycle()
     pt.note_edit("/tmp/a.py")
+    assert pt.on_resume_cycle() == 0
+    assert pt.is_stalled is False
+    assert pt.activity_event_count >= 1
+
+
+def test_build_bash_resets_stall_listing_does_not() -> None:
+    pt = ProgressTracker(stall_cycles=3)
+    pt.on_resume_cycle()
+    pt.on_resume_cycle()
+    pt.note_bash("ls src")
     assert pt.on_resume_cycle() == 3
     assert pt.is_stalled is True
-    assert pt.activity_event_count >= 1
+    pt.note_bash("cargo test --quiet")
+    assert pt.on_resume_cycle() == 0
+    assert pt.is_stalled is False
 
 
 def test_milestone_resets_stall() -> None:

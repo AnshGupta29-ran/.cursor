@@ -53,8 +53,13 @@ def test_build_unified_pipeline_objective_includes_lifecycle() -> None:
     assert ".venv" in prompt
     assert "node_modules" in prompt
     assert "DEPENDENCY MANIFESTS" in prompt
-    assert "names only, no versions" in prompt
+    assert "names only" in prompt
     assert "Never pin versions" in prompt
+    assert 'tiny_http = "*"' in prompt
+    assert 'model="inherit"' in prompt
+    assert "REPOSITORY EXECUTION POLICY" not in prompt
+    assert "Read HARNESS_POLICY.md" in prompt
+    assert len(prompt) < 4500
 
 
 def test_build_unified_pipeline_objective_skip_verification() -> None:
@@ -64,9 +69,11 @@ def test_build_unified_pipeline_objective_skip_verification() -> None:
         include_verification=False,
     )
     assert "IMPLEMENTATION_STATUS: COMPLETE" in prompt
-    assert "--skip-verification" in prompt or "Do not run verification" in prompt
-    assert "names only, no versions" in prompt
+    assert "Do not run verification" in prompt
+    assert "Names-only" in prompt or "names only" in prompt.lower()
     assert "Never pin versions" in prompt
+    assert 'model="inherit"' in prompt
+    assert "REPOSITORY EXECUTION POLICY" not in prompt
 
 
 def test_save_verification_artifacts() -> None:

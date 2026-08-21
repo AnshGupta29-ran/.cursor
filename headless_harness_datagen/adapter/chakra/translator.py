@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import Any
 
 from client.chakra_client import EventType, ServerEvent
@@ -21,6 +22,14 @@ from interface.events import (
 )
 
 logger = logging.getLogger(__name__)
+
+# Chakra emits type=done with this text when the OpenAI proxy never returns
+# a first token. That is a failed turn, not a completed one.
+_API_TURN_FAIL_RE = re.compile(
+    r"API Error:|upstream unavailable|\b503\b|Bad Gateway|"
+    r"operation timed out|request timed out",
+    re.IGNORECASE,
+)
 
 _INTERVENTION_KIND_MAP = {
     "CONFIRM_COMMAND": InterventionKind.CONFIRM_ACTION,
@@ -121,11 +130,21 @@ def translate_server_event(
         )
 
     if event.type == EventType.DONE:
+        text = event.full_text or ""
+        prompt_tok = int(event.prompt_tokens or 0)
+        completion_tok = int(event.completion_tokens or 0)
+        if _API_TURN_FAIL_RE.search(text) and prompt_tok == 0 and completion_tok == 0:
+            code = "api_timeout" if re.search(r"timed out", text, re.I) else "model_upstream_503"
+            return TurnFailedEvent(
+                message=text.strip() or "upstream model request failed",
+                code=code,
+                context=ctx,
+            )
         return TurnCompletedEvent(
-            final_text=event.full_text or "",
+            final_text=text,
             usage={
-                "prompt_tokens": event.prompt_tokens or 0,
-                "completion_tokens": event.completion_tokens or 0,
+                "prompt_tokens": prompt_tok,
+                "completion_tokens": completion_tok,
             },
             context=ctx,
         )

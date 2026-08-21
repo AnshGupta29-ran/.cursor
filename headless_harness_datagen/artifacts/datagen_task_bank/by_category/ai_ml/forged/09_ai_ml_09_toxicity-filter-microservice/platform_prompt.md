@@ -1,5 +1,12 @@
 # Sluicegate — Lexical Moderation Gate with Live Ops Window
 
+## LANGUAGE LOCK (datagen)
+- **language_runtime (MANDATORY):** `rust`
+- **ui_surface:** `game_loop_window`
+- **persistence:** `sqlite`
+- **complexity:** `hard`
+- Do **not** rewrite this project in a different language.
+
 ## Complexity & fidelity lock (datagen)
 - Complexity band: **hard**
 - UI fidelity: HIGH — multi-view UI, stronger interaction, fuller charts/dashboard when UI is not api_only; all primary workflows clickable
@@ -9,6 +16,7 @@
 - Match the locked `language_runtime`, `ui_surface`, `persistence`, and `testing_depth` from dimensions — do not homogenize to another stack.
 - **Working demo required:** primary user actions must succeed in the browser/CLI (submit → visible result, seeded data, health check). Dead HTML shells are not DONE.
 - If `ui_surface` is `api_only`, still ship an operator console/static page that calls the live API unless the PRD forbids UI entirely.
+- **Build-first (anti time-waste):** Implement immediately from this PRD. Forbidden: WebSearch/WebFetch, browsing docs sites, winget/ripgrep installs for searching, Explore/research subagents, Grep/Glob fishing across sibling tasks. At most 2 targeted reads inside this task workdir before Write/Edit. Low = few files shipped fast — do not gold-plate.
 
 
 ## 1. Project Request / Product Identity
@@ -109,3 +117,5 @@ SQLite at `./sluicegate.db` (path via env). Schema created by embedded migration
 - No placeholder UI: the window must render real streamed verdicts, not static text.
 - Use domain-authentic vocabulary throughout (verdict, tier, evidence span, tenant scope) — no "todo", no "item", no lorem ipsum.
 - Synthetic lexicon tokens only (`gronk`, `zibble`, etc.) — this is both a safety constraint and a fingerprint for this run.
+
+- Give website link when completed and run it automatically in my browser when full task is successfully implemented with full features , frontend , backend and everything working in the platform. 

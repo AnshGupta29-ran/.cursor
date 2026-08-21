@@ -272,15 +272,25 @@ def build_session_records(
         "chars": metrics.get("chars"),
         "input_tokens": stats.get("input_tokens"),
         "output_tokens": stats.get("output_tokens"),
+        "total_tokens": stats.get("total_tokens"),
+        "input_tokens_api": stats.get("input_tokens_api"),
+        "output_tokens_api": stats.get("output_tokens_api"),
+        "total_tokens_api": stats.get("total_tokens_api"),
+        "usage_hits": stats.get("usage_hits"),
         "input_tokens_est": stats.get("input_tokens_est"),
         "output_tokens_est": stats.get("output_tokens_est"),
         "total_tokens_est": stats.get("total_tokens_est"),
         "tokens_are_estimated": stats.get("tokens_are_estimated", True),
+        "tokens_source": stats.get("tokens_source") or (
+            "estimate" if stats.get("tokens_are_estimated", True) else "provider"
+        ),
         "paths": {"session": stats.get("session_path")},
         "schema_version": 1,
         "recorded_at": utc_now(),
     }
-    if record["input_tokens"] is not None or record["output_tokens"] is not None:
+    if record.get("total_tokens") is None and (
+        record.get("input_tokens") is not None or record.get("output_tokens") is not None
+    ):
         record["total_tokens"] = (record.get("input_tokens") or 0) + (
             record.get("output_tokens") or 0
         )
@@ -319,23 +329,31 @@ def build_session_records(
             "assistant_messages": sl.get("assistant_messages"),
             "input_tokens": in_tok,
             "output_tokens": out_tok,
+            "total_tokens": sl.get("total_tokens"),
+            "input_tokens_api": sl.get("input_tokens_api"),
+            "output_tokens_api": sl.get("output_tokens_api"),
+            "total_tokens_api": sl.get("total_tokens_api"),
+            "usage_hits": sl.get("usage_hits"),
             "input_tokens_est": sl.get("input_tokens_est"),
             "output_tokens_est": sl.get("output_tokens_est"),
+            "total_tokens_est": sl.get("total_tokens_est"),
             "tokens_are_estimated": sl.get("tokens_are_estimated", True),
+            "tokens_source": sl.get("tokens_source"),
             "complexity_score": record.get("complexity_score"),
             "complexity_band": record.get("complexity_band"),
             "parent_session_id": session_id,
             "schema_version": 1,
             "recorded_at": utc_now(),
         }
-        if in_tok is not None or out_tok is not None:
+        if slice_rec.get("total_tokens") is None and (in_tok is not None or out_tok is not None):
             slice_rec["total_tokens"] = (in_tok or 0) + (out_tok or 0)
-        elif slice_rec.get("input_tokens_est") is not None or slice_rec.get(
-            "output_tokens_est"
-        ) is not None:
-            slice_rec["total_tokens_est"] = (
-                slice_rec.get("input_tokens_est") or 0
-            ) + (slice_rec.get("output_tokens_est") or 0)
+        if slice_rec.get("total_tokens_est") is None and (
+            slice_rec.get("input_tokens_est") is not None
+            or slice_rec.get("output_tokens_est") is not None
+        ):
+            slice_rec["total_tokens_est"] = (slice_rec.get("input_tokens_est") or 0) + (
+                slice_rec.get("output_tokens_est") or 0
+            )
         _attach_dims_and_cost(slice_rec)
         rows.append(slice_rec)
     return rows
